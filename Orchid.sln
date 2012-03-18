@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Orchid", "Orchid\Orchid.vcxproj", "{A30C2B96-5E1C-4ED2-91F9-A3F4AA484741}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A30C2B96-5E1C-4ED2-91F9-A3F4AA484741}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A30C2B96-5E1C-4ED2-91F9-A3F4AA484741}.Debug|Win32.Build.0 = Debug|Win32
+		{A30C2B96-5E1C-4ED2-91F9-A3F4AA484741}.Release|Win32.ActiveCfg = Release|Win32
+		{A30C2B96-5E1C-4ED2-91F9-A3F4AA484741}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
