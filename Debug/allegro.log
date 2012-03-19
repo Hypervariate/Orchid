@@ -1,0 +1,205 @@
+system   D            wsystem.c:583  maybe_parent_dir                 [   0.00035] Also searching D:\code\Orchid\
+system   D            wsystem.c:633  _al_win_safe_load_library        [   0.00065] PathFindOnPath found: C:\Windows\system32\d3d9.dll
+system   D            wsystem.c:544  load_library_at_path             [   0.00072] Calling LoadLibrary C:\Windows\system32\d3d9.dll
+system   I            wsystem.c:547  load_library_at_path             [   0.00462] Loaded C:\Windows\system32\d3d9.dll
+d3d      I         d3d_disp.cpp:879  _al_d3d_init_display             [   0.05715] Render-to-texture: 1
+system   I             system.c:272  al_install_system                [   0.05722] Allegro version: 5.0.6
+d3d      I         d3d_disp.cpp:1919 d3d_create_display_locked        [   0.05863] faux_fullscreen=0
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07661] Score is : 897
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07663] Score is : 897
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07664] Score is : 897
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07665] Score is : 897
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07666] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07668] Score is : 737
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07669] Score is : 726
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07670] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07671] Score is : 737
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07672] Score is : 726
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07673] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07674] Score is : 737
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07675] Score is : 726
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07676] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07678] Score is : 737
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07679] Score is : 726
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07680] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07681] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07682] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07683] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07684] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07685] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07687] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07688] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07689] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07691] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07694] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07696] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07697] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07698] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07700] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07704] Single Buffer requirement not met.
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07705] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07707] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07708] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07709] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07710] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07711] Score is : 641
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07713] Score is : 609
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07714] Score is : 598
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07715] Score is : 641
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07716] Score is : 609
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07717] Score is : 598
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07718] Score is : 641
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07719] Score is : 609
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07720] Score is : 598
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07721] Score is : 641
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07723] Score is : 609
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07724] Score is : 598
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07725] Score is : 641
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07726] Score is : 609
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07727] Score is : 598
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07728] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07729] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07730] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07731] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07733] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07734] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07735] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07736] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07737] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07738] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07739] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07741] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07742] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07743] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07744] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07745] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07746] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07749] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07750] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07752] Single Buffer requirement not met.
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07753] Score is : 897
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07754] Score is : 897
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07755] Score is : 897
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07756] Score is : 897
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07757] Score is : 897
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07758] Score is : 897
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07759] Score is : 897
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07761] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07762] Score is : 737
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07763] Score is : 726
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07764] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07765] Score is : 737
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07766] Score is : 726
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07767] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07768] Score is : 737
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07769] Score is : 726
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07770] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07772] Score is : 737
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07773] Score is : 726
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07774] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07775] Score is : 737
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07776] Score is : 726
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07778] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07779] Score is : 737
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07780] Score is : 726
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07781] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07783] Score is : 737
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07784] Score is : 726
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07785] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07787] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07788] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07789] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07791] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07792] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07793] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07794] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07796] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07797] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07799] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07800] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07801] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07802] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07804] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07805] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07806] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07808] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07809] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07810] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07811] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07813] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07814] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07815] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07817] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07818] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07819] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07820] Single Buffer requirement not met.
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07822] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07823] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07824] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07826] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07827] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07828] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07829] Score is : 769
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07831] Score is : 641
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07832] Score is : 609
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07833] Score is : 598
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07834] Score is : 641
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07836] Score is : 609
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07837] Score is : 598
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07838] Score is : 641
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07839] Score is : 609
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07841] Score is : 598
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07842] Score is : 641
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07845] Score is : 609
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07847] Score is : 598
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07848] Score is : 641
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07849] Score is : 609
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07850] Score is : 598
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07852] Score is : 641
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07853] Score is : 609
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07854] Score is : 598
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07856] Score is : 641
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07857] Score is : 609
+display  D   display_settings.c:486  _al_score_display_settings       [   0.07858] Score is : 598
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07859] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07861] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07862] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07863] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07864] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07866] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07867] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07868] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07870] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07871] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07872] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07873] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07875] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07876] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07877] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07878] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07879] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07880] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07881] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07882] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07884] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07885] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07886] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07888] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07889] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07892] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07894] Single Buffer requirement not met.
+display  D   display_settings.c:357  _al_score_display_settings       [   0.07896] Single Buffer requirement not met.
+display  D   display_settings.c:197  _al_score_display_settings       [   0.07897] Display not compatible with Allegro.
+display  D   display_settings.c:197  _al_score_display_settings       [   0.07898] Display not compatible with Allegro.
+display  D   display_settings.c:197  _al_score_display_settings       [   0.07899] Display not compatible with Allegro.
+display  D   display_settings.c:197  _al_score_display_settings       [   0.07901] Display not compatible with Allegro.
+d3d      D         d3d_disp.cpp:1836 d3d_create_display_internals     [   0.07905] Trying format 0 of 188.
+d3d      I         d3d_disp.cpp:1514 d3d_display_thread_proc          [   0.07934] Chose a display format: 23
+d3d      I         d3d_disp.cpp:1583 d3d_display_thread_proc          [   0.07937] Normal window.
+d3d      I         d3d_disp.cpp:978  d3d_create_device                [   0.09194] Using no depth stencil buffer
+d3d      D         d3d_disp.cpp:1058 d3d_create_device                [   0.14038] BeginScene succeeded in create_device
+d3d      D         d3d_disp.cpp:1066 d3d_create_device                [   0.14042] Success
+d3d      D         d3d_disp.cpp:1859 d3d_create_display_internals     [   0.14046] Resumed after wait.
+d3d      I         d3d_disp.cpp:1884 d3d_create_display_internals     [   0.14053] Format 0 succeeded.
+d3d      W         d3d_disp.cpp:798  d3d_destroy_device               [   5.16895] d3d_destroy_device: ref count not 0
+d3d      I         d3d_disp.cpp:1705 d3d_display_thread_proc          [   5.18725] d3d display thread exits
