@@ -22,10 +22,23 @@ int main(void)
 
 	GraphicsCore::DrawEllipse(150, 100, 100, 50, 127, 3, 34, 7);
 	GraphicsCore::DrawFilledEllipse(400, 250, 100, 200, 0, 255, 255);
+	
+	float points[] = {0, 0, 400, 100, 50, 200, WIDTH, HEIGHT};
+	GraphicsCore::DrawSpline(points, 255, 0, 255, 10);
 
+
+	GraphicsCore::PrintToDisplay(3436346, 10, 350, "acknowledge", 128, 255);
+	GraphicsCore::PrintToDisplay("Hi! Howareya?", 10, 400, "acknowledge", 128, 128);
+	
+	
+	
 	GraphicsCore::FlipDisplay();
+
+	
 	
 	al_rest(2.0);
+
+	GraphicsCore::Deinitialize();
 
 	return 0;
 }

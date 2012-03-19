@@ -2,7 +2,17 @@
 #define GRAPHICSCORE_H_
 
 #include <allegro5\allegro.h>
-#include <allegro5\allegro_primitives.h>				//Our primitive header file
+#include <allegro5\allegro_primitives.h>
+#include <allegro5\allegro_font.h>
+#include <allegro5\allegro_ttf.h>
+#include <allegro5/allegro_native_dialog.h>
+
+#include <map>
+#include <string>
+#include <iostream>
+#include <sstream>
+
+using namespace std;
 
 const int WIDTH = 640;
 const int HEIGHT = 480;
@@ -13,8 +23,13 @@ public:
 	GraphicsCore();
 	~GraphicsCore();
 
+	//Graphics Core Routines
+	//------------------
 	static void Initialize();
+	static void Deinitialize();
 	static void FlipDisplay();
+	static bool LoadFont(string font_name, unsigned int size);
+	//------------------
 
 	//Primatives Drawing
 	//------------------
@@ -40,12 +55,23 @@ public:
 	static void DrawFilledEllipse(float cx, float cy, float rx, float ry, unsigned char r, unsigned char g, unsigned char b);
 
 	//splines
-	//unsupported for now
+	static void DrawSpline(float points[8], unsigned char r, unsigned char g, unsigned char b, float thickness);
 	//------------------
 
+	static void PrintToDisplay(string text, int x, int y, string font, unsigned char r = 0, unsigned char g = 0, unsigned char b = 0);
+	static void PrintToDisplay(int i, int x, int y, string font, unsigned char r = 0, unsigned char g = 0, unsigned char b = 0);
+	
 
 private:
-	static ALLEGRO_DISPLAY *display;	//screen
-	static bool initialized;
+	
+	static ALLEGRO_DISPLAY *display;	//Allegro Display Object (back-buffer)
+	static bool initialized;			//graphics have been initialized
+	
+	//Fonts
+	//------------------
+	static map<string, ALLEGRO_FONT*> fonts;	//archived fonts loaded at load-time
+	static map<string, ALLEGRO_FONT*>::iterator fontIterator;
+	//------------------
+
 };
 #endif
