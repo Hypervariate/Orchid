@@ -1,0 +1,15 @@
+//FRAME <image_file_name>
+FRAME librarian_idle_0
+FRAME librarian_idle_1
+FRAME librarian_idle_2
+FRAME librarian_idle_3
+FRAME librarian_idle_4
+FRAME librarian_idle_5
+FRAME librarian_idle_6
+FRAME librarian_idle_7
+
+//FRAMERATE <float value (seconds)>
+FRAMERATE 0.05
+
+//BEHAVIOR <PLAY_ONCE> or <BOUNCE> or <REPEAT>
+BEHAVIOR REPEAT

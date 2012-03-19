@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+
+<frame>librarian_idle_0</frame>
+<frame>librarian_idle_1</frame>
+<frame>librarian_idle_2</frame>
+<frame>librarian_idle_3</frame>
+<frame>librarian_idle_4</frame>
+<frame>librarian_idle_5</frame>
+<frame>librarian_idle_6</frame>
+<frame>librarian_idle_7</frame>
+
+
+<framerate>0.6</framerate>
+
+
+<behavior>BOUNCE</behavior>
