@@ -8,6 +8,7 @@ map<string, ALLEGRO_FONT*> GraphicsCore::fonts;	//archived fonts loaded at load-
 map<string, ALLEGRO_FONT*>::iterator GraphicsCore::fontIterator;
 //------------------
 
+
 GraphicsCore::GraphicsCore(){}
 GraphicsCore::~GraphicsCore(){}
 void GraphicsCore::Initialize(){
@@ -24,6 +25,8 @@ void GraphicsCore::Initialize(){
 		//load fonts
 		LoadFont("acknowledge", 36);
 
+		
+		
 		initialized = true;
 	}
 }
@@ -38,16 +41,20 @@ void GraphicsCore::Deinitialize(){
 	al_shutdown_font_addon();
 	al_shutdown_primitives_addon();
 
-	//destroy display object
-	al_destroy_display(display);
-
 
 	initialized = false;
 	}
 }
+void GraphicsCore::Update()
+{
+	GraphicsCore::FlipDisplay();
+	
+}
 void GraphicsCore::FlipDisplay(){
+	
 	al_flip_display();
-	al_clear_to_color(al_map_rgb(0,0,0));
+	//al_clear_to_color(al_map_rgb(0,0,0));		//enable when backbuffering has been implemented
+	
 }
 void GraphicsCore::DrawRectangle(float x1, float y1, float x2, float y2, unsigned char r, unsigned char g, unsigned char b, float thickness){
 	al_draw_rectangle(x1, y1, x2, y2, al_map_rgb(r, g, b), thickness);

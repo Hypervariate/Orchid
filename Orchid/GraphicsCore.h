@@ -10,7 +10,7 @@
 #include <map>
 #include <string>
 #include <iostream>
-#include <sstream>
+
 
 using namespace std;
 
@@ -27,6 +27,7 @@ public:
 	//------------------
 	static void Initialize();
 	static void Deinitialize();
+	static void Update();
 	static void FlipDisplay();
 	static bool LoadFont(string font_name, unsigned int size);
 	//------------------
@@ -63,7 +64,7 @@ public:
 	
 
 private:
-	
+
 	static ALLEGRO_DISPLAY *display;	//Allegro Display Object (back-buffer)
 	static bool initialized;			//graphics have been initialized
 	
