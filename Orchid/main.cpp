@@ -31,12 +31,64 @@ int main(void)
 	GraphicsCore::PrintToDisplay("Hi! Howareya?", 10, 400, "acknowledge", 128, 128);
 	
 	
+	al_install_keyboard();
+	al_install_mouse();
+	ALLEGRO_EVENT_QUEUE *event_queue = NULL;
+	event_queue = al_create_event_queue();
+
+	al_register_event_source(event_queue, al_get_mouse_event_source());
+	al_register_event_source(event_queue, al_get_keyboard_event_source());
+	//al_register_event_source(event_queue, al_get_display_event_source(display));	//put in graphics core with its own event queue
 	
 	GraphicsCore::FlipDisplay();
+	bool done = false;
+	while(!done){
+		
+		ALLEGRO_EVENT ev;
+		al_wait_for_event(event_queue, &ev);
 
-	
-	
-	al_rest(2.0);
+		if(ev.type == ALLEGRO_EVENT_KEY_DOWN)
+		{
+			switch(ev.keyboard.keycode)
+			{
+				case ALLEGRO_KEY_UP:
+					
+					break;
+				case ALLEGRO_KEY_DOWN:
+					
+					break;
+				case ALLEGRO_KEY_RIGHT:
+					
+					break;
+				case ALLEGRO_KEY_LEFT:
+					
+					break;
+			}
+		}
+		else if(ev.type == ALLEGRO_EVENT_KEY_UP)
+		{
+			if(ev.keyboard.keycode == ALLEGRO_KEY_ESCAPE)
+				done = true;
+		}
+		//requires display event source registered
+		/*if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) 
+		{
+			done = true;
+		}*/
+		if(ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN)
+		{
+			if(ev.mouse.button & 1)
+				done = true;
+			else if (ev.mouse.button & 2)
+				done = true;
+		}
+		if(ev.type == ALLEGRO_EVENT_MOUSE_AXES)
+		{
+			/*pos_x = ev.mouse.x;
+			pos_y = ev.mouse.y;*/
+		}
+	}
+	al_destroy_event_queue(event_queue);
 
 	GraphicsCore::Deinitialize();
 
