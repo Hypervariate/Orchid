@@ -14,7 +14,7 @@ GraphicsCore::~GraphicsCore(){}
 void GraphicsCore::Initialize(){
 	if(!initialized){
 		//create display object
-		ALLEGRO_DISPLAY* display = NULL;
+		display = NULL;
 		display = al_create_display(WIDTH, HEIGHT);			
 
 		//initialize modules
@@ -47,6 +47,7 @@ void GraphicsCore::Deinitialize(){
 }
 void GraphicsCore::Update()
 {
+
 	GraphicsCore::FlipDisplay();
 	
 }
@@ -128,4 +129,9 @@ void GraphicsCore::PrintToDisplay(int i, int x, int y, string font, unsigned cha
 	char buffer[32];
 	itoa(i, buffer, 10);
 	PrintToDisplay(buffer, x, y, font, r, g, b);
+}
+ALLEGRO_DISPLAY* GraphicsCore::GetDisplay(){
+	if(initialized == false)
+		GraphicsCore::Initialize();
+	return display;
 }

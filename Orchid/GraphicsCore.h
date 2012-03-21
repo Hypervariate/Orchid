@@ -1,6 +1,8 @@
 #ifndef GRAPHICSCORE_H_
 #define GRAPHICSCORE_H_
 
+#include "GlobalData.h"
+
 #include <allegro5\allegro.h>
 #include <allegro5\allegro_primitives.h>
 #include <allegro5\allegro_font.h>
@@ -62,7 +64,7 @@ public:
 	static void PrintToDisplay(string text, int x, int y, string font, unsigned char r = 0, unsigned char g = 0, unsigned char b = 0);
 	static void PrintToDisplay(int i, int x, int y, string font, unsigned char r = 0, unsigned char g = 0, unsigned char b = 0);
 	
-
+	static ALLEGRO_DISPLAY* GetDisplay();
 private:
 
 	static ALLEGRO_DISPLAY *display;	//Allegro Display Object (back-buffer)

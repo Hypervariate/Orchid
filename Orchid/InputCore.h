@@ -2,14 +2,16 @@
 #define INPUTCORE_H_
 
 #include "GlobalData.h"
+#include "GraphicsCore.h"
+#include "Vector2D.h"
 
 #include <allegro5\allegro.h>
+
 #include <map>
 #include <string>
 #include <iostream>
 
 using namespace std;
-
 
 class InputCore{
 
@@ -29,6 +31,9 @@ private:
 	static ALLEGRO_EVENT_QUEUE *eventQueue;
 	static ALLEGRO_EVENT allegroEvent;
 	
+	static map<int, bool> keys;
+	static Vector2D mousePosition;
+	static int mouseWheelPosition;
 
 };
 #endif

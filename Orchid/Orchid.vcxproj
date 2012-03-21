@@ -75,15 +75,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CubeGrid.cpp" />
     <ClCompile Include="GlobalData.cpp" />
     <ClCompile Include="GraphicsCore.cpp" />
     <ClCompile Include="InputCore.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SquareGrid.cpp" />
+    <ClCompile Include="Vector2D.cpp" />
+    <ClCompile Include="Vector2DF.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CubeGrid.h" />
     <ClInclude Include="GlobalData.h" />
     <ClInclude Include="GraphicsCore.h" />
     <ClInclude Include="InputCore.h" />
+    <ClInclude Include="SquareGrid.h" />
+    <ClInclude Include="Vector2D.h" />
+    <ClInclude Include="Vector2DF.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
