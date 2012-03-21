@@ -34,8 +34,9 @@ int main(void)
 		GraphicsCore::PrintToDisplay(3436346, 10, 350, "acknowledge", 128, 255);
 		GraphicsCore::PrintToDisplay("Hi! Howareya?", 10, 400, "acknowledge", 128, 128);
 		
-		InputCore::Update();
 		GraphicsCore::Update();
+		InputCore::Update();
+		
 		
 	}
 	
