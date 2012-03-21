@@ -16,7 +16,7 @@ void InputCore::Initialize(){
 		eventQueue = al_create_event_queue();
 		al_register_event_source(eventQueue, al_get_mouse_event_source());
 		al_register_event_source(eventQueue, al_get_keyboard_event_source());
-		ALLEGRO_EVENT allegroEvent;
+	
 		
 
 		initialized = true;
@@ -54,11 +54,11 @@ void InputCore::Update(){
 					break;
 			}
 		}
-	//	if(allegroEvent.type == ALLEGRO_EVENT_KEY_UP)
-	//	{
-	//		if(allegroEvent.keyboard.keycode == ALLEGRO_KEY_ESCAPE)
-	//			done = true;
-	//	}
+		if(allegroEvent.type == ALLEGRO_EVENT_KEY_UP)
+		{
+			if(allegroEvent.keyboard.keycode == ALLEGRO_KEY_ESCAPE)
+				GlobalData::RequestApplicationTermination("escape button");
+		}
 	//	//requires display event source registered
 	//	if(allegroEvent.type == ALLEGRO_EVENT_DISPLAY_CLOSE) 
 	//	{

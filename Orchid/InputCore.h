@@ -1,6 +1,8 @@
 #ifndef INPUTCORE_H_
 #define INPUTCORE_H_
 
+#include "GlobalData.h"
+
 #include <allegro5\allegro.h>
 #include <map>
 #include <string>

@@ -75,11 +75,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GlobalData.cpp" />
     <ClCompile Include="GraphicsCore.cpp" />
     <ClCompile Include="InputCore.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GlobalData.h" />
     <ClInclude Include="GraphicsCore.h" />
     <ClInclude Include="InputCore.h" />
   </ItemGroup>

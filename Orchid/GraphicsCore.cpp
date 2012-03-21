@@ -53,7 +53,7 @@ void GraphicsCore::Update()
 void GraphicsCore::FlipDisplay(){
 	
 	al_flip_display();
-	//al_clear_to_color(al_map_rgb(0,0,0));		//enable when backbuffering has been implemented
+	al_clear_to_color(al_map_rgb(0,0,0));		//enable when backbuffering has been implemented
 	
 }
 void GraphicsCore::DrawRectangle(float x1, float y1, float x2, float y2, unsigned char r, unsigned char g, unsigned char b, float thickness){
