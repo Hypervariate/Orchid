@@ -3,10 +3,12 @@
 
 bool InputCore::initialized = false;
 ALLEGRO_EVENT_QUEUE *InputCore::eventQueue = NULL;
-ALLEGRO_EVENT InputCore::allegroEvent;
+ALLEGRO_EVENT InputCore::ev;
 map<int, bool> InputCore::keys;
 Vector2D InputCore::mousePosition;
 int InputCore::mouseWheelPosition;
+
+
 
 InputCore::InputCore(){}
 InputCore::~InputCore(){}
@@ -15,14 +17,19 @@ void InputCore::Initialize(){
 		
 		al_install_keyboard();
 		al_install_mouse();
+		al_install_joystick();
 
 		
 		eventQueue = al_create_event_queue();
 		al_register_event_source(eventQueue, al_get_mouse_event_source());
 		al_register_event_source(eventQueue, al_get_keyboard_event_source());
+		al_register_event_source(eventQueue, al_get_joystick_event_source());
 		al_register_event_source(eventQueue, al_get_display_event_source(GraphicsCore::GetDisplay()));
 		
 		mouseWheelPosition = 0;
+
+		if(al_get_num_joysticks())
+			cout << al_get_num_joysticks() << " joysticks installed." << endl;
 
 
 		initialized = true;
@@ -35,57 +42,71 @@ void InputCore::Deinitialize(){
 	}
 }
 void InputCore::Update(){
-	al_wait_for_event(eventQueue, &allegroEvent);
+	while(!al_is_event_queue_empty(eventQueue)){
+		al_get_next_event(eventQueue, &ev);
 
-	if(allegroEvent.type == ALLEGRO_EVENT_KEY_DOWN)
-	{
-		keys[allegroEvent.keyboard.keycode] = true;
-		cout << allegroEvent.keyboard.keycode << endl;
+		if(ev.type == ALLEGRO_EVENT_KEY_DOWN)
+		{
+			keys[ev.keyboard.keycode] = true;
+			cout << ev.keyboard.keycode << endl;
 			
-	}
-	if(allegroEvent.type == ALLEGRO_EVENT_KEY_UP)
-	{
-		keys[allegroEvent.keyboard.keycode] = false;
+		}
+		if(ev.type == ALLEGRO_EVENT_KEY_UP)
+		{
+			keys[ev.keyboard.keycode] = false;
 
-		//cout << allegroEvent.keyboard.keycode << endl;
+			//cout << ev.keyboard.keycode << endl;
 			
-		switch(allegroEvent.keyboard.keycode){
-			case ALLEGRO_KEY_ESCAPE:
-				GlobalData::RequestApplicationTermination("escape button");
-				break;
+			switch(ev.keyboard.keycode){
+				case ALLEGRO_KEY_ESCAPE:
+					GlobalData::RequestApplicationTermination("escape button");
+					break;
+			}
 		}
-	}
-	//requires display event source registered
-	if(allegroEvent.type == ALLEGRO_EVENT_DISPLAY_CLOSE) 
-	{
-		GlobalData::RequestApplicationTermination("closed window");
-	}
-	if(allegroEvent.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN)
-	{
-		switch(allegroEvent.mouse.button){
-			case 1:
-				cout << "left mouse button" << endl;
-				break;
-			case 2:
-				cout << "right mouse button" << endl;
-				break;
-			case 3:
-				cout << "middle mouse button" << endl;
-				break;
+		//requires display event source registered
+		if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) 
+		{
+			GlobalData::RequestApplicationTermination("closed window");
 		}
+		if(ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN)
+		{
+			switch(ev.mouse.button){
+				case 1:
+					cout << "left mouse button" << endl;
+					break;
+				case 2:
+					cout << "right mouse button" << endl;
+					break;
+				case 3:
+					cout << "middle mouse button" << endl;
+					break;
+			}
 		
-	}
-	if(allegroEvent.type == ALLEGRO_EVENT_MOUSE_AXES)
-	{
-		
-		mousePosition.Set(allegroEvent.mouse.x, allegroEvent.mouse.y);
-		
-		
-		if(allegroEvent.mouse.z != mouseWheelPosition)
-			cout << "wheel: " << allegroEvent.mouse.z << endl;
-		else
-			cout << mousePosition.GetX() << " " << mousePosition.GetY() << endl;
+		}
+		if(ev.type == ALLEGRO_EVENT_MOUSE_AXES)
+		{
+			mousePosition.Set(ev.mouse.x, ev.mouse.y);
+			if(ev.mouse.z != mouseWheelPosition)
+				cout << "wheel: " << ev.mouse.z << endl;
+			else
+				cout << mousePosition.GetX() << " " << mousePosition.GetY() << endl;
 
-		mouseWheelPosition = allegroEvent.mouse.z;
+			mouseWheelPosition = ev.mouse.z;
+		}
+		if(al_is_joystick_installed()){
+			int number_of_joysticks = 0;
+			switch(ev.type){
+				case ALLEGRO_EVENT_JOYSTICK_AXIS:
+					cout << "joy " << ev.joystick.id << " stick: " << ev.joystick.stick << " axis: " << ev.joystick.axis << " value: " << ev.joystick.pos << endl;
+					break;
+				case ALLEGRO_EVENT_JOYSTICK_BUTTON_DOWN:
+					cout << "joy " << ev.joystick.id << " button: " << ev.joystick.button << endl;
+					break;
+				case ALLEGRO_EVENT_JOYSTICK_BUTTON_UP:
+					//cout << "joy " << ev.joystick.id << " button: " << ev.joystick.button << endl;
+					break;
+					
+			}
+		}
 	}
 }

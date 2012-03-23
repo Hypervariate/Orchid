@@ -8,6 +8,7 @@
 #include <allegro5\allegro.h>
 
 #include <map>
+#include <vector>
 #include <string>
 #include <iostream>
 
@@ -29,11 +30,12 @@ public:
 private:	
 	static bool initialized;			//graphics have been initialized
 	static ALLEGRO_EVENT_QUEUE *eventQueue;
-	static ALLEGRO_EVENT allegroEvent;
+	static ALLEGRO_EVENT ev;
 	
 	static map<int, bool> keys;
 	static Vector2D mousePosition;
 	static int mouseWheelPosition;
+	
 
 };
 #endif

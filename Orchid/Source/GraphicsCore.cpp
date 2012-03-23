@@ -109,7 +109,7 @@ bool GraphicsCore::LoadFont(string font_name, unsigned int size)
         al_show_native_message_box(NULL, NULL, NULL, "failed to load font.", NULL, NULL);
         return false;
     }
-    cout << "\" Success.";
+    cout << "\" Success." << endl;
     fonts.insert( pair<string,ALLEGRO_FONT*>(font_name,font) );
     
     return true;
