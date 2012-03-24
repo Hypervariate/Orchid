@@ -48,6 +48,12 @@
     <ClCompile Include="Source\GraphicsCore.cpp">
       <Filter>Cores</Filter>
     </ClCompile>
+    <ClCompile Include="Source\InputEvent.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterController.cpp">
+      <Filter>Containers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CubeGrid.h">
@@ -70,6 +76,12 @@
     </ClInclude>
     <ClInclude Include="Source\GraphicsCore.h">
       <Filter>Cores</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\InputEvent.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterController.h">
+      <Filter>Containers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

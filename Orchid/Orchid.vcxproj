@@ -11,20 +11,24 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\CharacterController.cpp" />
     <ClCompile Include="Source\CubeGrid.cpp" />
     <ClCompile Include="Source\GlobalData.cpp" />
     <ClCompile Include="Source\GraphicsCore.cpp" />
     <ClCompile Include="Source\InputCore.cpp" />
+    <ClCompile Include="Source\InputEvent.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\SquareGrid.cpp" />
     <ClCompile Include="Source\Vector2D.cpp" />
     <ClCompile Include="Source\Vector2DF.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\CharacterController.h" />
     <ClInclude Include="Source\CubeGrid.h" />
     <ClInclude Include="Source\GlobalData.h" />
     <ClInclude Include="Source\GraphicsCore.h" />
     <ClInclude Include="Source\InputCore.h" />
+    <ClInclude Include="Source\InputEvent.h" />
     <ClInclude Include="Source\SquareGrid.h" />
     <ClInclude Include="Source\Vector2D.h" />
     <ClInclude Include="Source\Vector2DF.h" />

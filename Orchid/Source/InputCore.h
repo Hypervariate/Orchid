@@ -4,6 +4,7 @@
 #include "GlobalData.h"
 #include "GraphicsCore.h"
 #include "Vector2D.h"
+#include "CharacterController.h"
 
 #include <allegro5\allegro.h>
 
@@ -36,6 +37,8 @@ private:
 	static Vector2D mousePosition;
 	static int mouseWheelPosition;
 	
+	static vector<CharacterController> players;
+	static unsigned int playerCount;
 
 };
 #endif

@@ -7,7 +7,8 @@ ALLEGRO_EVENT InputCore::ev;
 map<int, bool> InputCore::keys;
 Vector2D InputCore::mousePosition;
 int InputCore::mouseWheelPosition;
-
+vector<CharacterController> InputCore::players;
+unsigned int InputCore::playerCount = 0;
 
 
 InputCore::InputCore(){}
@@ -31,6 +32,11 @@ void InputCore::Initialize(){
 		if(al_get_num_joysticks())
 			cout << al_get_num_joysticks() << " joysticks installed." << endl;
 
+		//player 1
+		CharacterController cc;
+		players.push_back(cc);
+
+		playerCount = players.size();
 
 		initialized = true;
 	}
@@ -49,6 +55,9 @@ void InputCore::Update(){
 		{
 			keys[ev.keyboard.keycode] = true;
 			cout << ev.keyboard.keycode << endl;
+			
+			//push events to respective character controllers
+			//players.at(0).PushEvent(ev.keyboard.keycode);
 			
 		}
 		if(ev.type == ALLEGRO_EVENT_KEY_UP)
