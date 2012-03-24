@@ -121,21 +121,37 @@ void InputCore::Update(){
 			mousePosition.Set(ev.mouse.x, ev.mouse.y);
 			mouseWheelPosition = ev.mouse.z;
 		}
-		//if(al_is_joystick_installed()){
-		//	int number_of_joysticks = 0;
-		//	switch(ev.type){
-		//		case ALLEGRO_EVENT_JOYSTICK_AXIS:
-		//			cout << "joy " << ev.joystick.id << " stick: " << ev.joystick.stick << " axis: " << ev.joystick.axis << " value: " << ev.joystick.pos << endl;
-		//			break;
-		//		case ALLEGRO_EVENT_JOYSTICK_BUTTON_DOWN:
-		//			cout << "joy " << ev.joystick.id << " button: " << ev.joystick.button << endl;
-		//			break;
-		//		case ALLEGRO_EVENT_JOYSTICK_BUTTON_UP:
-		//			//cout << "joy " << ev.joystick.id << " button: " << ev.joystick.button << endl;
-		//			break;
-		//			
-		//	}
-		//}
+		if(al_is_joystick_installed()){
+			int number_of_joysticks = 0;
+			switch(ev.type){
+				case ALLEGRO_EVENT_JOYSTICK_AXIS:
+					/*cout << "joy " << ev.joystick.id << " stick: " << ev.joystick.stick << " axis: " << ev.joystick.axis << " value: " << ev.joystick.pos << endl;*/
+					switch(ev.joystick.axis){
+						case 0:
+							players.at(0).PushInputEvent(INPUT_EVENT_JOYSTICK_AXIS_0, ev.joystick.pos * 1000);
+							break;
+						case 1:
+							players.at(0).PushInputEvent(INPUT_EVENT_JOYSTICK_AXIS_1, ev.joystick.pos * 1000);
+							break;
+						case 2:
+							players.at(0).PushInputEvent(INPUT_EVENT_JOYSTICK_AXIS_2, ev.joystick.pos * 1000);
+							break;
+						case 3:
+							players.at(0).PushInputEvent(INPUT_EVENT_JOYSTICK_AXIS_3, ev.joystick.pos * 1000);
+							break;
+					}
+					break;
+				case ALLEGRO_EVENT_JOYSTICK_BUTTON_DOWN:
+					//cout << "joy " << ev.joystick.id << " button: " << ev.joystick.button << endl;
+					players.at(0).PushInputEvent(INPUT_EVENT_JOYSTICK_BUTTON_DOWN, ev.joystick.button);
+					break;
+				case ALLEGRO_EVENT_JOYSTICK_BUTTON_UP:
+					//cout << "joy " << ev.joystick.id << " button: " << ev.joystick.button << endl;
+					players.at(0).PushInputEvent(INPUT_EVENT_JOYSTICK_BUTTON_UP, ev.joystick.button);
+					break;
+					
+			}
+		}
 	}
 	//let character controllers process player input
 	for(int i = 0; i < players.size(); i++)

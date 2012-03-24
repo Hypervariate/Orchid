@@ -38,6 +38,24 @@ void CharacterController::ProcessEventQueue(){
 			case INPUT_EVENT_KEY_UP:
 				cout << "key up event ";
 				break;
+			case INPUT_EVENT_JOYSTICK_BUTTON_DOWN:
+				cout << "joystick button down event ";
+				break;
+			case INPUT_EVENT_JOYSTICK_BUTTON_UP:
+				cout << "joystick button up event ";
+				break;
+			case INPUT_EVENT_JOYSTICK_AXIS_0:
+				cout << "joystick axis 0 event ";
+				break;
+			case INPUT_EVENT_JOYSTICK_AXIS_1:
+				cout << "joystick axis 1 event ";
+				break;
+			case INPUT_EVENT_JOYSTICK_AXIS_2:
+				cout << "joystick axis 2 event ";
+				break;
+			case INPUT_EVENT_JOYSTICK_AXIS_3:
+				cout << "joystick axis 3 event ";
+				break;
 			case INPUT_EVENT_MOUSE_LEFT_BUTTON_DOWN:
 				cout << "left mouse button down event ";
 				break;
@@ -64,12 +82,6 @@ void CharacterController::ProcessEventQueue(){
 				break;
 			case INPUT_EVENT_MOUSE_AXES_Z:
 				cout << "mouse axis z event ";
-				break;
-			case INPUT_EVENT_JOYSTICK_BUTTON_DOWN:
-				cout << "joystick button down event ";
-				break;
-			case INPUT_EVENT_JOYSTICK_BUTTON_UP:
-				cout << "joystick button up event ";
 				break;
 		}
 		cout << ev.GetEventValue() << endl;
