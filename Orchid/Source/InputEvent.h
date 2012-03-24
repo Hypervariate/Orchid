@@ -4,17 +4,56 @@
 #include <string>
 using namespace std;
 
+enum INPUT_EVENT_TYPE
+{
+   INPUT_EVENT_NULL						   =  0,
+   
+	//put in all joystick buttons/axis events
+   
+   INPUT_EVENT_JOYSTICK_BUTTON_DOWN,
+   INPUT_EVENT_JOYSTICK_BUTTON_UP,
+   
+   INPUT_EVENT_KEY_DOWN,
+   INPUT_EVENT_KEY_CHAR,
+   INPUT_EVENT_KEY_UP,
+
+   INPUT_EVENT_MOUSE_AXES_X,
+   INPUT_EVENT_MOUSE_AXES_Y,
+   INPUT_EVENT_MOUSE_AXES_Z,
+   INPUT_EVENT_MOUSE_LEFT_BUTTON_DOWN,
+   INPUT_EVENT_MOUSE_RIGHT_BUTTON_DOWN,
+   INPUT_EVENT_MOUSE_MIDDLE_BUTTON_DOWN,
+   INPUT_EVENT_MOUSE_LEFT_BUTTON_UP,
+   INPUT_EVENT_MOUSE_RIGHT_BUTTON_UP,
+   INPUT_EVENT_MOUSE_MIDDLE_BUTTON_UP,
+   INPUT_EVENT_MOUSE_ENTER_DISPLAY,
+   INPUT_EVENT_MOUSE_LEAVE_DISPLAY,
+   INPUT_EVENT_MOUSE_WARPED,
+
+   INPUT_EVENT_DISPLAY_EXPOSE,
+   INPUT_EVENT_DISPLAY_RESIZE,
+   INPUT_EVENT_DISPLAY_CLOSE,
+   INPUT_EVENT_DISPLAY_LOST,
+   INPUT_EVENT_DISPLAY_FOUND,
+   INPUT_EVENT_DISPLAY_SWITCH_IN,
+   INPUT_EVENT_DISPLAY_SWITCH_OUT,
+   INPUT_EVENT_DISPLAY_ORIENTATION
+};
+
 class InputEvent{
 public:
-	InputEvent();
-	InputEvent(string eventData);
+	InputEvent(INPUT_EVENT_TYPE type = INPUT_EVENT_NULL, int value = 0);
 	~InputEvent();
 
-	void SetEventData(string eventData){this->eventData = eventData;};
-	string GetEventData(){return eventData;};
+	void SetEventData(INPUT_EVENT_TYPE type, int value){this->type = type; this->value = value;};
+	INPUT_EVENT_TYPE GetEventType(){return type;};
+	int GetEventValue(){return value;};
+
+	bool IsNull();
 
 private:
-	string eventData;
+	INPUT_EVENT_TYPE type;
+	int value;
 
 };
 

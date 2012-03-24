@@ -1,11 +1,15 @@
 #include "InputEvent.h"
 
-InputEvent::InputEvent(){
-	SetEventData("");
-}
+
 InputEvent::~InputEvent(){
 
 }
-InputEvent::InputEvent(string eventData){
-	SetEventData(eventData);
+InputEvent::InputEvent(INPUT_EVENT_TYPE type, int value){
+	SetEventData(type, value);
+}
+bool InputEvent::IsNull(){
+	if(type == INPUT_EVENT_NULL)
+		return true;
+	
+	return false;
 }
