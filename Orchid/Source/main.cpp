@@ -1,8 +1,7 @@
 #include "GraphicsCore.h"
 #include "InputCore.h"
 #include "GlobalData.h"
-#include "Shape2DRect.h"
-#include "Shape2DCircle.h"
+#include "GameObject.h"
 
 int main(void)
 {
@@ -12,13 +11,13 @@ int main(void)
 	GraphicsCore::Initialize();
 	InputCore::Initialize();
 
-	Shape2DCircle c = Shape2DCircle(WIDTH/2, HEIGHT/2, 100);
-
+	
+	GameObject go = GameObject();
 	
 	while(GlobalData::ApplicationRunning()){
 
 		
-		c.DrawShape();
+		
 		
 		GraphicsCore::Update();
 		InputCore::Update();

@@ -39,6 +39,9 @@ private:
 	
 	static vector<CharacterController> players;
 	static unsigned int playerCount;
+	
+	static map<ALLEGRO_JOYSTICK*, int> joysticks;
+	static int GetJoystickNumberFromID(ALLEGRO_JOYSTICK * joystick);
 
 };
 #endif

@@ -11,6 +11,7 @@ int InputCore::mouseWheelPosition;
 vector<CharacterController> InputCore::players;
 unsigned int InputCore::playerCount = 0;
 
+map<ALLEGRO_JOYSTICK*, int> InputCore::joysticks;
 
 InputCore::InputCore(){}
 InputCore::~InputCore(){}
@@ -33,14 +34,20 @@ void InputCore::Initialize(){
 		if(al_get_num_joysticks())
 			cout << al_get_num_joysticks() << " joysticks installed." << endl;
 
-		//player 1
-		CharacterController cc;
-		players.push_back(cc);
-
+		//player 0
+		for(int i = 0; i < al_get_num_joysticks() + 1; i++)
+			players.push_back(CharacterController());
+		
 		playerCount = players.size();
 
 		initialized = true;
 	}
+}
+int InputCore::GetJoystickNumberFromID(ALLEGRO_JOYSTICK* joystick){
+	if(joysticks.find(joystick) == joysticks.end())
+		joysticks[joystick] = joysticks.size();
+
+	return joysticks[joystick];
 }
 void InputCore::Deinitialize(){
 	if(initialized){
@@ -123,31 +130,35 @@ void InputCore::Update(){
 		}
 		if(al_is_joystick_installed()){
 			int number_of_joysticks = 0;
+			int joy_number = GetJoystickNumberFromID(ev.joystick.id);
 			switch(ev.type){
 				case ALLEGRO_EVENT_JOYSTICK_AXIS:
+					cout << "joystick " << joy_number << " ";
 					/*cout << "joy " << ev.joystick.id << " stick: " << ev.joystick.stick << " axis: " << ev.joystick.axis << " value: " << ev.joystick.pos << endl;*/
 					switch(ev.joystick.axis){
 						case 0:
-							players.at(0).PushInputEvent(INPUT_EVENT_JOYSTICK_AXIS_0, ev.joystick.pos * 1000);
+							players.at(joy_number).PushInputEvent(INPUT_EVENT_JOYSTICK_AXIS_0, ev.joystick.pos * 1000);
 							break;
 						case 1:
-							players.at(0).PushInputEvent(INPUT_EVENT_JOYSTICK_AXIS_1, ev.joystick.pos * 1000);
+							players.at(joy_number).PushInputEvent(INPUT_EVENT_JOYSTICK_AXIS_1, ev.joystick.pos * 1000);
 							break;
 						case 2:
-							players.at(0).PushInputEvent(INPUT_EVENT_JOYSTICK_AXIS_2, ev.joystick.pos * 1000);
+							players.at(joy_number).PushInputEvent(INPUT_EVENT_JOYSTICK_AXIS_2, ev.joystick.pos * 1000);
 							break;
 						case 3:
-							players.at(0).PushInputEvent(INPUT_EVENT_JOYSTICK_AXIS_3, ev.joystick.pos * 1000);
+							players.at(joy_number).PushInputEvent(INPUT_EVENT_JOYSTICK_AXIS_3, ev.joystick.pos * 1000);
 							break;
 					}
 					break;
 				case ALLEGRO_EVENT_JOYSTICK_BUTTON_DOWN:
+					cout << "joystick " << joy_number << " ";
 					//cout << "joy " << ev.joystick.id << " button: " << ev.joystick.button << endl;
-					players.at(0).PushInputEvent(INPUT_EVENT_JOYSTICK_BUTTON_DOWN, ev.joystick.button);
+					players.at(joy_number).PushInputEvent(INPUT_EVENT_JOYSTICK_BUTTON_DOWN, ev.joystick.button);
 					break;
 				case ALLEGRO_EVENT_JOYSTICK_BUTTON_UP:
+					cout << "joystick " << joy_number << " ";
 					//cout << "joy " << ev.joystick.id << " button: " << ev.joystick.button << endl;
-					players.at(0).PushInputEvent(INPUT_EVENT_JOYSTICK_BUTTON_UP, ev.joystick.button);
+					players.at(joy_number).PushInputEvent(INPUT_EVENT_JOYSTICK_BUTTON_UP, ev.joystick.button);
 					break;
 					
 			}

@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\CharacterController.cpp" />
+    <ClCompile Include="Source\GameObject.cpp" />
     <ClCompile Include="Source\Shape2DCircle.cpp" />
     <ClCompile Include="Source\CubeGrid.cpp" />
     <ClCompile Include="Source\GlobalData.cpp" />
@@ -27,6 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CharacterController.h" />
+    <ClInclude Include="Source\GameObject.h" />
     <ClInclude Include="Source\Shape2DCircle.h" />
     <ClInclude Include="Source\CubeGrid.h" />
     <ClInclude Include="Source\GlobalData.h" />
