@@ -1,12 +1,23 @@
 #include "GameObject.h"
 
 GameObject::GameObject(){
-	x = 0;
-	y = 0;
+
 }
 GameObject::~GameObject(){
 
 }
 void GameObject::Draw(){
+
+}
+void GameObject::MoveUp(){
+
+}
+void GameObject::MoveDown(){
+
+}
+void GameObject::MoveLeft(){
+
+}
+void GameObject::MoveRight(){
 
 }

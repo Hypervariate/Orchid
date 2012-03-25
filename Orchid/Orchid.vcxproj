@@ -25,6 +25,7 @@
     <ClCompile Include="Source\SquareGrid.cpp" />
     <ClCompile Include="Source\Vector2D.cpp" />
     <ClCompile Include="Source\Vector2DF.cpp" />
+    <ClCompile Include="Source\Witch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CharacterController.h" />
@@ -40,6 +41,7 @@
     <ClInclude Include="Source\SquareGrid.h" />
     <ClInclude Include="Source\Vector2D.h" />
     <ClInclude Include="Source\Vector2DF.h" />
+    <ClInclude Include="Source\Witch.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A30C2B96-5E1C-4ED2-91F9-A3F4AA484741}</ProjectGuid>

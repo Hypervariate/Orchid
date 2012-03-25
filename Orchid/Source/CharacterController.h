@@ -4,6 +4,7 @@
 #include "InputEvent.h"
 #include <queue>
 #include <iostream>
+#include "GameObject.h"
 
 class CharacterController{
 public:
@@ -16,9 +17,12 @@ public:
 
 	void ProcessEventQueue();
 
+	void SetTarget(GameObject* target){this->target = target;};
+
 private:
 	queue<InputEvent> inputEvents;
-
+	
+	GameObject* target;
 };
 
 #endif

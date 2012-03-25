@@ -28,12 +28,13 @@ public:
 	static void Deinitialize();
 	//------------------
 
+	static void RegisterGameObjectAsPlayer(GameObject* character, unsigned int player_number);
+
 private:	
 	static bool initialized;			//graphics have been initialized
 	static ALLEGRO_EVENT_QUEUE *eventQueue;
 	static ALLEGRO_EVENT ev;
 	
-	static map<int, bool> keys;
 	static Vector2D mousePosition;
 	static int mouseWheelPosition;
 	
@@ -42,6 +43,8 @@ private:
 	
 	static map<ALLEGRO_JOYSTICK*, int> joysticks;
 	static int GetJoystickNumberFromID(ALLEGRO_JOYSTICK * joystick);
+
+	
 
 };
 #endif

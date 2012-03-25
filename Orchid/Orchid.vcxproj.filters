@@ -14,6 +14,9 @@
     <Filter Include="Containers">
       <UniqueIdentifier>{1116bf39-9c40-4c1c-b315-f09b354038d0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game Classes">
+      <UniqueIdentifier>{6d19b6fb-7cc7-4865-a2dc-3fd82137e10e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\CubeGrid.cpp">
@@ -58,6 +61,9 @@
     <ClCompile Include="Source\GameObject.cpp">
       <Filter>Containers</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Witch.cpp">
+      <Filter>Game Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CubeGrid.h">
@@ -98,6 +104,9 @@
     </ClInclude>
     <ClInclude Include="Source\GameObject.h">
       <Filter>Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Witch.h">
+      <Filter>Game Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
