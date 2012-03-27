@@ -44,7 +44,8 @@ private:
 	static map<ALLEGRO_JOYSTICK*, int> joysticks;
 	static int GetJoystickNumberFromID(ALLEGRO_JOYSTICK * joystick);
 
-	
+	static ALLEGRO_TIMER *timer;
+	static int frames;
 
 };
 #endif

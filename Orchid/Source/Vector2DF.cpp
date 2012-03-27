@@ -4,26 +4,13 @@ Vector2DF::Vector2DF(){
 	Vector2DF(0,0);
 }
 Vector2DF::Vector2DF(float x, float y){
-	this->X = x;
-	this->Y = y;
+	this->x = x;
+	this->y = y;
 }
 Vector2DF::~Vector2DF(){
 
 }
 void Vector2DF::Set(float x, float y){
-	this->X = x;
-	this->Y = y;
+	this->x = x;
+	this->y = y;
 }
-void Vector2DF::SetX(float x){
-	this->X = x;
-}
-void Vector2DF::SetY(float y){
-	this->Y = y;
-}
-float Vector2DF::GetX(){
-	return X;
-}
-float Vector2DF::GetY(){
-	return Y;
-}
-

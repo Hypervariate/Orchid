@@ -6,18 +6,18 @@ GameObject::GameObject(){
 GameObject::~GameObject(){
 
 }
+void GameObject::Update(){
+
+}
 void GameObject::Draw(){
 
 }
-void GameObject::MoveUp(){
+void GameObject::Move(float dirX, float dirY){
 
 }
-void GameObject::MoveDown(){
+void GameObject::StopMovingX(){
 
 }
-void GameObject::MoveLeft(){
-
-}
-void GameObject::MoveRight(){
+void GameObject::StopMovingY(){
 
 }

@@ -9,15 +9,9 @@ public:
 	~Vector2D();
 
 	void Set(int x, int y);
-	void SetX(int x);
-	void SetY(int y);
 
-	int GetX();
-	int GetY();
-
-private:
-	int X;
-	int Y;
+	int x;
+	int y;
 
 };
 

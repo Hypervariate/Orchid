@@ -1,5 +1,5 @@
 #include "InputCore.h"
-
+#include "GraphicsCore.h"
 
 bool InputCore::initialized = false;
 ALLEGRO_EVENT_QUEUE *InputCore::eventQueue = NULL;
@@ -13,6 +13,9 @@ unsigned int InputCore::playerCount = 0;
 
 map<ALLEGRO_JOYSTICK*, int> InputCore::joysticks;
 
+ALLEGRO_TIMER *InputCore::timer = NULL;
+int InputCore::frames = 0;
+
 InputCore::InputCore(){}
 InputCore::~InputCore(){}
 void InputCore::Initialize(){
@@ -22,13 +25,15 @@ void InputCore::Initialize(){
 		al_install_mouse();
 		al_install_joystick();
 
-		
+		timer = al_create_timer(1.0 / 60);
+
 		eventQueue = al_create_event_queue();
 		al_register_event_source(eventQueue, al_get_mouse_event_source());
 		al_register_event_source(eventQueue, al_get_keyboard_event_source());
 		al_register_event_source(eventQueue, al_get_joystick_event_source());
 		al_register_event_source(eventQueue, al_get_display_event_source(GraphicsCore::GetDisplay()));
-		
+		al_register_event_source(eventQueue, al_get_timer_event_source(timer));
+
 		mouseWheelPosition = 0;
 
 		if(al_get_num_joysticks())
@@ -39,6 +44,11 @@ void InputCore::Initialize(){
 			players.push_back(CharacterController());
 		
 		playerCount = players.size();
+
+		
+
+		al_start_timer(timer);
+		frames = 0;
 
 		initialized = true;
 	}
@@ -57,8 +67,10 @@ int InputCore::GetJoystickNumberFromID(ALLEGRO_JOYSTICK* joystick){
 void InputCore::Deinitialize(){
 	if(initialized){
 		al_destroy_event_queue(eventQueue);
+		al_destroy_timer(timer);
 		initialized = false;
 	}
+	
 }
 void InputCore::Update(){
 	while(!al_is_event_queue_empty(eventQueue)){
@@ -135,10 +147,15 @@ void InputCore::Update(){
 			mousePosition.Set(ev.mouse.x, ev.mouse.y);
 			mouseWheelPosition = ev.mouse.z;
 		}
+		if(ev.type == ALLEGRO_EVENT_TIMER)
+		{
+			//if(al_get_timer_count(timer) > 0)
+				
+		}
 		if(al_is_joystick_installed()){
 			int number_of_joysticks = 0;
 			int player_number = GetJoystickNumberFromID(ev.joystick.id);
-			if(player_number == 0) player_number++;
+			if(player_number == 0) player_number = 1;
 			switch(ev.type){
 				case ALLEGRO_EVENT_JOYSTICK_AXIS:
 					cout << "joystick " << player_number << " ";
@@ -175,4 +192,7 @@ void InputCore::Update(){
 	//let character controllers process player input
 	for(unsigned int i = 0; i < players.size(); i++)
 		players.at(i).ProcessEventQueue();
+	
+	frames++;
+	GraphicsCore::PrintToDisplay(al_get_timer_count(timer), WIDTH - 96, 0, "acknowledge", 0, 255, 0);
 }

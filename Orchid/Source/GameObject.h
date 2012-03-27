@@ -9,12 +9,13 @@ public:
 	GameObject();
 	~GameObject();
 
+	virtual void Update();
 	virtual void Draw();
 
-	virtual void MoveUp();
-	virtual void MoveDown();
-	virtual void MoveLeft();
-	virtual void MoveRight();
+	virtual void Move(float dirX, float dirY);
+
+	virtual void StopMovingX();
+	virtual void StopMovingY();
 
 private:
 
