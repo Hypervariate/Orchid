@@ -22,6 +22,8 @@ GameObject::GameObject(){
 
 	inertia.x = baseInertia.x;
 	inertia.y = baseInertia.y;
+
+	moveUp = moveDown = moveLeft = moveRight = false;
 	
 	
 }
@@ -88,20 +90,20 @@ void GameObject::StartMovingRight(){
 void GameObject::StopMovingUp(){
 	moveUp = false;
 	if(velocity.y < 0 && !moveDown) inertia.y = 0;
-	else StartMovingDown();
+	else if(moveDown) StartMovingDown();
 }
 void GameObject::StopMovingDown(){
 	moveDown = false;
 	if(velocity.y > 0 && !moveUp) inertia.y = 0;
-	else StartMovingUp();
+	else if(moveUp) StartMovingUp();
 }
 void GameObject::StopMovingLeft(){
 	moveLeft = false;
 	if(velocity.x < 0 && !moveRight) inertia.x = 0;
-	else StartMovingRight();
+	else if(moveRight) StartMovingRight();
 }
 void GameObject::StopMovingRight(){
 	moveRight = false;
 	if(velocity.x > 0 && !moveLeft) inertia.x = 0;
-	else StartMovingLeft();
+	else if(moveLeft) StartMovingLeft();
 }

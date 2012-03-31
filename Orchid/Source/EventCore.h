@@ -33,7 +33,7 @@ public:
 private:	
 	static bool initialized;			//graphics have been initialized
 	static ALLEGRO_EVENT_QUEUE *eventQueue;
-	static ALLEGRO_EVENT ev;
+	//static ALLEGRO_EVENT ev;
 	
 	static Vector2D mousePosition;
 	static int mouseWheelPosition;

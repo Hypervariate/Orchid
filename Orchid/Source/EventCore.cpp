@@ -3,7 +3,7 @@
 
 bool EventCore::initialized = false;
 ALLEGRO_EVENT_QUEUE *EventCore::eventQueue = NULL;
-ALLEGRO_EVENT EventCore::ev;
+//ALLEGRO_EVENT EventCore::ev;
 
 Vector2D EventCore::mousePosition;
 int EventCore::mouseWheelPosition;
@@ -29,6 +29,7 @@ void EventCore::Initialize(){
 		al_install_joystick();
 
 		timer = al_create_timer(1.0 / 60);
+
 
 		eventQueue = al_create_event_queue();
 		al_register_event_source(eventQueue, al_get_mouse_event_source());
@@ -77,10 +78,11 @@ void EventCore::Deinitialize(){
 }
 void EventCore::Update(){
 	
-
+	
 	while(!al_is_event_queue_empty(eventQueue)){
+		ALLEGRO_EVENT ev;
 		al_wait_for_event(eventQueue, &ev);
-		//al_get_next_event(eventQueue, &ev);
+		
 
 		if(ev.type == ALLEGRO_EVENT_TIMER) {
 			redraw = true;
