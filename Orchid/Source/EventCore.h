@@ -15,6 +15,8 @@
 
 using namespace std;
 
+
+
 class EventCore{
 
 public:
@@ -48,5 +50,6 @@ private:
 	static int frames;
 	static int fps;
 	static bool redraw;
+	static float DESIRED_FPS;
 };
 #endif
