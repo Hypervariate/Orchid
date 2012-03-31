@@ -17,7 +17,7 @@
     <ClCompile Include="Source\CubeGrid.cpp" />
     <ClCompile Include="Source\GlobalData.cpp" />
     <ClCompile Include="Source\GraphicsCore.cpp" />
-    <ClCompile Include="Source\InputCore.cpp" />
+    <ClCompile Include="Source\EventCore.cpp" />
     <ClCompile Include="Source\InputEvent.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Shape2DRect.cpp" />
@@ -34,7 +34,7 @@
     <ClInclude Include="Source\CubeGrid.h" />
     <ClInclude Include="Source\GlobalData.h" />
     <ClInclude Include="Source\GraphicsCore.h" />
-    <ClInclude Include="Source\InputCore.h" />
+    <ClInclude Include="Source\EventCore.h" />
     <ClInclude Include="Source\InputEvent.h" />
     <ClInclude Include="Source\Shape2DRect.h" />
     <ClInclude Include="Source\Shape2D.h" />

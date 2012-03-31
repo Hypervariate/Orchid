@@ -1,24 +1,27 @@
-#include "InputCore.h"
+#include "EventCore.h"
 #include "GraphicsCore.h"
 
-bool InputCore::initialized = false;
-ALLEGRO_EVENT_QUEUE *InputCore::eventQueue = NULL;
-ALLEGRO_EVENT InputCore::ev;
+bool EventCore::initialized = false;
+ALLEGRO_EVENT_QUEUE *EventCore::eventQueue = NULL;
+ALLEGRO_EVENT EventCore::ev;
 
-Vector2D InputCore::mousePosition;
-int InputCore::mouseWheelPosition;
+Vector2D EventCore::mousePosition;
+int EventCore::mouseWheelPosition;
 
-vector<CharacterController> InputCore::players;
-unsigned int InputCore::playerCount = 0;
+vector<CharacterController> EventCore::players;
+unsigned int EventCore::playerCount = 0;
 
-map<ALLEGRO_JOYSTICK*, int> InputCore::joysticks;
+bool EventCore::redraw = false;
 
-ALLEGRO_TIMER *InputCore::timer = NULL;
-int InputCore::frames = 0;
+map<ALLEGRO_JOYSTICK*, int> EventCore::joysticks;
 
-InputCore::InputCore(){}
-InputCore::~InputCore(){}
-void InputCore::Initialize(){
+ALLEGRO_TIMER *EventCore::timer = NULL;
+int EventCore::frames = 0;
+int EventCore::fps = 0;
+
+EventCore::EventCore(){}
+EventCore::~EventCore(){}
+void EventCore::Initialize(){
 	if(!initialized){
 		
 		al_install_keyboard();
@@ -53,18 +56,18 @@ void InputCore::Initialize(){
 		initialized = true;
 	}
 }
-void InputCore::RegisterGameObjectAsPlayer(GameObject* character, unsigned int player_number){
+void EventCore::RegisterGameObjectAsPlayer(GameObject* character, unsigned int player_number){
 	if(player_number >= players.size()) return;
 
 	players.at(player_number).SetTarget(character);
 }
-int InputCore::GetJoystickNumberFromID(ALLEGRO_JOYSTICK* joystick){
+int EventCore::GetJoystickNumberFromID(ALLEGRO_JOYSTICK* joystick){
 	if(joysticks.find(joystick) == joysticks.end())
 		joysticks[joystick] = joysticks.size();
 
 	return joysticks[joystick];
 }
-void InputCore::Deinitialize(){
+void EventCore::Deinitialize(){
 	if(initialized){
 		al_destroy_event_queue(eventQueue);
 		al_destroy_timer(timer);
@@ -72,14 +75,27 @@ void InputCore::Deinitialize(){
 	}
 	
 }
-void InputCore::Update(){
-	while(!al_is_event_queue_empty(eventQueue)){
-		al_get_next_event(eventQueue, &ev);
+void EventCore::Update(){
+	
 
+	while(!al_is_event_queue_empty(eventQueue)){
+		al_wait_for_event(eventQueue, &ev);
+		//al_get_next_event(eventQueue, &ev);
+
+		if(ev.type == ALLEGRO_EVENT_TIMER) {
+			redraw = true;
+		}
+		if(redraw && al_is_event_queue_empty(eventQueue)) {
+			redraw = false;
+			
+			frames = al_get_timer_count(timer) + 1;	//no division by 0
+			fps = frames/(frames/60.0f);	//frames / second
+
+			GraphicsCore::PrintToDisplay(fps , WIDTH - 96, 0, "acknowledge", 0, 255, 0);
+			GraphicsCore::Update();
+		}
 		if(ev.type == ALLEGRO_EVENT_KEY_DOWN)
 		{
-			
-			
 			cout << ev.keyboard.keycode << endl;
 			
 			players.at(0).PushInputEvent(INPUT_EVENT_KEY_DOWN, ev.keyboard.keycode);
@@ -147,11 +163,6 @@ void InputCore::Update(){
 			mousePosition.Set(ev.mouse.x, ev.mouse.y);
 			mouseWheelPosition = ev.mouse.z;
 		}
-		if(ev.type == ALLEGRO_EVENT_TIMER)
-		{
-			//if(al_get_timer_count(timer) > 0)
-				
-		}
 		if(al_is_joystick_installed()){
 			int number_of_joysticks = 0;
 			int player_number = GetJoystickNumberFromID(ev.joystick.id);
@@ -189,10 +200,11 @@ void InputCore::Update(){
 			}
 		}
 	}
+	
 	//let character controllers process player input
 	for(unsigned int i = 0; i < players.size(); i++)
 		players.at(i).ProcessEventQueue();
 	
-	frames++;
-	GraphicsCore::PrintToDisplay(al_get_timer_count(timer), WIDTH - 96, 0, "acknowledge", 0, 255, 0);
+	
+	
 }

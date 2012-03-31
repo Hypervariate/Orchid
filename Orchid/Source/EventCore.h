@@ -1,5 +1,5 @@
-#ifndef INPUTCORE_H_
-#define INPUTCORE_H_
+#ifndef EVENTCORE_H_
+#define EVENTCORE_H_
 
 #include "GlobalData.h"
 #include "GraphicsCore.h"
@@ -15,11 +15,11 @@
 
 using namespace std;
 
-class InputCore{
+class EventCore{
 
 public:
-	InputCore();
-	~InputCore();
+	EventCore();
+	~EventCore();
 
 	//Input Core Routines
 	//------------------
@@ -46,6 +46,7 @@ private:
 
 	static ALLEGRO_TIMER *timer;
 	static int frames;
-
+	static int fps;
+	static bool redraw;
 };
 #endif

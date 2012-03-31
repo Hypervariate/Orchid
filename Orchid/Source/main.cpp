@@ -1,5 +1,5 @@
 #include "GraphicsCore.h"
-#include "InputCore.h"
+#include "EventCore.h"
 #include "GlobalData.h"
 #include "Witch.h"
 
@@ -10,35 +10,29 @@ int main(void)
 		return -1;
 	
 	GraphicsCore::Initialize();
-	InputCore::Initialize();
+	EventCore::Initialize();
 	
 	
 	
 
 	Witch w0 = Witch();
-	Witch w1 = Witch();
-	InputCore::RegisterGameObjectAsPlayer(&w0, 0);
-	InputCore::RegisterGameObjectAsPlayer(&w1, 1);
+	
+	EventCore::RegisterGameObjectAsPlayer(&w0, 0);
+	
 
 	
 	while(GlobalData::ApplicationRunning()){
 
-		w0.Update();
-		w1.Update();
-		w0.Draw();
-		w1.Draw();
-
-		
-		
-		GraphicsCore::Update();
-		InputCore::Update();
+		w0.Update();		
+		w0.Draw();		
+		EventCore::Update();
 		
 
 	}
 	
 
 	GraphicsCore::Deinitialize();
-	InputCore::Deinitialize();
+	EventCore::Deinitialize();
 	
 
 	return 0;

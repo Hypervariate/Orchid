@@ -41,16 +41,16 @@ void CharacterController::ProcessEventQueue(){
 				cout << "key down event " << ev.GetEventValue() << endl;
 				switch(ev.GetEventValue()){
 					case 84:	//up
-						target->Move(0,-1);
+						target->StartMovingUp();
 						break;
 					case 85:	//down
-						target->Move(0,1);
+						target->StartMovingDown();
 						break;
 					case 82:	//left
-						target->Move(-1,0);
+						target->StartMovingLeft();
 						break;
 					case 83:	//right
-						target->Move(1,0);
+						target->StartMovingRight();
 						break;
 				}
 				break;
@@ -58,16 +58,16 @@ void CharacterController::ProcessEventQueue(){
 				cout << "key up event " << ev.GetEventValue() << endl;
 				switch(ev.GetEventValue()){
 					case 84:	//up
-						target->StopMovingY();
+						target->StopMovingUp();
 						break;
 					case 85:	//down
-						target->StopMovingY();
+						target->StopMovingDown();
 						break;
 					case 82:	//left
-						target->StopMovingX();
+						target->StopMovingLeft();
 						break;
 					case 83:	//right
-						target->StopMovingX();
+						target->StopMovingRight();
 						break;
 				}
 				break;
@@ -80,20 +80,28 @@ void CharacterController::ProcessEventQueue(){
 			case INPUT_EVENT_JOYSTICK_AXIS_0:
 				cout << "joystick axis 0 event " << ev.GetEventValue() << endl;
 				if(ev.GetEventValue() < -threshold)
-					target->Move(-1,0);
-				else if(ev.GetEventValue() > threshold)
-					target->Move(1,0);
+					target->StartMovingLeft();
 				else
-					target->StopMovingX();
+					target->StopMovingLeft();
+
+				if(ev.GetEventValue() > threshold)
+					target->StartMovingRight();
+				else
+					target->StopMovingRight();
+
 				break;
 			case INPUT_EVENT_JOYSTICK_AXIS_1:
 				cout << "joystick axis 1 event " << ev.GetEventValue() << endl;
 				if(ev.GetEventValue() < -threshold)
-					target->Move(0,-1);
-				else if(ev.GetEventValue() > threshold)
-					target->Move(0,1);
+					target->StartMovingUp();
 				else
-					target->StopMovingY();
+					target->StopMovingUp();
+
+				if(ev.GetEventValue() > threshold)
+					target->StartMovingDown();
+				else
+					target->StopMovingDown();
+
 				break;
 			case INPUT_EVENT_JOYSTICK_AXIS_2:
 				cout << "joystick axis 2 event " << ev.GetEventValue() << endl;
