@@ -55,14 +55,14 @@
     <ClCompile Include="Source\InputEvent.cpp">
       <Filter>Containers</Filter>
     </ClCompile>
-    <ClCompile Include="Source\GameObject.cpp">
-      <Filter>Containers</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Witch.cpp">
       <Filter>Game Classes</Filter>
     </ClCompile>
     <ClCompile Include="Source\EventCore.cpp">
       <Filter>Cores</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObject.cpp">
+      <Filter>Game Classes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -99,14 +99,14 @@
     <ClInclude Include="Source\InputEvent.h">
       <Filter>Containers</Filter>
     </ClInclude>
-    <ClInclude Include="Source\GameObject.h">
-      <Filter>Containers</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Witch.h">
       <Filter>Game Classes</Filter>
     </ClInclude>
     <ClInclude Include="Source\EventCore.h">
       <Filter>Cores</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameObject.h">
+      <Filter>Game Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,6 +3,7 @@
 
 
 #include "GameObject.h"
+#include "Shape2DCircle.h"
 
 
 class Witch : public GameObject{

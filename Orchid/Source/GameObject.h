@@ -27,7 +27,7 @@ public:
 	virtual void StopMovingRight();
 
 protected:
-	Shape2DRect shape;
+	Shape2D* shape;
 	unsigned int speed;
 	float maxSpeed;
 	float minSpeed;
@@ -38,8 +38,15 @@ protected:
 	Vector2DF inertia;
 	Vector2DF baseInertia;
 
+	
+	bool moveUp;
+	bool moveDown;
+	bool moveLeft;
+	bool moveRight;
+
 private:
 	virtual void Move(float dirX, float dirY);
+
 
 };
 
