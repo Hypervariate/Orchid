@@ -3,7 +3,7 @@
 
 bool EventCore::initialized = false;
 ALLEGRO_EVENT_QUEUE *EventCore::eventQueue = NULL;
-//ALLEGRO_EVENT EventCore::ev;
+ALLEGRO_EVENT EventCore::ev;
 
 Vector2D EventCore::mousePosition;
 int EventCore::mouseWheelPosition;
@@ -18,7 +18,6 @@ map<ALLEGRO_JOYSTICK*, int> EventCore::joysticks;
 ALLEGRO_TIMER *EventCore::timer = NULL;
 int EventCore::frames = 0;
 int EventCore::fps = 0;
-float EventCore::DESIRED_FPS = 60.0f;
 
 EventCore::EventCore(){}
 EventCore::~EventCore(){}
@@ -29,7 +28,7 @@ void EventCore::Initialize(){
 		al_install_mouse();
 		al_install_joystick();
 
-		timer = al_create_timer(1.0 / DESIRED_FPS);
+		timer = al_create_timer(1.0 / 60);
 
 
 		eventQueue = al_create_event_queue();
@@ -81,25 +80,19 @@ void EventCore::Update(){
 	
 	
 	while(!al_is_event_queue_empty(eventQueue)){
-		ALLEGRO_EVENT ev;
 		al_wait_for_event(eventQueue, &ev);
 		
 
 		if(ev.type == ALLEGRO_EVENT_TIMER) {
-			GraphicsCore::PrintToDisplay(al_get_timer_count(timer) , WIDTH - 96, 0, "acknowledge", 0, 255, 0);
-			int count = al_get_timer_count(timer);
-			if(count > 1){
-				redraw = true;
-				al_set_timer_count(timer, 0);
-			}
+			redraw = true;
 		}
 		if(redraw && al_is_event_queue_empty(eventQueue)) {
 			redraw = false;
 			
 			frames = al_get_timer_count(timer) + 1;	//no division by 0
-			fps = frames/(frames/DESIRED_FPS);	//frames / second
+			fps = frames/(frames/60.0f);	//frames / second
 
-			//GraphicsCore::PrintToDisplay(fps , WIDTH - 96, 0, "acknowledge", 0, 255, 0);
+			GraphicsCore::PrintToDisplay(fps , WIDTH - 96, 0, "acknowledge", 0, 255, 0);
 			GraphicsCore::Update();
 		}
 		if(ev.type == ALLEGRO_EVENT_KEY_DOWN)

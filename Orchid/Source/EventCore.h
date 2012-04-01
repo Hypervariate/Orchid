@@ -35,7 +35,7 @@ public:
 private:	
 	static bool initialized;			//graphics have been initialized
 	static ALLEGRO_EVENT_QUEUE *eventQueue;
-	//static ALLEGRO_EVENT ev;
+	static ALLEGRO_EVENT ev;
 	
 	static Vector2D mousePosition;
 	static int mouseWheelPosition;
@@ -50,6 +50,6 @@ private:
 	static int frames;
 	static int fps;
 	static bool redraw;
-	static float DESIRED_FPS;
+	
 };
 #endif

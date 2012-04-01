@@ -68,8 +68,8 @@ void GameObject::Draw(){
 }
 void GameObject::Move(float dirX, float dirY){
 	inertia.Set(baseInertia.x, baseInertia.y);
-	velocity.x += dirX * inertia.x;
-	velocity.y += dirY * inertia.y;
+	velocity.x = dirX * inertia.x;
+	velocity.y = dirY * inertia.y;
 }
 void GameObject::StartMovingUp(){
 	moveUp = true;
