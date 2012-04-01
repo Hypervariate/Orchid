@@ -11,7 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Animation.cpp" />
     <ClCompile Include="Source\CharacterController.cpp" />
+    <ClCompile Include="Source\FileReader.cpp" />
     <ClCompile Include="Source\GameObject.cpp" />
     <ClCompile Include="Source\Shape2DCircle.cpp" />
     <ClCompile Include="Source\CubeGrid.cpp" />
@@ -28,7 +30,9 @@
     <ClCompile Include="Source\Witch.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Animation.h" />
     <ClInclude Include="Source\CharacterController.h" />
+    <ClInclude Include="Source\FileReader.h" />
     <ClInclude Include="Source\GameObject.h" />
     <ClInclude Include="Source\Shape2DCircle.h" />
     <ClInclude Include="Source\CubeGrid.h" />

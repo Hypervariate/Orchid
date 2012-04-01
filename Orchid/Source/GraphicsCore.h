@@ -8,10 +8,12 @@
 #include <allegro5\allegro_font.h>
 #include <allegro5\allegro_ttf.h>
 #include <allegro5/allegro_native_dialog.h>
+#include <allegro5\allegro_image.h>
 
 #include <map>
 #include <string>
 #include <iostream>
+
 
 
 using namespace std;
@@ -65,6 +67,10 @@ public:
 	static void PrintToDisplay(int i, int x, int y, string font, unsigned char r = 0, unsigned char g = 0, unsigned char b = 0);
 	
 	static ALLEGRO_DISPLAY* GetDisplay();
+
+	static bool LoadImage(char* image_name);
+	static void BlitImage(string index, int x = WIDTH/2, int y = HEIGHT/2);
+
 private:
 
 	static ALLEGRO_DISPLAY *display;	//Allegro Display Object (back-buffer)
@@ -76,5 +82,9 @@ private:
 	static map<string, ALLEGRO_FONT*>::iterator fontIterator;
 	//------------------
 
+	//Images
+	//------------------
+	static map<string, ALLEGRO_BITMAP*> m_images;
+	//------------------
 };
 #endif

@@ -64,6 +64,8 @@
     <ClCompile Include="Source\CharacterController.cpp">
       <Filter>Game Classes</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Animation.cpp" />
+    <ClCompile Include="Source\FileReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CubeGrid.h">
@@ -108,5 +110,7 @@
     <ClInclude Include="Source\CharacterController.h">
       <Filter>Game Classes</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Animation.h" />
+    <ClInclude Include="Source\FileReader.h" />
   </ItemGroup>
 </Project>

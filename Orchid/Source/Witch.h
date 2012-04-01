@@ -4,13 +4,19 @@
 
 #include "GameObject.h"
 #include "Shape2DCircle.h"
-
+#include "Animation.h"
 
 class Witch : public GameObject{
 
 public:
 	Witch();
 	~Witch();
+
+	void Update();
+	void Draw();
+
+private:
+	Animation animation;
 
 	
 

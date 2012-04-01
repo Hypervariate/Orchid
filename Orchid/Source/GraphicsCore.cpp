@@ -8,6 +8,8 @@ map<string, ALLEGRO_FONT*> GraphicsCore::fonts;	//archived fonts loaded at load-
 map<string, ALLEGRO_FONT*>::iterator GraphicsCore::fontIterator;
 //------------------
 
+map<string, ALLEGRO_BITMAP*> GraphicsCore::m_images;
+
 
 GraphicsCore::GraphicsCore(){}
 GraphicsCore::~GraphicsCore(){}
@@ -21,7 +23,8 @@ void GraphicsCore::Initialize(){
 		al_init_primitives_addon();							
 		al_init_font_addon();
 		al_init_ttf_addon();
-		
+		al_init_image_addon();
+
 		//load fonts
 		LoadFont("acknowledge", 36);
 
@@ -134,4 +137,45 @@ ALLEGRO_DISPLAY* GraphicsCore::GetDisplay(){
 	if(initialized == false)
 		GraphicsCore::Initialize();
 	return display;
+}
+void GraphicsCore::BlitImage(string index, int x, int y){
+	char* name = (char*)index.c_str();
+	bool success = true;
+	if(m_images[name] == NULL)
+		success = LoadImage(name);
+	if(!success){
+		return;
+	}
+	al_draw_bitmap(m_images[name], x, y, 0);	
+	
+}
+bool GraphicsCore::LoadImage(char* image_name)
+{
+	//check if image already exists
+	if(m_images[image_name] != NULL)
+	{
+		ALLEGRO_BITMAP* bitmap = m_images[image_name];
+        al_destroy_bitmap(bitmap);
+        bitmap=NULL;
+	}
+
+	char path[MAX_PATH_LENGTH];
+
+	for(int i = 0; i < MAX_PATH_LENGTH; i++)
+		path[i] = '\0';
+
+	strcat(path, IMAGE_DIRECTORY);
+	strcat(path, image_name);
+	strcat(path, IMAGE_EXTENSION);	
+
+	ALLEGRO_BITMAP *bitmap = NULL;
+	bitmap = al_load_bitmap(path);
+	if ( !bitmap )
+    {
+      cout << "img load failed: " <<  path << endl;
+      return false;
+    }
+	m_images[image_name] = bitmap;
+
+	return true;
 }
