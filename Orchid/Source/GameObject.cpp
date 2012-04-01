@@ -31,6 +31,7 @@ GameObject::~GameObject(){
 	delete shape;
 }
 void GameObject::Update(){
+	
 
 	velocity.x = min(velocity.x, maxSpeed);
 	velocity.x = max(velocity.x, -maxSpeed);
@@ -90,20 +91,26 @@ void GameObject::StartMovingRight(){
 void GameObject::StopMovingUp(){
 	moveUp = false;
 	if(velocity.y < 0 && !moveDown) inertia.y = 0;
-	else if(moveDown) StartMovingDown();
+	ResumeMovement();
 }
 void GameObject::StopMovingDown(){
 	moveDown = false;
 	if(velocity.y > 0 && !moveUp) inertia.y = 0;
-	else if(moveUp) StartMovingUp();
+	ResumeMovement();
 }
 void GameObject::StopMovingLeft(){
 	moveLeft = false;
 	if(velocity.x < 0 && !moveRight) inertia.x = 0;
-	else if(moveRight) StartMovingRight();
+	ResumeMovement();
 }
 void GameObject::StopMovingRight(){
 	moveRight = false;
 	if(velocity.x > 0 && !moveLeft) inertia.x = 0;
-	else if(moveLeft) StartMovingLeft();
+	ResumeMovement();
+}
+void GameObject::ResumeMovement(){
+	if(moveLeft) StartMovingLeft();
+	if(moveRight) StartMovingRight();
+	if(moveUp) StartMovingUp();
+	if(moveDown) StartMovingDown();
 }
