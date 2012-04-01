@@ -53,7 +53,7 @@ private:
 	static int fps;
 	static bool redraw;
 
-	static Witch w;	
+	
 	
 	
 };

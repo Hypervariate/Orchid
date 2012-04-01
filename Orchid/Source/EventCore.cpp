@@ -19,12 +19,14 @@ ALLEGRO_TIMER *EventCore::timer = NULL;
 int EventCore::frames = 0;
 int EventCore::fps = 0;
 
-Witch EventCore::w = Witch();
 
 EventCore::EventCore(){}
 EventCore::~EventCore(){}
 void EventCore::Initialize(){
 	if(!initialized){
+
+		if(!al_init())			//initialize Allegro
+			GlobalData::RequestApplicationTermination("Allegro failed to init.");
 		
 		al_install_keyboard();
 		al_install_mouse();
@@ -58,7 +60,7 @@ void EventCore::Initialize(){
 
 		initialized = true;
 		
-		RegisterGameObjectAsPlayer(&w, 0);
+		
 	}
 }
 void EventCore::RegisterGameObjectAsPlayer(GameObject* character, unsigned int player_number){
@@ -205,8 +207,7 @@ void EventCore::Update(){
 			}
 		}
 
-		w.Update();		
-		w.Draw();
+		GameObject::UpdateAll();
 
 
 		//let character controllers process player input

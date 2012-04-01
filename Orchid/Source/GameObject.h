@@ -7,14 +7,22 @@
 #include "Vector2DF.h"
 #include "GlobalData.h"
 
+#include <list>
+
 class GameObject{
 
 public:
 	GameObject();
 	~GameObject();
 
+	static std::list<GameObject *> objects;
+	static std::list<GameObject *>::iterator iter1;
+	static std::list<GameObject *>::iterator iter2;
+
 	virtual void Update();
 	virtual void Draw();
+
+	static void UpdateAll();
 
 	virtual void StartMovingUp();
 	virtual void StartMovingDown();

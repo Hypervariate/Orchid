@@ -1,4 +1,3 @@
-#include "GraphicsCore.h"
 #include "EventCore.h"
 #include "GlobalData.h"
 #include "Witch.h"
@@ -6,18 +5,13 @@
 
 int main(void)
 {
-	if(!al_init())			//initialize Allegro
-		return -1;
-	
-	GraphicsCore::Initialize();
 	EventCore::Initialize();
+	GraphicsCore::Initialize();
 	
-	
-	
-	EventCore::Update();
-		
+	Witch w = Witch();
+	EventCore::RegisterGameObjectAsPlayer(&w, 0);		
 
-	
+	EventCore::Update();
 	
 
 	GraphicsCore::Deinitialize();

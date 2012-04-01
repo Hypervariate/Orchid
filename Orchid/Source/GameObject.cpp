@@ -1,5 +1,10 @@
 #include "GameObject.h"
 
+std::list<GameObject *> GameObject::objects;
+std::list<GameObject *>::iterator GameObject::iter1;
+std::list<GameObject *>::iterator GameObject::iter2;
+
+
 GameObject::GameObject(){
 	shape = new Shape2DRect();
 
@@ -23,10 +28,18 @@ GameObject::GameObject(){
 
 	moveUp = moveDown = moveLeft = moveRight = false;
 	
-	
+	objects.push_back(this);
 }
 GameObject::~GameObject(){
 	delete shape;
+	objects.remove(this);
+}
+void GameObject::UpdateAll(){
+	//update all game objects
+	for(iter1 = objects.begin(); iter1 != objects.end(); ++iter1){
+		(*iter1)->Update();
+		(*iter1)->Draw();
+	}
 }
 void GameObject::Update(){
 
