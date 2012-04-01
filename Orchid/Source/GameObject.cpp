@@ -29,7 +29,6 @@ GameObject::~GameObject(){
 	delete shape;
 }
 void GameObject::Update(){
-	
 
 	if(moveLeft) Move(-1,0);
 	if(moveRight) Move(1,0);	
@@ -93,34 +92,18 @@ void GameObject::StartMovingRight(){
 void GameObject::StopMovingUp(){
 	moveUp = false;
 	if(velocity.y < 0 && !moveDown) inertia.y = 0;
-<<<<<<< HEAD
-=======
-	ResumeMovement();
->>>>>>> 8ee78537c708d0e37428fe4a3db09a7627bd62c7
 }
 void GameObject::StopMovingDown(){
 	moveDown = false;
 	if(velocity.y > 0 && !moveUp) inertia.y = 0;
-<<<<<<< HEAD
-=======
-	ResumeMovement();
->>>>>>> 8ee78537c708d0e37428fe4a3db09a7627bd62c7
 }
 void GameObject::StopMovingLeft(){
 	moveLeft = false;
 	if(velocity.x < 0 && !moveRight) inertia.x = 0;
-<<<<<<< HEAD
-=======
-	ResumeMovement();
->>>>>>> 8ee78537c708d0e37428fe4a3db09a7627bd62c7
 }
 void GameObject::StopMovingRight(){
 	moveRight = false;
 	if(velocity.x > 0 && !moveLeft) inertia.x = 0;
-<<<<<<< HEAD
-=======
-	ResumeMovement();
->>>>>>> 8ee78537c708d0e37428fe4a3db09a7627bd62c7
 }
 void GameObject::ResumeMovement(){
 	if(moveLeft) StartMovingLeft();

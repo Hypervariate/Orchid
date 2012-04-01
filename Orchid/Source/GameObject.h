@@ -25,7 +25,6 @@ public:
 	virtual void StopMovingDown();
 	virtual void StopMovingLeft();
 	virtual void StopMovingRight();
-	virtual void ResumeMovement();
 
 	virtual void ResumeMovement();
 
