@@ -63,9 +63,14 @@ unsigned int FileReader::GetAllFileNamesInDirectory(string dir, vector<string> &
     }
 
     while ((dirp = readdir(dp)) != NULL) {
-		if(string(dirp->d_name) == "." || string(dirp->d_name) == "..")
+		string name = string(dirp->d_name);
+		if(name == "." || name == "..")
 			continue;
-        files.push_back(string(dirp->d_name));
+
+		int found = name.find_last_of(".");
+		name = name.substr(0,found);
+
+        files.push_back(name);
     }
     closedir(dp);
     return 0;

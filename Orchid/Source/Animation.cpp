@@ -56,6 +56,7 @@ bool Animation::LoadAnimation(char* animation_name, Animation* animation)
 
 	strcat(path, ANIMATION_DIRECTORY);
 	strcat(path, animation_name);
+	strcat(path, ANIMATION_EXTENSION);
 	
 
 	bool success = m_fileReader.OpenFile(path);

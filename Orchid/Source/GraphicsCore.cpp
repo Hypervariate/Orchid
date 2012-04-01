@@ -55,6 +55,7 @@ void GraphicsCore::Deinitialize(){
 	al_shutdown_ttf_addon();
 	al_shutdown_font_addon();
 	al_shutdown_primitives_addon();
+	al_shutdown_image_addon();
 
 
 	initialized = false;
@@ -116,7 +117,7 @@ bool GraphicsCore::LoadFont(string font_name, unsigned int size)
         path[i] = '\0';
     strcat(path, FONT_DIRECTORY);
     strcat(path, font_name.c_str());
-    
+    strcat(path, FONT_EXTENSION);
     
     cout << "\nLoading font \"" << path;
     ALLEGRO_FONT *font = al_load_font(path, size, 0);
@@ -178,6 +179,7 @@ bool GraphicsCore::LoadImage(char* image_name)
 
 	strcat(path, IMAGE_DIRECTORY);
 	strcat(path, image_name);
+	strcat(path, IMAGE_EXTENSION);
 
 	ALLEGRO_BITMAP *bitmap = NULL;
 	bitmap = al_load_bitmap(path);
