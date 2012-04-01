@@ -1,7 +1,9 @@
 #ifndef FILEREADER_H
 #define FILEREADER_H
 
-
+#include <sys/types.h>
+#include "dirent.h"
+#include <errno.h>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -27,6 +29,7 @@ public:
 	unsigned int GetTotalTokens();
 
 	bool TokenizeFile();
+	unsigned int GetAllFileNamesInDirectory(string dir, vector<string> &files);
 
 private:
 	ifstream m_readFile;

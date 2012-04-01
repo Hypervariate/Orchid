@@ -66,6 +66,7 @@
     </ClCompile>
     <ClCompile Include="Source\Animation.cpp" />
     <ClCompile Include="Source\FileReader.cpp" />
+    <ClCompile Include="Source\dirent.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CubeGrid.h">
@@ -112,5 +113,6 @@
     </ClInclude>
     <ClInclude Include="Source\Animation.h" />
     <ClInclude Include="Source\FileReader.h" />
+    <ClInclude Include="Source\dirent.h" />
   </ItemGroup>
 </Project>
