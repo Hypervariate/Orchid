@@ -13,6 +13,8 @@
 #include <string>
 #include <iostream>
 
+#include "Witch.h"
+
 using namespace std;
 
 
@@ -50,6 +52,9 @@ private:
 	static int frames;
 	static int fps;
 	static bool redraw;
+
+	static Witch w;	
+	
 	
 };
 #endif

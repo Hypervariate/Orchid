@@ -19,6 +19,8 @@ ALLEGRO_TIMER *EventCore::timer = NULL;
 int EventCore::frames = 0;
 int EventCore::fps = 0;
 
+Witch EventCore::w = Witch();
+
 EventCore::EventCore(){}
 EventCore::~EventCore(){}
 void EventCore::Initialize(){
@@ -55,6 +57,8 @@ void EventCore::Initialize(){
 		frames = 0;
 
 		initialized = true;
+		
+		RegisterGameObjectAsPlayer(&w, 0);
 	}
 }
 void EventCore::RegisterGameObjectAsPlayer(GameObject* character, unsigned int player_number){
@@ -79,7 +83,7 @@ void EventCore::Deinitialize(){
 void EventCore::Update(){
 	
 	
-	while(!al_is_event_queue_empty(eventQueue)){
+	while(GlobalData::ApplicationRunning()){
 		al_wait_for_event(eventQueue, &ev);
 		
 
@@ -200,11 +204,18 @@ void EventCore::Update(){
 					
 			}
 		}
-	}
+
+		w.Update();		
+		w.Draw();
+
+
+		//let character controllers process player input
+		for(unsigned int i = 0; i < players.size(); i++)
+			players.at(i).ProcessEventQueue();
 	
-	//let character controllers process player input
-	for(unsigned int i = 0; i < players.size(); i++)
-		players.at(i).ProcessEventQueue();
+		
+	
+	}
 	
 	
 	

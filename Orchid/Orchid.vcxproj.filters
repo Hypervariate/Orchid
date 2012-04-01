@@ -37,9 +37,6 @@
     <ClCompile Include="Source\GraphicsCore.cpp">
       <Filter>Cores</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterController.cpp">
-      <Filter>Containers</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Shape2D.cpp">
       <Filter>Containers</Filter>
     </ClCompile>
@@ -64,6 +61,9 @@
     <ClCompile Include="Source\GameObject.cpp">
       <Filter>Game Classes</Filter>
     </ClCompile>
+    <ClCompile Include="Source\CharacterController.cpp">
+      <Filter>Game Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CubeGrid.h">
@@ -84,9 +84,6 @@
     <ClInclude Include="Source\GraphicsCore.h">
       <Filter>Cores</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CharacterController.h">
-      <Filter>Containers</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Shape2DRect.h">
       <Filter>Containers</Filter>
     </ClInclude>
@@ -106,6 +103,9 @@
       <Filter>Cores</Filter>
     </ClInclude>
     <ClInclude Include="Source\GameObject.h">
+      <Filter>Game Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterController.h">
       <Filter>Game Classes</Filter>
     </ClInclude>
   </ItemGroup>

@@ -14,21 +14,10 @@ int main(void)
 	
 	
 	
-
-	Witch w0 = Witch();
-	
-	EventCore::RegisterGameObjectAsPlayer(&w0, 0);
-	
-
-	
-	while(GlobalData::ApplicationRunning()){
-
-		w0.Update();		
-		w0.Draw();		
-		EventCore::Update();
+	EventCore::Update();
 		
 
-	}
+	
 	
 
 	GraphicsCore::Deinitialize();

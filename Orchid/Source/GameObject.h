@@ -26,6 +26,8 @@ public:
 	virtual void StopMovingLeft();
 	virtual void StopMovingRight();
 
+	virtual void ResumeMovement();
+
 protected:
 	Shape2D* shape;
 	unsigned int speed;
