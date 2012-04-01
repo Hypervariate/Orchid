@@ -11,15 +11,18 @@
 #include <allegro5\allegro_image.h>
 
 #include <map>
-#include <string>
-#include <iostream>
-
-
+#include "FileReader.h"
 
 using namespace std;
 
 const int WIDTH = 640;
 const int HEIGHT = 480;
+
+#define IMAGE_DIRECTORY "Data/Images/"
+#define IMAGE_EXTENSION ".png"
+
+#define FONT_DIRECTORY "Data/Fonts/"
+#define FONT_EXTENSION ".ttf"
 
 class GraphicsCore{
 
@@ -72,6 +75,8 @@ public:
 	static void BlitImage(string index, int x = WIDTH/2, int y = HEIGHT/2);
 
 private:
+
+	static FileReader fileReader;
 
 	static ALLEGRO_DISPLAY *display;	//Allegro Display Object (back-buffer)
 	static bool initialized;			//graphics have been initialized

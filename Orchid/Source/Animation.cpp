@@ -1,5 +1,7 @@
 #include "Animation.h"
 FileReader Animation::m_fileReader;
+std::map<string, Animation> Animation::animationFactory;
+std::map<string, Animation>::iterator Animation::iter;
 
 Animation::Animation()
 {
@@ -18,6 +20,33 @@ void Animation::ClearAnimation()
 {
 	
 }
+void Animation::CacheAllAnimationFiles(){
+	vector<string> animationFileNames;
+	m_fileReader.GetAllFileNamesInDirectory(ANIMATION_DIRECTORY, animationFileNames);
+	for(int i = 0; i < animationFileNames.size(); i++){
+		Animation animation;
+		LoadAnimation((char*)animationFileNames.at(i).c_str(), &animation);
+		
+		animationFactory.insert(pair<string, Animation>(animationFileNames.at(i), animation));
+	}
+}
+Animation Animation::FactoryAnimation(string animationName){
+	if(animationFactory.size() == 0)
+		Animation::CacheAllAnimationFiles();
+
+	Animation animation;
+	if(animationFactory.find(animationName) == animationFactory.end()){
+		iter = animationFactory.begin();
+		animation = (*iter).second;
+	}
+	else{
+		animation = animationFactory[animationName];
+	}
+
+
+	return animation;
+
+}
 bool Animation::LoadAnimation(char* animation_name, Animation* animation)
 {
 	char path[MAX_PATH_LENGTH];
@@ -27,7 +56,7 @@ bool Animation::LoadAnimation(char* animation_name, Animation* animation)
 
 	strcat(path, ANIMATION_DIRECTORY);
 	strcat(path, animation_name);
-	strcat(path, ANIMATION_EXTENSION);	
+	
 
 	bool success = m_fileReader.OpenFile(path);
 	if(success)

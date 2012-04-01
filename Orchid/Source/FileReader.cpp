@@ -63,6 +63,8 @@ unsigned int FileReader::GetAllFileNamesInDirectory(string dir, vector<string> &
     }
 
     while ((dirp = readdir(dp)) != NULL) {
+		if(string(dirp->d_name) == "." || string(dirp->d_name) == "..")
+			continue;
         files.push_back(string(dirp->d_name));
     }
     closedir(dp);

@@ -2,7 +2,7 @@
 #define ANIMATION_H_
 
 #include "FileReader.h"
-
+#include <map>
 
 #define ANIMATION_DIRECTORY "Data/Animations/"
 #define ANIMATION_EXTENSION ".txt"
@@ -18,12 +18,10 @@ public:
 	Animation();
 	~Animation();
 
-	static bool LoadAnimation(char* animation_name, Animation* animation);	//loads animation from a file name. Do not pass directory/extension	
-	unsigned int GetFrameCount();				//returns the total frame count for the animation sequence
-
 	
+	static Animation FactoryAnimation(string animationName);
+
 	string UpdateAnimation(float delta_time);	//updates the current frame if necessary. Always returns current frame name.
-	string GetFrameName(unsigned int index);		//returns the name of the current frame image accepted by Graphics::BlitImage(name)
 
 	void PauseAnimation();	//halt the animation at the current frame
 	void StopAnimation();	//stop the animation and set the current frame to 0
@@ -32,10 +30,20 @@ public:
 	bool IsAnimationPlaying(); //returns true if animation is animating, false if paused or stopped
 
 	void SetAnimationBehavior(ANIMATION_BEHAVIOR behavior);
-	void ClearAnimation();	//delete all frames on the heap
-	char* GetAnimationName();
+	
+	
 
 private:
+	static std::map<string, Animation> animationFactory;
+	static std::map<string, Animation>::iterator iter;
+	
+	static void CacheAllAnimationFiles();
+
+	static bool LoadAnimation(char* animation_name, Animation* animation);	//loads animation from a file name. Do not pass directory/extension	
+	unsigned int GetFrameCount();				//returns the total frame count for the animation sequence
+	string GetFrameName(unsigned int index);		//returns the name of the current frame image accepted by Graphics::BlitImage(name)
+	char* GetAnimationName();
+	void ClearAnimation();	//delete all frames on the heap
 
 	char m_animationName[MAX_PATH_LENGTH];
 	static FileReader m_fileReader;

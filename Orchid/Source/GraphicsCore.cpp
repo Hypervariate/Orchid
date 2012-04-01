@@ -10,6 +10,8 @@ map<string, ALLEGRO_FONT*>::iterator GraphicsCore::fontIterator;
 
 map<string, ALLEGRO_BITMAP*> GraphicsCore::m_images;
 
+FileReader GraphicsCore::fileReader;
+
 
 GraphicsCore::GraphicsCore(){}
 GraphicsCore::~GraphicsCore(){}
@@ -25,9 +27,19 @@ void GraphicsCore::Initialize(){
 		al_init_ttf_addon();
 		al_init_image_addon();
 
-		//load fonts
-		LoadFont("acknowledge", 36);
+		//load all font files located in fonts directory
+		vector<string> fontFileNames;
+		fileReader.GetAllFileNamesInDirectory(FONT_DIRECTORY, fontFileNames);
+		for(int i = 0; i < fontFileNames.size(); i++)
+			LoadFont(fontFileNames.at(i), 36);
 
+		//load all images located in image directory
+		vector<string> imageFileNames;
+		fileReader.GetAllFileNamesInDirectory(IMAGE_DIRECTORY, imageFileNames);
+		for(int i = 0; i < imageFileNames.size(); i++)
+			LoadImage((char*)imageFileNames.at(i).c_str());
+
+		
 		
 		
 		initialized = true;
@@ -102,9 +114,9 @@ bool GraphicsCore::LoadFont(string font_name, unsigned int size)
     char path[path_length];
     for(int i = 0; i < path_length; i++)
         path[i] = '\0';
-    strcat(path, "Data/Fonts/");
+    strcat(path, FONT_DIRECTORY);
     strcat(path, font_name.c_str());
-    strcat(path, ".ttf");	
+    
     
     cout << "\nLoading font \"" << path;
     ALLEGRO_FONT *font = al_load_font(path, size, 0);
@@ -166,7 +178,6 @@ bool GraphicsCore::LoadImage(char* image_name)
 
 	strcat(path, IMAGE_DIRECTORY);
 	strcat(path, image_name);
-	strcat(path, IMAGE_EXTENSION);	
 
 	ALLEGRO_BITMAP *bitmap = NULL;
 	bitmap = al_load_bitmap(path);

@@ -1,12 +1,12 @@
 //FRAME <image_file_name>
-FRAME librarian_idle_0
-FRAME librarian_idle_1
-FRAME librarian_idle_2
-FRAME librarian_idle_3
-FRAME librarian_idle_4
-FRAME librarian_idle_5
-FRAME librarian_idle_6
-FRAME librarian_idle_7
+FRAME librarian_idle_0.png
+FRAME librarian_idle_1.png
+FRAME librarian_idle_2.png
+FRAME librarian_idle_3.png
+FRAME librarian_idle_4.png
+FRAME librarian_idle_5.png
+FRAME librarian_idle_6.png
+FRAME librarian_idle_7.png
 
 //FRAMERATE <float value (seconds)>
 FRAMERATE 0.6
