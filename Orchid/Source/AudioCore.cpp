@@ -1,36 +1,46 @@
 #include "AudioCore.h"
 
 FileReader AudioCore::fileReader;
+
 std::map<string, ALLEGRO_SAMPLE *> AudioCore::samples;
-std::map<string, ALLEGRO_SAMPLE *>::iterator AudioCore::iter;
+std::map<string, ALLEGRO_SAMPLE *>::iterator AudioCore::samplesIter;
+
+std::map<string, ALLEGRO_SAMPLE_INSTANCE *> AudioCore::instances;
+std::map<string, ALLEGRO_SAMPLE_INSTANCE *>::iterator AudioCore::instancesIter;
 
 AudioCore::AudioCore(){}
 AudioCore::~AudioCore(){}
 void AudioCore::Initialize(){
 	al_install_audio();
 	al_init_acodec_addon();
-	al_reserve_samples(1);
+	al_reserve_samples(8);
 
 	//load all font files located in fonts directory
 	vector<string> audioFileNames;
 	fileReader.GetAllFileNamesInDirectory(AUDIO_DIRECTORY, audioFileNames);
-	for(int i = 0; i < audioFileNames.size(); i++)
+	for(int i = 0; i < audioFileNames.size(); i++){
 		LoadSample((char*)audioFileNames.at(i).c_str());
+	}
 }
 void AudioCore::Deinitialize(){
 	
-	for(iter = samples.begin(); iter != samples.end(); iter++)
-		al_destroy_sample((*iter).second);
+	for(instancesIter = instances.begin(); instancesIter != instances.end(); instancesIter++){
+		al_destroy_sample_instance((*instancesIter).second);
+	}
+	
+	for(samplesIter = samples.begin(); samplesIter != samples.end(); samplesIter++){
+		al_destroy_sample((*samplesIter).second);
+	}
 	
 }
 void AudioCore::Update(){
 
 }
 void AudioCore::PlaySample(string fileName){
-	if(samples.find(fileName) == samples.end())
+	if(instances.find(fileName) == instances.end())
 		return;
 
-	al_play_sample(samples[fileName], 1, 0, 1, ALLEGRO_PLAYMODE_ONCE, NULL);
+	al_play_sample_instance(instances[fileName]);
 }
 bool AudioCore::LoadSample(char* fileName)
 {
@@ -59,6 +69,11 @@ bool AudioCore::LoadSample(char* fileName)
       return false;
     }
 	samples[fileName] = sample;
+
+	ALLEGRO_SAMPLE_INSTANCE *instance = NULL;
+	instance = al_create_sample_instance(sample);
+	al_attach_sample_instance_to_mixer(instance, al_get_default_mixer());
+	instances[fileName] = instance;
 
 	return true;
 }

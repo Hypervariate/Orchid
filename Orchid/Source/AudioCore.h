@@ -28,8 +28,12 @@ private:
 	static bool LoadSample(char* fileName);
 
 	static FileReader fileReader;
+
 	static std::map<string, ALLEGRO_SAMPLE *> samples;
-	static std::map<string, ALLEGRO_SAMPLE *>::iterator iter;
+	static std::map<string, ALLEGRO_SAMPLE *>::iterator samplesIter;
+
+	static std::map<string, ALLEGRO_SAMPLE_INSTANCE *> instances;
+	static std::map<string, ALLEGRO_SAMPLE_INSTANCE *>::iterator instancesIter;
 
 };
 

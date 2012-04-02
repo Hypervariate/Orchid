@@ -15,6 +15,13 @@ int main(void)
 
 	Witch w2 = Witch();	
 	AudioCore::PlaySample("chirp");
+	AudioCore::PlaySample("chirp");
+	AudioCore::PlaySample("chirp");
+	AudioCore::PlaySample("chirp");
+	AudioCore::PlaySample("chirp");
+	AudioCore::PlaySample("chirp");
+	AudioCore::PlaySample("chirp");
+	AudioCore::PlaySample("static");
 
 	EventCore::Update();
 
