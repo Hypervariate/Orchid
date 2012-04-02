@@ -98,7 +98,7 @@ void EventCore::Update(){
 			frames = al_get_timer_count(timer) + 1;	//no division by 0
 			fps = frames/(frames/60.0f);	//frames / second
 
-			GraphicsCore::PrintToDisplay(fps , WIDTH - 96, 0, "acknowledge", 0, 255, 0);
+			GraphicsCore::PrintToDisplay(fps , WIDTH - 96, 0, "Arcade", 0, 255, 0);
 			GraphicsCore::Update();
 		}
 		if(ev.type == ALLEGRO_EVENT_KEY_DOWN)

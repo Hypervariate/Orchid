@@ -16,7 +16,7 @@
 using namespace std;
 
 const int WIDTH = 640;
-const int HEIGHT = 480;
+const int HEIGHT = 320;
 
 #define IMAGE_DIRECTORY "Data/Images/"
 #define IMAGE_EXTENSION ".png"
@@ -66,8 +66,8 @@ public:
 	static void DrawSpline(float points[8], unsigned char r, unsigned char g, unsigned char b, float thickness);
 	//------------------
 
-	static void PrintToDisplay(string text, int x, int y, string font, unsigned char r = 0, unsigned char g = 0, unsigned char b = 0);
-	static void PrintToDisplay(int i, int x, int y, string font, unsigned char r = 0, unsigned char g = 0, unsigned char b = 0);
+	static void PrintToDisplay(string text, int x, int y, string font = "Acknowledge", unsigned char r = 0, unsigned char g = 0, unsigned char b = 0);
+	static void PrintToDisplay(int i, int x, int y, string font = "Acknowledge", unsigned char r = 0, unsigned char g = 0, unsigned char b = 0);
 	
 	static ALLEGRO_DISPLAY* GetDisplay();
 

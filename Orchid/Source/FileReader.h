@@ -11,7 +11,7 @@
 
 using namespace std;
 
-#define MAX_PATH_LENGTH 256
+#define MAX_PATH_LENGTH 512
 
 class FileReader{
 public:

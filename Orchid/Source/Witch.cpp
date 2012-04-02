@@ -5,7 +5,7 @@ Witch::Witch(){
 	shape = NULL;
 	shape = new Shape2DCircle(50,50,50);
 	
-	animation = Animation::FactoryAnimation("librarian_idle");
+	animation = Animation::FactoryAnimation("Librarian_Idle");
 	animation.PlayAnimation();
 }
 Witch::~Witch(){
