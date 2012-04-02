@@ -67,6 +67,9 @@
     <ClCompile Include="Source\Animation.cpp" />
     <ClCompile Include="Source\FileReader.cpp" />
     <ClCompile Include="Source\dirent.c" />
+    <ClCompile Include="Source\AudioCore.cpp">
+      <Filter>Cores</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CubeGrid.h">
@@ -114,5 +117,8 @@
     <ClInclude Include="Source\Animation.h" />
     <ClInclude Include="Source\FileReader.h" />
     <ClInclude Include="Source\dirent.h" />
+    <ClInclude Include="Source\AudioCore.h">
+      <Filter>Cores</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
