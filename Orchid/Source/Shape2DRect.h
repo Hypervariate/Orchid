@@ -30,7 +30,8 @@ public:
 
 	virtual void DrawShape();
 	
-
+	virtual SHAPE_TYPE GetType();
+	bool DetectCollision(Shape2D* target);
 };
 
 #endif

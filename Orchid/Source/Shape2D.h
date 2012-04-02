@@ -1,6 +1,13 @@
 #ifndef SHAPE2D_H
 #define SHAPE2D_H
 
+
+enum SHAPE_TYPE{
+	NO_SHAPE = 0,
+	CIRCLE,
+	RECTANGLE
+};
+
 class Shape2D{
 protected:
 	unsigned int x, y, w, h;
@@ -27,10 +34,12 @@ public:
    /* virtual bool IsShapeWithin(Shape2D* shape);
     static bool AreShapesIntersecting(Shape2D* s1, Shape2D* s2);*/
 
+	virtual SHAPE_TYPE GetType();
+	virtual bool DetectCollision(Shape2D* target);
 
 
-
-
+protected:
+	bool colliding;
 };
 
 #endif

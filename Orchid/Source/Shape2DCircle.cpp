@@ -1,5 +1,5 @@
 #include "Shape2DCircle.h"
-
+#include "Shape2DRect.h"
 Shape2DCircle::Shape2DCircle(){
 	Shape2DCircle(4, 4, 2);
 }
@@ -49,8 +49,41 @@ bool Shape2DCircle::AreShape2DCirclesIntersecting(Shape2DCircle* c1, Shape2DCirc
 		return false;
 }
 void Shape2DCircle::DrawShape(){
+	Shape2D::DrawShape();
 	if(solid)
 		GraphicsCore::DrawFilledCircle(x, y, radius, r, g, b);
 	else
 		GraphicsCore::DrawCircle(x, y, radius, r, g, b, 2);
+}
+SHAPE_TYPE Shape2DCircle::GetType(){
+	return CIRCLE;
+}
+bool Shape2DCircle::DetectCollision(Shape2D* target){
+	float difX = 0;
+	float difY = 0;
+	float distance = 0;
+	switch(target->GetType()){
+		case NO_SHAPE:
+			
+			break;
+		case CIRCLE:
+			difX = x - target->GetX();
+			difY = y - target->GetY();
+			distance = sqrt(pow(difX, 2) + pow(difY, 2));
+			if(distance < radius + ((Shape2DCircle*)target)->GetRadius())
+				return colliding = true;
+			break;
+		case RECTANGLE:
+			if( x + radius > ((Shape2DRect*)target)->GetX() - ((Shape2DRect*)target)->GetW() &&
+				x - radius < ((Shape2DRect*)target)->GetX() + ((Shape2DRect*)target)->GetW() &&
+				y + radius > ((Shape2DRect*)target)->GetY() - ((Shape2DRect*)target)->GetH() &&
+				y - radius < ((Shape2DRect*)target)->GetY() + ((Shape2DRect*)target)->GetH())
+			{
+				return colliding = true;
+			}
+			break;
+	}
+
+	return colliding = false;
+	
 }

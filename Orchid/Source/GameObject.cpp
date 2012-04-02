@@ -38,6 +38,10 @@ void GameObject::UpdateAll(){
 	//update all game objects
 	for(iter1 = objects.begin(); iter1 != objects.end(); ++iter1){
 		(*iter1)->Update();
+		iter2 = iter1;
+		iter2++;
+		for(; iter2 != objects.end(); ++iter2)
+			(*iter1)->DetectCollision((*iter2));
 		(*iter1)->Draw();
 	}
 }
@@ -123,4 +127,10 @@ void GameObject::ResumeMovement(){
 	if(moveRight) StartMovingRight();
 	if(moveUp) StartMovingUp();
 	if(moveDown) StartMovingDown();
+}
+bool GameObject::DetectCollision(GameObject* target){
+	return shape->DetectCollision(target->GetShape());
+}
+Shape2D* GameObject::GetShape(){
+	return shape;
 }

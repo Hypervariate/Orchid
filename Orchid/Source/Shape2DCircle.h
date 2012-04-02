@@ -3,6 +3,7 @@
 
 #include "Shape2D.h"
 #include "GraphicsCore.h"
+#include <math.h>
 
 class Shape2DCircle : public Shape2D{
 private:
@@ -24,7 +25,11 @@ public:
 	bool IsShape2DCircleWithin(Shape2DCircle* circle);
 	static bool AreShape2DCirclesIntersecting(Shape2DCircle* c1, Shape2DCircle* c2);
 
-    virtual void DrawShape();
+    void DrawShape();
+	SHAPE_TYPE GetType();
+
+	bool DetectCollision(Shape2D* target);
+	
 };
 
 #endif

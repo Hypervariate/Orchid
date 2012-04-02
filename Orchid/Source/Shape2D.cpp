@@ -1,9 +1,10 @@
 #include "Shape2D.h"
 Shape2D::Shape2D(){
-	r = 255;
-	g = 0;
+	r = 0;
+	g = 175;
 	b = 0;
 	solid = false;
+	colliding = false;
 }
 Shape2D::~Shape2D(){}
 void Shape2D::SetX(unsigned int x){
@@ -31,7 +32,16 @@ unsigned int Shape2D::GetH(){
 	return h;
 }
 void Shape2D::DrawShape(){
-
+	if(colliding){
+		r = 255;
+		g = 0;
+		b = 0;
+	}
+	else{
+		r = 0;
+		g = 175;
+		b = 0;
+	}
 }
 bool Shape2D::AreCoordinatesWithinShape(unsigned int x, unsigned int y){
     return false;
@@ -41,4 +51,10 @@ void Shape2D::SetAppearance(unsigned char r, unsigned char g, unsigned char b, b
 	this->g = g;
 	this->b = b;
 	this->solid = solid;
+}
+SHAPE_TYPE Shape2D::GetType(){
+	return NO_SHAPE;
+}
+bool Shape2D::DetectCollision(Shape2D* target){
+	return false;
 }

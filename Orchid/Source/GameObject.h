@@ -36,6 +36,11 @@ public:
 
 	virtual void ResumeMovement();
 
+	bool DetectCollision(GameObject* target);
+	Shape2D* GetShape();
+	
+
+
 protected:
 	Shape2D* shape;
 	unsigned int speed;
