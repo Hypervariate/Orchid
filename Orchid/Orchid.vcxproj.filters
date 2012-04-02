@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Cores">
       <UniqueIdentifier>{32cc3dc2-c9c9-48dc-927e-6f1218a02d0f}</UniqueIdentifier>
     </Filter>
@@ -16,6 +12,9 @@
     </Filter>
     <Filter Include="Game Classes">
       <UniqueIdentifier>{6d19b6fb-7cc7-4865-a2dc-3fd82137e10e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{1da178ca-5385-46fe-a3ac-7b153c3d3502}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -46,9 +45,6 @@
     <ClCompile Include="Source\Shape2DRect.cpp">
       <Filter>Containers</Filter>
     </ClCompile>
-    <ClCompile Include="Source\main.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\InputEvent.cpp">
       <Filter>Containers</Filter>
     </ClCompile>
@@ -64,11 +60,20 @@
     <ClCompile Include="Source\CharacterController.cpp">
       <Filter>Game Classes</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Animation.cpp" />
-    <ClCompile Include="Source\FileReader.cpp" />
-    <ClCompile Include="Source\dirent.c" />
     <ClCompile Include="Source\AudioCore.cpp">
       <Filter>Cores</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Animation.cpp">
+      <Filter>Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dirent.c">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FileReader.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\main.cpp">
+      <Filter>Main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -114,11 +119,17 @@
     <ClInclude Include="Source\CharacterController.h">
       <Filter>Game Classes</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Animation.h" />
-    <ClInclude Include="Source\FileReader.h" />
-    <ClInclude Include="Source\dirent.h" />
     <ClInclude Include="Source\AudioCore.h">
       <Filter>Cores</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Animation.h">
+      <Filter>Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FileReader.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\dirent.h">
+      <Filter>Utilities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
