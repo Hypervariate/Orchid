@@ -1,6 +1,8 @@
 #ifndef SHAPE2D_H
 #define SHAPE2D_H
 
+#include <vector>
+using namespace std;
 
 enum SHAPE_TYPE{
 	NO_SHAPE = 0,
@@ -26,6 +28,9 @@ public:
 	virtual unsigned int GetW();
 	virtual unsigned int GetH();
 
+	void AddCollision(Shape2D* shape);
+	void ClearCollisions();
+
 	void SetAppearance(unsigned char r, unsigned char g, unsigned char b, bool solid);
 
 	virtual void DrawShape();
@@ -40,6 +45,7 @@ public:
 
 protected:
 	bool colliding;
+	vector<Shape2D*> collisions;
 };
 
 #endif

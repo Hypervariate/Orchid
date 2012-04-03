@@ -59,9 +59,13 @@ SHAPE_TYPE Shape2DCircle::GetType(){
 	return CIRCLE;
 }
 bool Shape2DCircle::DetectCollision(Shape2D* target){
+	ClearCollisions();
 	float difX = 0;
 	float difY = 0;
+	float powX = 0;
+	float powY = 0;
 	float distance = 0;
+	int radiusTotal;
 	switch(target->GetType()){
 		case NO_SHAPE:
 			
@@ -69,9 +73,14 @@ bool Shape2DCircle::DetectCollision(Shape2D* target){
 		case CIRCLE:
 			difX = x - target->GetX();
 			difY = y - target->GetY();
-			distance = sqrt(pow(difX, 2) + pow(difY, 2));
-			if(distance < radius + ((Shape2DCircle*)target)->GetRadius())
-				return colliding = true;
+			powX = pow(difX, 2);
+			powY = pow(difY, 2);
+			distance = sqrt(powX + powY);
+			radiusTotal = radius + ((Shape2DCircle*)target)->GetRadius();
+			if(distance < radiusTotal){
+				AddCollision(target);
+				return true;
+			}
 			break;
 		case RECTANGLE:
 			if( x + radius > ((Shape2DRect*)target)->GetX() - ((Shape2DRect*)target)->GetW() &&
@@ -79,11 +88,12 @@ bool Shape2DCircle::DetectCollision(Shape2D* target){
 				y + radius > ((Shape2DRect*)target)->GetY() - ((Shape2DRect*)target)->GetH() &&
 				y - radius < ((Shape2DRect*)target)->GetY() + ((Shape2DRect*)target)->GetH())
 			{
-				return colliding = true;
+				AddCollision(target);
+				return true;
 			}
 			break;
 	}
 
-	return colliding = false;
+	return false;
 	
 }

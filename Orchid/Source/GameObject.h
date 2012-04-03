@@ -9,6 +9,7 @@
 
 #include <list>
 
+
 class GameObject{
 
 public:
@@ -42,6 +43,8 @@ public:
 
 
 protected:
+	
+
 	Shape2D* shape;
 	unsigned int speed;
 	float maxSpeed;

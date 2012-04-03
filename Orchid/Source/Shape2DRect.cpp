@@ -29,51 +29,6 @@ unsigned int Shape2DRect::GetHalfOfWidth(){
 unsigned int Shape2DRect::GetHalfOfHeight(){
     return halfOfHeight;
 }
-bool Shape2DRect::AreCoordinatesWithinShape(unsigned int x, unsigned int y){
-	if(x >= this->x - halfOfWidth)	//if x is > left bound
-		if(x <= this->x + halfOfWidth)	//if x < right bound
-			if(y >= this->y - halfOfHeight)	//if y > upper bound
-				if(y <= this->y + halfOfHeight)	//if y < lower bound
-					return true;	//yes, within rect
-
-	return false;	//otherwise, no
-}
-bool Shape2DRect::IsShape2DRectWithin(Shape2DRect* rect){
-	//is this rectangle within the rectangle passed to it?
-	if(rect->AreCoordinatesWithinShape(x - halfOfWidth, y - halfOfHeight))	//rect top left within this
-		return true;
-	if(rect->AreCoordinatesWithinShape(x - halfOfWidth, y + halfOfHeight))	//rect top right within this
-		return true;
-	if(rect->AreCoordinatesWithinShape(x + halfOfWidth, y - halfOfHeight))	//rect bottom left within this
-		return true;
-	if(rect->AreCoordinatesWithinShape(x + halfOfWidth, y + halfOfHeight))	//rect bottom right within this
-		return true;
-	
-	return false;
-}
-bool Shape2DRect::AreShape2DRectsIntersecting(Shape2DRect* rect1, Shape2DRect* rect2){
-	
-	//SAT collision
-	int a = rect1->GetX() - rect1->GetHalfOfWidth();
-	int b = rect1->GetX() + rect1->GetHalfOfWidth();
-
-	int c = rect2->GetX() - rect2->GetHalfOfWidth();
-	int d = rect2->GetX() + rect2->GetHalfOfWidth();
-
-	int e = rect1->GetY() - rect1->GetHalfOfHeight();
-	int f = rect1->GetY() + rect1->GetHalfOfHeight();
-
-	int g = rect2->GetY() - rect2->GetHalfOfHeight();
-	int h = rect2->GetY() + rect2->GetHalfOfHeight();
-
-	if( ((a < c && c < b) || (a < d && d < b)) && ((e < g && g < f) || (e < h && h < f)) )
-		return true;
-
-	if(rect1->IsShape2DRectWithin(rect2) || rect2->IsShape2DRectWithin(rect1))
-		return true;
-
-	return false;
-}
 void Shape2DRect::DrawShape(){
     Shape2D::DrawShape();
 	if(solid)
@@ -86,6 +41,7 @@ SHAPE_TYPE Shape2DRect::GetType(){
 	return RECTANGLE;
 }
 bool Shape2DRect::DetectCollision(Shape2D* target){
+	ClearCollisions();
 	float difX = 0;
 	float difY = 0;
 	float distance = 0;
@@ -97,10 +53,10 @@ bool Shape2DRect::DetectCollision(Shape2D* target){
 			difX = x - target->GetX();
 			difY = y - target->GetY();
 			distance = sqrt(pow(difX, 2) + pow(difY, 2));
-			if(distance < w + ((Shape2DCircle*)target)->GetRadius())
-				return colliding = true;
-			else if(distance < h + ((Shape2DCircle*)target)->GetRadius())
-				return colliding = true;
+			if(distance < w + ((Shape2DCircle*)target)->GetRadius() || distance < h + ((Shape2DCircle*)target)->GetRadius()){
+				AddCollision(target);
+				return true;
+			}
 			break;
 		case RECTANGLE:
 			if( x + halfOfWidth > ((Shape2DRect*)target)->GetX() - ((Shape2DRect*)target)->GetHalfOfWidth() &&
@@ -108,7 +64,8 @@ bool Shape2DRect::DetectCollision(Shape2D* target){
 				y + halfOfHeight > ((Shape2DRect*)target)->GetY() - ((Shape2DRect*)target)->GetHalfOfHeight() &&
 				y - halfOfHeight < ((Shape2DRect*)target)->GetY() + ((Shape2DRect*)target)->GetHalfOfHeight())
 			{
-				return colliding = true;
+				AddCollision(target);
+				return true;
 			}
 			break;
 	}
@@ -116,5 +73,5 @@ bool Shape2DRect::DetectCollision(Shape2D* target){
 	
 	
 
-	return colliding = false;
+	return false;
 }

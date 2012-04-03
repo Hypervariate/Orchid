@@ -8,7 +8,7 @@ std::list<GameObject *>::iterator GameObject::iter2;
 GameObject::GameObject(){
 	shape = new Shape2DRect();
 
-	position.Set(50,50);
+	position.Set(WIDTH/2,HEIGHT/2);
 	velocity.Set(0,0);
 
 	shape->SetX(position.x);
@@ -40,10 +40,14 @@ void GameObject::UpdateAll(){
 		(*iter1)->Update();
 		iter2 = iter1;
 		iter2++;
-		for(; iter2 != objects.end(); ++iter2)
+		for(; iter2 != objects.end(); ++iter2){
 			(*iter1)->DetectCollision((*iter2));
+			(*iter2)->DetectCollision((*iter1));
+		}
 		(*iter1)->Draw();
+		
 	}
+
 }
 void GameObject::Update(){
 
@@ -84,6 +88,8 @@ void GameObject::Update(){
 		else if(velocity.y < 0 && velocity.y > -minSpeed)
 			velocity.y = 0;
 	}
+
+
 
 }
 void GameObject::Draw(){

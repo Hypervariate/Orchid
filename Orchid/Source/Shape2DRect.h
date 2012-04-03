@@ -1,7 +1,7 @@
 #ifndef SHAPE2DRECT_H_
 #define SHAPE2DRECT_H_
 
-#include "Vector2D.h"
+
 #include "Shape2D.h"
 #include "GraphicsCore.h"
 
@@ -23,10 +23,7 @@ public:
 
     unsigned int GetHalfOfWidth();
     unsigned int GetHalfOfHeight();
-	
-	bool AreCoordinatesWithinShape(unsigned int x, unsigned int y);
-	bool IsShape2DRectWithin(Shape2DRect* rect);
-	static bool AreShape2DRectsIntersecting(Shape2DRect* rect1, Shape2DRect* rect2);
+
 
 	virtual void DrawShape();
 	
