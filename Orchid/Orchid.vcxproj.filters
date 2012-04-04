@@ -81,6 +81,9 @@
     <ClCompile Include="Source\UtilityRectangle.cpp">
       <Filter>Game Classes</Filter>
     </ClCompile>
+    <ClCompile Include="Source\mappy_A5.c">
+      <Filter>Utilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CubeGrid.h">
@@ -142,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="Source\UtilityRectangle.h">
       <Filter>Game Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\mappy_A5.h">
+      <Filter>Utilities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

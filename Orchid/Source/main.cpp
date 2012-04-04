@@ -4,6 +4,8 @@
 #include "UtilityCircle.h"
 #include "AudioCore.h"
 
+#include "mappy_A5.h"
+
 int main(void)
 {
 	EventCore::Initialize();

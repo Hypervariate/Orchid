@@ -17,6 +17,7 @@
     <ClCompile Include="Source\dirent.c" />
     <ClCompile Include="Source\FileReader.cpp" />
     <ClCompile Include="Source\GameObject.cpp" />
+    <ClCompile Include="Source\mappy_A5.c" />
     <ClCompile Include="Source\Shape2DCircle.cpp" />
     <ClCompile Include="Source\CubeGrid.cpp" />
     <ClCompile Include="Source\GlobalData.cpp" />
@@ -40,6 +41,7 @@
     <ClInclude Include="Source\dirent.h" />
     <ClInclude Include="Source\FileReader.h" />
     <ClInclude Include="Source\GameObject.h" />
+    <ClInclude Include="Source\mappy_A5.h" />
     <ClInclude Include="Source\Shape2DCircle.h" />
     <ClInclude Include="Source\CubeGrid.h" />
     <ClInclude Include="Source\GlobalData.h" />
