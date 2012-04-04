@@ -9,6 +9,7 @@ Thumbs.db
 ######################
 *.sdf
 *.suo
+*.exe
 *.lik
 *.pdb
 *.ipch
