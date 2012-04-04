@@ -27,6 +27,8 @@
     <ClCompile Include="Source\Shape2DRect.cpp" />
     <ClCompile Include="Source\Shape2D.cpp" />
     <ClCompile Include="Source\SquareGrid.cpp" />
+    <ClCompile Include="Source\UtilityRectangle.cpp" />
+    <ClCompile Include="Source\UtilityCircle.cpp" />
     <ClCompile Include="Source\Vector2D.cpp" />
     <ClCompile Include="Source\Vector2DF.cpp" />
     <ClCompile Include="Source\Witch.cpp" />
@@ -47,6 +49,8 @@
     <ClInclude Include="Source\Shape2DRect.h" />
     <ClInclude Include="Source\Shape2D.h" />
     <ClInclude Include="Source\SquareGrid.h" />
+    <ClInclude Include="Source\UtilityRectangle.h" />
+    <ClInclude Include="Source\UtilityCircle.h" />
     <ClInclude Include="Source\Vector2D.h" />
     <ClInclude Include="Source\Vector2DF.h" />
     <ClInclude Include="Source\Witch.h" />

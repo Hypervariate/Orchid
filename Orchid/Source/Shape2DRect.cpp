@@ -45,15 +45,17 @@ bool Shape2DRect::DetectCollision(Shape2D* target){
 	float difX = 0;
 	float difY = 0;
 	float distance = 0;
+	
+
 	switch(target->GetType()){
 		case NO_SHAPE:
 			
 			break;
 		case CIRCLE:
 			difX = x - target->GetX();
-			difY = y - target->GetY();
-			distance = sqrt(pow(difX, 2) + pow(difY, 2));
-			if(distance < w + ((Shape2DCircle*)target)->GetRadius() || distance < h + ((Shape2DCircle*)target)->GetRadius()){
+			difY = y - target->GetY();			
+			distance = sqrt(pow(difX, 2) + pow(difY, 2));			
+			if(distance < halfOfWidth + ((Shape2DCircle*)target)->GetRadius() || distance < halfOfHeight + ((Shape2DCircle*)target)->GetRadius()){
 				AddCollision(target);
 				return true;
 			}

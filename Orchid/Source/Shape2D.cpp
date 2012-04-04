@@ -7,10 +7,10 @@ Shape2D::Shape2D(){
 	colliding = false;
 }
 Shape2D::~Shape2D(){}
-void Shape2D::SetX(unsigned int x){
+void Shape2D::SetX(int x){
 	this->x = x;
 }
-void Shape2D::SetY(unsigned int y){
+void Shape2D::SetY(int y){
 	this->y = y;
 }
 void Shape2D::SetW(unsigned int w){
@@ -19,10 +19,10 @@ void Shape2D::SetW(unsigned int w){
 void Shape2D::SetH(unsigned int h){
 	this->h = h;
 }
-unsigned int Shape2D::GetX(){
+int Shape2D::GetX(){
 	return x;
 }
-unsigned int Shape2D::GetY(){
+int Shape2D::GetY(){
 	return y;
 }
 unsigned int Shape2D::GetW(){

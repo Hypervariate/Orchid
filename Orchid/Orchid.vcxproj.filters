@@ -75,6 +75,12 @@
     <ClCompile Include="Source\main.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="Source\UtilityCircle.cpp">
+      <Filter>Game Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UtilityRectangle.cpp">
+      <Filter>Game Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CubeGrid.h">
@@ -130,6 +136,12 @@
     </ClInclude>
     <ClInclude Include="Source\dirent.h">
       <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UtilityCircle.h">
+      <Filter>Game Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UtilityRectangle.h">
+      <Filter>Game Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

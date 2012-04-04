@@ -1,6 +1,7 @@
 #include "EventCore.h"
 #include "GlobalData.h"
-#include "Witch.h"
+#include "UtilityRectangle.h"
+#include "UtilityCircle.h"
 #include "AudioCore.h"
 
 int main(void)
@@ -10,11 +11,11 @@ int main(void)
 	AudioCore::Initialize();
 	
 
-	Witch w = Witch();
+	UtilityRectangle b = UtilityRectangle();	
 
-	EventCore::RegisterGameObjectAsPlayer(&w, 0);	
+	EventCore::RegisterGameObjectAsPlayer(&b, 0);	
 
-	Witch w2 = Witch();	
+	UtilityCircle c = UtilityCircle();	
 	
 
 	EventCore::Update();

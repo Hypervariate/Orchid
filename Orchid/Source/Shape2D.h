@@ -12,19 +12,20 @@ enum SHAPE_TYPE{
 
 class Shape2D{
 protected:
-	unsigned int x, y, w, h;
+	int x, y;
+	unsigned int w, h;
 	unsigned char r, g, b;
 	bool solid;
 public:
     Shape2D();
     ~Shape2D();
 
-	virtual void SetX(unsigned int x);
-	virtual void SetY(unsigned int y);
+	virtual void SetX(int x);
+	virtual void SetY(int y);
 	virtual void SetW(unsigned int w);
 	virtual void SetH(unsigned int h);
-	virtual unsigned int GetX();
-	virtual unsigned int GetY();
+	virtual int GetX();
+	virtual int GetY();
 	virtual unsigned int GetW();
 	virtual unsigned int GetH();
 

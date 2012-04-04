@@ -62,31 +62,36 @@ bool Shape2DCircle::DetectCollision(Shape2D* target){
 	ClearCollisions();
 	float difX = 0;
 	float difY = 0;
-	float powX = 0;
-	float powY = 0;
+
 	float distance = 0;
-	int radiusTotal;
+	int combinedRadii = 0;
+	
+	
+
 	switch(target->GetType()){
 		case NO_SHAPE:
 			
 			break;
 		case CIRCLE:
 			difX = x - target->GetX();
-			difY = y - target->GetY();
-			powX = pow(difX, 2);
-			powY = pow(difY, 2);
-			distance = sqrt(powX + powY);
-			radiusTotal = radius + ((Shape2DCircle*)target)->GetRadius();
-			if(distance < radiusTotal){
+			difY = y - target->GetY();			
+			distance = sqrt(pow(difX, 2) + pow(difY, 2));
+			combinedRadii = radius + ((Shape2DCircle*)target)->GetRadius();
+			if(distance < combinedRadii){
 				AddCollision(target);
 				return true;
 			}
 			break;
 		case RECTANGLE:
-			if( x + radius > ((Shape2DRect*)target)->GetX() - ((Shape2DRect*)target)->GetW() &&
-				x - radius < ((Shape2DRect*)target)->GetX() + ((Shape2DRect*)target)->GetW() &&
-				y + radius > ((Shape2DRect*)target)->GetY() - ((Shape2DRect*)target)->GetH() &&
-				y - radius < ((Shape2DRect*)target)->GetY() + ((Shape2DRect*)target)->GetH())
+
+			/*GraphicsCore::PrintToDisplay(x, x, y - 48, "Acknowledge", 0, 255, 0);
+			GraphicsCore::PrintToDisplay(y, x, y - 36, "Acknowledge", 0, 255, 0);
+			GraphicsCore::PrintToDisplay(radius, x, y - 12, "Acknowledge", 0, 255, 0);*/
+
+			if( x + radius > ((Shape2DRect*)target)->GetX() - ((Shape2DRect*)target)->GetHalfOfWidth() &&
+				x - radius < ((Shape2DRect*)target)->GetX() + ((Shape2DRect*)target)->GetHalfOfWidth() &&
+				y + radius > ((Shape2DRect*)target)->GetY() - ((Shape2DRect*)target)->GetHalfOfHeight() &&
+				y - radius < ((Shape2DRect*)target)->GetY() + ((Shape2DRect*)target)->GetHalfOfHeight())
 			{
 				AddCollision(target);
 				return true;
