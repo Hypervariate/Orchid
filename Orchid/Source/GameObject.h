@@ -13,7 +13,7 @@
 class GameObject{
 
 public:
-	GameObject();
+	GameObject(int x = 100, int y = 100);
 	~GameObject();
 
 	static std::list<GameObject *> objects;

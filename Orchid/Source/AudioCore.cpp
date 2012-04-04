@@ -8,6 +8,8 @@ std::map<string, ALLEGRO_SAMPLE *>::iterator AudioCore::samplesIter;
 std::map<string, ALLEGRO_SAMPLE_INSTANCE *> AudioCore::instances;
 std::map<string, ALLEGRO_SAMPLE_INSTANCE *>::iterator AudioCore::instancesIter;
 
+string AudioCore::currentSong = "";
+
 AudioCore::AudioCore(){}
 AudioCore::~AudioCore(){}
 void AudioCore::Initialize(){
@@ -21,6 +23,7 @@ void AudioCore::Initialize(){
 	for(int i = 0; i < audioFileNames.size(); i++){
 		LoadSample((char*)audioFileNames.at(i).c_str());
 	}
+	currentSong = "";
 }
 void AudioCore::Deinitialize(){
 	
@@ -76,4 +79,24 @@ bool AudioCore::LoadSample(char* fileName)
 	instances[fileName] = instance;
 
 	return true;
+}
+void AudioCore::PlayMusic(string songName){
+	if(instances.find(songName) == instances.end())
+		return;
+
+	StopMusic();
+
+	currentSong = songName;
+
+	al_set_sample_instance_playmode(instances[songName], ALLEGRO_PLAYMODE_LOOP);
+
+	al_play_sample_instance(instances[songName]);
+	
+	
+}
+void AudioCore::StopMusic(){
+	if(instances.find(currentSong) != instances.end())
+		al_stop_sample_instance(instances[currentSong]);
+	
+	currentSong = "";
 }

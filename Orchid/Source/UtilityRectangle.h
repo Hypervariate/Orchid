@@ -8,7 +8,7 @@
 class UtilityRectangle : public GameObject{
 
 public:
-	UtilityRectangle();
+	UtilityRectangle(int x = 100, int y = 100, int w = 50, int h = 50);
 	~UtilityRectangle();
 
 	void Update();

@@ -11,11 +11,13 @@ int main(void)
 	AudioCore::Initialize();
 	
 
-	UtilityRectangle b = UtilityRectangle();	
+	UtilityRectangle b = UtilityRectangle(WIDTH/2, HEIGHT/2, 100, 100);	
 
 	EventCore::RegisterGameObjectAsPlayer(&b, 0);	
 
 	UtilityCircle c = UtilityCircle();	
+
+	
 	
 
 	EventCore::Update();

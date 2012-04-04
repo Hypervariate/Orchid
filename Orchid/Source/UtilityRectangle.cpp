@@ -1,7 +1,9 @@
 #include "UtilityRectangle.h"
 
-UtilityRectangle::UtilityRectangle(){
-
+UtilityRectangle::UtilityRectangle(int x, int y, int w, int h){
+	position.Set(x, y);
+	shape->SetW(w);
+	shape->SetH(h);
 }
 UtilityRectangle::~UtilityRectangle(){
 

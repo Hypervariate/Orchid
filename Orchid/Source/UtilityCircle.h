@@ -8,7 +8,7 @@
 class UtilityCircle : public GameObject{
 
 public:
-	UtilityCircle();
+	UtilityCircle(int x = 100, int y = 100, int r = 50);
 	~UtilityCircle();
 
 	void Update();

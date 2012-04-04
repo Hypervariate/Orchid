@@ -23,8 +23,12 @@ public:
 	
 	//------------------
 	static void PlaySample(string sampleName);
+	static void PlayMusic(string songName);
+	static void StopMusic();
 
 private:
+	static string currentSong;
+
 	static bool LoadSample(char* fileName);
 
 	static FileReader fileReader;

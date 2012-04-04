@@ -1,9 +1,9 @@
 #include "UtilityCircle.h"
 
-UtilityCircle::UtilityCircle(){
+UtilityCircle::UtilityCircle(int x, int y, int r){
 	delete shape;
 	shape = NULL;
-	shape = new Shape2DCircle(50,50,50);
+	shape = new Shape2DCircle(x,y,r);
 }
 UtilityCircle::~UtilityCircle(){
 

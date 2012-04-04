@@ -5,10 +5,10 @@ std::list<GameObject *>::iterator GameObject::iter1;
 std::list<GameObject *>::iterator GameObject::iter2;
 
 
-GameObject::GameObject(){
+GameObject::GameObject(int x, int y){
 	shape = new Shape2DRect();
 
-	position.Set(WIDTH/2,HEIGHT/2);
+	position.Set(x,y);
 	velocity.Set(0,0);
 
 	shape->SetX(position.x);
