@@ -15,7 +15,7 @@ Thumbs.db
 *.ipch
 *.opensdf
 *.tlog
-*.obj
+*.obj*.ini
 *.res
 *.manifest
 *.lastbuildstate
