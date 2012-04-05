@@ -19,7 +19,6 @@ ALLEGRO_TIMER *EventCore::timer = NULL;
 int EventCore::frames = 0;
 int EventCore::fps = 0;
 
-
 EventCore::EventCore(){}
 EventCore::~EventCore(){}
 void EventCore::Initialize(){
@@ -48,10 +47,13 @@ void EventCore::Initialize(){
 			cout << al_get_num_joysticks() << " joysticks installed." << endl;
 
 		//player 0
-		for(int i = 0; i < al_get_num_joysticks(); i++){
+		for(int i = 0; i < al_get_num_joysticks() + 1; i++)
 			players.push_back(CharacterController());
+
+		for(int i = 0; i < al_get_num_joysticks(); i++)
 			joysticks[al_get_joystick(i)] = i;
-		}
+		
+		
 		
 
 		al_start_timer(timer);
@@ -63,7 +65,7 @@ void EventCore::Initialize(){
 	}
 }
 void EventCore::RegisterGameObjectAsPlayer(GameObject* character, unsigned int player_number){
-	if(player_number >= players.size()) return;
+	if(player_number >= players.size() && player_number >= 0) return;
 
 	players.at(player_number).SetTarget(character);
 }
@@ -207,7 +209,9 @@ void EventCore::Update(){
 			}
 		}
 
+		
 		GameObject::UpdateAll();
+		
 
 
 		//let character controllers process player input

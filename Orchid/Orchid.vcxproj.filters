@@ -16,6 +16,9 @@
     <Filter Include="Main">
       <UniqueIdentifier>{1da178ca-5385-46fe-a3ac-7b153c3d3502}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game Classes\Base Classes">
+      <UniqueIdentifier>{a364daf4-c5c3-47b6-a422-21b36714c7ed}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\CubeGrid.cpp">
@@ -54,12 +57,6 @@
     <ClCompile Include="Source\EventCore.cpp">
       <Filter>Cores</Filter>
     </ClCompile>
-    <ClCompile Include="Source\GameObject.cpp">
-      <Filter>Game Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterController.cpp">
-      <Filter>Game Classes</Filter>
-    </ClCompile>
     <ClCompile Include="Source\AudioCore.cpp">
       <Filter>Cores</Filter>
     </ClCompile>
@@ -83,6 +80,15 @@
     </ClCompile>
     <ClCompile Include="Source\mappy_A5.c">
       <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterController.cpp">
+      <Filter>Game Classes\Base Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObject.cpp">
+      <Filter>Game Classes\Base Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameLevel.cpp">
+      <Filter>Game Classes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -122,12 +128,6 @@
     <ClInclude Include="Source\EventCore.h">
       <Filter>Cores</Filter>
     </ClInclude>
-    <ClInclude Include="Source\GameObject.h">
-      <Filter>Game Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterController.h">
-      <Filter>Game Classes</Filter>
-    </ClInclude>
     <ClInclude Include="Source\AudioCore.h">
       <Filter>Cores</Filter>
     </ClInclude>
@@ -148,6 +148,15 @@
     </ClInclude>
     <ClInclude Include="Source\mappy_A5.h">
       <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterController.h">
+      <Filter>Game Classes\Base Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameObject.h">
+      <Filter>Game Classes\Base Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameLevel.h">
+      <Filter>Game Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

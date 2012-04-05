@@ -4,7 +4,7 @@
 #include "UtilityCircle.h"
 #include "AudioCore.h"
 
-#include "mappy_A5.h"
+#include "GameLevel.h"
 
 int main(void)
 {
@@ -12,6 +12,12 @@ int main(void)
 	GraphicsCore::Initialize();
 	AudioCore::Initialize();
 	
+	GameLevel level = GameLevel();
+	level.Load("Data/Maps/0.fmp");
+	level.DrawBackground();
+	level.DrawForeground();
+	GraphicsCore::FlipDisplay();
+	level.Unload();
 
 	UtilityRectangle b = UtilityRectangle(WIDTH/2, HEIGHT/2, 100, 100);	
 
