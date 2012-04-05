@@ -21,7 +21,7 @@ Thumbs.db
 *.lastbuildstate
 *.log
 *.rc
-*.idb
+*.idb*.ini
 
 
 
