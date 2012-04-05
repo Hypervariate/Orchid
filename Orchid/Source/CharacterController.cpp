@@ -72,13 +72,13 @@ void CharacterController::ProcessEventQueue(){
 				}
 				break;
 			case INPUT_EVENT_JOYSTICK_BUTTON_DOWN:
-				cout << "joystick button down event " << ev.GetEventValue() << endl;
+				//cout << "joystick button down event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_JOYSTICK_BUTTON_UP:
-				cout << "joystick button up event " << ev.GetEventValue() << endl;
+				//cout << "joystick button up event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_JOYSTICK_AXIS_0:
-				cout << "joystick axis 0 event " << ev.GetEventValue() << endl;
+				//cout << "joystick axis 0 event " << ev.GetEventValue() << endl;
 				if(ev.GetEventValue() < -threshold)
 					target->StartMovingLeft();
 				else
@@ -91,7 +91,7 @@ void CharacterController::ProcessEventQueue(){
 
 				break;
 			case INPUT_EVENT_JOYSTICK_AXIS_1:
-				cout << "joystick axis 1 event " << ev.GetEventValue() << endl;
+				//cout << "joystick axis 1 event " << ev.GetEventValue() << endl;
 				if(ev.GetEventValue() < -threshold)
 					target->StartMovingUp();
 				else
@@ -104,10 +104,10 @@ void CharacterController::ProcessEventQueue(){
 
 				break;
 			case INPUT_EVENT_JOYSTICK_AXIS_2:
-				cout << "joystick axis 2 event " << ev.GetEventValue() << endl;
+				//cout << "joystick axis 2 event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_JOYSTICK_AXIS_3:
-				cout << "joystick axis 3 event " << ev.GetEventValue() << endl;
+				//cout << "joystick axis 3 event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_LEFT_BUTTON_DOWN:
 				cout << "left mouse button down event " << ev.GetEventValue() << endl;

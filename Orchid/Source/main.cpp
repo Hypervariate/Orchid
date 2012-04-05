@@ -17,7 +17,8 @@ int main(void)
 
 	EventCore::RegisterGameObjectAsPlayer(&b, 0);	
 
-	UtilityCircle c = UtilityCircle();	
+	UtilityCircle c = UtilityCircle(WIDTH/2, HEIGHT/2, 50);
+	EventCore::RegisterGameObjectAsPlayer(&c, 1);
 
 	
 	

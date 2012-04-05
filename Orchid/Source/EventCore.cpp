@@ -48,11 +48,10 @@ void EventCore::Initialize(){
 			cout << al_get_num_joysticks() << " joysticks installed." << endl;
 
 		//player 0
-		for(int i = 0; i < al_get_num_joysticks() + 1; i++)
+		for(int i = 0; i < al_get_num_joysticks(); i++){
 			players.push_back(CharacterController());
-		
-		playerCount = players.size();
-
+			joysticks[al_get_joystick(i)] = i;
+		}
 		
 
 		al_start_timer(timer);
@@ -70,7 +69,7 @@ void EventCore::RegisterGameObjectAsPlayer(GameObject* character, unsigned int p
 }
 int EventCore::GetJoystickNumberFromID(ALLEGRO_JOYSTICK* joystick){
 	if(joysticks.find(joystick) == joysticks.end())
-		joysticks[joystick] = joysticks.size();
+		return joysticks.size() + 1;	//no such joystick
 
 	return joysticks[joystick];
 }
@@ -170,13 +169,15 @@ void EventCore::Update(){
 			mousePosition.Set(ev.mouse.x, ev.mouse.y);
 			mouseWheelPosition = ev.mouse.z;
 		}
-		if(al_is_joystick_installed()){
-			int number_of_joysticks = 0;
+		if(al_is_joystick_installed() && GetJoystickNumberFromID(ev.joystick.id) < players.size()){
+			
 			int player_number = GetJoystickNumberFromID(ev.joystick.id);
-			if(player_number == 0) player_number = 1;
+			cout << "joystick " << player_number << endl;
+		
 			switch(ev.type){
 				case ALLEGRO_EVENT_JOYSTICK_AXIS:
-					cout << "joystick " << player_number << " ";
+					
+					
 					/*cout << "joy " << ev.joystick.id << " stick: " << ev.joystick.stick << " axis: " << ev.joystick.axis << " value: " << ev.joystick.pos << endl;*/
 					switch(ev.joystick.axis){
 						case 0:
@@ -194,12 +195,11 @@ void EventCore::Update(){
 					}
 					break;
 				case ALLEGRO_EVENT_JOYSTICK_BUTTON_DOWN:
-					cout << "joystick " << player_number << " ";
 					//cout << "joy " << ev.joystick.id << " button: " << ev.joystick.button << endl;
 					players.at(player_number).PushInputEvent(INPUT_EVENT_JOYSTICK_BUTTON_DOWN, ev.joystick.button);
 					break;
 				case ALLEGRO_EVENT_JOYSTICK_BUTTON_UP:
-					cout << "joystick " << player_number << " ";
+					//cout << "joystick " << player_number << " ";
 					//cout << "joy " << ev.joystick.id << " button: " << ev.joystick.button << endl;
 					players.at(player_number).PushInputEvent(INPUT_EVENT_JOYSTICK_BUTTON_UP, ev.joystick.button);
 					break;
