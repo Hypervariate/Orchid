@@ -59,7 +59,7 @@ SHAPE_TYPE Shape2DCircle::GetType(){
 	return CIRCLE;
 }
 bool Shape2DCircle::DetectCollision(Shape2D* target){
-	ClearCollisions();
+	ClearCollision();
 	float difX = 0;
 	float difY = 0;
 
@@ -78,7 +78,7 @@ bool Shape2DCircle::DetectCollision(Shape2D* target){
 			distance = sqrt(pow(difX, 2) + pow(difY, 2));
 			combinedRadii = radius + ((Shape2DCircle*)target)->GetRadius();
 			if(distance < combinedRadii){
-				AddCollision(target);
+				SetCollision(target);
 				return true;
 			}
 			break;
@@ -89,7 +89,7 @@ bool Shape2DCircle::DetectCollision(Shape2D* target){
 				y + radius > ((Shape2DRect*)target)->GetY() - ((Shape2DRect*)target)->GetHalfOfHeight() &&
 				y - radius < ((Shape2DRect*)target)->GetY() + ((Shape2DRect*)target)->GetHalfOfHeight())
 			{
-				AddCollision(target);
+				SetCollision(target);
 				return true;
 			}
 			break;

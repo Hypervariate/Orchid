@@ -31,8 +31,8 @@ public:
 	virtual unsigned int GetHalfOfWidth();
     virtual unsigned int GetHalfOfHeight();
 
-	void AddCollision(Shape2D* shape);
-	void ClearCollisions();
+	void SetCollision(Shape2D* shape);
+	void ClearCollision();
 
 	void SetAppearance(unsigned char r, unsigned char g, unsigned char b, bool solid);
 
@@ -48,7 +48,7 @@ public:
 
 protected:
 	bool colliding;
-	vector<Shape2D*> collisions;
+	
 };
 
 #endif

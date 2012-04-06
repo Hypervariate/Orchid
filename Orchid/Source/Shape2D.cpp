@@ -64,11 +64,11 @@ SHAPE_TYPE Shape2D::GetType(){
 bool Shape2D::DetectCollision(Shape2D* target){
 	return false;
 }
-void Shape2D::AddCollision(Shape2D* shape){
-	collisions.push_back(shape);
+void Shape2D::SetCollision(Shape2D* shape){
+
 	colliding = true;
 }
-void Shape2D::ClearCollisions(){
-	collisions.clear();
+void Shape2D::ClearCollision(){
+
 	colliding = false;
 }

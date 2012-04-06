@@ -16,8 +16,8 @@ int main(void)
 	
 	
 
-	//UtilityRectangle b = UtilityRectangle(WIDTH/2, HEIGHT/2, 100, 100);	
-	Witch b = Witch();
+	UtilityRectangle b = UtilityRectangle(WIDTH/2, HEIGHT/2, 100, 100);	
+	//Witch b = Witch();
 	EventCore::RegisterGameObjectAsPlayer(&b, 0);	
 
 	UtilityCircle c = UtilityCircle(WIDTH/2, HEIGHT/2, 50);

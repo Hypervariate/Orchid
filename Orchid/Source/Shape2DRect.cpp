@@ -41,7 +41,7 @@ SHAPE_TYPE Shape2DRect::GetType(){
 	return RECTANGLE;
 }
 bool Shape2DRect::DetectCollision(Shape2D* target){
-	ClearCollisions();
+	ClearCollision();
 	float difX = 0;
 	float difY = 0;
 	float distance = 0;
@@ -61,7 +61,7 @@ bool Shape2DRect::DetectCollision(Shape2D* target){
 				y + halfOfHeight > target->GetY() - ((Shape2DCircle*)target)->GetRadius() &&
 				y - halfOfHeight < target->GetY() + ((Shape2DCircle*)target)->GetRadius())
 			{
-				AddCollision(target);
+				SetCollision(target);
 				return true;
 			}
 			break;
@@ -71,7 +71,7 @@ bool Shape2DRect::DetectCollision(Shape2D* target){
 				y + halfOfHeight > ((Shape2DRect*)target)->GetY() - ((Shape2DRect*)target)->GetHalfOfHeight() &&
 				y - halfOfHeight < ((Shape2DRect*)target)->GetY() + ((Shape2DRect*)target)->GetHalfOfHeight())
 			{
-				AddCollision(target);
+				SetCollision(target);
 				return true;
 			}
 			break;
