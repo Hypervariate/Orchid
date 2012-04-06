@@ -31,8 +31,8 @@ public:
 	virtual unsigned int GetHalfOfWidth();
     virtual unsigned int GetHalfOfHeight();
 
-	void SetCollision(Shape2D* shape);
-	void ClearCollision();
+	void SetCollision(bool isColliding);
+
 
 	void SetAppearance(unsigned char r, unsigned char g, unsigned char b, bool solid);
 

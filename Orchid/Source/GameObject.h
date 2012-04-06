@@ -47,6 +47,8 @@ public:
 	virtual unsigned int GetHalfOfWidth();
     virtual unsigned int GetHalfOfHeight();
 
+	
+
 
 protected:
 	

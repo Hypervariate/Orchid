@@ -41,7 +41,7 @@ SHAPE_TYPE Shape2DRect::GetType(){
 	return RECTANGLE;
 }
 bool Shape2DRect::DetectCollision(Shape2D* target){
-	ClearCollision();
+	SetCollision(false);
 	float difX = 0;
 	float difY = 0;
 	float distance = 0;

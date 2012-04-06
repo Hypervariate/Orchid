@@ -16,7 +16,7 @@ int main(void)
 	
 	
 
-	UtilityRectangle b = UtilityRectangle(WIDTH/2, HEIGHT/2, 100, 100);	
+	UtilityRectangle b = UtilityRectangle(WIDTH/2, HEIGHT/2, 50, 50);	
 	//Witch b = Witch();
 	EventCore::RegisterGameObjectAsPlayer(&b, 0);	
 
@@ -28,9 +28,10 @@ int main(void)
 	
 	while(GlobalData::ApplicationRunning()){
 		EventCore::Update();
-		level.Update();
+		
 		level.DrawBackground();
 		GameObject::UpdateAll();
+		level.Update();
 		level.DrawForeground();
 		
 	}

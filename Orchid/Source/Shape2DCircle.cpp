@@ -59,7 +59,7 @@ SHAPE_TYPE Shape2DCircle::GetType(){
 	return CIRCLE;
 }
 bool Shape2DCircle::DetectCollision(Shape2D* target){
-	ClearCollision();
+	SetCollision(false);
 	float difX = 0;
 	float difY = 0;
 

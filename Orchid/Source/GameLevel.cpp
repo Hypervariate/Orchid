@@ -58,6 +58,35 @@ void GameLevel::Update(){
 
 	//update animations
 	MapUpdateAnims();
+
+	GameObject *g;
+	//collide with all entities
+	for(GameObject::iter1 = GameObject::objects.begin(); GameObject::iter1 != GameObject::objects.end(); ++GameObject::iter1){
+		g = (*GameObject::iter1);
+
+
+		if(		collided_tl(g->GetX() - g->GetHalfOfWidth(), g->GetY() - g->GetHalfOfHeight())	//top-left corner
+			||	collided_tl(g->GetX() + g->GetHalfOfWidth(), g->GetY() - g->GetHalfOfHeight())	//top-right corner
+			||	collided_tl(g->GetX() - g->GetHalfOfWidth(), g->GetY() + g->GetHalfOfHeight())	//bottom-left corner
+			||	collided_tl(g->GetX() + g->GetHalfOfWidth(), g->GetY() + g->GetHalfOfHeight())	//bottom-right corner
+			||	collided_tl(g->GetX() , g->GetY() + g->GetHalfOfHeight())	//bottom side
+			||	collided_tl(g->GetX() , g->GetY() - g->GetHalfOfHeight())	//top side
+			||	collided_tl(g->GetX() - g->GetHalfOfWidth(), g->GetY() )	//left side
+			||	collided_tl(g->GetX() + g->GetHalfOfWidth(), g->GetY() ))	//right side
+			GraphicsCore::DrawFilledRectangle(g->GetX() - g->GetHalfOfWidth(), g->GetY() - g->GetHalfOfHeight(), g->GetX() + g->GetHalfOfWidth(), g->GetY() + g->GetHalfOfHeight(), 255, 255, 0);
+			//GraphicsCore::DrawFilledCircle(g->GetX() - g->GetHalfOfWidth() - 2, g->GetY() - g->GetHalfOfHeight() - 2, 5, 0, 255, 0);
+	}
+}
+int GameLevel::collided_tl(int x, int y)
+{
+	if (x < 0 || y < 0 || x >= mapwidth*mapblockwidth || y >= mapheight*mapblockheight) 
+		return 0;
+
+	BLKSTR *blockdata;
+	blockdata = MapGetBlock(x/mapblockwidth, y/mapblockheight);
+	//GraphicsCore::DrawFilledCircle(x - 2, y - 2, 5, 255, 255, 0);
+	
+	return blockdata->tl;
 }
 unsigned long GameLevel::GetTileData(int blockX, int blockY, BLOCK_FIELD field, int layer){
 	if(layer < 0 || layer >= layerCount)
