@@ -29,6 +29,12 @@ public:
 	SHAPE_TYPE GetType();
 
 	bool DetectCollision(Shape2D* target);
+
+
+	virtual unsigned int GetW();
+	virtual unsigned int GetH();
+	virtual unsigned int GetHalfOfWidth();
+    virtual unsigned int GetHalfOfHeight();
 	
 };
 

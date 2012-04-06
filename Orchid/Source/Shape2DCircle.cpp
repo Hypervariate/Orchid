@@ -84,10 +84,6 @@ bool Shape2DCircle::DetectCollision(Shape2D* target){
 			break;
 		case RECTANGLE:
 
-			/*GraphicsCore::PrintToDisplay(x, x, y - 48, "Acknowledge", 0, 255, 0);
-			GraphicsCore::PrintToDisplay(y, x, y - 36, "Acknowledge", 0, 255, 0);
-			GraphicsCore::PrintToDisplay(radius, x, y - 12, "Acknowledge", 0, 255, 0);*/
-
 			if( x + radius > ((Shape2DRect*)target)->GetX() - ((Shape2DRect*)target)->GetHalfOfWidth() &&
 				x - radius < ((Shape2DRect*)target)->GetX() + ((Shape2DRect*)target)->GetHalfOfWidth() &&
 				y + radius > ((Shape2DRect*)target)->GetY() - ((Shape2DRect*)target)->GetHalfOfHeight() &&
@@ -101,4 +97,17 @@ bool Shape2DCircle::DetectCollision(Shape2D* target){
 
 	return false;
 	
+}
+
+unsigned int Shape2DCircle::GetW(){
+	return diameter;
+}
+unsigned int Shape2DCircle::GetH(){
+	return diameter;
+}
+unsigned int Shape2DCircle::GetHalfOfWidth(){
+    return radius;
+}
+unsigned int Shape2DCircle::GetHalfOfHeight(){
+    return radius;
 }

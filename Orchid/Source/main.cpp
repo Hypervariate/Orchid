@@ -3,6 +3,7 @@
 #include "UtilityRectangle.h"
 #include "UtilityCircle.h"
 #include "AudioCore.h"
+#include "Witch.h"
 
 #include "GameLevel.h"
 
@@ -12,24 +13,29 @@ int main(void)
 	GraphicsCore::Initialize();
 	AudioCore::Initialize();
 	
-	GameLevel level = GameLevel();
-	level.Load("Data/Maps/0.fmp");
-	level.DrawBackground();
-	level.DrawForeground();
-	GraphicsCore::FlipDisplay();
-	level.Unload();
+	
+	
 
-	UtilityRectangle b = UtilityRectangle(WIDTH/2, HEIGHT/2, 100, 100);	
-
+	//UtilityRectangle b = UtilityRectangle(WIDTH/2, HEIGHT/2, 100, 100);	
+	Witch b = Witch();
 	EventCore::RegisterGameObjectAsPlayer(&b, 0);	
 
 	UtilityCircle c = UtilityCircle(WIDTH/2, HEIGHT/2, 50);
 	EventCore::RegisterGameObjectAsPlayer(&c, 1);
 
+	GameLevel level = GameLevel();
+	level.Load("0", &b);
 	
-	
+	while(GlobalData::ApplicationRunning()){
+		EventCore::Update();
+		level.Update();
+		level.DrawBackground();
+		GameObject::UpdateAll();
+		level.DrawForeground();
+		
+	}
 
-	EventCore::Update();
+	level.Unload();
 
 	AudioCore::Deinitialize();
 	GraphicsCore::Deinitialize();

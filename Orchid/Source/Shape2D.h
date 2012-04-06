@@ -13,7 +13,7 @@ enum SHAPE_TYPE{
 class Shape2D{
 protected:
 	int x, y;
-	unsigned int w, h;
+	unsigned int w, h, halfOfWidth, halfOfHeight;
 	unsigned char r, g, b;
 	bool solid;
 public:
@@ -28,6 +28,8 @@ public:
 	virtual int GetY();
 	virtual unsigned int GetW();
 	virtual unsigned int GetH();
+	virtual unsigned int GetHalfOfWidth();
+    virtual unsigned int GetHalfOfHeight();
 
 	void AddCollision(Shape2D* shape);
 	void ClearCollisions();

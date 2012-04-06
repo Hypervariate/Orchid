@@ -31,6 +31,12 @@ unsigned int Shape2D::GetW(){
 unsigned int Shape2D::GetH(){
 	return h;
 }
+unsigned int Shape2D::GetHalfOfWidth(){
+    return halfOfWidth;
+}
+unsigned int Shape2D::GetHalfOfHeight(){
+    return halfOfHeight;
+}
 void Shape2D::DrawShape(){
 	if(colliding){
 		r = 255;

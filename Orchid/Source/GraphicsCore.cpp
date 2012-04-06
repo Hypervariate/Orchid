@@ -8,6 +8,10 @@ map<string, ALLEGRO_FONT*> GraphicsCore::fonts;	//archived fonts loaded at load-
 map<string, ALLEGRO_FONT*>::iterator GraphicsCore::fontIterator;
 //------------------
 
+Vector2DF GraphicsCore::scrollingOffset;
+Vector2D GraphicsCore::mapTileDimensions;
+Vector2D GraphicsCore::mapDimensions;
+
 map<string, ALLEGRO_BITMAP*> GraphicsCore::m_images;
 
 FileReader GraphicsCore::fileReader;
@@ -74,39 +78,40 @@ void GraphicsCore::FlipDisplay(){
 	
 }
 void GraphicsCore::DrawRectangle(float x1, float y1, float x2, float y2, unsigned char r, unsigned char g, unsigned char b, float thickness){
-	al_draw_rectangle(x1, y1, x2, y2, al_map_rgb(r, g, b), thickness);
+	al_draw_rectangle(x1-GetMapScrollingOffsetX(), y1-GetMapScrollingOffsetY(), x2-GetMapScrollingOffsetX(), y2-GetMapScrollingOffsetY(), al_map_rgb(r, g, b), thickness);
 }
 void GraphicsCore::DrawRoundedRectangle(float x1, float y1, float x2, float y2, float rx, float ry, unsigned char r, unsigned char g, unsigned char b, float thickness){
-	al_draw_rounded_rectangle(x1, y1, x2, y2, rx, ry, al_map_rgb(r, g, b), thickness);
+	al_draw_rounded_rectangle(x1-GetMapScrollingOffsetX(), y1-GetMapScrollingOffsetY(), x2-GetMapScrollingOffsetX(), y2-GetMapScrollingOffsetY(), rx, ry, al_map_rgb(r, g, b), thickness);
 }
 void GraphicsCore::DrawFilledRectangle(float x1, float y1, float x2, float y2, unsigned char r, unsigned char g, unsigned char b){
-	al_draw_filled_rectangle(x1, y1, x2, y2, al_map_rgb(r, g, b));
+	al_draw_filled_rectangle(x1-GetMapScrollingOffsetX(), y1-GetMapScrollingOffsetY(), x2-GetMapScrollingOffsetX(), y2-GetMapScrollingOffsetY(), al_map_rgb(r, g, b));
 }
 void GraphicsCore::DrawFilledRoundedRectangle(float x1, float y1, float x2, float y2, float rx, float ry, unsigned char r, unsigned char g, unsigned char b){
-	al_draw_filled_rounded_rectangle(x1, y1, x2, y2, rx, ry, al_map_rgb(r, g, b));
+	al_draw_filled_rounded_rectangle(x1-GetMapScrollingOffsetX(), y1-GetMapScrollingOffsetY(), x2-GetMapScrollingOffsetX(), y2-GetMapScrollingOffsetY(), rx, ry, al_map_rgb(r, g, b));
 }
 void GraphicsCore::DrawLine(float x1, float y1, float x2, float y2, unsigned char r, unsigned char g, unsigned char b, float thickness){
-	al_draw_line(x1, y1, x2, y2, al_map_rgb(r, g, b), thickness);
+	al_draw_line(x1-GetMapScrollingOffsetX(), y1-GetMapScrollingOffsetY(), x2-GetMapScrollingOffsetX(), y2-GetMapScrollingOffsetY(), al_map_rgb(r, g, b), thickness);
 }
 void GraphicsCore::DrawTriangle(float x1, float y1, float x2, float y2, float x3, float y3, unsigned char r, unsigned char g, unsigned char b, float thickness){
-	al_draw_triangle(x1, y1, x2, y2, x3, y3, al_map_rgb(r, g, b), thickness);
+	al_draw_triangle(x1-GetMapScrollingOffsetX(), y1-GetMapScrollingOffsetY(), x2-GetMapScrollingOffsetX(), y2-GetMapScrollingOffsetY(), x3-GetMapScrollingOffsetX(), y3-GetMapScrollingOffsetY(), al_map_rgb(r, g, b), thickness);
 }
 void GraphicsCore::DrawFilledTriangle(float x1, float y1, float x2, float y2, float x3, float y3, unsigned char r, unsigned char g, unsigned char b){
-	al_draw_filled_triangle(x1, y1, x2, y2, x3, y3, al_map_rgb(r, g, b));
+	al_draw_filled_triangle(x1-GetMapScrollingOffsetX(), y1-GetMapScrollingOffsetY(), x2-GetMapScrollingOffsetX(), y2-GetMapScrollingOffsetY(), x3-GetMapScrollingOffsetX(), y3-GetMapScrollingOffsetY(), al_map_rgb(r, g, b));
 }
 void GraphicsCore::DrawCircle(float cx, float cy, float rad, unsigned char r, unsigned char g, unsigned char b, float thickness){
-	al_draw_circle(cx, cy, rad, al_map_rgb(r, g, b), thickness);
+	al_draw_circle(cx-GetMapScrollingOffsetX(), cy-GetMapScrollingOffsetY(), rad, al_map_rgb(r, g, b), thickness);
 }
 void GraphicsCore::DrawFilledCircle(float cx, float cy, float rad, unsigned char r, unsigned char g, unsigned char b){
-	al_draw_filled_circle(cx, cy, rad, al_map_rgb(r, g, b));
+	al_draw_filled_circle(cx-GetMapScrollingOffsetX(), cy-GetMapScrollingOffsetY(), rad, al_map_rgb(r, g, b));
 }
 void GraphicsCore::DrawEllipse(float cx, float cy, float rx, float ry, unsigned char r, unsigned char g, unsigned char b, float thickness){
-	al_draw_ellipse(cx, cy, rx, ry, al_map_rgb(r, g, b), thickness);
+	al_draw_ellipse(cx-GetMapScrollingOffsetX(), cy-GetMapScrollingOffsetY(), rx, ry, al_map_rgb(r, g, b), thickness);
 }
 void GraphicsCore::DrawFilledEllipse(float cx, float cy, float rx, float ry, unsigned char r, unsigned char g, unsigned char b){
-	al_draw_filled_ellipse(cx, cy, rx, ry, al_map_rgb(r, g, b));
+	al_draw_filled_ellipse(cx-GetMapScrollingOffsetX(), cy-GetMapScrollingOffsetY(), rx, ry, al_map_rgb(r, g, b));
 }
 void GraphicsCore::DrawSpline(float points[8], unsigned char r, unsigned char g, unsigned char b, float thickness){
+	//doesn't work with scrolling
 	al_draw_spline(points, al_map_rgb(r, g, b), thickness);
 }
 bool GraphicsCore::LoadFont(string font_name, unsigned int size)
@@ -152,6 +157,15 @@ ALLEGRO_DISPLAY* GraphicsCore::GetDisplay(){
 	return display;
 }
 void GraphicsCore::BlitImage(string index, int x, int y){
+
+	// CULLING - don't draw the object if it's not in view
+	if( x-GetMapScrollingOffsetX() < 0		||
+		x-GetMapScrollingOffsetX() > WIDTH	||
+		y-GetMapScrollingOffsetY() < 0		||
+		y-GetMapScrollingOffsetY() > HEIGHT) 
+	return;
+
+
 	char* name = (char*)index.c_str();
 	bool success = true;
 	if(m_images[name] == NULL)
@@ -159,7 +173,7 @@ void GraphicsCore::BlitImage(string index, int x, int y){
 	if(!success){
 		return;
 	}
-	al_draw_bitmap(m_images[name], x, y, 0);	
+	al_draw_bitmap(m_images[name], x-GetMapScrollingOffsetX(), y-GetMapScrollingOffsetY(), 0);	
 	
 }
 bool GraphicsCore::LoadImage(char* image_name)
@@ -191,4 +205,35 @@ bool GraphicsCore::LoadImage(char* image_name)
 	m_images[image_name] = bitmap;
 
 	return true;
+}
+float GraphicsCore::GetMapScrollingOffsetX(){
+	return scrollingOffset.x;
+}
+float GraphicsCore::GetMapScrollingOffsetY(){
+	return scrollingOffset.y;
+}
+void GraphicsCore::SetMapScrollingOffsetX(int x){
+	scrollingOffset.x = x;
+
+	//avoid scrolling beyond the map edge
+	if (scrollingOffset.x < 0) scrollingOffset.x = 0;
+	if (scrollingOffset.x > (mapDimensions.x * mapTileDimensions.x - WIDTH))
+		scrollingOffset.x = mapDimensions.x * mapTileDimensions.x - WIDTH;
+	
+}
+void GraphicsCore::SetMapScrollingOffsetY(int y){
+	scrollingOffset.y = y;
+
+	if (scrollingOffset.y < 0) 
+		scrollingOffset.y = 0;
+	if (scrollingOffset.y > (mapDimensions.y * mapTileDimensions.y - HEIGHT)) 
+		scrollingOffset.y = mapDimensions.y * mapTileDimensions.y - HEIGHT;
+}
+void GraphicsCore::SetMapTileDimensions(int x, int y){
+	mapTileDimensions.x = x;
+	mapTileDimensions.y = y;
+}
+void GraphicsCore::SetMapDimensions(int x, int y){
+	mapDimensions.x = x;
+	mapDimensions.y = y;
 }

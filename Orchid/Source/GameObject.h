@@ -39,7 +39,13 @@ public:
 
 	bool DetectCollision(GameObject* target);
 	Shape2D* GetShape();
-	
+
+	virtual int GetX();
+	virtual int GetY();
+	virtual unsigned int GetW();
+	virtual unsigned int GetH();
+	virtual unsigned int GetHalfOfWidth();
+    virtual unsigned int GetHalfOfHeight();
 
 
 protected:

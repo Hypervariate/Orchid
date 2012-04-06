@@ -12,6 +12,8 @@
 
 #include <map>
 #include "FileReader.h"
+#include "Vector2D.h"
+#include "Vector2DF.h"
 
 using namespace std;
 
@@ -74,6 +76,13 @@ public:
 	static bool LoadImage(char* image_name);
 	static void BlitImage(string index, int x = WIDTH/2, int y = HEIGHT/2);
 
+	static float GetMapScrollingOffsetX();
+	static float GetMapScrollingOffsetY();
+	static void SetMapScrollingOffsetX(int x = 0);
+	static void SetMapScrollingOffsetY(int y = 0);
+	static void SetMapTileDimensions(int x, int y);
+	static void SetMapDimensions(int x, int y);
+
 private:
 
 	static FileReader fileReader;
@@ -91,5 +100,9 @@ private:
 	//------------------
 	static map<string, ALLEGRO_BITMAP*> m_images;
 	//------------------
+
+	static Vector2DF scrollingOffset;
+	static Vector2D mapTileDimensions;
+	static Vector2D mapDimensions;
 };
 #endif
