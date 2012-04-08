@@ -7,14 +7,32 @@
 
 #include "GameLevel.h"
 
+struct Hello 
+{
+	Hello(){ 
+		cout << "Hello constructor" << endl;
+	}
+
+	~Hello(){
+		cout << "Hello destructor" << endl;
+		cin.get();
+	}
+};
+
 int main(void)
 {
 	EventCore::Initialize();
 	GraphicsCore::Initialize();
 	AudioCore::Initialize();
 	
-	
-	
+	////Boost regex, compiled library
+	//boost::regex regex("^(Hello|Bye) Boost$");
+	//boost::cmatch helloMatches;
+	//boost::regex_search("Hello Boost", helloMatches, regex);
+	//cout << "The word between () is: " << helloMatches[1] << endl;
+
+	//Boost shared pointer, header only library
+	//boost::shared_ptr<Hello> sharedHello(new Hello);
 
 	UtilityRectangle b = UtilityRectangle(WIDTH/2, HEIGHT/2, 50, 50);	
 	//Witch b = Witch();
