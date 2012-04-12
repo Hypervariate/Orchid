@@ -1,5 +1,5 @@
-#ifndef GAMELEVEL_H_
-#define GAMELEVEL_H_
+#ifndef MAPPYLEVEL_H_
+#define MAPPYLEVEL_H_
 
 #include "GraphicsCore.h"
 #include "GameObject.h"
@@ -27,10 +27,10 @@ enum BLOCK_FIELD {
 	UNUSED3
 };
 
-class GameLevel{
+class MappyLevel{
 public:
-	GameLevel();
-	~GameLevel();
+	MappyLevel();
+	~MappyLevel();
 
 	bool Load(char* levelName, GameObject* cameraTarget);
 	void Unload();

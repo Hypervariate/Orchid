@@ -1,13 +1,13 @@
-#include "GameLevel.h"
+#include "MappyLevel.h"
 
-GameLevel::GameLevel(){
+MappyLevel::MappyLevel(){
 	
 
 }
-GameLevel::~GameLevel(){
+MappyLevel::~MappyLevel(){
 	Unload();
 }
-bool GameLevel::Load(char* levelName, GameObject* cameraTarget){
+bool MappyLevel::Load(char* levelName, GameObject* cameraTarget){
 
 	char path[MAX_PATH_LENGTH];
 
@@ -38,17 +38,17 @@ bool GameLevel::Load(char* levelName, GameObject* cameraTarget){
 	
 	
 }
-void GameLevel::DrawBackground(){
+void MappyLevel::DrawBackground(){
 	
 	MapDrawBG(GraphicsCore::GetMapScrollingOffsetX(), GraphicsCore::GetMapScrollingOffsetY(), 0, 0, WIDTH, HEIGHT);
 }
-void GameLevel::DrawForeground(){
+void MappyLevel::DrawForeground(){
 	//MapDrawFG(scrollingOffset.x, scrollingOffset.y, 0, 0, WIDTH, HEIGHT);
 }
-void GameLevel::Unload(){
+void MappyLevel::Unload(){
 	MapFreeMem();
 }
-void GameLevel::Update(){
+void MappyLevel::Update(){
 	//update the map scroll position
 	GraphicsCore::SetMapScrollingOffsetX(cameraTarget->GetX() + cameraTarget->GetHalfOfWidth());
 	GraphicsCore::SetMapScrollingOffsetX( GraphicsCore::GetMapScrollingOffsetX() - WIDTH/2);
@@ -77,7 +77,7 @@ void GameLevel::Update(){
 			//GraphicsCore::DrawFilledCircle(g->GetX() - g->GetHalfOfWidth() - 2, g->GetY() - g->GetHalfOfHeight() - 2, 5, 0, 255, 0);
 	}
 }
-int GameLevel::collided_tl(int x, int y)
+int MappyLevel::collided_tl(int x, int y)
 {
 	if (x < 0 || y < 0 || x >= mapwidth*mapblockwidth || y >= mapheight*mapblockheight) 
 		return 0;
@@ -88,7 +88,7 @@ int GameLevel::collided_tl(int x, int y)
 	
 	return blockdata->tl;
 }
-unsigned long GameLevel::GetTileData(int blockX, int blockY, BLOCK_FIELD field, int layer){
+unsigned long MappyLevel::GetTileData(int blockX, int blockY, BLOCK_FIELD field, int layer){
 	if(layer < 0 || layer >= layerCount)
 		return 0;
 

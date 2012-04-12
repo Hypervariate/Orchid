@@ -75,6 +75,7 @@ public:
 
 	static bool LoadImage(char* image_name);
 	static void BlitImage(string index, int x = WIDTH/2, int y = HEIGHT/2);
+	static void BlitImageRegion(int sx, int sy, int w, int h, int dx, int dy, string image_name);
 
 	static float GetMapScrollingOffsetX();
 	static float GetMapScrollingOffsetY();

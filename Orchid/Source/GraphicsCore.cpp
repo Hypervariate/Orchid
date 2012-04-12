@@ -176,6 +176,27 @@ void GraphicsCore::BlitImage(string index, int x, int y){
 	al_draw_bitmap(m_images[name], x-GetMapScrollingOffsetX(), y-GetMapScrollingOffsetY(), 0);	
 	
 }
+
+void GraphicsCore::BlitImageRegion(int sx, int sy, int w, int h, int dx, int dy, string image_name){
+
+	//// CULLING - don't draw the object if it's not in view
+	//if( dx-GetMapScrollingOffsetX() < 0		||
+	//	dx-GetMapScrollingOffsetX() > WIDTH	||
+	//	dy-GetMapScrollingOffsetY() < 0		||
+	//	dy-GetMapScrollingOffsetY() > HEIGHT) 
+	//return;
+
+
+	const char* name = image_name.c_str();
+	bool success = true;
+	if(m_images[name] == NULL)
+		success = LoadImage((char*)name);
+	if(!success){
+		return;
+	}
+	al_draw_bitmap_region(m_images[name], sx, sy, w, h, dx, dy, 0);
+
+}
 bool GraphicsCore::LoadImage(char* image_name)
 {
 	//check if image already exists

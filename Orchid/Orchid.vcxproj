@@ -16,7 +16,7 @@
     <ClCompile Include="Source\CharacterController.cpp" />
     <ClCompile Include="Source\dirent.c" />
     <ClCompile Include="Source\FileReader.cpp" />
-    <ClCompile Include="Source\GameLevel.cpp" />
+    <ClCompile Include="Source\MappyLevel.cpp" />
     <ClCompile Include="Source\GameObject.cpp" />
     <ClCompile Include="Source\mappy_A5.c" />
     <ClCompile Include="Source\Shape2DCircle.cpp" />
@@ -29,6 +29,7 @@
     <ClCompile Include="Source\Shape2DRect.cpp" />
     <ClCompile Include="Source\Shape2D.cpp" />
     <ClCompile Include="Source\SquareGrid.cpp" />
+    <ClCompile Include="Source\TiledLevel.cpp" />
     <ClCompile Include="Source\UtilityRectangle.cpp" />
     <ClCompile Include="Source\UtilityCircle.cpp" />
     <ClCompile Include="Source\Vector2D.cpp" />
@@ -41,7 +42,7 @@
     <ClInclude Include="Source\CharacterController.h" />
     <ClInclude Include="Source\dirent.h" />
     <ClInclude Include="Source\FileReader.h" />
-    <ClInclude Include="Source\GameLevel.h" />
+    <ClInclude Include="Source\MappyLevel.h" />
     <ClInclude Include="Source\GameObject.h" />
     <ClInclude Include="Source\mappy_A5.h" />
     <ClInclude Include="Source\Shape2DCircle.h" />
@@ -53,6 +54,7 @@
     <ClInclude Include="Source\Shape2DRect.h" />
     <ClInclude Include="Source\Shape2D.h" />
     <ClInclude Include="Source\SquareGrid.h" />
+    <ClInclude Include="Source\TiledLevel.h" />
     <ClInclude Include="Source\UtilityRectangle.h" />
     <ClInclude Include="Source\UtilityCircle.h" />
     <ClInclude Include="Source\Vector2D.h" />
