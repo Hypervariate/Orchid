@@ -63,7 +63,7 @@ const bool TiledLevel::parseTMXFile(const std::string &filename)
 		boost::property_tree::ptree pt;
         boost::property_tree::xml_parser::read_xml(filename, pt);
        
-        mapDimensions.x		 = pt.get<int>( "map.<xmlattr>.width", 0 );
+		mapDimensions.x		 = pt.get<int>( "map.<xmlattr>.width", 0 );
         mapDimensions.y		 = pt.get<int>( "map.<xmlattr>.height", 0 );
         cellDimensions.x	 = pt.get<int>( "map.<xmlattr>.tilewidth", 0 );
         cellDimensions.y	 = pt.get<int>( "map.<xmlattr>.tileheight", 0 );
@@ -75,6 +75,15 @@ const bool TiledLevel::parseTMXFile(const std::string &filename)
 
         BOOST_FOREACH( boost::property_tree::ptree::value_type &v, pt.get_child("map") )
         {
+			
+			if(v.first == "tileset"){
+				mapName = v.second.get<std::string>("<xmlattr>.name");
+				tileMapFileName  = v.second.get<std::string>("image.<xmlattr>.source");
+				int startIndex = tileMapFileName.find_last_of("/") + 1;
+				int endIndex = tileMapFileName.find_last_of(".");
+				tileMapFileName = tileMapFileName.substr(startIndex, endIndex - startIndex);
+				
+			}
             if(v.first == "layer")
             {                
                 LayerData layer;

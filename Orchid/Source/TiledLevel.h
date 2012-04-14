@@ -49,7 +49,8 @@ private:
 	Vector2D cellDimensions;
 	Vector2D tileOffset;
 	string imageFileName;
-	
+	string mapName;
+	string tileMapFileName;
 };
 
 
