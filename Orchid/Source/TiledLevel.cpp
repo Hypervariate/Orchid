@@ -1,8 +1,8 @@
 #include "TiledLevel.h"
 
 TiledLevel::TiledLevel(){
-	cellDimensions.Set(0,0);
 	mapDimensions.Set(0,0);
+	cellDimensions.Set(0,0);
 
 }
 TiledLevel::~TiledLevel(){
@@ -19,43 +19,49 @@ bool TiledLevel::Load(char* levelName, GameObject* cameraTarget){
 	strcat(path, levelName);
 	strcat(path, LEVEL_EXTENSION);
 
+	GraphicsCore::SetMapDimensions(0, 0);
+	GraphicsCore::SetMapTileDimensions(0, 0);
+
 	bool successful = false;
 	if(parseTMXFile(path))
 		successful = true;
 	
-	GraphicsCore::SetMapDimensions(0, 0);
-	GraphicsCore::SetMapTileDimensions(0, 0);
-
 	this->cameraTarget = cameraTarget;
 	return successful;
 }
 void TiledLevel::Draw(){
-	//not supported yet
-	/*int tile = 0;
-	for(int i = 0; i < cells.GetSizeX(); i++)
-		for(int j = 0; j < cells.GetSizeY(); j++){
-				tile = cells.GetCell(i,j);
+	
+	int tile = 0;
+	int xStart = GraphicsCore::GetMapScrollingOffsetX() / cellDimensions.x;
+	int yStart = GraphicsCore::GetMapScrollingOffsetY() / cellDimensions.y;
+	int xCount = WIDTH / cellDimensions.x + xStart + 1;
+	int yCount =  HEIGHT / cellDimensions.y + yStart + 1;
+	for(int i = xStart; i < xCount && i < cells.GetSizeX(); i++)
+		for(int j = yStart; j < yCount && j < cells.GetSizeY(); j++){
+				tile = cells.GetCell(i,j) - 1;
+				int sx = tile * cellDimensions.x % tileMapPixelDimensions.x;
+				int sy = tile / tileMapTileDimensions.x * cellDimensions.y;
 				GraphicsCore::BlitImageRegion(
-					tile * cellDimensions.x,
-					tile * cellDimensions.y,
+					sx,
+					sy,
 					cellDimensions.x,
 					cellDimensions.y,
-					0 * cellDimensions.x,
-					0 * cellDimensions.y,
-					"tmw_desert_spacing"
+					i * cellDimensions.x,
+					j * cellDimensions.y,
+					tileMapFileName
 				);
-			}*/
+			}
 }
 void TiledLevel::Unload(){
 	
 }
 void TiledLevel::Update(){
-	//not supported yet
-	/*GraphicsCore::SetMapScrollingOffsetX(cameraTarget->GetX() + cameraTarget->GetHalfOfWidth());
-	GraphicsCore::SetMapScrollingOffsetX( GraphicsCore::GetMapScrollingOffsetX() - WIDTH/2);
+	
+	GraphicsCore::SetMapScrollingOffsetX(cameraTarget->GetX() + cameraTarget->GetHalfOfWidth());
+	GraphicsCore::SetMapScrollingOffsetX(GraphicsCore::GetMapScrollingOffsetX() - WIDTH/2);
 
 	GraphicsCore::SetMapScrollingOffsetY(cameraTarget->GetY() + cameraTarget->GetHalfOfHeight());
-	GraphicsCore::SetMapScrollingOffsetY( GraphicsCore::GetMapScrollingOffsetY() - HEIGHT/2);*/
+	GraphicsCore::SetMapScrollingOffsetY(GraphicsCore::GetMapScrollingOffsetY() - HEIGHT/2);
 }
 const bool TiledLevel::parseTMXFile(const std::string &filename)
 {            
@@ -65,18 +71,28 @@ const bool TiledLevel::parseTMXFile(const std::string &filename)
        
 		mapDimensions.x		 = pt.get<int>( "map.<xmlattr>.width", 0 );
         mapDimensions.y		 = pt.get<int>( "map.<xmlattr>.height", 0 );
+		GraphicsCore::SetMapDimensions(mapDimensions.x, mapDimensions.y);
+
+
         cellDimensions.x	 = pt.get<int>( "map.<xmlattr>.tilewidth", 0 );
         cellDimensions.y	 = pt.get<int>( "map.<xmlattr>.tileheight", 0 );
+		GraphicsCore::SetMapTileDimensions(cellDimensions.x, cellDimensions.y);
 
 		cells.AllocateSquareGrid(mapDimensions.x, mapDimensions.y);
-		GraphicsCore::SetMapDimensions(mapDimensions.x, mapDimensions.y);
-		GraphicsCore::SetMapTileDimensions(cellDimensions.x, cellDimensions.y);
+		
+		
 
 
         BOOST_FOREACH( boost::property_tree::ptree::value_type &v, pt.get_child("map") )
         {
 			
 			if(v.first == "tileset"){
+				tileMapPixelDimensions.x = v.second.get<int>("image.<xmlattr>.width");
+				tileMapPixelDimensions.y = v.second.get<int>("image.<xmlattr>.height");
+				tileMapTileDimensions.x  = tileMapPixelDimensions.x / cellDimensions.x;
+				tileMapTileDimensions.y  = tileMapPixelDimensions.y / cellDimensions.y;
+				tileMapTileCount = tileMapTileDimensions.x * tileMapTileDimensions.y;
+
 				mapName = v.second.get<std::string>("<xmlattr>.name");
 				tileMapFileName  = v.second.get<std::string>("image.<xmlattr>.source");
 				int startIndex = tileMapFileName.find_last_of("/") + 1;

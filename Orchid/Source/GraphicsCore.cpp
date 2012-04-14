@@ -35,7 +35,7 @@ void GraphicsCore::Initialize(){
 		vector<string> fontFileNames;
 		fileReader.GetAllFileNamesInDirectory(FONT_DIRECTORY, fontFileNames);
 		for(int i = 0; i < fontFileNames.size(); i++)
-			LoadFont(fontFileNames.at(i), 36);
+			LoadFont(fontFileNames.at(i), 24);
 
 		//load all images located in image directory
 		vector<string> imageFileNames;
@@ -194,7 +194,7 @@ void GraphicsCore::BlitImageRegion(int sx, int sy, int w, int h, int dx, int dy,
 	if(!success){
 		return;
 	}
-	al_draw_bitmap_region(m_images[name], sx, sy, w, h, dx, dy, 0);
+	al_draw_bitmap_region(m_images[name], sx, sy, w, h, dx-GetMapScrollingOffsetX(), dy-GetMapScrollingOffsetY(), 0);
 
 }
 bool GraphicsCore::LoadImage(char* image_name)
@@ -245,8 +245,7 @@ void GraphicsCore::SetMapScrollingOffsetX(int x){
 void GraphicsCore::SetMapScrollingOffsetY(int y){
 	scrollingOffset.y = y;
 
-	if (scrollingOffset.y < 0) 
-		scrollingOffset.y = 0;
+	if (scrollingOffset.y < 0) scrollingOffset.y = 0;
 	if (scrollingOffset.y > (mapDimensions.y * mapTileDimensions.y - HEIGHT)) 
 		scrollingOffset.y = mapDimensions.y * mapTileDimensions.y - HEIGHT;
 }

@@ -45,12 +45,17 @@ private:
 	SquareGrid cells;
 	vector<LayerData> layers;
 
+	string mapName;
 	Vector2D mapDimensions;
 	Vector2D cellDimensions;
+	
 	Vector2D tileOffset;
-	string imageFileName;
-	string mapName;
+	
+	
 	string tileMapFileName;
+	Vector2D tileMapPixelDimensions; //x pixels wide, y pixels tall
+	Vector2D tileMapTileDimensions;	//x tiles wide, y tiles tall
+	int tileMapTileCount;
 };
 
 
