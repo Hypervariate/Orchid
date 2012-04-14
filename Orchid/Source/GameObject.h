@@ -13,7 +13,7 @@
 class GameObject{
 
 public:
-	GameObject(int x = 100, int y = 100);
+	GameObject(int x, int y);
 	~GameObject();
 
 	static std::list<GameObject *> objects;
@@ -22,6 +22,8 @@ public:
 
 	virtual void Update();
 	virtual void Draw();
+	virtual void Destroy();
+	static void DestroyAll();
 
 	static void UpdateAll();
 
@@ -47,12 +49,13 @@ public:
 	virtual unsigned int GetHalfOfWidth();
     virtual unsigned int GetHalfOfHeight();
 
-	
-
+	static void Spawn(string type, int x, int y);
+	static void AddToWorld(GameObject* g);
+	static GameObject* GetGameObject(int number = -1);
 
 protected:
 	
-
+	int life;
 	Shape2D* shape;
 	unsigned int speed;
 	float maxSpeed;

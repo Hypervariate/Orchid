@@ -107,4 +107,19 @@
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 </data>
  </layer>
+ <objectgroup name="Objects" width="100" height="100">
+  <object name="Utility Rectangle" type="UtilityRectangle" x="291" y="87" width="80" height="39"/>
+  <object name="Utility Rectangle" type="UtilityRectangle" x="191" y="172" width="78" height="42"/>
+  <object name="Player 0" type="Witch" x="342" y="283" width="42" height="36">
+   <properties>
+    <property name="player" value="0"/>
+   </properties>
+  </object>
+  <object name="Utility Circle" type="UtilityCircle" x="424" y="146" width="59" height="47"/>
+  <object name="Player 1" type="Witch" x="401" y="283" width="42" height="36">
+   <properties>
+    <property name="player" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

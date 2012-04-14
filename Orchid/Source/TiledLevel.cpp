@@ -1,4 +1,5 @@
 #include "TiledLevel.h"
+#include "EventCore.h"
 
 TiledLevel::TiledLevel(){
 	mapDimensions.Set(0,0);
@@ -8,7 +9,7 @@ TiledLevel::TiledLevel(){
 TiledLevel::~TiledLevel(){
 	Unload();
 }
-bool TiledLevel::Load(char* levelName, GameObject* cameraTarget){
+bool TiledLevel::Load(char* levelName){
 
 	char path[MAX_PATH_LENGTH];
 
@@ -26,8 +27,12 @@ bool TiledLevel::Load(char* levelName, GameObject* cameraTarget){
 	if(parseTMXFile(path))
 		successful = true;
 	
-	this->cameraTarget = cameraTarget;
+	
 	return successful;
+}
+void TiledLevel::SetCameraTarget(GameObject* cameraTarget){
+	this->cameraTarget = cameraTarget;
+	Update();
 }
 void TiledLevel::Draw(){
 	
@@ -153,16 +158,31 @@ const bool TiledLevel::parseTMXFile(const std::string &filename)
                     {
                         string object_name = o.second.get<std::string>( "<xmlattr>.name", "Object" );
                        
-                        int cell_x = o.second.get<int>( "<xmlattr>.x" );
-                       
-                        int cell_y = o.second.get<int>( "<xmlattr>.y" );
-                       
-						//objects not supported yet
-                        //group.v_objects.push_back( object );
+                        int positionX = o.second.get<int>( "<xmlattr>.x" );
+						int positionY = o.second.get<int>( "<xmlattr>.y" );
+						string name = o.second.get<std::string>( "<xmlattr>.name", "Object" );
+						string type = o.second.get<std::string>( "<xmlattr>.type", "Object" );
+						
+						GameObject::Spawn(type, positionX, positionY);
+
+						BOOST_FOREACH( boost::property_tree::ptree::value_type &p, o.second )
+						{
+							if(p.first == "properties"){
+								string propertyName = p.second.get<std::string>( "property.<xmlattr>.name", "Object" );
+								int propertyValue = p.second.get<int>( "property.<xmlattr>.value" );
+								if(propertyName == "player"){
+									GameObject* gameObject = GameObject::GetGameObject();
+									EventCore::RegisterGameObjectAsPlayer(gameObject, propertyValue);	
+									if(propertyValue == 0)
+										SetCameraTarget(gameObject);
+								}
+								
+							}
+						}
+
                     }
+					
                 }
-				//objects not supported yet
-                //objectgroups_data.push_back( group );
             }
         }
        

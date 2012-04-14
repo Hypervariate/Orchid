@@ -1,6 +1,6 @@
 #include "UtilityCircle.h"
 
-UtilityCircle::UtilityCircle(int x, int y, int r){
+UtilityCircle::UtilityCircle(int x, int y, int r) : GameObject(x, y){
 	delete shape;
 	shape = NULL;
 	shape = new Shape2DCircle(x,y,r);

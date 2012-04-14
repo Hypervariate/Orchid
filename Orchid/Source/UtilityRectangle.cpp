@@ -1,6 +1,6 @@
 #include "UtilityRectangle.h"
 
-UtilityRectangle::UtilityRectangle(int x, int y, int w, int h){
+UtilityRectangle::UtilityRectangle(int x, int y, int w, int h) : GameObject(x, y){
 	position.Set(x, y);
 	shape->SetW(w);
 	shape->SetH(h);

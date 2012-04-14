@@ -1,5 +1,9 @@
 #include "GameObject.h"
 
+#include "UtilityCircle.h"
+#include "UtilityRectangle.h"
+#include "Witch.h"
+
 std::list<GameObject *> GameObject::objects;
 std::list<GameObject *>::iterator GameObject::iter1;
 std::list<GameObject *>::iterator GameObject::iter2;
@@ -27,12 +31,22 @@ GameObject::GameObject(int x, int y){
 	inertia.y = baseInertia.y;
 
 	moveUp = moveDown = moveLeft = moveRight = false;
-	
-	objects.push_back(this);
+
+	life = 100;
 }
 GameObject::~GameObject(){
 	delete shape;
+}
+void GameObject::Destroy(){
+	delete this;
 	objects.remove(this);
+}
+void GameObject::DestroyAll(){
+	while(!objects.empty()){
+		delete objects.front();
+		objects.pop_front();
+	}
+		
 }
 void GameObject::UpdateAll(){
 	//update all game objects
@@ -47,10 +61,13 @@ void GameObject::UpdateAll(){
 		(*iter1)->Draw();
 		
 	}
-
+	GraphicsCore::PrintToDisplay(objects.size(), 0, 64, "Arcade");
 }
 void GameObject::Update(){
-
+	if(life <= 0){
+		Destroy();
+		return;
+	}
 	if(moveLeft) Move(-1,0);
 	if(moveRight) Move(1,0);	
 	if(!moveLeft && !moveRight) inertia.x = 0;
@@ -157,4 +174,41 @@ bool GameObject::DetectCollision(GameObject* target){
 }
 Shape2D* GameObject::GetShape(){
 	return shape;
+}
+void GameObject::Spawn(string type, int x, int y){
+	if(type == "UtilityCircle"){
+		UtilityCircle* o = new UtilityCircle(x, y);
+		AddToWorld(o);
+	}
+	else if(type == "UtilityRectangle"){
+		UtilityRectangle* o = new UtilityRectangle(x, y);
+		AddToWorld(o);	
+	}
+	else if(type == "Witch"){
+		Witch* o = new Witch(x, y);
+		AddToWorld(o);	
+	}
+}
+void GameObject::AddToWorld(GameObject* g){
+	objects.push_back(g);	
+}
+//return an entity pointer
+GameObject* GameObject::GetGameObject(int number){
+	
+		
+	int n = 0;
+	iter1 = objects.begin();
+	if(number < 0) {
+		iter1 = objects.end();
+	}
+    while(iter1 != objects.end()){
+       if(n == number) return (*iter1);
+	   else{ 
+		   n++;
+		   iter1++;
+	   }
+    }
+	//if not found, return last item in list
+	iter1--;
+	return (*iter1);
 }

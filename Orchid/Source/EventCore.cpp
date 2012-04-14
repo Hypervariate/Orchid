@@ -172,7 +172,7 @@ void EventCore::Update(){
 	if(al_is_joystick_installed() && GetJoystickNumberFromID(ev.joystick.id) < players.size()){
 			
 		int player_number = GetJoystickNumberFromID(ev.joystick.id);
-		cout << "joystick " << player_number << endl;
+		//cout << "joystick " << player_number << endl;
 		
 		switch(ev.type){
 			case ALLEGRO_EVENT_JOYSTICK_AXIS:

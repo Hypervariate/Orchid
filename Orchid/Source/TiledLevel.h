@@ -33,13 +33,13 @@ public:
 	TiledLevel();
 	~TiledLevel();
 
-	bool Load(char* levelName, GameObject* cameraTarget);
+	bool Load(char* levelName);
 	void Unload();
 	void Draw();
 	void Update();
 	
-	const bool TiledLevel::parseTMXFile(const std::string &filename);
-
+	const bool parseTMXFile(const std::string &filename);
+	void SetCameraTarget(GameObject* cameraTarget);
 private:
 	GameObject* cameraTarget;
 	SquareGrid cells;

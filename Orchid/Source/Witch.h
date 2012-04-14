@@ -9,7 +9,7 @@
 class Witch : public GameObject{
 
 public:
-	Witch();
+	Witch(int x, int y);
 	~Witch();
 
 	void Update();

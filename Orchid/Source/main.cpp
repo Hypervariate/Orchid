@@ -7,17 +7,6 @@
 
 #include "TiledLevel.h"
 
-struct Hello 
-{
-	Hello(){ 
-		cout << "Hello constructor" << endl;
-	}
-
-	~Hello(){
-		cout << "Hello destructor" << endl;
-		cin.get();
-	}
-};
 
 int main(void)
 {
@@ -25,14 +14,8 @@ int main(void)
 	GraphicsCore::Initialize();
 	AudioCore::Initialize();
 	
-	Witch b = Witch();
-	EventCore::RegisterGameObjectAsPlayer(&b, 0);	
-
-	UtilityCircle c = UtilityCircle(WIDTH/2, HEIGHT/2, 50);
-	EventCore::RegisterGameObjectAsPlayer(&c, 1);
-
 	TiledLevel level = TiledLevel();
-	level.Load("desert2", &b);
+	level.Load("desert2");
 	
 	while(GlobalData::ApplicationRunning()){
 		EventCore::Update();
@@ -40,8 +23,8 @@ int main(void)
 		level.Update();
 		level.Draw();
 		GameObject::UpdateAll();
-		GraphicsCore::PrintToDisplay(b.GetX(), 0, 0, "Arcade", 255);
-		GraphicsCore::PrintToDisplay(b.GetY(), 0, 12,"Arcade", 255);
+		//GraphicsCore::PrintToDisplay(b->GetX(), 0, 0, "Arcade", 255);
+		//GraphicsCore::PrintToDisplay(b->GetY(), 0, 12,"Arcade", 255);
 		
 		GraphicsCore::PrintToDisplay(GraphicsCore::GetMapScrollingOffsetX(), 0, 36, "Arcade", 255);
 		GraphicsCore::PrintToDisplay(GraphicsCore::GetMapScrollingOffsetY(), 0, 48,"Arcade", 255);
@@ -49,6 +32,7 @@ int main(void)
 	}
 
 	level.Unload();
+	GameObject::DestroyAll();
 
 	AudioCore::Deinitialize();
 	GraphicsCore::Deinitialize();
