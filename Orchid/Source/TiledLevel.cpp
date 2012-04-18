@@ -109,38 +109,70 @@ const bool TiledLevel::parseTMXFile(const std::string &filename)
             {                
                 LayerData layer;
                 layer.name    = v.second.get<std::string>("<xmlattr>.name");               
-                layer.opacity = v.second.get<double>	 ("<xmlattr>.opacity", 1);
-                layer.visible = v.second.get<bool>		 ("<xmlattr>.visible", true);
+                
+				
+				//collision layer is special
+				if(layer.name == "Collision"){
+					std::string csv = v.second.get<std::string>("data");
+
+					typedef boost::char_separator<char> sep;
+					typedef boost::tokenizer< sep > tk;
+               
+					tk tokens(csv, sep(",\n\r"));
+					int index = 0;
+               
+					int x = 0;
+					int y = 0;
+               
+					for (tk::iterator i(tokens.begin()); i!=tokens.end(); ++i)
+					{
+						int tile = boost::lexical_cast<int>( *i );
+						collisionLayer.SetCell( x, y, tile);
+                   
+						if(++x >= mapDimensions.x)
+						{
+							y++;
+							x = 0;
+						}
+                                 
+						index++;
+					}
+               
+					
+				}
+				else{
+					layer.opacity = v.second.get<double>	 ("<xmlattr>.opacity", 1);
+					layer.visible = v.second.get<bool>		 ("<xmlattr>.visible", true);
 				
 
-                std::string csv = v.second.get<std::string>("data");
+					std::string csv = v.second.get<std::string>("data");
 
-                typedef boost::char_separator<char> sep;
-                typedef boost::tokenizer< sep > tk;
+					typedef boost::char_separator<char> sep;
+					typedef boost::tokenizer< sep > tk;
                
-                tk tokens(csv, sep(",\n\r"));
-                int index = 0;
+					tk tokens(csv, sep(",\n\r"));
+					int index = 0;
                
-                int x = 0;
-                int y = 0;
+					int x = 0;
+					int y = 0;
                
-                for (tk::iterator i(tokens.begin()); i!=tokens.end(); ++i)
-                {
-					int tile = boost::lexical_cast<int>( *i );
-					cells.SetCell( x, y, tile);
+					for (tk::iterator i(tokens.begin()); i!=tokens.end(); ++i)
+					{
+						int tile = boost::lexical_cast<int>( *i );
+						cells.SetCell( x, y, tile);
                    
-                    if(++x >= mapDimensions.x)
-                    {
-                        y++;
-                        x = 0;
-                    }
+						if(++x >= mapDimensions.x)
+						{
+							y++;
+							x = 0;
+						}
                                  
-                    index++;
-                }
+						index++;
+					}
                
-                layers.push_back( layer );
-            }
-           
+					layers.push_back( layer );
+				}
+			}
         }    
 
 		

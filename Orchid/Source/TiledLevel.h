@@ -42,7 +42,10 @@ public:
 	void SetCameraTarget(GameObject* cameraTarget);
 private:
 	GameObject* cameraTarget;
+
 	SquareGrid cells;
+	SquareGrid collisionLayer;
+
 	vector<LayerData> layers;
 
 	string mapName;
