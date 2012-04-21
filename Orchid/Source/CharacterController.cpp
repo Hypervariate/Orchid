@@ -40,34 +40,58 @@ void CharacterController::ProcessEventQueue(){
 			case INPUT_EVENT_KEY_DOWN:
 				cout << "key down event " << ev.GetEventValue() << endl;
 				switch(ev.GetEventValue()){
-					case 84:	//up
+					case 23: //w
 						target->StartMovingUp();
 						break;
-					case 85:	//down
+					case 19: //a
 						target->StartMovingDown();
 						break;
-					case 82:	//left
+					case 4: //s
+						target->StartMovingRight();
+						break;
+					case 1: //d						
 						target->StartMovingLeft();
 						break;
+					case 84:	//up
+						
+						break;
+					case 85:	//down
+						
+						break;
+					case 82:	//left
+						
+						break;
 					case 83:	//right
-						target->StartMovingRight();
+						
 						break;
 				}
 				break;
 			case INPUT_EVENT_KEY_UP:
 				cout << "key up event " << ev.GetEventValue() << endl;
 				switch(ev.GetEventValue()){
-					case 84:	//up
+					case 23: //w
 						target->StopMovingUp();
 						break;
-					case 85:	//down
+					case 19: //a
 						target->StopMovingDown();
 						break;
+					case 4: //s
+						target->StopMovingRight();
+						break;
+					case 1: //d
+						target->StopMovingLeft();						
+						break;
+					case 84:	//up
+						
+						break;
+					case 85:	//down
+						
+						break;
 					case 82:	//left
-						target->StopMovingLeft();
+						
 						break;
 					case 83:	//right
-						target->StopMovingRight();
+						
 						break;
 				}
 				break;
