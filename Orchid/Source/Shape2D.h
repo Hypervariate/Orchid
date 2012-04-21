@@ -38,10 +38,6 @@ public:
 
 	virtual void DrawShape();
 
-    virtual bool AreCoordinatesWithinShape(unsigned int x, unsigned int y);
-   /* virtual bool IsShapeWithin(Shape2D* shape);
-    static bool AreShapesIntersecting(Shape2D* s1, Shape2D* s2);*/
-
 	virtual SHAPE_TYPE GetType();
 	virtual bool DetectCollision(Shape2D* target);
 

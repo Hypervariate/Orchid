@@ -21,9 +21,6 @@ public:
 	void SetRadius(unsigned int radius);
 	unsigned int GetRadius();
 
-	bool AreCoordinatesWithinShape(unsigned int x, unsigned int y);
-	bool IsShape2DCircleWithin(Shape2DCircle* circle);
-	static bool AreShape2DCirclesIntersecting(Shape2DCircle* c1, Shape2DCircle* c2);
 
     void DrawShape();
 	SHAPE_TYPE GetType();

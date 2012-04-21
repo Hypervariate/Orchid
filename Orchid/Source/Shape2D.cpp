@@ -49,9 +49,7 @@ void Shape2D::DrawShape(){
 		b = 0;
 	}
 }
-bool Shape2D::AreCoordinatesWithinShape(unsigned int x, unsigned int y){
-    return false;
-}
+
 void Shape2D::SetAppearance(unsigned char r, unsigned char g, unsigned char b, bool solid){
 	this->r = r;
 	this->g = g;

@@ -11,7 +11,6 @@ Shape2DCircle::Shape2DCircle(unsigned int x, unsigned int y, unsigned int diamet
 Shape2DCircle::~Shape2DCircle(){
 	
 }
-
 void Shape2DCircle::SetDiameter(unsigned int diameter){
 	this->diameter = diameter;
 	radius = diameter/2;
@@ -26,28 +25,6 @@ void Shape2DCircle::SetRadius(unsigned int radius){
 unsigned int Shape2DCircle::GetRadius(){
 	return radius;
 }
-bool Shape2DCircle::AreCoordinatesWithinShape(unsigned int x, unsigned int y){
-	return false;
-}
-bool Shape2DCircle::IsShape2DCircleWithin(Shape2DCircle* circle){
-	return false;
-}
-bool Shape2DCircle::AreShape2DCirclesIntersecting(Shape2DCircle* c1, Shape2DCircle* c2){
-	//dx=ax-bx
-	int dx = c1->GetX() - c2->GetX();
-
-	//dy=ay-by
-	int dy = c1->GetY() - c2->GetY();
-
-	//r=ar+br
-	unsigned int r = c1->GetRadius() + c2->GetRadius();
-
-	//collision=r*r>dx*dx+dy*dy
-	if(r * r > dx * dx + dy * dy)
-		return true;
-	else
-		return false;
-}
 void Shape2DCircle::DrawShape(){
 	Shape2D::DrawShape();
 	if(solid)
@@ -59,7 +36,6 @@ SHAPE_TYPE Shape2DCircle::GetType(){
 	return CIRCLE;
 }
 bool Shape2DCircle::DetectCollision(Shape2D* target){
-	SetCollision(false);
 	float difX = 0;
 	float difY = 0;
 
@@ -78,7 +54,7 @@ bool Shape2DCircle::DetectCollision(Shape2D* target){
 			distance = sqrt(pow(difX, 2) + pow(difY, 2));
 			combinedRadii = radius + ((Shape2DCircle*)target)->GetRadius();
 			if(distance < combinedRadii){
-				SetCollision(target);
+				SetCollision(true);
 				return true;
 			}
 			break;
@@ -89,12 +65,11 @@ bool Shape2DCircle::DetectCollision(Shape2D* target){
 				y + radius > ((Shape2DRect*)target)->GetY() - ((Shape2DRect*)target)->GetHalfOfHeight() &&
 				y - radius < ((Shape2DRect*)target)->GetY() + ((Shape2DRect*)target)->GetHalfOfHeight())
 			{
-				SetCollision(target);
+				SetCollision(true);
 				return true;
 			}
 			break;
 	}
-
 	return false;
 	
 }

@@ -49,6 +49,11 @@ void GameObject::DestroyAll(){
 		
 }
 void GameObject::UpdateAll(){
+	//reset collisions
+	for(iter1 = objects.begin(); iter1 != objects.end(); ++iter1){
+		(*iter1)->shape->SetCollision(false);
+	}
+
 	//update all game objects
 	for(iter1 = objects.begin(); iter1 != objects.end(); ++iter1){
 		(*iter1)->Update();
