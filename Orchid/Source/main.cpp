@@ -15,7 +15,7 @@ int main(void)
 	AudioCore::Initialize();
 	
 	TiledLevel level = TiledLevel();
-	level.Load("desert2");
+	level.Load("grass");
 	
 	while(GlobalData::ApplicationRunning()){
 		EventCore::Update();

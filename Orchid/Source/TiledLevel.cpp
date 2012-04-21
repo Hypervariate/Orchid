@@ -41,8 +41,10 @@ void TiledLevel::Draw(){
 	int yStart = GraphicsCore::GetMapScrollingOffsetY() / cellDimensions.y;
 	int xCount = WIDTH / cellDimensions.x + xStart + 1;
 	int yCount =  HEIGHT / cellDimensions.y + yStart + 1;
-	for(int i = xStart; i < xCount && i < cells.GetSizeX(); i++)
-		for(int j = yStart; j < yCount && j < cells.GetSizeY(); j++){
+	
+	if(orientation == ORTHOGONAL){
+		for(int i = xStart; i < xCount && i < cells.GetSizeX(); i++){
+			for(int j = yStart; j < yCount && j < cells.GetSizeY(); j++){
 				tile = cells.GetCell(i,j) - 1;
 				int sx = tile * cellDimensions.x % tileMapPixelDimensions.x;
 				int sy = tile / tileMapTileDimensions.x * cellDimensions.y;
@@ -56,6 +58,33 @@ void TiledLevel::Draw(){
 					tileMapFileName
 				);
 			}
+		}
+	}
+	else if(orientation == ISOMETRIC){
+		//for (i = 0; i < tile_map.size; i++)
+		//	for (j = tile_map[i].size; j >= 0; j--)  // Changed loop condition here.
+		//		draw(
+		//			tile_map[i][j],
+		//			x = (j * tile_width / 2) + (i * tile_width / 2)
+		//			y = (i * tile_height / 2) - (j * tile_height / 2)
+		//		)
+		for (int i = 0; i < xCount && i < 1; i++){
+			for (int j = 0; j < xCount && j < 2; j++){
+				tile = cells.GetCell(i,j) - 1;
+				int sx = tile * cellDimensions.x % tileMapPixelDimensions.x;
+				int sy = tile / tileMapTileDimensions.x * cellDimensions.y;
+				GraphicsCore::BlitImageRegion(
+					sx,
+					sy,
+					cellDimensions.x,
+					cellDimensions.y * 2,
+					(j * cellDimensions.x ) + (i * cellDimensions.x),
+					(i * cellDimensions.y ) + (j * cellDimensions.y),
+					tileMapFileName
+				);
+			}
+		}
+	}
 }
 void TiledLevel::Unload(){
 	
@@ -74,8 +103,16 @@ const bool TiledLevel::parseTMXFile(const std::string &filename)
 		boost::property_tree::ptree pt;
         boost::property_tree::xml_parser::read_xml(filename, pt);
        
+		orientation = ORTHOGONAL;
+		string perspective = pt.get<std::string>("map.<xmlattr>.orientation");
+		if(perspective == "isometric")
+			orientation = ISOMETRIC;
+
 		mapDimensions.x		 = pt.get<int>( "map.<xmlattr>.width", 0 );
         mapDimensions.y		 = pt.get<int>( "map.<xmlattr>.height", 0 );
+		
+		
+
 		GraphicsCore::SetMapDimensions(mapDimensions.x, mapDimensions.y);
 
 
@@ -84,8 +121,6 @@ const bool TiledLevel::parseTMXFile(const std::string &filename)
 		GraphicsCore::SetMapTileDimensions(cellDimensions.x, cellDimensions.y);
 
 		cells.AllocateSquareGrid(mapDimensions.x, mapDimensions.y);
-		
-		
 
 
         BOOST_FOREACH( boost::property_tree::ptree::value_type &v, pt.get_child("map") )

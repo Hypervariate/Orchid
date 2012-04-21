@@ -22,6 +22,11 @@
 #define LEVEL_DIRECTORY "Data/Maps/"
 #define LEVEL_EXTENSION ".tmx"
 
+enum LEVEL_ORIENTATION{
+	ORTHOGONAL,
+	ISOMETRIC
+};
+
 struct LayerData{
 	string name;
 	double opacity;
@@ -59,6 +64,7 @@ private:
 	Vector2D tileMapPixelDimensions; //x pixels wide, y pixels tall
 	Vector2D tileMapTileDimensions;	//x tiles wide, y tiles tall
 	int tileMapTileCount;
+	LEVEL_ORIENTATION orientation;
 };
 
 

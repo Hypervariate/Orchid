@@ -3,6 +3,6 @@
 ParticleEmitter::ParticleEmitter(){
 
 }
-ParticleEmitter::ParticleEmitter(){
+ParticleEmitter::~ParticleEmitter(){
 
 }
