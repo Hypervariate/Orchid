@@ -46,12 +46,17 @@ public:
 	virtual int GetY();
 	virtual unsigned int GetW();
 	virtual unsigned int GetH();
+	float GetVelocityX();
+	float GetVelocityY();
 	virtual unsigned int GetHalfOfWidth();
     virtual unsigned int GetHalfOfHeight();
 
 	static void Spawn(string type, int x, int y);
 	static void AddToWorld(GameObject* g);
 	static GameObject* GetGameObject(int number = -1);
+
+	virtual void Move(float dirX, float dirY);
+	virtual void MoveTo(int x, int y);
 
 protected:
 	
@@ -73,8 +78,11 @@ protected:
 	bool moveLeft;
 	bool moveRight;
 
+	virtual void HandleCollisionWithTarget(GameObject* target);
+
 private:
-	virtual void Move(float dirX, float dirY);
+	
+
 
 
 };

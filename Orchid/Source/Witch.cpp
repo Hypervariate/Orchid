@@ -1,10 +1,13 @@
 #include "Witch.h"
 
 Witch::Witch(int x, int y) : GameObject(x, y){
-	delete shape;
+	/*delete shape;
 	shape = NULL;
-	shape = new Shape2DCircle(x,y,50);
+	shape = new Shape2DCircle(x,y,50);*/
 	
+	shape->SetW(40);
+	shape->SetH(40
+		);
 	animation = Animation::FactoryAnimation("Librarian_Idle");
 	animation.PlayAnimation();
 }

@@ -37,6 +37,12 @@ GameObject::GameObject(int x, int y){
 GameObject::~GameObject(){
 	delete shape;
 }
+float GameObject::GetVelocityX(){
+	return velocity.x;
+}
+float GameObject::GetVelocityY(){
+	return velocity.y;
+}
 void GameObject::Destroy(){
 	delete this;
 	objects.remove(this);
@@ -140,6 +146,16 @@ void GameObject::Move(float dirX, float dirY){
 	if(dirX) velocity.x = dirX * inertia.x;
 	if(dirY) velocity.y = dirY * inertia.y;
 }
+void GameObject::MoveTo(int x, int y){
+	if(x != position.x){
+		position.x = x;
+		shape->SetX(position.x);
+	}
+	if(y != position.y){
+		position.y = y;
+		shape->SetY(position.y);
+	}
+}
 void GameObject::StartMovingUp(){
 	moveUp = true;
 }
@@ -175,7 +191,14 @@ void GameObject::ResumeMovement(){
 	if(moveDown) StartMovingDown();
 }
 bool GameObject::DetectCollision(GameObject* target){
-	return shape->DetectCollision(target->GetShape());
+	bool collision = shape->DetectCollision(target->GetShape());
+	if(collision)
+		HandleCollisionWithTarget(target);
+
+	return collision;
+}
+void GameObject::HandleCollisionWithTarget(GameObject* target){
+
 }
 Shape2D* GameObject::GetShape(){
 	return shape;
