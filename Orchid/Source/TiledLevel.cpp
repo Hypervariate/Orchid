@@ -162,7 +162,11 @@ const bool TiledLevel::parseTMXFile(const std::string &filename)
 					for (tk::iterator i(tokens.begin()); i!=tokens.end(); ++i)
 					{
 						int tile = boost::lexical_cast<int>( *i );
-						collisionLayer.SetCell( x, y, tile);
+						
+						if(tile != 0){
+							LevelCollisionTile* collisionTile = new LevelCollisionTile(x * cellDimensions.x, y * cellDimensions.y, cellDimensions.x, cellDimensions.y);
+							GameObject::AddToWorld(collisionTile);
+						}
                    
 						if(++x >= mapDimensions.x)
 						{

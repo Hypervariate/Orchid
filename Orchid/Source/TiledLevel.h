@@ -19,6 +19,8 @@
 
 #include <iostream>
 
+#include "LevelCollisionTile.h"
+
 #define LEVEL_DIRECTORY "Data/Maps/"
 #define LEVEL_EXTENSION ".tmx"
 
@@ -45,6 +47,7 @@ public:
 	
 	const bool parseTMXFile(const std::string &filename);
 	void SetCameraTarget(GameObject* cameraTarget);
+
 private:
 	GameObject* cameraTarget;
 
