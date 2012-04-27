@@ -1,3 +1,3 @@
 @ECHO OFF
-chdir ..\ThirdParty\Tile Studio\
+chdir ..\ThirdParty\TileStudio\
 start TS.EXE
