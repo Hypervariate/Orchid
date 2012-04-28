@@ -6,8 +6,8 @@ Witch::Witch(int x, int y) : GameObject(x, y){
 	shape = new Shape2DCircle(x,y,50);*/
 	
 	shape->SetW(40);
-	shape->SetH(40
-		);
+	shape->SetH(40);
+    baseInertia.x = baseInertia.y = 2;
 	animation = Animation::FactoryAnimation("Librarian_Idle");
 	animation.PlayAnimation();
 }

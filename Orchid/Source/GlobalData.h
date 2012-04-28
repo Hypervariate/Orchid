@@ -3,6 +3,7 @@
 
 #define max(a,b)	(((a) > (b)) ? (a) : (b))
 #define min(a,b)	(((a) < (b)) ? (a) : (b))
+#define ABS(N)      (((N) >= 0 ? (N) : -(N)))
 
 #include <iostream>
 #include <boost/shared_ptr.hpp>

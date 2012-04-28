@@ -15,8 +15,3 @@ void LevelCollisionTile::Draw(){
 	GameObject::Draw();
 
 }
-void LevelCollisionTile::HandleCollisionWithTarget(GameObject* target){
-	
-
-
-}

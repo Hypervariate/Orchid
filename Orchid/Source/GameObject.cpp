@@ -199,6 +199,67 @@ bool GameObject::DetectCollision(GameObject* target){
 }
 void GameObject::HandleCollisionWithTarget(GameObject* target){
 
+    Vector2DF correction = Vector2DF(0,0);
+    Vector2D direction = Vector2D(0,0);
+
+    float x1 = GetX() + GetHalfOfWidth()  - (target->GetX() - target->GetHalfOfWidth());
+    float y1 = GetY() + GetHalfOfHeight() - (target->GetY() - target->GetHalfOfHeight());
+
+    float x2 = GetX() - GetHalfOfWidth();
+    x2 -= (target->GetX() + target->GetHalfOfWidth());
+    float y2 = GetY() - GetHalfOfHeight();
+    y2 -= (target->GetY() + target->GetHalfOfHeight());
+
+    if(x1 < 0) x1 *= -1;
+    if(x2 < 0) x2 *= -1;
+    if(y1 < 0) y1 *= -1;
+    if(y2 < 0) y2 *= -1;
+
+    // calculate displacement along X-axis
+    if (x1 < x2)
+    {
+        correction.x = x1;
+        direction.x = -1;    //left
+    }
+    else if (x1 > x2)
+    {
+        correction.x = x2;
+        direction.x = 1; //right
+    }
+
+    // calculate displacement along Y-axis
+    if (y1 < y2)
+    {
+        correction.y = y1;
+        direction.y = -1; //up
+    }
+    else if (y1 > y2)
+    {
+        correction.y = y2;
+        direction.y = 1; //down
+    }
+
+
+    float targetX = target->GetX();
+    float targetY = target->GetY();
+
+
+    if(direction.x < 0 && ABS(correction.x) < ABS(correction.y)){   //colliding with right side
+        targetX -= correction.x * direction.x;
+        target->MoveTo(targetX, target->GetY());
+    }
+    else if(direction.x > 0 && ABS(correction.x) < ABS(correction.y)){   //colliding with left side
+        targetX -= correction.x * direction.x;
+        target->MoveTo(targetX, target->GetY());
+    }
+    else if(direction.y < 0 && ABS(correction.x) > ABS(correction.y)){  //colliding with bottom side
+        targetY -= correction.y * direction.y;
+        target->MoveTo(target->GetX(), targetY);
+    }
+    else if(direction.y > 0 && ABS(correction.x) > ABS(correction.y)){  //colliding with top side
+        targetY -= correction.y * direction.y;
+        target->MoveTo(target->GetX(), targetY);
+    }
 }
 Shape2D* GameObject::GetShape(){
 	return shape;
