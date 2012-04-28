@@ -31,6 +31,7 @@
     <ClCompile Include="Source\Shape2D.cpp" />
     <ClCompile Include="Source\SquareGrid.cpp" />
     <ClCompile Include="Source\TiledLevel.cpp" />
+    <ClCompile Include="Source\Timer.cpp" />
     <ClCompile Include="Source\UtilityRectangle.cpp" />
     <ClCompile Include="Source\UtilityCircle.cpp" />
     <ClCompile Include="Source\Vector2D.cpp" />
@@ -57,6 +58,7 @@
     <ClInclude Include="Source\Shape2D.h" />
     <ClInclude Include="Source\SquareGrid.h" />
     <ClInclude Include="Source\TiledLevel.h" />
+    <ClInclude Include="Source\Timer.h" />
     <ClInclude Include="Source\UtilityRectangle.h" />
     <ClInclude Include="Source\UtilityCircle.h" />
     <ClInclude Include="Source\Vector2D.h" />

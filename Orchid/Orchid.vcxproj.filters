@@ -99,6 +99,9 @@
     <ClCompile Include="Source\LevelCollisionTile.cpp">
       <Filter>Game Classes</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Timer.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CubeGrid.h">
@@ -172,6 +175,9 @@
     </ClInclude>
     <ClInclude Include="Source\LevelCollisionTile.h">
       <Filter>Game Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Timer.h">
+      <Filter>Utilities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

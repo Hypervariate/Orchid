@@ -6,6 +6,7 @@
 #include "Witch.h"
 
 #include "TiledLevel.h"
+#include "Timer.h"
 
 
 int main(void)
@@ -13,9 +14,14 @@ int main(void)
 	EventCore::Initialize();
 	GraphicsCore::Initialize();
 	AudioCore::Initialize();
-	
+
+	EventCore::Update();
+
 	TiledLevel level = TiledLevel();
 	level.Load("desert");
+	Timer timer = Timer(800);
+	timer.Start();
+	
 	
 	while(GlobalData::ApplicationRunning()){
 		EventCore::Update();
@@ -28,7 +34,14 @@ int main(void)
 		
 		GraphicsCore::PrintToDisplay(GraphicsCore::GetMapScrollingOffsetX(), 0, 36, "Arcade", 255);
 		GraphicsCore::PrintToDisplay(GraphicsCore::GetMapScrollingOffsetY(), 0, 48,"Arcade", 255);
-		
+		GraphicsCore::PrintToDisplay(timer.GetRemainingTime(), 10, 0,"Arcade", 255, 128);
+		if(timer.Arrived())
+			GraphicsCore::PrintToDisplay("Arrived", 64, 0,"Arcade", 255, 128);
+		else
+			GraphicsCore::PrintToDisplay("Counting...", 64, 0,"Arcade", 255, 128);
+
+		if(timer.GetRemainingTime() < -200)
+			timer.Reset(400);
 	}
 
 	level.Unload();
