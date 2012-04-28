@@ -44,8 +44,9 @@ float GameObject::GetVelocityY(){
 	return velocity.y;
 }
 void GameObject::Destroy(){	//does not work. must implement correctly
-	/*delete this;
-	objects.remove(this);*/
+	objects.remove(this);
+	delete this;
+	
 }
 void GameObject::DestroyAll(){
 	while(!objects.empty()){
@@ -58,7 +59,7 @@ void GameObject::UpdateAll(){
 	for(iter1 = objects.begin(); iter1 != objects.end(); ++iter1){
 		if((*iter1)->life <= 0){
 			(*iter1)->Destroy();
-			
+			iter1 = objects.begin();			
 		}
 	}
 

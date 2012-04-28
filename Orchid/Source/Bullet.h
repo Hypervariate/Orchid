@@ -9,7 +9,7 @@
 class Bullet : public GameObject{
 
 public:
-	Bullet(int x, int y, int r = 25, float vx = 2, float vy = 0);
+	Bullet(int x, int y, float vx, float vy);
 	~Bullet();
 
 	void Update();

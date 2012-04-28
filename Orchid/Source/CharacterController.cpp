@@ -39,7 +39,7 @@ void CharacterController::ProcessEventQueue(){
 		Bullet* bullet;
 		switch(ev.GetEventType()){
 			case INPUT_EVENT_KEY_DOWN:
-				cout << "key down event " << ev.GetEventValue() << endl;
+				//cout << "key down event " << ev.GetEventValue() << endl;
 				switch(ev.GetEventValue()){
 					case 23: //w
 						target->StartMovingUp();
@@ -54,22 +54,25 @@ void CharacterController::ProcessEventQueue(){
 						target->StartMovingLeft();
 						break;
 					case 84:	//up
-						bullet = new Bullet(target->GetX(), target->GetY(), 25, 0, -2);
+						bullet = new Bullet(target->GetX(), target->GetY() - target->GetHalfOfHeight(), 0, -1);
 						GameObject::AddToWorld(bullet);
 						break;
 					case 85:	//down
-						
+						bullet = new Bullet(target->GetX(), target->GetY() + target->GetHalfOfHeight(), 0, 1);
+						GameObject::AddToWorld(bullet);
 						break;
 					case 82:	//left
-						
+						bullet = new Bullet(target->GetX() - target->GetHalfOfWidth(), target->GetY(), -1, 0);
+						GameObject::AddToWorld(bullet);
 						break;
 					case 83:	//right
-						
+						bullet = new Bullet(target->GetX() + target->GetHalfOfWidth(), target->GetY(), 1, 0);
+						GameObject::AddToWorld(bullet);
 						break;
 				}
 				break;
 			case INPUT_EVENT_KEY_UP:
-				cout << "key up event " << ev.GetEventValue() << endl;
+				//cout << "key up event " << ev.GetEventValue() << endl;
 				switch(ev.GetEventValue()){
 					case 23: //w
 						target->StopMovingUp();
@@ -98,13 +101,13 @@ void CharacterController::ProcessEventQueue(){
 				}
 				break;
 			case INPUT_EVENT_JOYSTICK_BUTTON_DOWN:
-				//cout << "joystick button down event " << ev.GetEventValue() << endl;
+				////cout << "joystick button down event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_JOYSTICK_BUTTON_UP:
-				//cout << "joystick button up event " << ev.GetEventValue() << endl;
+				////cout << "joystick button up event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_JOYSTICK_AXIS_0:
-				//cout << "joystick axis 0 event " << ev.GetEventValue() << endl;
+				////cout << "joystick axis 0 event " << ev.GetEventValue() << endl;
 				if(ev.GetEventValue() < -threshold)
 					target->StartMovingLeft();
 				else
@@ -117,7 +120,7 @@ void CharacterController::ProcessEventQueue(){
 
 				break;
 			case INPUT_EVENT_JOYSTICK_AXIS_1:
-				//cout << "joystick axis 1 event " << ev.GetEventValue() << endl;
+				////cout << "joystick axis 1 event " << ev.GetEventValue() << endl;
 				if(ev.GetEventValue() < -threshold)
 					target->StartMovingUp();
 				else
@@ -130,37 +133,37 @@ void CharacterController::ProcessEventQueue(){
 
 				break;
 			case INPUT_EVENT_JOYSTICK_AXIS_2:
-				//cout << "joystick axis 2 event " << ev.GetEventValue() << endl;
+				////cout << "joystick axis 2 event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_JOYSTICK_AXIS_3:
-				//cout << "joystick axis 3 event " << ev.GetEventValue() << endl;
+				////cout << "joystick axis 3 event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_LEFT_BUTTON_DOWN:
-				//cout << "left mouse button down event " << ev.GetEventValue() << endl;
+				////cout << "left mouse button down event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_RIGHT_BUTTON_DOWN:
-				//cout << "right mouse button down event " << ev.GetEventValue() << endl;
+				////cout << "right mouse button down event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_MIDDLE_BUTTON_DOWN:
-				//cout << "middle mouse button down event " << ev.GetEventValue() << endl;
+				////cout << "middle mouse button down event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_LEFT_BUTTON_UP:
-				//cout << "left mouse button up event " << ev.GetEventValue() << endl;
+				////cout << "left mouse button up event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_RIGHT_BUTTON_UP:
-				//cout << "right mouse button up event " << ev.GetEventValue() << endl;
+				////cout << "right mouse button up event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_MIDDLE_BUTTON_UP:
-				//cout << "middle mouse button up event " << ev.GetEventValue() << endl;
+				////cout << "middle mouse button up event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_AXES_X:
-				//cout << "mouse axis x event " << ev.GetEventValue() << endl;
+				////cout << "mouse axis x event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_AXES_Y:
-				///cout << "mouse axis y event " << ev.GetEventValue() << endl;
+				/////cout << "mouse axis y event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_AXES_Z:
-				//cout << "mouse axis z event " << ev.GetEventValue() << endl;
+				////cout << "mouse axis z event " << ev.GetEventValue() << endl;
 				break;
 		}
 		
