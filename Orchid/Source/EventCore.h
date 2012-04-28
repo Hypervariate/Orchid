@@ -51,6 +51,7 @@ private:
 	static ALLEGRO_TIMER *timer;
 	static int frames;
 	static int fps;
+	static int seconds;
 	static bool redraw;
 
 	

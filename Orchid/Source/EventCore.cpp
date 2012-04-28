@@ -16,8 +16,9 @@ bool EventCore::redraw = false;
 map<ALLEGRO_JOYSTICK*, int> EventCore::joysticks;
 
 ALLEGRO_TIMER *EventCore::timer = NULL;
-int EventCore::frames = 0;
+int EventCore::frames = 1;
 int EventCore::fps = 0;
+int EventCore::seconds = 1;
 
 EventCore::EventCore(){}
 EventCore::~EventCore(){}
@@ -93,9 +94,10 @@ void EventCore::Update(){
 	}
 	if(redraw && al_is_event_queue_empty(eventQueue)) {
 		redraw = false;
-			
-		frames = al_get_timer_count(timer) + 1;	//no division by 0
-		fps = frames/(frames/60.0f);	//frames / second
+		
+		seconds = (al_get_timer_count(timer) + 1)/60.0f;	//no division by 0
+		frames++;
+		fps = frames/seconds;	//frames / second
 
 		GraphicsCore::PrintToDisplay(fps , WIDTH - 96, 0, "Arcade", 0, 255, 0);
 		GraphicsCore::Update();
