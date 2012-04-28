@@ -43,9 +43,9 @@ float GameObject::GetVelocityX(){
 float GameObject::GetVelocityY(){
 	return velocity.y;
 }
-void GameObject::Destroy(){
-	delete this;
-	objects.remove(this);
+void GameObject::Destroy(){	//does not work. must implement correctly
+	/*delete this;
+	objects.remove(this);*/
 }
 void GameObject::DestroyAll(){
 	while(!objects.empty()){
@@ -55,6 +55,13 @@ void GameObject::DestroyAll(){
 		
 }
 void GameObject::UpdateAll(){
+	for(iter1 = objects.begin(); iter1 != objects.end(); ++iter1){
+		if((*iter1)->life <= 0){
+			(*iter1)->Destroy();
+			
+		}
+	}
+
 	//reset collisions
 	for(iter1 = objects.begin(); iter1 != objects.end(); ++iter1){
 		(*iter1)->shape->SetCollision(false);
@@ -75,10 +82,7 @@ void GameObject::UpdateAll(){
 	GraphicsCore::PrintToDisplay(objects.size(), 0, 64, "Arcade");
 }
 void GameObject::Update(){
-	if(life <= 0){
-		Destroy();
-		return;
-	}
+	
 	if(moveLeft) Move(-1,0);
 	if(moveRight) Move(1,0);	
 	if(!moveLeft && !moveRight) inertia.x = 0;

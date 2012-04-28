@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="Source\Animation.cpp" />
     <ClCompile Include="Source\AudioCore.cpp" />
+    <ClCompile Include="Source\Bullet.cpp" />
     <ClCompile Include="Source\CharacterController.cpp" />
     <ClCompile Include="Source\dirent.c" />
     <ClCompile Include="Source\Emitter.cpp" />
@@ -40,10 +41,12 @@
     <ClCompile Include="Source\Vector2D.cpp" />
     <ClCompile Include="Source\Vector2DF.cpp" />
     <ClCompile Include="Source\Witch.cpp" />
+    <ClCompile Include="Source\WitchController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Animation.h" />
     <ClInclude Include="Source\AudioCore.h" />
+    <ClInclude Include="Source\Bullet.h" />
     <ClInclude Include="Source\CharacterController.h" />
     <ClInclude Include="Source\dirent.h" />
     <ClInclude Include="Source\Emitter.h" />
@@ -70,6 +73,7 @@
     <ClInclude Include="Source\Vector2D.h" />
     <ClInclude Include="Source\Vector2DF.h" />
     <ClInclude Include="Source\Witch.h" />
+    <ClInclude Include="Source\WitchController.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A30C2B96-5E1C-4ED2-91F9-A3F4AA484741}</ProjectGuid>

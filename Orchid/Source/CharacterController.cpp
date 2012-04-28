@@ -36,6 +36,7 @@ void CharacterController::ProcessEventQueue(){
 	InputEvent ev;
 	while(!inputEvents.empty()){
 		ev = PopInputEvent();
+		Bullet* bullet;
 		switch(ev.GetEventType()){
 			case INPUT_EVENT_KEY_DOWN:
 				cout << "key down event " << ev.GetEventValue() << endl;
@@ -53,7 +54,8 @@ void CharacterController::ProcessEventQueue(){
 						target->StartMovingLeft();
 						break;
 					case 84:	//up
-						
+						bullet = new Bullet(target->GetX(), target->GetY(), 25, 0, -2);
+						GameObject::AddToWorld(bullet);
 						break;
 					case 85:	//down
 						
@@ -134,31 +136,31 @@ void CharacterController::ProcessEventQueue(){
 				//cout << "joystick axis 3 event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_LEFT_BUTTON_DOWN:
-				cout << "left mouse button down event " << ev.GetEventValue() << endl;
+				//cout << "left mouse button down event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_RIGHT_BUTTON_DOWN:
-				cout << "right mouse button down event " << ev.GetEventValue() << endl;
+				//cout << "right mouse button down event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_MIDDLE_BUTTON_DOWN:
-				cout << "middle mouse button down event " << ev.GetEventValue() << endl;
+				//cout << "middle mouse button down event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_LEFT_BUTTON_UP:
-				cout << "left mouse button up event " << ev.GetEventValue() << endl;
+				//cout << "left mouse button up event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_RIGHT_BUTTON_UP:
-				cout << "right mouse button up event " << ev.GetEventValue() << endl;
+				//cout << "right mouse button up event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_MIDDLE_BUTTON_UP:
-				cout << "middle mouse button up event " << ev.GetEventValue() << endl;
+				//cout << "middle mouse button up event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_AXES_X:
-				cout << "mouse axis x event " << ev.GetEventValue() << endl;
+				//cout << "mouse axis x event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_AXES_Y:
-				cout << "mouse axis y event " << ev.GetEventValue() << endl;
+				///cout << "mouse axis y event " << ev.GetEventValue() << endl;
 				break;
 			case INPUT_EVENT_MOUSE_AXES_Z:
-				cout << "mouse axis z event " << ev.GetEventValue() << endl;
+				//cout << "mouse axis z event " << ev.GetEventValue() << endl;
 				break;
 		}
 		

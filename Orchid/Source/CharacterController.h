@@ -5,21 +5,21 @@
 #include <queue>
 #include <iostream>
 #include "GameObject.h"
-
+#include "Bullet.h"
 class CharacterController{
 public:
 	CharacterController();
 	~CharacterController();
 
-	void PushInputEvent(INPUT_EVENT_TYPE type, int value = 0);
-	InputEvent PopInputEvent();
-	InputEvent GetFrontInputEvent();
+	virtual void PushInputEvent(INPUT_EVENT_TYPE type, int value = 0);
+	virtual InputEvent PopInputEvent();
+	virtual InputEvent GetFrontInputEvent();
 
-	void ProcessEventQueue();
+	virtual void ProcessEventQueue();
 
-	void SetTarget(GameObject* target){this->target = target;};
+	virtual void SetTarget(GameObject* target){this->target = target;};
 
-private:
+protected:
 	queue<InputEvent> inputEvents;
 	
 	GameObject* target;

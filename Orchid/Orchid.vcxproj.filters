@@ -111,6 +111,12 @@
     <ClCompile Include="Source\ParticleEmitter.cpp">
       <Filter>Game Classes</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Bullet.cpp">
+      <Filter>Game Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\WitchController.cpp">
+      <Filter>Game Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CubeGrid.h">
@@ -195,6 +201,12 @@
       <Filter>Game Classes</Filter>
     </ClInclude>
     <ClInclude Include="Source\ParticleEmitter.h">
+      <Filter>Game Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Bullet.h">
+      <Filter>Game Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\WitchController.h">
       <Filter>Game Classes</Filter>
     </ClInclude>
   </ItemGroup>

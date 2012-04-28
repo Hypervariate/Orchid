@@ -1,7 +1,14 @@
 #include "Timer.h"
 
 Timer::Timer(){
-	Timer(500);		//0.5 seconds (arbitrary init value)
+	Set(500);
+	running = false;
+	remainingTime = 0;	
+	coreTimer = NULL;
+	coreTimer = al_create_timer(1.0 / 60);
+	startingTime = al_get_timer_count(coreTimer);
+	lastTick = al_get_timer_count(coreTimer);
+	al_start_timer(coreTimer);
 }
 Timer::Timer(double duration){
 	Set(duration);
@@ -45,6 +52,8 @@ bool Timer::Arrived(){
 	return false;
 }
 double Timer::Start(){
+	if(running)
+		return remainingTime;
 	startingTime = al_get_timer_count(coreTimer);
 	remainingTime = startingTime + duration;
 	running = true;
