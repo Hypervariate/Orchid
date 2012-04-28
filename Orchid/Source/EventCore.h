@@ -52,6 +52,7 @@ private:
 	static int frames;
 	static int fps;
 	static int seconds;
+	static int milliseconds;
 	static bool redraw;
 
 	
