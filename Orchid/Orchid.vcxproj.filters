@@ -102,6 +102,15 @@
     <ClCompile Include="Source\Timer.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Emitter.cpp">
+      <Filter>Game Classes\Base Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObjectEmitter.cpp">
+      <Filter>Game Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ParticleEmitter.cpp">
+      <Filter>Game Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CubeGrid.h">
@@ -178,6 +187,15 @@
     </ClInclude>
     <ClInclude Include="Source\Timer.h">
       <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Emitter.h">
+      <Filter>Game Classes\Base Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameObjectEmitter.h">
+      <Filter>Game Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ParticleEmitter.h">
+      <Filter>Game Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
