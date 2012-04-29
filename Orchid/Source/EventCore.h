@@ -32,7 +32,7 @@ public:
 	static void Deinitialize();
 	//------------------
 
-	static void RegisterGameObjectAsPlayer(GameObject* character, unsigned int player_number);
+	static void RegisterGameObjectAsPlayer(GameObject* character, unsigned int player_number, CharacterController* cc);
 
 private:	
 	static bool initialized;			//graphics have been initialized
@@ -42,7 +42,7 @@ private:
 	static Vector2D mousePosition;
 	static int mouseWheelPosition;
 	
-	static vector<CharacterController> players;
+	static vector<CharacterController*> players;
 	static unsigned int playerCount;
 	
 	static map<ALLEGRO_JOYSTICK*, int> joysticks;

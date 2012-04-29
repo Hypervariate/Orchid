@@ -1,6 +1,11 @@
 #include "TiledLevel.h"
 #include "EventCore.h"
 
+#include "UtilityCircle.h"
+#include "UtilityRectangle.h"
+#include "WitchController.h"
+#include "Witch.h"
+
 TiledLevel::TiledLevel(){
 	mapDimensions.Set(0,0);
 	cellDimensions.Set(0,0);
@@ -229,21 +234,38 @@ const bool TiledLevel::parseTMXFile(const std::string &filename)
                     {
                         string object_name = o.second.get<std::string>( "<xmlattr>.name", "Object" );
                        
-                        int positionX = o.second.get<int>( "<xmlattr>.x" );
-						int positionY = o.second.get<int>( "<xmlattr>.y" );
+                        int x = o.second.get<int>( "<xmlattr>.x" );
+						int y = o.second.get<int>( "<xmlattr>.y" );
 						string name = o.second.get<std::string>( "<xmlattr>.name", "Object" );
 						string type = o.second.get<std::string>( "<xmlattr>.type", "Object" );
 						
-						GameObject::Spawn(type, positionX, positionY);
+						if(type == "UtilityCircle"){
+							UtilityCircle* o = new UtilityCircle(x, y);
+							GameObject::AddToWorld(o);
+						}
+						else if(type == "UtilityRectangle"){
+							UtilityRectangle* o = new UtilityRectangle(x, y);
+							GameObject::AddToWorld(o);	
+						}
+						else if(type == "Witch"){
+							Witch* o = new Witch(x, y);
+							GameObject::AddToWorld(o);	
+						}
 
 						BOOST_FOREACH( boost::property_tree::ptree::value_type &p, o.second )
 						{
 							if(p.first == "properties"){
 								string propertyName = p.second.get<std::string>( "property.<xmlattr>.name", "Object" );
 								int propertyValue = p.second.get<int>( "property.<xmlattr>.value" );
-								if(propertyName == "player"){
+								if(propertyName == "player" && type == "Witch"){
 									GameObject* gameObject = GameObject::GetGameObject();
-									EventCore::RegisterGameObjectAsPlayer(gameObject, propertyValue);	
+									EventCore::RegisterGameObjectAsPlayer(gameObject, propertyValue, new WitchController());	
+									if(propertyValue == 0)
+										SetCameraTarget(gameObject);
+								}
+								else if(propertyName == "player"){
+									GameObject* gameObject = GameObject::GetGameObject();
+									EventCore::RegisterGameObjectAsPlayer(gameObject, propertyValue, new WitchController());	
 									if(propertyValue == 0)
 										SetCameraTarget(gameObject);
 								}

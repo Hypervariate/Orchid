@@ -1,4 +1,5 @@
 #include "WitchController.h"
+#include "Bullet.h"
 
 WitchController::WitchController(){
 	target = NULL;
@@ -18,6 +19,7 @@ void WitchController::ProcessEventQueue(){
 		switch(ev.GetEventType()){
 			case INPUT_EVENT_KEY_DOWN:
 				//cout << "key down event " << ev.GetEventValue() << endl;
+				Bullet* bullet;
 				switch(ev.GetEventValue()){
 					case 23: //w
 						target->StartMovingUp();
@@ -32,16 +34,20 @@ void WitchController::ProcessEventQueue(){
 						target->StartMovingLeft();
 						break;
 					case 84:	//up
-						
+						bullet = new Bullet(target->GetX(), target->GetY() - target->GetHalfOfHeight(), 0, -1);
+						GameObject::AddToWorld(bullet);
 						break;
 					case 85:	//down
-						
+						bullet = new Bullet(target->GetX(), target->GetY() + target->GetHalfOfHeight(), 0, 1);
+						GameObject::AddToWorld(bullet);
 						break;
 					case 82:	//left
-						
+						bullet = new Bullet(target->GetX() - target->GetHalfOfWidth(), target->GetY(), -1, 0);
+						GameObject::AddToWorld(bullet);
 						break;
 					case 83:	//right
-						
+						bullet = new Bullet(target->GetX() + target->GetHalfOfWidth(), target->GetY(), 1, 0);
+						GameObject::AddToWorld(bullet);
 						break;
 				}
 				break;

@@ -6,7 +6,7 @@ Bullet::Bullet(int x, int y, float vx, float vy) : GameObject(x, y){
 	shape = new Shape2DCircle(x,y,25);
 	position.x = x;
 	position.y = y;
-	baseInertia.x = baseInertia.y = 6;
+	baseInertia.x = baseInertia.y = 10;
 	drag.x = drag.y = 1.0f;	
 	Move(vx, vy);
 	lifeSpan.Set(50);
@@ -17,8 +17,9 @@ Bullet::~Bullet(){
 
 }
 void Bullet::Update(){
+
 	
-	if(lifeSpan.Arrived())
+	if((velocity.x == 0 && velocity.y == 0) || lifeSpan.Arrived())
 		life = 0;
 
 	GameObject::Update();

@@ -54,20 +54,16 @@ void CharacterController::ProcessEventQueue(){
 						target->StartMovingLeft();
 						break;
 					case 84:	//up
-						bullet = new Bullet(target->GetX(), target->GetY() - target->GetHalfOfHeight(), 0, -1);
-						GameObject::AddToWorld(bullet);
+						
 						break;
 					case 85:	//down
-						bullet = new Bullet(target->GetX(), target->GetY() + target->GetHalfOfHeight(), 0, 1);
-						GameObject::AddToWorld(bullet);
+						
 						break;
 					case 82:	//left
-						bullet = new Bullet(target->GetX() - target->GetHalfOfWidth(), target->GetY(), -1, 0);
-						GameObject::AddToWorld(bullet);
+						
 						break;
 					case 83:	//right
-						bullet = new Bullet(target->GetX() + target->GetHalfOfWidth(), target->GetY(), 1, 0);
-						GameObject::AddToWorld(bullet);
+						
 						break;
 				}
 				break;

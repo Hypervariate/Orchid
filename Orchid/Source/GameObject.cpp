@@ -269,20 +269,6 @@ void GameObject::HandleCollisionWithTarget(GameObject* target){
 Shape2D* GameObject::GetShape(){
 	return shape;
 }
-void GameObject::Spawn(string type, int x, int y){
-	if(type == "UtilityCircle"){
-		UtilityCircle* o = new UtilityCircle(x, y);
-		AddToWorld(o);
-	}
-	else if(type == "UtilityRectangle"){
-		UtilityRectangle* o = new UtilityRectangle(x, y);
-		AddToWorld(o);	
-	}
-	else if(type == "Witch"){
-		Witch* o = new Witch(x, y);
-		AddToWorld(o);	
-	}
-}
 void GameObject::AddToWorld(GameObject* g){
 	objects.push_back(g);	
 }
