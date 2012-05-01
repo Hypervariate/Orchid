@@ -20,6 +20,7 @@
     <ClCompile Include="Source\FileReader.cpp" />
     <ClCompile Include="Source\GameObjectEmitter.cpp" />
     <ClCompile Include="Source\LevelCollisionTile.cpp" />
+    <ClCompile Include="Source\LuaInterface.cpp" />
     <ClCompile Include="Source\MappyLevel.cpp" />
     <ClCompile Include="Source\GameObject.cpp" />
     <ClCompile Include="Source\mappy_A5.c" />
@@ -53,6 +54,7 @@
     <ClInclude Include="Source\FileReader.h" />
     <ClInclude Include="Source\GameObjectEmitter.h" />
     <ClInclude Include="Source\LevelCollisionTile.h" />
+    <ClInclude Include="Source\LuaInterface.h" />
     <ClInclude Include="Source\MappyLevel.h" />
     <ClInclude Include="Source\GameObject.h" />
     <ClInclude Include="Source\mappy_A5.h" />

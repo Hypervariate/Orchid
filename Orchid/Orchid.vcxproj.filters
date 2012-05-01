@@ -117,6 +117,9 @@
     <ClCompile Include="Source\WitchController.cpp">
       <Filter>Game Classes</Filter>
     </ClCompile>
+    <ClCompile Include="Source\LuaInterface.cpp">
+      <Filter>Cores</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CubeGrid.h">
@@ -208,6 +211,9 @@
     </ClInclude>
     <ClInclude Include="Source\WitchController.h">
       <Filter>Game Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\LuaInterface.h">
+      <Filter>Cores</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
