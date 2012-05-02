@@ -18,7 +18,7 @@
 using namespace std;
 
 const int WIDTH = 640;
-const int HEIGHT = 320;
+const int HEIGHT = 480;
 
 #define IMAGE_DIRECTORY "Data/Images/"
 #define IMAGE_EXTENSION ".png"

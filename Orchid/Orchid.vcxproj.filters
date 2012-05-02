@@ -105,9 +105,6 @@
     <ClCompile Include="Source\Emitter.cpp">
       <Filter>Game Classes\Base Classes</Filter>
     </ClCompile>
-    <ClCompile Include="Source\GameObjectEmitter.cpp">
-      <Filter>Game Classes</Filter>
-    </ClCompile>
     <ClCompile Include="Source\ParticleEmitter.cpp">
       <Filter>Game Classes</Filter>
     </ClCompile>
@@ -119,6 +116,18 @@
     </ClCompile>
     <ClCompile Include="Source\LuaInterface.cpp">
       <Filter>Cores</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BreakoutBlock.cpp">
+      <Filter>Game Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BreakoutPaddle.cpp">
+      <Filter>Game Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BreakoutPaddleController.cpp">
+      <Filter>Game Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BreakoutBall.cpp">
+      <Filter>Game Classes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -200,9 +209,6 @@
     <ClInclude Include="Source\Emitter.h">
       <Filter>Game Classes\Base Classes</Filter>
     </ClInclude>
-    <ClInclude Include="Source\GameObjectEmitter.h">
-      <Filter>Game Classes</Filter>
-    </ClInclude>
     <ClInclude Include="Source\ParticleEmitter.h">
       <Filter>Game Classes</Filter>
     </ClInclude>
@@ -214,6 +220,18 @@
     </ClInclude>
     <ClInclude Include="Source\LuaInterface.h">
       <Filter>Cores</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BreakoutBlock.h">
+      <Filter>Game Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BreakoutPaddle.h">
+      <Filter>Game Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BreakoutPaddleController.h">
+      <Filter>Game Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BreakoutBall.h">
+      <Filter>Game Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

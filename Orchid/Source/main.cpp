@@ -7,7 +7,9 @@
 
 #include "TiledLevel.h"
 #include "Timer.h"
-
+#include "BreakoutBlock.h"
+#include "BreakoutPaddle.h"
+#include "BreakoutPaddleController.h"
 #include "LuaInterface.h"
 #include <boost/filesystem.hpp>
 
@@ -21,51 +23,39 @@ int main()
 	GraphicsCore::Initialize();
 	AudioCore::Initialize();
 
-	
-	LuaInterface::Initialize();
-	string filename = "test.lua";
-	
-	boost::filesystem3::path boostPath = boost::filesystem::initial_path();
-	string scriptPath = boostPath.string() + "\\Script\\" + filename;
-	cout << scriptPath << endl;
-
-	EventCore::Update();
-
-	TiledLevel level = TiledLevel();
-	level.Load("desert");
-	Timer timer = Timer(800);
-	timer.Start();
-	
-	
-	while(GlobalData::ApplicationRunning()){
-		EventCore::Update();
-		
-		level.Update();
-		level.Draw();
-		GameObject::UpdateAll();
-
-		LuaInterface::DoFile(scriptPath.c_str());
-
-		//GraphicsCore::PrintToDisplay(b->GetX(), 0, 0, "Arcade", 255);
-		//GraphicsCore::PrintToDisplay(b->GetY(), 0, 12,"Arcade", 255);
-		
-		/*GraphicsCore::PrintToDisplay(GraphicsCore::GetMapScrollingOffsetX(), 0, 36, "Arcade", 255);
-		GraphicsCore::PrintToDisplay(GraphicsCore::GetMapScrollingOffsetY(), 0, 48,"Arcade", 255);
-		GraphicsCore::PrintToDisplay(timer.GetRemainingTime(), 10, 0,"Arcade", 255, 128);*/
-		/*if(timer.Arrived())
-			GraphicsCore::PrintToDisplay("Arrived", 64, 0,"Arcade", 255, 128);
-		else
-			GraphicsCore::PrintToDisplay("Counting...", 64, 0,"Arcade", 255, 128);*/
-
-		/*if(timer.GetRemainingTime() < -200)
-			timer.Reset(400);*/
+	int bx = 48;
+	int by = 24;
+	for(int i = 1; i < 13; i++){
+		for(int j = 1; j < 5; j++){
+			BreakoutBlock* b = new BreakoutBlock(i * bx, j * by);
+			GameObject::AddToWorld(b);
+		}
 	}
 
-	LuaInterface::Deinitialize();
+	
+	BreakoutPaddle* p = new BreakoutPaddle(WIDTH/2, HEIGHT - 100);
+	EventCore::RegisterGameObjectAsPlayer(p, 0, new BreakoutPaddleController());
+	GameObject::AddToWorld(p);
+	
+	
+	Timer timer = Timer(250);
+	timer.Start();
+	
 
-	level.Unload();
+	AudioCore::PlayMusic("BreakoutBGM");
+	while(GlobalData::ApplicationRunning()){
+		EventCore::Update();
+		GameObject::UpdateAll();
+
+		if(!timer.Arrived())
+			GraphicsCore::PrintToDisplay("Press space to start.", WIDTH/3, HEIGHT/2,"Arcade", 255);
+		
+
+	}
+
+	
+	
 	GameObject::DestroyAll();
-
 	AudioCore::Deinitialize();
 	GraphicsCore::Deinitialize();
 	EventCore::Deinitialize();

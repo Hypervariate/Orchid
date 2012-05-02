@@ -65,3 +65,6 @@ bool Shape2D::DetectCollision(Shape2D* target){
 void Shape2D::SetCollision(bool isColliding){
 	colliding = isColliding;
 }
+bool Shape2D::IsColliding(){
+	return colliding;
+}

@@ -13,12 +13,15 @@
   <ItemGroup>
     <ClCompile Include="Source\Animation.cpp" />
     <ClCompile Include="Source\AudioCore.cpp" />
+    <ClCompile Include="Source\BreakoutBall.cpp" />
+    <ClCompile Include="Source\BreakoutBlock.cpp" />
+    <ClCompile Include="Source\BreakoutPaddle.cpp" />
+    <ClCompile Include="Source\BreakoutPaddleController.cpp" />
     <ClCompile Include="Source\Bullet.cpp" />
     <ClCompile Include="Source\CharacterController.cpp" />
     <ClCompile Include="Source\dirent.c" />
     <ClCompile Include="Source\Emitter.cpp" />
     <ClCompile Include="Source\FileReader.cpp" />
-    <ClCompile Include="Source\GameObjectEmitter.cpp" />
     <ClCompile Include="Source\LevelCollisionTile.cpp" />
     <ClCompile Include="Source\LuaInterface.cpp" />
     <ClCompile Include="Source\MappyLevel.cpp" />
@@ -47,12 +50,15 @@
   <ItemGroup>
     <ClInclude Include="Source\Animation.h" />
     <ClInclude Include="Source\AudioCore.h" />
+    <ClInclude Include="Source\BreakoutBall.h" />
+    <ClInclude Include="Source\BreakoutBlock.h" />
+    <ClInclude Include="Source\BreakoutPaddle.h" />
+    <ClInclude Include="Source\BreakoutPaddleController.h" />
     <ClInclude Include="Source\Bullet.h" />
     <ClInclude Include="Source\CharacterController.h" />
     <ClInclude Include="Source\dirent.h" />
     <ClInclude Include="Source\Emitter.h" />
     <ClInclude Include="Source\FileReader.h" />
-    <ClInclude Include="Source\GameObjectEmitter.h" />
     <ClInclude Include="Source\LevelCollisionTile.h" />
     <ClInclude Include="Source\LuaInterface.h" />
     <ClInclude Include="Source\MappyLevel.h" />

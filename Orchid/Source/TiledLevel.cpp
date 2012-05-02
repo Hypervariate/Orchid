@@ -5,6 +5,9 @@
 #include "UtilityRectangle.h"
 #include "WitchController.h"
 #include "Witch.h"
+#include "BreakoutBlock.h"
+#include "BreakoutPaddle.h"
+#include "BreakoutPaddleController.h"
 
 TiledLevel::TiledLevel(){
 	mapDimensions.Set(0,0);
@@ -251,6 +254,10 @@ const bool TiledLevel::parseTMXFile(const std::string &filename)
 							Witch* o = new Witch(x, y);
 							GameObject::AddToWorld(o);	
 						}
+						else if(type == "BreakoutPaddle"){
+							BreakoutPaddle* o = new BreakoutPaddle(x, y);
+							GameObject::AddToWorld(o);	
+						}
 
 						BOOST_FOREACH( boost::property_tree::ptree::value_type &p, o.second )
 						{
@@ -260,6 +267,12 @@ const bool TiledLevel::parseTMXFile(const std::string &filename)
 								if(propertyName == "player" && type == "Witch"){
 									GameObject* gameObject = GameObject::GetGameObject();
 									EventCore::RegisterGameObjectAsPlayer(gameObject, propertyValue, new WitchController());	
+									if(propertyValue == 0)
+										SetCameraTarget(gameObject);
+								}
+								else if(propertyName == "player" && type == "BreakoutPaddle"){
+									GameObject* gameObject = GameObject::GetGameObject();
+									EventCore::RegisterGameObjectAsPlayer(gameObject, propertyValue, new BreakoutPaddleController());	
 									if(propertyValue == 0)
 										SetCameraTarget(gameObject);
 								}

@@ -57,6 +57,7 @@ public:
 
 	virtual void Move(float dirX, float dirY);
 	virtual void MoveTo(int x, int y);
+	int GetLife();
 
 protected:
 	
@@ -79,6 +80,8 @@ protected:
 	bool moveRight;
 
 	virtual void HandleCollisionWithTarget(GameObject* target);
+public:
+	bool alive;
 
 private:
 	

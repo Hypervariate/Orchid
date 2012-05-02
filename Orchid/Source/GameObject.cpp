@@ -33,6 +33,7 @@ GameObject::GameObject(int x, int y){
 	moveUp = moveDown = moveLeft = moveRight = false;
 
 	life = 100;
+	alive = true;
 }
 GameObject::~GameObject(){
 	delete shape;
@@ -44,8 +45,8 @@ float GameObject::GetVelocityY(){
 	return velocity.y;
 }
 void GameObject::Destroy(){	//does not work. must implement correctly
-	objects.remove(this);
-	delete this;
+	
+	
 	
 }
 void GameObject::DestroyAll(){
@@ -57,8 +58,10 @@ void GameObject::DestroyAll(){
 }
 void GameObject::UpdateAll(){
 	for(iter1 = objects.begin(); iter1 != objects.end(); ++iter1){
-		if((*iter1)->life <= 0){
-			(*iter1)->Destroy();
+		if(!(*iter1)->alive){
+			GameObject* d = (*iter1);
+			objects.remove(d);
+			delete d;
 			iter1 = objects.begin();			
 		}
 	}
@@ -80,7 +83,7 @@ void GameObject::UpdateAll(){
 		(*iter1)->Draw();
 		
 	}
-	GraphicsCore::PrintToDisplay(objects.size(), 0, 64, "Arcade");
+	//GraphicsCore::PrintToDisplay(objects.size(), 0, 64, "Arcade");
 }
 void GameObject::Update(){
 	
@@ -291,4 +294,7 @@ GameObject* GameObject::GetGameObject(int number){
 	//if not found, return last item in list
 	iter1--;
 	return (*iter1);
+}
+int GameObject::GetLife(){
+	return life;
 }

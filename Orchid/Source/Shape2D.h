@@ -32,7 +32,7 @@ public:
     virtual unsigned int GetHalfOfHeight();
 
 	void SetCollision(bool isColliding);
-
+	bool IsColliding();
 
 	void SetAppearance(unsigned char r, unsigned char g, unsigned char b, bool solid);
 
