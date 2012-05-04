@@ -52,6 +52,7 @@
     <ClInclude Include="Source\AudioCore.h" />
     <ClInclude Include="Source\BreakoutBall.h" />
     <ClInclude Include="Source\BreakoutBlock.h" />
+    <ClInclude Include="Source\BreakoutGame.h" />
     <ClInclude Include="Source\BreakoutPaddle.h" />
     <ClInclude Include="Source\BreakoutPaddleController.h" />
     <ClInclude Include="Source\Bullet.h" />

@@ -248,5 +248,8 @@
     <ClInclude Include="Source\ParticleEmitter.h">
       <Filter>Game Utility Classes\Effects</Filter>
     </ClInclude>
+    <ClInclude Include="Source\BreakoutGame.h">
+      <Filter>Game Classes\Breakout</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
