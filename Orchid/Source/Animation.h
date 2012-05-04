@@ -17,21 +17,28 @@ class Animation{
 public:
 	Animation();
 	~Animation();
-
-	
+		
+	//Create an animation and return it to the caller
 	static Animation FactoryAnimation(string animationName);
 
-	string UpdateAnimation(float delta_time);	//updates the current frame if necessary. Always returns current frame name.
+	//updates the current frame if necessary. Always returns current frame name.
+	string UpdateAnimation(float delta_time);	
 
-	void PauseAnimation();	//halt the animation at the current frame
-	void StopAnimation();	//stop the animation and set the current frame to 0
-	void PlayAnimation();	//resume the animation
+	//halt the animation at the current frame
+	void PauseAnimation();	
+
+	//stop the animation and set the current frame to 0
+	void StopAnimation();	
+
+	//resume the animation
+	void PlayAnimation();	
 	
-	bool IsAnimationPlaying(); //returns true if animation is animating, false if paused or stopped
+	//returns true if animation is animating, false if paused or stopped
+	bool IsAnimationPlaying(); 
 
+	//set the animation to PLAY_ONCE, BOUNCE or REPEAT
 	void SetAnimationBehavior(ANIMATION_BEHAVIOR behavior);
-	
-	
+		
 
 private:
 	static std::map<string, Animation> animationFactory;

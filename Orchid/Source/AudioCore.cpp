@@ -12,6 +12,7 @@ string AudioCore::currentSong = "";
 
 AudioCore::AudioCore(){}
 AudioCore::~AudioCore(){}
+
 void AudioCore::Initialize(){
 	al_install_audio();
 	al_init_acodec_addon();

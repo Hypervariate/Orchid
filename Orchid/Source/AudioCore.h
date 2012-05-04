@@ -15,20 +15,23 @@ public:
 	AudioCore();
 	~AudioCore();
 
-	//Audio Core Routines
+	//Core Routines
 	//------------------
-	static void Initialize();
-	static void Update();
-	static void Deinitialize();
-	
+	static void Initialize();		//setup routine
+	static void Update();			//per-frame update
+	static void Deinitialize();		//shutdown routine
 	//------------------
-	static void PlaySample(string sampleName);
-	static void PlayMusic(string songName);
-	static void StopMusic();
+
+	//Public Functionality
+	//------------------
+	static void PlaySample(string sampleName);	//play an effect
+	static void PlayMusic(string songName);		//play a song
+	static void StopMusic();					//stop playing a song
+	//------------------
 
 private:
 	static string currentSong;
-
+	
 	static bool LoadSample(char* fileName);
 
 	static FileReader fileReader;

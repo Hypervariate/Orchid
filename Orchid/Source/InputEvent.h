@@ -6,9 +6,9 @@ using namespace std;
 
 enum INPUT_EVENT_TYPE
 {
-   INPUT_EVENT_NULL						   =  0,
+   INPUT_EVENT_NULL  = 0,
    
-	//put in all joystick buttons/axis events
+	//TODO: put in all joystick buttons/axis events
    
    INPUT_EVENT_JOYSTICK_BUTTON_DOWN,
    INPUT_EVENT_JOYSTICK_BUTTON_UP,
@@ -50,10 +50,16 @@ public:
 	InputEvent(INPUT_EVENT_TYPE type = INPUT_EVENT_NULL, int value = 0);
 	~InputEvent();
 
+	//Set the values for this event
 	void SetEventData(INPUT_EVENT_TYPE type, int value){this->type = type; this->value = value;};
+
+	//Return the type of the event
 	INPUT_EVENT_TYPE GetEventType(){return type;};
+
+	//return the value corresponding to this event type
 	int GetEventValue(){return value;};
 
+	//event value has not been set
 	bool IsNull();
 
 private:

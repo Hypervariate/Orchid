@@ -19,8 +19,12 @@ public:
 	GlobalData();
 	~GlobalData();
 
+	//Public Routines
+	//---------------
 	static void RequestApplicationTermination(string reason);
 	static bool ApplicationRunning();
+	//---------------
+
 private:
 	static bool applicationRunning;
 

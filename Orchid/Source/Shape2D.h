@@ -20,25 +20,32 @@ public:
     Shape2D();
     ~Shape2D();
 
-	virtual void SetX(int x);
-	virtual void SetY(int y);
-	virtual void SetW(unsigned int w);
-	virtual void SetH(unsigned int h);
-	virtual int GetX();
-	virtual int GetY();
-	virtual unsigned int GetW();
-	virtual unsigned int GetH();
-	virtual unsigned int GetHalfOfWidth();
-    virtual unsigned int GetHalfOfHeight();
+	virtual void SetX(int x);				//X coordinate of shape (center)
+	virtual void SetY(int y);				//Y coordinate of shape (center)
+	virtual void SetW(unsigned int w);		//width of shape
+	virtual void SetH(unsigned int h);		//height of shape
+	virtual int GetX();						//X coordinate of shape (center)
+	virtual int GetY();						//Y coordinate of shape (center)
+	virtual unsigned int GetW();			//width of shape
+	virtual unsigned int GetH();			//height of shape
+	virtual unsigned int GetHalfOfWidth();	//use this instead of "GetW() / 2"
+    virtual unsigned int GetHalfOfHeight();	//use this instead of "GetH() / 2"
 
-	void SetCollision(bool isColliding);
-	bool IsColliding();
+	void SetCollision(bool isColliding);	//store the result of collision detection
+	bool IsColliding();						//is this shape colliding with another?
 
+	//color and fill the shape
 	void SetAppearance(unsigned char r, unsigned char g, unsigned char b, bool solid);
 
+	//let the shape draw itself
 	virtual void DrawShape();
 
+	//return the enumerated type of shape any subclass of Shape2D might be
+	//this is used in the collision detection routines so that different shapes 
+	//can collide with one another
 	virtual SHAPE_TYPE GetType();
+
+	//detect collision with another shape which need not be of the same type
 	virtual bool DetectCollision(Shape2D* target);
 
 

@@ -32,51 +32,51 @@ public:
 	GraphicsCore();
 	~GraphicsCore();
 
-	//Graphics Core Routines
+	//Core Routines
 	//------------------
-	static void Initialize();
-	static void Deinitialize();
-	static void Update();
-	static void FlipDisplay();
-	static bool LoadFont(string font_name, unsigned int size);
+	static void Initialize();		//setup routine
+	static void Update();			//per-frame update
+	static void Deinitialize();		//shutdown routine
 	//------------------
 
-	//Primatives Drawing
+	//Public Routines
 	//------------------
-	//Rectangles
+
+	//blit an image to the buffer
+	static void BlitImage(string index, int x = WIDTH/2, int y = HEIGHT/2);
+	//blit a section of an image to the buffer (sprite/tile sheets)
+	static void BlitImageRegion(int sx, int sy, int w, int h, int dx, int dy, string image_name);
+
+	//Draw Rectangles
 	static void DrawRectangle(float x1, float y1, float x2, float y2, unsigned char r, unsigned char g, unsigned char b, float thickness);
 	static void DrawRoundedRectangle(float x1, float y1, float x2, float y2, float rx, float ry, unsigned char r, unsigned char g, unsigned char b, float thickness);
 	static void DrawFilledRectangle(float x1, float y1, float x2, float y2, unsigned char r, unsigned char g, unsigned char b);
 	static void DrawFilledRoundedRectangle(float x1, float y1, float x2, float y2, float rx, float ry, unsigned char r, unsigned char g, unsigned char b);
 	
-	//Lines
+	//Draw Lines
 	static void DrawLine(float x1, float y1, float x2, float y2, unsigned char r, unsigned char g, unsigned char b, float thickness);
 	
-	//triangles
+	//Draw Triangles
 	static void DrawTriangle(float x1, float y1, float x2, float y2, float x3, float y3, unsigned char r, unsigned char g, unsigned char b, float thickness);
     static void DrawFilledTriangle(float x1, float y1, float x2, float y2, float x3, float y3, unsigned char r, unsigned char g, unsigned char b);
 
-	//circles
+	//Draw Circles
 	static void DrawCircle(float cx, float cy, float rad, unsigned char r, unsigned char g, unsigned char b, float thickness);
 	static void DrawFilledCircle(float cx, float cy, float rad, unsigned char r, unsigned char g, unsigned char b);
 
-	//ellipses
+	//Draw Ellipses
 	static void DrawEllipse(float cx, float cy, float rx, float ry, unsigned char r, unsigned char g, unsigned char b, float thickness);
 	static void DrawFilledEllipse(float cx, float cy, float rx, float ry, unsigned char r, unsigned char g, unsigned char b);
 
-	//splines
+	//Draw Splines
 	static void DrawSpline(float points[8], unsigned char r, unsigned char g, unsigned char b, float thickness);
-	//------------------
-
+	
+	//Print text to the buffer
 	static void PrintToDisplay(string text, int x, int y, string font = "Acknowledge", unsigned char r = 0, unsigned char g = 0, unsigned char b = 0);
 	static void PrintToDisplay(int i, int x, int y, string font = "Acknowledge", unsigned char r = 0, unsigned char g = 0, unsigned char b = 0);
 	
-	static ALLEGRO_DISPLAY* GetDisplay();
-
-	static bool LoadImage(char* image_name);
-	static void BlitImage(string index, int x = WIDTH/2, int y = HEIGHT/2);
-	static void BlitImageRegion(int sx, int sy, int w, int h, int dx, int dy, string image_name);
-
+	//Level routines
+	//These allow the level to appear to be scrolling relative to Player 0
 	static float GetMapScrollingOffsetX();
 	static float GetMapScrollingOffsetY();
 	static void SetMapScrollingOffsetX(int x = 0);
@@ -84,7 +84,18 @@ public:
 	static void SetMapTileDimensions(int x, int y);
 	static void SetMapDimensions(int x, int y);
 
+	//Get the display object reference
+	//This is not for common use.
+	//Don't mess with this unless you know what you're doing.
+	static ALLEGRO_DISPLAY* GetDisplay();
+	//------------------
+
 private:
+	static void FlipDisplay();
+
+	static bool LoadImage(char* image_name);
+	
+	static bool LoadFont(string font_name, unsigned int size);
 
 	static FileReader fileReader;
 

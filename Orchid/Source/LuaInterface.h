@@ -1,7 +1,8 @@
 #ifndef LUAINTERFACE_H_
 #define LUAINTERFACE_H_
 
-
+//This class is unfinished
+//and is a post 1.0 feature
 #include <stdio.h>
 
 extern "C" {

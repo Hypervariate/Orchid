@@ -25,17 +25,20 @@ public:
 	EventCore();
 	~EventCore();
 
-	//Input Core Routines
+	//Core Routines
 	//------------------
-	static void Initialize();
-	static void Update();
-	static void Deinitialize();
+	static void Initialize();		//setup routine
+	static void Update();			//per-frame update
+	static void Deinitialize();		//shutdown routine
 	//------------------
 
+	//Public Routines
+	//------------------
 	static void RegisterGameObjectAsPlayer(GameObject* character, unsigned int player_number, CharacterController* cc);
+	//------------------
 
 private:	
-	static bool initialized;			//graphics have been initialized
+	static bool initialized;				//graphics have been initialized
 	static ALLEGRO_EVENT_QUEUE *eventQueue;
 	static ALLEGRO_EVENT ev;
 	

@@ -49,33 +49,36 @@ void MappyLevel::Unload(){
 	MapFreeMem();
 }
 void MappyLevel::Update(){
-	//update the map scroll position
-	GraphicsCore::SetMapScrollingOffsetX(cameraTarget->GetX() + cameraTarget->GetHalfOfWidth());
-	GraphicsCore::SetMapScrollingOffsetX( GraphicsCore::GetMapScrollingOffsetX() - WIDTH/2);
+	//deprecated code
+	//breaks encapsulation so commented out
 
-	GraphicsCore::SetMapScrollingOffsetY(cameraTarget->GetY() + cameraTarget->GetHalfOfHeight());
-	GraphicsCore::SetMapScrollingOffsetY( GraphicsCore::GetMapScrollingOffsetY() - HEIGHT/2);
+	////update the map scroll position
+	//GraphicsCore::SetMapScrollingOffsetX(cameraTarget->GetX() + cameraTarget->GetHalfOfWidth());
+	//GraphicsCore::SetMapScrollingOffsetX( GraphicsCore::GetMapScrollingOffsetX() - WIDTH/2);
 
-	//update animations
-	MapUpdateAnims();
+	//GraphicsCore::SetMapScrollingOffsetY(cameraTarget->GetY() + cameraTarget->GetHalfOfHeight());
+	//GraphicsCore::SetMapScrollingOffsetY( GraphicsCore::GetMapScrollingOffsetY() - HEIGHT/2);
 
-	GameObject *g;
-	//collide with all entities
-	for(GameObject::iter1 = GameObject::objects.begin(); GameObject::iter1 != GameObject::objects.end(); ++GameObject::iter1){
-		g = (*GameObject::iter1);
+	////update animations
+	//MapUpdateAnims();
+
+	//GameObject *g;
+	////collide with all entities
+	//for(GameObject::iter1 = GameObject::objects.begin(); GameObject::iter1 != GameObject::objects.end(); ++GameObject::iter1){
+	//	g = (*GameObject::iter1);
 
 
-		if(		collided_tl(g->GetX() - g->GetHalfOfWidth(), g->GetY() - g->GetHalfOfHeight())	//top-left corner
-			||	collided_tl(g->GetX() + g->GetHalfOfWidth(), g->GetY() - g->GetHalfOfHeight())	//top-right corner
-			||	collided_tl(g->GetX() - g->GetHalfOfWidth(), g->GetY() + g->GetHalfOfHeight())	//bottom-left corner
-			||	collided_tl(g->GetX() + g->GetHalfOfWidth(), g->GetY() + g->GetHalfOfHeight())	//bottom-right corner
-			||	collided_tl(g->GetX() , g->GetY() + g->GetHalfOfHeight())	//bottom side
-			||	collided_tl(g->GetX() , g->GetY() - g->GetHalfOfHeight())	//top side
-			||	collided_tl(g->GetX() - g->GetHalfOfWidth(), g->GetY() )	//left side
-			||	collided_tl(g->GetX() + g->GetHalfOfWidth(), g->GetY() ))	//right side
-			GraphicsCore::DrawFilledRectangle(g->GetX() - g->GetHalfOfWidth(), g->GetY() - g->GetHalfOfHeight(), g->GetX() + g->GetHalfOfWidth(), g->GetY() + g->GetHalfOfHeight(), 255, 255, 0);
-			//GraphicsCore::DrawFilledCircle(g->GetX() - g->GetHalfOfWidth() - 2, g->GetY() - g->GetHalfOfHeight() - 2, 5, 0, 255, 0);
-	}
+	//	if(		collided_tl(g->GetX() - g->GetHalfOfWidth(), g->GetY() - g->GetHalfOfHeight())	//top-left corner
+	//		||	collided_tl(g->GetX() + g->GetHalfOfWidth(), g->GetY() - g->GetHalfOfHeight())	//top-right corner
+	//		||	collided_tl(g->GetX() - g->GetHalfOfWidth(), g->GetY() + g->GetHalfOfHeight())	//bottom-left corner
+	//		||	collided_tl(g->GetX() + g->GetHalfOfWidth(), g->GetY() + g->GetHalfOfHeight())	//bottom-right corner
+	//		||	collided_tl(g->GetX() , g->GetY() + g->GetHalfOfHeight())	//bottom side
+	//		||	collided_tl(g->GetX() , g->GetY() - g->GetHalfOfHeight())	//top side
+	//		||	collided_tl(g->GetX() - g->GetHalfOfWidth(), g->GetY() )	//left side
+	//		||	collided_tl(g->GetX() + g->GetHalfOfWidth(), g->GetY() ))	//right side
+	//		GraphicsCore::DrawFilledRectangle(g->GetX() - g->GetHalfOfWidth(), g->GetY() - g->GetHalfOfHeight(), g->GetX() + g->GetHalfOfWidth(), g->GetY() + g->GetHalfOfHeight(), 255, 255, 0);
+	//		//GraphicsCore::DrawFilledCircle(g->GetX() - g->GetHalfOfWidth() - 2, g->GetY() - g->GetHalfOfHeight() - 2, 5, 0, 255, 0);
+	//}
 }
 int MappyLevel::collided_tl(int x, int y)
 {

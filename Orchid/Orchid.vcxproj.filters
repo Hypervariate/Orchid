@@ -10,17 +10,32 @@
     <Filter Include="Containers">
       <UniqueIdentifier>{1116bf39-9c40-4c1c-b315-f09b354038d0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game Classes">
-      <UniqueIdentifier>{6d19b6fb-7cc7-4865-a2dc-3fd82137e10e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Main">
       <UniqueIdentifier>{1da178ca-5385-46fe-a3ac-7b153c3d3502}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game Classes\Base Classes">
-      <UniqueIdentifier>{a364daf4-c5c3-47b6-a422-21b36714c7ed}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Legacy">
       <UniqueIdentifier>{32468784-efc5-4299-9ceb-35be072e6927}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Utility Classes">
+      <UniqueIdentifier>{6d19b6fb-7cc7-4865-a2dc-3fd82137e10e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Utility Classes\Base Classes">
+      <UniqueIdentifier>{a364daf4-c5c3-47b6-a422-21b36714c7ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Utility Classes\Levels">
+      <UniqueIdentifier>{c083f208-7f9a-4953-949c-3625303c795f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Utility Classes\Effects">
+      <UniqueIdentifier>{5fbebdc0-b4be-47f6-837a-4f9a758c672e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Classes">
+      <UniqueIdentifier>{81135a7f-c380-4a4a-a5b3-8b3d70da30c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Classes\Salem">
+      <UniqueIdentifier>{fad7cb2e-f5c6-46c8-aa4c-9c117f2a270c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Classes\Breakout">
+      <UniqueIdentifier>{e3cf4699-5b3f-462c-a74f-423761d04d97}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -54,9 +69,6 @@
     <ClCompile Include="Source\InputEvent.cpp">
       <Filter>Containers</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Witch.cpp">
-      <Filter>Game Classes</Filter>
-    </ClCompile>
     <ClCompile Include="Source\EventCore.cpp">
       <Filter>Cores</Filter>
     </ClCompile>
@@ -75,17 +87,11 @@
     <ClCompile Include="Source\main.cpp">
       <Filter>Main</Filter>
     </ClCompile>
-    <ClCompile Include="Source\UtilityCircle.cpp">
-      <Filter>Game Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\UtilityRectangle.cpp">
-      <Filter>Game Classes</Filter>
-    </ClCompile>
     <ClCompile Include="Source\CharacterController.cpp">
-      <Filter>Game Classes\Base Classes</Filter>
+      <Filter>Game Utility Classes\Base Classes</Filter>
     </ClCompile>
     <ClCompile Include="Source\GameObject.cpp">
-      <Filter>Game Classes\Base Classes</Filter>
+      <Filter>Game Utility Classes\Base Classes</Filter>
     </ClCompile>
     <ClCompile Include="Source\MappyLevel.cpp">
       <Filter>Legacy</Filter>
@@ -93,41 +99,50 @@
     <ClCompile Include="Source\mappy_A5.c">
       <Filter>Legacy</Filter>
     </ClCompile>
-    <ClCompile Include="Source\TiledLevel.cpp">
-      <Filter>Game Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\LevelCollisionTile.cpp">
-      <Filter>Game Classes</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Timer.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
     <ClCompile Include="Source\Emitter.cpp">
-      <Filter>Game Classes\Base Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\ParticleEmitter.cpp">
-      <Filter>Game Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Bullet.cpp">
-      <Filter>Game Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\WitchController.cpp">
-      <Filter>Game Classes</Filter>
+      <Filter>Game Utility Classes\Base Classes</Filter>
     </ClCompile>
     <ClCompile Include="Source\LuaInterface.cpp">
       <Filter>Cores</Filter>
     </ClCompile>
+    <ClCompile Include="Source\BreakoutBall.cpp">
+      <Filter>Game Classes\Breakout</Filter>
+    </ClCompile>
     <ClCompile Include="Source\BreakoutBlock.cpp">
-      <Filter>Game Classes</Filter>
+      <Filter>Game Classes\Breakout</Filter>
     </ClCompile>
     <ClCompile Include="Source\BreakoutPaddle.cpp">
-      <Filter>Game Classes</Filter>
+      <Filter>Game Classes\Breakout</Filter>
     </ClCompile>
     <ClCompile Include="Source\BreakoutPaddleController.cpp">
-      <Filter>Game Classes</Filter>
+      <Filter>Game Classes\Breakout</Filter>
     </ClCompile>
-    <ClCompile Include="Source\BreakoutBall.cpp">
-      <Filter>Game Classes</Filter>
+    <ClCompile Include="Source\Witch.cpp">
+      <Filter>Game Classes\Salem</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\WitchController.cpp">
+      <Filter>Game Classes\Salem</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UtilityCircle.cpp">
+      <Filter>Game Utility Classes\Base Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UtilityRectangle.cpp">
+      <Filter>Game Utility Classes\Base Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Bullet.cpp">
+      <Filter>Game Classes\Salem</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\LevelCollisionTile.cpp">
+      <Filter>Game Utility Classes\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TiledLevel.cpp">
+      <Filter>Game Utility Classes\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ParticleEmitter.cpp">
+      <Filter>Game Utility Classes\Effects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -161,9 +176,6 @@
     <ClInclude Include="Source\InputEvent.h">
       <Filter>Containers</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Witch.h">
-      <Filter>Game Classes</Filter>
-    </ClInclude>
     <ClInclude Include="Source\EventCore.h">
       <Filter>Cores</Filter>
     </ClInclude>
@@ -179,17 +191,11 @@
     <ClInclude Include="Source\dirent.h">
       <Filter>Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="Source\UtilityCircle.h">
-      <Filter>Game Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\UtilityRectangle.h">
-      <Filter>Game Classes</Filter>
-    </ClInclude>
     <ClInclude Include="Source\CharacterController.h">
-      <Filter>Game Classes\Base Classes</Filter>
+      <Filter>Game Utility Classes\Base Classes</Filter>
     </ClInclude>
     <ClInclude Include="Source\GameObject.h">
-      <Filter>Game Classes\Base Classes</Filter>
+      <Filter>Game Utility Classes\Base Classes</Filter>
     </ClInclude>
     <ClInclude Include="Source\MappyLevel.h">
       <Filter>Legacy</Filter>
@@ -197,41 +203,50 @@
     <ClInclude Include="Source\mappy_A5.h">
       <Filter>Legacy</Filter>
     </ClInclude>
-    <ClInclude Include="Source\TiledLevel.h">
-      <Filter>Game Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\LevelCollisionTile.h">
-      <Filter>Game Classes</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Timer.h">
       <Filter>Utilities</Filter>
     </ClInclude>
     <ClInclude Include="Source\Emitter.h">
-      <Filter>Game Classes\Base Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\ParticleEmitter.h">
-      <Filter>Game Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Bullet.h">
-      <Filter>Game Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\WitchController.h">
-      <Filter>Game Classes</Filter>
+      <Filter>Game Utility Classes\Base Classes</Filter>
     </ClInclude>
     <ClInclude Include="Source\LuaInterface.h">
       <Filter>Cores</Filter>
     </ClInclude>
-    <ClInclude Include="Source\BreakoutBlock.h">
-      <Filter>Game Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\BreakoutPaddle.h">
-      <Filter>Game Classes</Filter>
-    </ClInclude>
     <ClInclude Include="Source\BreakoutPaddleController.h">
-      <Filter>Game Classes</Filter>
+      <Filter>Game Classes\Breakout</Filter>
     </ClInclude>
     <ClInclude Include="Source\BreakoutBall.h">
-      <Filter>Game Classes</Filter>
+      <Filter>Game Classes\Breakout</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BreakoutBlock.h">
+      <Filter>Game Classes\Breakout</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BreakoutPaddle.h">
+      <Filter>Game Classes\Breakout</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\WitchController.h">
+      <Filter>Game Classes\Salem</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Witch.h">
+      <Filter>Game Classes\Salem</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UtilityRectangle.h">
+      <Filter>Game Utility Classes\Base Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UtilityCircle.h">
+      <Filter>Game Utility Classes\Base Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Bullet.h">
+      <Filter>Game Classes\Salem</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TiledLevel.h">
+      <Filter>Game Utility Classes\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\LevelCollisionTile.h">
+      <Filter>Game Utility Classes\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ParticleEmitter.h">
+      <Filter>Game Utility Classes\Effects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
