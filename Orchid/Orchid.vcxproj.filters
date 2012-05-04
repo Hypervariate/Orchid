@@ -37,6 +37,21 @@
     <Filter Include="Game Classes\Breakout">
       <UniqueIdentifier>{e3cf4699-5b3f-462c-a74f-423761d04d97}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game Classes\Breakout\Game">
+      <UniqueIdentifier>{e40b6884-9ca8-499e-a52b-693a9e398f79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Classes\Breakout\Game Objects">
+      <UniqueIdentifier>{c9ea01ea-afef-4ae9-9a61-d010e497d9e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Classes\Breakout\Game Object Controllers">
+      <UniqueIdentifier>{36bed2c4-2c83-4063-af1a-5ec506b3c049}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Classes\Salem\Game Objects">
+      <UniqueIdentifier>{5df75e8d-6d19-417c-a13b-a4e2888cea43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Classes\Salem\Game Object Controllers">
+      <UniqueIdentifier>{ace0799a-a067-4294-83ca-35eb1063fb5b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\CubeGrid.cpp">
@@ -108,32 +123,11 @@
     <ClCompile Include="Source\LuaInterface.cpp">
       <Filter>Cores</Filter>
     </ClCompile>
-    <ClCompile Include="Source\BreakoutBall.cpp">
-      <Filter>Game Classes\Breakout</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\BreakoutBlock.cpp">
-      <Filter>Game Classes\Breakout</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\BreakoutPaddle.cpp">
-      <Filter>Game Classes\Breakout</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\BreakoutPaddleController.cpp">
-      <Filter>Game Classes\Breakout</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Witch.cpp">
-      <Filter>Game Classes\Salem</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\WitchController.cpp">
-      <Filter>Game Classes\Salem</Filter>
-    </ClCompile>
     <ClCompile Include="Source\UtilityCircle.cpp">
       <Filter>Game Utility Classes\Base Classes</Filter>
     </ClCompile>
     <ClCompile Include="Source\UtilityRectangle.cpp">
       <Filter>Game Utility Classes\Base Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Bullet.cpp">
-      <Filter>Game Classes\Salem</Filter>
     </ClCompile>
     <ClCompile Include="Source\LevelCollisionTile.cpp">
       <Filter>Game Utility Classes\Levels</Filter>
@@ -143,6 +137,27 @@
     </ClCompile>
     <ClCompile Include="Source\ParticleEmitter.cpp">
       <Filter>Game Utility Classes\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BreakoutBall.cpp">
+      <Filter>Game Classes\Breakout\Game Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BreakoutBlock.cpp">
+      <Filter>Game Classes\Breakout\Game Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BreakoutPaddle.cpp">
+      <Filter>Game Classes\Breakout\Game Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BreakoutPaddleController.cpp">
+      <Filter>Game Classes\Breakout\Game Object Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Bullet.cpp">
+      <Filter>Game Classes\Salem\Game Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Witch.cpp">
+      <Filter>Game Classes\Salem\Game Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\WitchController.cpp">
+      <Filter>Game Classes\Salem\Game Object Controllers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -212,32 +227,11 @@
     <ClInclude Include="Source\LuaInterface.h">
       <Filter>Cores</Filter>
     </ClInclude>
-    <ClInclude Include="Source\BreakoutPaddleController.h">
-      <Filter>Game Classes\Breakout</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\BreakoutBall.h">
-      <Filter>Game Classes\Breakout</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\BreakoutBlock.h">
-      <Filter>Game Classes\Breakout</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\BreakoutPaddle.h">
-      <Filter>Game Classes\Breakout</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\WitchController.h">
-      <Filter>Game Classes\Salem</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Witch.h">
-      <Filter>Game Classes\Salem</Filter>
-    </ClInclude>
     <ClInclude Include="Source\UtilityRectangle.h">
       <Filter>Game Utility Classes\Base Classes</Filter>
     </ClInclude>
     <ClInclude Include="Source\UtilityCircle.h">
       <Filter>Game Utility Classes\Base Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Bullet.h">
-      <Filter>Game Classes\Salem</Filter>
     </ClInclude>
     <ClInclude Include="Source\TiledLevel.h">
       <Filter>Game Utility Classes\Levels</Filter>
@@ -249,7 +243,28 @@
       <Filter>Game Utility Classes\Effects</Filter>
     </ClInclude>
     <ClInclude Include="Source\BreakoutGame.h">
-      <Filter>Game Classes\Breakout</Filter>
+      <Filter>Game Classes\Breakout\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BreakoutPaddle.h">
+      <Filter>Game Classes\Breakout\Game Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BreakoutBall.h">
+      <Filter>Game Classes\Breakout\Game Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BreakoutBlock.h">
+      <Filter>Game Classes\Breakout\Game Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BreakoutPaddleController.h">
+      <Filter>Game Classes\Breakout\Game Object Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Witch.h">
+      <Filter>Game Classes\Salem\Game Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Bullet.h">
+      <Filter>Game Classes\Salem\Game Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\WitchController.h">
+      <Filter>Game Classes\Salem\Game Object Controllers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
