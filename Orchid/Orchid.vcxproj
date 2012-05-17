@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="Source\Animation.cpp" />
     <ClCompile Include="Source\AudioCore.cpp" />
+    <ClCompile Include="Source\Balloon.cpp" />
     <ClCompile Include="Source\BreakoutBall.cpp" />
     <ClCompile Include="Source\BreakoutBlock.cpp" />
     <ClCompile Include="Source\BreakoutPaddle.cpp" />
@@ -22,6 +23,8 @@
     <ClCompile Include="Source\dirent.c" />
     <ClCompile Include="Source\Emitter.cpp" />
     <ClCompile Include="Source\FileReader.cpp" />
+    <ClCompile Include="Source\Frog.cpp" />
+    <ClCompile Include="Source\FrogController.cpp" />
     <ClCompile Include="Source\LevelCollisionTile.cpp" />
     <ClCompile Include="Source\LuaInterface.cpp" />
     <ClCompile Include="Source\MappyLevel.cpp" />
@@ -50,6 +53,8 @@
   <ItemGroup>
     <ClInclude Include="Source\Animation.h" />
     <ClInclude Include="Source\AudioCore.h" />
+    <ClInclude Include="Source\Balloon.h" />
+    <ClInclude Include="Source\BalloonFightGame.h" />
     <ClInclude Include="Source\BreakoutBall.h" />
     <ClInclude Include="Source\BreakoutBlock.h" />
     <ClInclude Include="Source\BreakoutGame.h" />
@@ -60,6 +65,8 @@
     <ClInclude Include="Source\dirent.h" />
     <ClInclude Include="Source\Emitter.h" />
     <ClInclude Include="Source\FileReader.h" />
+    <ClInclude Include="Source\Frog.h" />
+    <ClInclude Include="Source\FrogController.h" />
     <ClInclude Include="Source\LevelCollisionTile.h" />
     <ClInclude Include="Source\LuaInterface.h" />
     <ClInclude Include="Source\MappyLevel.h" />

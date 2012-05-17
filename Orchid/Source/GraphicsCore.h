@@ -43,7 +43,7 @@ public:
 	//------------------
 
 	//blit an image to the buffer
-	static void BlitImage(string index, int x = WIDTH/2, int y = HEIGHT/2);
+	static void BlitImage(string index, int x = WIDTH/2, int y = HEIGHT/2, int flags = 0);
 	//blit a section of an image to the buffer (sprite/tile sheets)
 	static void BlitImageRegion(int sx, int sy, int w, int h, int dx, int dy, string image_name);
 

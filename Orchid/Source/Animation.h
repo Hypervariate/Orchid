@@ -3,6 +3,7 @@
 
 #include "FileReader.h"
 #include <map>
+#include "Vector2D.h"
 
 #define ANIMATION_DIRECTORY "Data/Animations/"
 #define ANIMATION_EXTENSION ".txt"
@@ -65,6 +66,7 @@ private:
 	bool m_animationIsPlaying;
 	ANIMATION_BEHAVIOR m_behavior;
 	int m_direction;
+	Vector2D m_imageOffset;
 };
 
 #endif

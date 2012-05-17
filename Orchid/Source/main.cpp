@@ -4,6 +4,7 @@
 #include "AudioCore.h"
 
 #include "BreakoutGame.h"
+#include "BalloonFightGame.h"
 
 //Initialize Orchid
 void Initialize(){
@@ -28,7 +29,7 @@ int main()
 	Initialize();
 
 	
-	BreakoutGame::Run();
+	BalloonFightGame::Run();
 	
 	
 	Deinitialize();

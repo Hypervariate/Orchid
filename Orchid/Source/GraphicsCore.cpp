@@ -156,7 +156,7 @@ ALLEGRO_DISPLAY* GraphicsCore::GetDisplay(){
 		GraphicsCore::Initialize();
 	return display;
 }
-void GraphicsCore::BlitImage(string index, int x, int y){
+void GraphicsCore::BlitImage(string index, int x, int y, int flags){
 
 	// CULLING - don't draw the object if it's not in view
 	if( x-GetMapScrollingOffsetX() < 0		||
@@ -173,7 +173,7 @@ void GraphicsCore::BlitImage(string index, int x, int y){
 	if(!success){
 		return;
 	}
-	al_draw_bitmap(m_images[name], x-GetMapScrollingOffsetX(), y-GetMapScrollingOffsetY(), 0);	
+	al_draw_bitmap(m_images[name], x-GetMapScrollingOffsetX(), y-GetMapScrollingOffsetY(), flags);	
 	
 }
 

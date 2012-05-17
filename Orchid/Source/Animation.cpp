@@ -11,6 +11,7 @@ Animation::Animation()
 	m_animationIsPlaying = true;
 	m_behavior = REPEAT;
 	m_direction = 1;
+	m_imageOffset.Set(0,0);
 }
 Animation::~Animation()
 {
@@ -85,6 +86,12 @@ bool Animation::LoadAnimation(char* animation_name, Animation* animation)
 					animation->m_behavior = BOUNCE;
 				else
 					animation->m_behavior = REPEAT;
+			}
+			if(m_fileReader.GetToken(i) == "OFFSETX"){
+				animation->m_imageOffset.x = atof(m_fileReader.GetToken(i+1).c_str());
+			}
+			if(m_fileReader.GetToken(i) == "OFFSETY"){
+				animation->m_imageOffset.y = atof(m_fileReader.GetToken(i+1).c_str());
 			}
 		}
 	}
