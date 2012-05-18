@@ -84,7 +84,7 @@ int MapLoad (char * mapname, const int convertToAlpha)
 }
 
 /* as MapLoad but takes data from memory rather than file/physfs location */
-int MapDecode (unsigned char * mapmempt, const int convertMagicPink)
+int MapDecode ( char * mapmempt, const int convertMagicPink)
 {
 	int retVal;
 	retVal=MapPreRealDecode (mapmempt,convertMagicPink);
@@ -101,10 +101,10 @@ void MapRestore (void)
 {
 	int i, j, k;
 	int r,g,b;
-	unsigned char * newgfxpt;
+	 char * newgfxpt;
 
 	if (abmTiles == NULL) return;
-	i = 0; newgfxpt = (unsigned char*)mapblockgfxpt;
+	i = 0; newgfxpt = ( char*)mapblockgfxpt;
 	while (abmTiles[i]!=NULL) 
 	{
 		//not needed for real-time stuff so don't bother locking
@@ -196,7 +196,7 @@ int MapLoadMAR (char * mname, int marlyr)
 	return 0;
 }
 
-int MapDecodeMAR (unsigned char * mrpt, int marlyr, int initAnims)
+int MapDecodeMAR ( char * mrpt, int marlyr, int initAnims)
 {
 int i, j;
 short int * mymarpt;
@@ -1055,7 +1055,7 @@ void MapDrawRow (int mapxo, int mapyo, int mapx, int mapy, int mapw, int maph, i
 
 
 // STATIC FUNCTIONS NOT TO BE MADE PUBLIC 
-static int MapGetchksz (unsigned char * locpt)
+static int MapGetchksz ( char * locpt)
 {
 	int ret=((((int) (locpt[0]))<<24)|(((int) (locpt[1]))<<16)|
 		(((int) (locpt[2]))<<8)|((int) (locpt[3])));
@@ -1063,7 +1063,7 @@ static int MapGetchksz (unsigned char * locpt)
 	return ret;
 }
 
-static int MapGetshort (unsigned char * locpt)
+static int MapGetshort ( char * locpt)
 {
 int rval;
 
@@ -1078,7 +1078,7 @@ int rval;
 	return rval;
 }
 
-static int MapGetlong (unsigned char * locpt)
+static int MapGetlong ( char * locpt)
 {
 	if (mapislsb)
 		return ((((int) (locpt[3]))<<24)|(((int) (locpt[2]))<<16)|
@@ -1092,7 +1092,7 @@ static int MapRealLoad (char * mname, const int convertMagicPink)
 {
 	int mretval;
 	char idtag[4];
-	unsigned char tempc;
+	 char tempc;
 	int mapfilesize = 0;
 
 	void * mapfilept;
@@ -1144,7 +1144,7 @@ static int MapRealLoad (char * mname, const int convertMagicPink)
 	return mretval;
 }
 
-static int MapPreRealDecode (unsigned char * mapmempt, const int convertMagicPink)
+static int MapPreRealDecode ( char * mapmempt, const int convertMagicPink)
 {
 long int maplength;
 
@@ -1185,11 +1185,11 @@ long int maplength;
 		return MapRealDecode (convertMagicPink, NULL, mapmempt, maplength);
 }
 
-static int MapRealDecode (const int convertMagicPink, void* mfpt, unsigned char * mmpt, long int mpfilesize)
+static int MapRealDecode (const int convertMagicPink, void* mfpt,  char * mmpt, long int mpfilesize)
 {
 	int chkdn;
 	int size1, size2,pos;
-	unsigned char * fmappospt;
+	 char * fmappospt;
 	char mphdr[8];
 	int retval;
 
@@ -1206,7 +1206,7 @@ static int MapRealDecode (const int convertMagicPink, void* mfpt, unsigned char 
 				MapFreeMem ();
 				return -1;
 			}
-			fmappospt = malloc (MapGetchksz((unsigned char*)mphdr+4)+8);
+			fmappospt = malloc (MapGetchksz(( char*)mphdr+4)+8);
 
 			if (fmappospt == NULL) 
 			{
@@ -1322,7 +1322,7 @@ static int MapRealDecode (const int convertMagicPink, void* mfpt, unsigned char 
 	return retval;
 }
 
-static int MapDecodeMPHD (unsigned char * mdatpt)
+static int MapDecodeMPHD ( char * mdatpt)
 {
 	mdatpt += 8;
 	if (mdatpt[0] > 1)
@@ -1369,10 +1369,10 @@ static int MapDecodeMPHD (unsigned char * mdatpt)
 	return 0;
 }
 
-static int MapDecodeCMAP (unsigned char * mdatpt)
+static int MapDecodeCMAP ( char * mdatpt)
 {
 	mdatpt += 8;
-	mapcmappt = (unsigned char *) malloc (MapGetchksz (mdatpt-4));
+	mapcmappt = ( char *) malloc (MapGetchksz (mdatpt-4));
 	if (mapcmappt==NULL) 
 	{ 
 		maperror = MER_OUTOFMEM; 
@@ -1382,7 +1382,7 @@ static int MapDecodeCMAP (unsigned char * mdatpt)
 	return 0;
 }
 
-static int MapDecodeBKDT (unsigned char * mdatpt)
+static int MapDecodeBKDT ( char * mdatpt)
 {
 int i, j;
 BLKSTR * myblkpt;
@@ -1411,10 +1411,10 @@ BLKSTR * myblkpt;
 			myblkpt->fgoff2 /= (mapblockwidth*mapblockheight*((mapdepth+1)/8));
 			myblkpt->fgoff3 /= (mapblockwidth*mapblockheight*((mapdepth+1)/8));
 		}
-		myblkpt->user1 = (unsigned int) MapGetlong (mdatpt+i+16);
-		myblkpt->user2 = (unsigned int) MapGetlong (mdatpt+i+20);
-		myblkpt->user3 = (unsigned short int) MapGetshort (mdatpt+i+24);
-		myblkpt->user4 = (unsigned short int) MapGetshort (mdatpt+i+26);
+		myblkpt->user1 = ( int) MapGetlong (mdatpt+i+16);
+		myblkpt->user2 = ( int) MapGetlong (mdatpt+i+20);
+		myblkpt->user3 = ( short int) MapGetshort (mdatpt+i+24);
+		myblkpt->user4 = ( short int) MapGetshort (mdatpt+i+26);
 		myblkpt->user5 = mdatpt[i+28];
 		myblkpt->user6 = mdatpt[i+29];
 		myblkpt->user7 = mdatpt[i+30];
@@ -1432,10 +1432,10 @@ BLKSTR * myblkpt;
 	return 0;
 }
 
-static int MapDecodeANDT (unsigned char * mdatpt)
+static int MapDecodeANDT ( char * mdatpt)
 {
 int numani, i, ancksz;
-unsigned char * mdatendpt;
+ char * mdatendpt;
 
 	mdatpt += 8;
 	ancksz = MapGetchksz(mdatpt-4);
@@ -1494,7 +1494,7 @@ unsigned char * mdatendpt;
 	return 0;
 }
 
-static int MapDecodeAGFX (unsigned char * mdatpt)
+static int MapDecodeAGFX ( char * mdatpt)
 {
 	maperror=MER_NOTSUPPORTED;
 	return MER_NOTSUPPORTED;	//shouldn't get here
@@ -1507,7 +1507,7 @@ static int MapDecodeAGFX (unsigned char * mdatpt)
 	return 0;*/
 }
 
-static int MapDecodeBGFX (unsigned char * mdatpt)
+static int MapDecodeBGFX ( char * mdatpt)
 {
 	if (mapblockgfxpt != NULL) return 0;
 	mapblockgfxpt = malloc (MapGetchksz (mdatpt+4));
@@ -1520,14 +1520,14 @@ static int MapDecodeBGFX (unsigned char * mdatpt)
 	return 0;
 }
 
-static int MapDecodeNOVC (unsigned char * mdatpt)
+static int MapDecodeNOVC ( char * mdatpt)
 {
 	memset (mapnovctext, 0, 70);
 	if (MapGetchksz (mdatpt+4) < 70) strcpy (mapnovctext, (char*)mdatpt+8);
 	return 0;
 }
 
-static int MapDecodeLayer (unsigned char * mdatpt, int lnum)
+static int MapDecodeLayer ( char * mdatpt, int lnum)
 {
 	int i, j, k, l;
 	short int * mymappt, * mymap2pt;
@@ -1660,7 +1660,7 @@ static int MapDecodeLayer (unsigned char * mdatpt, int lnum)
 	return 0;
 }
 
-static int MapDecodeNULL (unsigned char * mdatpt)
+static int MapDecodeNULL ( char * mdatpt)
 {
 	return 0;
 }
@@ -1703,9 +1703,9 @@ static int MapGenerateYLookup (void)
 //convert integer in 8/15/16 bit RGB to separates
 static void itoC8(int colour, int *r, int* g, int* b)
 {
-	unsigned char * mycmappt;
+	 char * mycmappt;
 	int j;
-	mycmappt=(unsigned char *) mapcmappt;
+	mycmappt=( char *) mapcmappt;
 	j = colour*3;
 	*r=mycmappt[j];
 	*g=mycmappt[j+1];
@@ -1851,12 +1851,12 @@ static int MapRelocate2 (int convertMagicPink, const short int numblockgfx,const
 						break;
 					case 15:
 							//merge with 16 if this fails and resorting to allegro colours
-						itoC15(*((unsigned short int *) newgfxpt),&r,&g,&b);
+						itoC15(*(( short int *) newgfxpt),&r,&g,&b);
 						al_put_pixel(j, k, al_map_rgb(r,g,b));
 						newgfxpt+=2;
 						break;
 					case 16:
-						itoC16(*((unsigned short int *) newgfxpt),&r,&g,&b);
+						itoC16(*(( short int *) newgfxpt),&r,&g,&b);
 						al_put_pixel(j, k, al_map_rgb(r,g,b));
 						newgfxpt+=2;
 						break;
@@ -1906,10 +1906,10 @@ int MapRelocate (const int convertMagicPink, const short int numblockgfx,const s
 	int pixelFormat;
 	ALLEGRO_COLOR _pixcol;
 	//BLKSTR * myblkstrpt;
-	unsigned char * oldgfxpt;
-	unsigned char * mycmappt;
-	unsigned char * newgfxpt;
-	unsigned char * newgfx2pt;
+	 char * oldgfxpt;
+	 char * mycmappt;
+	 char * newgfxpt;
+	 char * newgfx2pt;
 
 	if(!al_is_system_installed()) 
 	{ 
@@ -1923,7 +1923,7 @@ int MapRelocate (const int convertMagicPink, const short int numblockgfx,const s
 	cdepth=al_get_pixel_format_bits(pixelFormat);
 
 	//now referred to as old (existing pixels as integers from map file), new (integers converted to current depth)
-	oldgfxpt = (unsigned char *) mapblockgfxpt;
+	oldgfxpt = ( char *) mapblockgfxpt;
 	newgfxpt =  malloc (mapblockwidth*mapblockheight*((mapdepth+1)/8)*numblockgfx*((cdepth+1)/8));
 
 	if (newgfxpt==NULL)
@@ -1937,7 +1937,7 @@ int MapRelocate (const int convertMagicPink, const short int numblockgfx,const s
 	//extract colour from the stored bitmap (format is as per map depth)
 	//update raw graphics to colour in the current bitmap depth
 	newgfx2pt = newgfxpt;
-	mycmappt = (unsigned char *) mapcmappt; pixcol = 0;
+	mycmappt = ( char *) mapcmappt; pixcol = 0;
 	for (i=0;i<(mapblockwidth*mapblockheight*numblockgfx);i++)
 	{
 		//extract colour from the stored bitmap (format is as per map depth)
@@ -2002,27 +2002,27 @@ int MapRelocate (const int convertMagicPink, const short int numblockgfx,const s
 		case 15:
 			//this was just the same for 15/16 but different for method. if scrap to use colour array then probably merge back
 			pixcol=C15toi(_pixcol);
-			*((unsigned short int *) newgfxpt) = (unsigned short int) pixcol;
+			*(( short int *) newgfxpt) = ( short int) pixcol;
 			newgfxpt+=2;
 			break;
 		case 16:
 			pixcol=C16toi(_pixcol);
-			*((unsigned short int *) newgfxpt) = (unsigned short int) pixcol;
+			*(( short int *) newgfxpt) = ( short int) pixcol;
 			newgfxpt+=2;
 			break;
 		case 24:
 			pixcol=C24toi(_pixcol);
-			*newgfxpt = (unsigned char) (pixcol>>16)&0xFF;
-			*(newgfxpt+1) = (unsigned char) (pixcol>>8)&0xFF;
-			*(newgfxpt+2) = (unsigned char) pixcol&0xFF;
+			*newgfxpt = ( char) (pixcol>>16)&0xFF;
+			*(newgfxpt+1) = ( char) (pixcol>>8)&0xFF;
+			*(newgfxpt+2) = ( char) pixcol&0xFF;
 			newgfxpt+=3;
 			break;
 		case 32:
 			pixcol=C32toi(_pixcol);
 			*newgfxpt = 0;
-			*(newgfxpt+1) = (unsigned char) (pixcol>>16)&0xFF;
-			*(newgfxpt+2) = (unsigned char) (pixcol>>8)&0xFF;
-			*(newgfxpt+3) = (unsigned char) pixcol&0xFF;
+			*(newgfxpt+1) = ( char) (pixcol>>16)&0xFF;
+			*(newgfxpt+2) = ( char) (pixcol>>8)&0xFF;
+			*(newgfxpt+3) = ( char) pixcol&0xFF;
 			newgfxpt+=4;
 			break;
 		}

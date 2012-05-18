@@ -13,10 +13,10 @@ void Shape2D::SetX(int x){
 void Shape2D::SetY(int y){
 	this->y = y;
 }
-void Shape2D::SetW(unsigned int w){
+void Shape2D::SetW( int w){
 	this->w = w;
 }
-void Shape2D::SetH(unsigned int h){
+void Shape2D::SetH( int h){
 	this->h = h;
 }
 int Shape2D::GetX(){
@@ -25,16 +25,16 @@ int Shape2D::GetX(){
 int Shape2D::GetY(){
 	return y;
 }
-unsigned int Shape2D::GetW(){
+int Shape2D::GetW(){
 	return w;
 }
-unsigned int Shape2D::GetH(){
+int Shape2D::GetH(){
 	return h;
 }
-unsigned int Shape2D::GetHalfOfWidth(){
+int Shape2D::GetHalfOfWidth(){
     return halfOfWidth;
 }
-unsigned int Shape2D::GetHalfOfHeight(){
+int Shape2D::GetHalfOfHeight(){
     return halfOfHeight;
 }
 void Shape2D::DrawShape(){
@@ -50,7 +50,7 @@ void Shape2D::DrawShape(){
 	}
 }
 
-void Shape2D::SetAppearance(unsigned char r, unsigned char g, unsigned char b, bool solid){
+void Shape2D::SetAppearance( char r,  char g,  char b, bool solid){
 	this->r = r;
 	this->g = g;
 	this->b = b;

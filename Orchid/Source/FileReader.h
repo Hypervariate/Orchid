@@ -25,11 +25,11 @@ public:
 	
 	
 	string ReadToken();
-	string GetToken(unsigned int i);
-	unsigned int GetTotalTokens();
+	string GetToken( int i);
+	 int GetTotalTokens();
 
 	bool TokenizeFile();
-	unsigned int GetAllFileNamesInDirectory(string dir, vector<string> &files);
+	 int GetAllFileNamesInDirectory(string dir, vector<string> &files);
 
 private:
 	ifstream m_readFile;

@@ -77,46 +77,46 @@ void GraphicsCore::FlipDisplay(){
 	al_clear_to_color(al_map_rgb(0,0,0));		//enable when backbuffering has been implemented
 	
 }
-void GraphicsCore::DrawRectangle(float x1, float y1, float x2, float y2, unsigned char r, unsigned char g, unsigned char b, float thickness){
+void GraphicsCore::DrawRectangle(float x1, float y1, float x2, float y2,  char r,  char g,  char b, float thickness){
 	al_draw_rectangle(x1-GetMapScrollingOffsetX(), y1-GetMapScrollingOffsetY(), x2-GetMapScrollingOffsetX(), y2-GetMapScrollingOffsetY(), al_map_rgb(r, g, b), thickness);
 }
-void GraphicsCore::DrawRoundedRectangle(float x1, float y1, float x2, float y2, float rx, float ry, unsigned char r, unsigned char g, unsigned char b, float thickness){
+void GraphicsCore::DrawRoundedRectangle(float x1, float y1, float x2, float y2, float rx, float ry,  char r,  char g,  char b, float thickness){
 	al_draw_rounded_rectangle(x1-GetMapScrollingOffsetX(), y1-GetMapScrollingOffsetY(), x2-GetMapScrollingOffsetX(), y2-GetMapScrollingOffsetY(), rx, ry, al_map_rgb(r, g, b), thickness);
 }
-void GraphicsCore::DrawFilledRectangle(float x1, float y1, float x2, float y2, unsigned char r, unsigned char g, unsigned char b){
+void GraphicsCore::DrawFilledRectangle(float x1, float y1, float x2, float y2,  char r,  char g,  char b){
 	al_draw_filled_rectangle(x1-GetMapScrollingOffsetX(), y1-GetMapScrollingOffsetY(), x2-GetMapScrollingOffsetX(), y2-GetMapScrollingOffsetY(), al_map_rgb(r, g, b));
 }
-void GraphicsCore::DrawFilledRoundedRectangle(float x1, float y1, float x2, float y2, float rx, float ry, unsigned char r, unsigned char g, unsigned char b){
+void GraphicsCore::DrawFilledRoundedRectangle(float x1, float y1, float x2, float y2, float rx, float ry,  char r,  char g,  char b){
 	al_draw_filled_rounded_rectangle(x1-GetMapScrollingOffsetX(), y1-GetMapScrollingOffsetY(), x2-GetMapScrollingOffsetX(), y2-GetMapScrollingOffsetY(), rx, ry, al_map_rgb(r, g, b));
 }
-void GraphicsCore::DrawLine(float x1, float y1, float x2, float y2, unsigned char r, unsigned char g, unsigned char b, float thickness){
+void GraphicsCore::DrawLine(float x1, float y1, float x2, float y2,  char r,  char g,  char b, float thickness){
 	al_draw_line(x1-GetMapScrollingOffsetX(), y1-GetMapScrollingOffsetY(), x2-GetMapScrollingOffsetX(), y2-GetMapScrollingOffsetY(), al_map_rgb(r, g, b), thickness);
 }
-void GraphicsCore::DrawTriangle(float x1, float y1, float x2, float y2, float x3, float y3, unsigned char r, unsigned char g, unsigned char b, float thickness){
+void GraphicsCore::DrawTriangle(float x1, float y1, float x2, float y2, float x3, float y3,  char r,  char g,  char b, float thickness){
 	al_draw_triangle(x1-GetMapScrollingOffsetX(), y1-GetMapScrollingOffsetY(), x2-GetMapScrollingOffsetX(), y2-GetMapScrollingOffsetY(), x3-GetMapScrollingOffsetX(), y3-GetMapScrollingOffsetY(), al_map_rgb(r, g, b), thickness);
 }
-void GraphicsCore::DrawFilledTriangle(float x1, float y1, float x2, float y2, float x3, float y3, unsigned char r, unsigned char g, unsigned char b){
+void GraphicsCore::DrawFilledTriangle(float x1, float y1, float x2, float y2, float x3, float y3,  char r,  char g,  char b){
 	al_draw_filled_triangle(x1-GetMapScrollingOffsetX(), y1-GetMapScrollingOffsetY(), x2-GetMapScrollingOffsetX(), y2-GetMapScrollingOffsetY(), x3-GetMapScrollingOffsetX(), y3-GetMapScrollingOffsetY(), al_map_rgb(r, g, b));
 }
-void GraphicsCore::DrawCircle(float cx, float cy, float rad, unsigned char r, unsigned char g, unsigned char b, float thickness){
+void GraphicsCore::DrawCircle(float cx, float cy, float rad,  char r,  char g,  char b, float thickness){
 	al_draw_circle(cx-GetMapScrollingOffsetX(), cy-GetMapScrollingOffsetY(), rad, al_map_rgb(r, g, b), thickness);
 }
-void GraphicsCore::DrawFilledCircle(float cx, float cy, float rad, unsigned char r, unsigned char g, unsigned char b){
+void GraphicsCore::DrawFilledCircle(float cx, float cy, float rad,  char r,  char g,  char b){
 	al_draw_filled_circle(cx-GetMapScrollingOffsetX(), cy-GetMapScrollingOffsetY(), rad, al_map_rgb(r, g, b));
 }
-void GraphicsCore::DrawEllipse(float cx, float cy, float rx, float ry, unsigned char r, unsigned char g, unsigned char b, float thickness){
+void GraphicsCore::DrawEllipse(float cx, float cy, float rx, float ry,  char r,  char g,  char b, float thickness){
 	al_draw_ellipse(cx-GetMapScrollingOffsetX(), cy-GetMapScrollingOffsetY(), rx, ry, al_map_rgb(r, g, b), thickness);
 }
-void GraphicsCore::DrawFilledEllipse(float cx, float cy, float rx, float ry, unsigned char r, unsigned char g, unsigned char b){
+void GraphicsCore::DrawFilledEllipse(float cx, float cy, float rx, float ry,  char r,  char g,  char b){
 	al_draw_filled_ellipse(cx-GetMapScrollingOffsetX(), cy-GetMapScrollingOffsetY(), rx, ry, al_map_rgb(r, g, b));
 }
-void GraphicsCore::DrawSpline(float points[8], unsigned char r, unsigned char g, unsigned char b, float thickness){
+void GraphicsCore::DrawSpline(float points[8],  char r,  char g,  char b, float thickness){
 	//doesn't work with scrolling
 	al_draw_spline(points, al_map_rgb(r, g, b), thickness);
 }
-bool GraphicsCore::LoadFont(string font_name, unsigned int size)
+bool GraphicsCore::LoadFont(string font_name,  int size)
 {
-    const unsigned int path_length = 256;
+    const  int path_length = 256;
     char path[path_length];
     for(int i = 0; i < path_length; i++)
         path[i] = '\0';
@@ -135,7 +135,7 @@ bool GraphicsCore::LoadFont(string font_name, unsigned int size)
     
     return true;
 }
-void GraphicsCore::PrintToDisplay(string text, int x, int y, string font, unsigned char r, unsigned char g, unsigned char b)
+void GraphicsCore::PrintToDisplay(string text, int x, int y, string font,  char r,  char g,  char b)
 {
 	fontIterator = fonts.find(font);
     if(fontIterator != fonts.end())
@@ -145,7 +145,7 @@ void GraphicsCore::PrintToDisplay(string text, int x, int y, string font, unsign
 		al_draw_text((*fontIterator).second, al_map_rgb(r, g, b), x, y, 0, text.c_str());
 	}
 }
-void GraphicsCore::PrintToDisplay(int i, int x, int y, string font, unsigned char r, unsigned char g, unsigned char b)
+void GraphicsCore::PrintToDisplay(int i, int x, int y, string font,  char r,  char g,  char b)
 {
 	char buffer[32];
 	itoa(i, buffer, 10);

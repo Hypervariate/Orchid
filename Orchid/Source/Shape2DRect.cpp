@@ -4,7 +4,7 @@
 Shape2DRect::Shape2DRect(){
 	Shape2DRect(0,0,0,0);
 }
-Shape2DRect::Shape2DRect(unsigned int x, unsigned int y, unsigned int w, unsigned int h){
+Shape2DRect::Shape2DRect( int x,  int y,  int w,  int h){
 	this->x = x;
 	this->y = y;
 	this->w = w;
@@ -15,18 +15,18 @@ Shape2DRect::Shape2DRect(unsigned int x, unsigned int y, unsigned int w, unsigne
 Shape2DRect::~Shape2DRect(){
 
 }
-void Shape2DRect::SetW(unsigned int w){
+void Shape2DRect::SetW(int w){
 	this->w = w;
 	halfOfWidth = w/2;
 }
-void Shape2DRect::SetH(unsigned int h){
+void Shape2DRect::SetH(int h){
 	this->h = h;
 	halfOfHeight = h/2;
 }
-unsigned int Shape2DRect::GetHalfOfWidth(){
+int Shape2DRect::GetHalfOfWidth(){
     return halfOfWidth;
 }
-unsigned int Shape2DRect::GetHalfOfHeight(){
+int Shape2DRect::GetHalfOfHeight(){
     return halfOfHeight;
 }
 void Shape2DRect::DrawShape(){

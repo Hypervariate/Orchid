@@ -34,7 +34,7 @@ public:
 
 	//Public Routines
 	//------------------
-	static void RegisterGameObjectAsPlayer(GameObject* character, unsigned int player_number, CharacterController* cc);
+	static void RegisterGameObjectAsPlayer(GameObject* character,  int player_number, CharacterController* cc);
 	//------------------
 
 private:	
@@ -46,7 +46,7 @@ private:
 	static int mouseWheelPosition;
 	
 	static vector<CharacterController*> players;
-	static unsigned int playerCount;
+	static  int playerCount;
 	
 	static map<ALLEGRO_JOYSTICK*, int> joysticks;
 	static int GetJoystickNumberFromID(ALLEGRO_JOYSTICK * joystick);

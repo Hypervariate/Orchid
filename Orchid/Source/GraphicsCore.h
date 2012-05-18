@@ -48,32 +48,32 @@ public:
 	static void BlitImageRegion(int sx, int sy, int w, int h, int dx, int dy, string image_name);
 
 	//Draw Rectangles
-	static void DrawRectangle(float x1, float y1, float x2, float y2, unsigned char r, unsigned char g, unsigned char b, float thickness);
-	static void DrawRoundedRectangle(float x1, float y1, float x2, float y2, float rx, float ry, unsigned char r, unsigned char g, unsigned char b, float thickness);
-	static void DrawFilledRectangle(float x1, float y1, float x2, float y2, unsigned char r, unsigned char g, unsigned char b);
-	static void DrawFilledRoundedRectangle(float x1, float y1, float x2, float y2, float rx, float ry, unsigned char r, unsigned char g, unsigned char b);
+	static void DrawRectangle(float x1, float y1, float x2, float y2,  char r,  char g,  char b, float thickness);
+	static void DrawRoundedRectangle(float x1, float y1, float x2, float y2, float rx, float ry,  char r,  char g,  char b, float thickness);
+	static void DrawFilledRectangle(float x1, float y1, float x2, float y2,  char r,  char g,  char b);
+	static void DrawFilledRoundedRectangle(float x1, float y1, float x2, float y2, float rx, float ry,  char r,  char g,  char b);
 	
 	//Draw Lines
-	static void DrawLine(float x1, float y1, float x2, float y2, unsigned char r, unsigned char g, unsigned char b, float thickness);
+	static void DrawLine(float x1, float y1, float x2, float y2,  char r,  char g,  char b, float thickness);
 	
 	//Draw Triangles
-	static void DrawTriangle(float x1, float y1, float x2, float y2, float x3, float y3, unsigned char r, unsigned char g, unsigned char b, float thickness);
-    static void DrawFilledTriangle(float x1, float y1, float x2, float y2, float x3, float y3, unsigned char r, unsigned char g, unsigned char b);
+	static void DrawTriangle(float x1, float y1, float x2, float y2, float x3, float y3,  char r,  char g,  char b, float thickness);
+    static void DrawFilledTriangle(float x1, float y1, float x2, float y2, float x3, float y3,  char r,  char g,  char b);
 
 	//Draw Circles
-	static void DrawCircle(float cx, float cy, float rad, unsigned char r, unsigned char g, unsigned char b, float thickness);
-	static void DrawFilledCircle(float cx, float cy, float rad, unsigned char r, unsigned char g, unsigned char b);
+	static void DrawCircle(float cx, float cy, float rad,  char r,  char g,  char b, float thickness);
+	static void DrawFilledCircle(float cx, float cy, float rad,  char r,  char g,  char b);
 
 	//Draw Ellipses
-	static void DrawEllipse(float cx, float cy, float rx, float ry, unsigned char r, unsigned char g, unsigned char b, float thickness);
-	static void DrawFilledEllipse(float cx, float cy, float rx, float ry, unsigned char r, unsigned char g, unsigned char b);
+	static void DrawEllipse(float cx, float cy, float rx, float ry,  char r,  char g,  char b, float thickness);
+	static void DrawFilledEllipse(float cx, float cy, float rx, float ry,  char r,  char g,  char b);
 
 	//Draw Splines
-	static void DrawSpline(float points[8], unsigned char r, unsigned char g, unsigned char b, float thickness);
+	static void DrawSpline(float points[8],  char r,  char g,  char b, float thickness);
 	
 	//Print text to the buffer
-	static void PrintToDisplay(string text, int x, int y, string font = "Acknowledge", unsigned char r = 0, unsigned char g = 0, unsigned char b = 0);
-	static void PrintToDisplay(int i, int x, int y, string font = "Acknowledge", unsigned char r = 0, unsigned char g = 0, unsigned char b = 0);
+	static void PrintToDisplay(string text, int x, int y, string font = "Acknowledge",  char r = 0,  char g = 0,  char b = 0);
+	static void PrintToDisplay(int i, int x, int y, string font = "Acknowledge",  char r = 0,  char g = 0,  char b = 0);
 	
 	//Level routines
 	//These allow the level to appear to be scrolling relative to Player 0
@@ -95,7 +95,7 @@ private:
 
 	static bool LoadImage(char* image_name);
 	
-	static bool LoadFont(string font_name, unsigned int size);
+	static bool LoadFont(string font_name,  int size);
 
 	static FileReader fileReader;
 

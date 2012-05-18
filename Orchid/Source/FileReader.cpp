@@ -44,16 +44,16 @@ bool FileReader::TokenizeFile(){
 	CloseFile();
 	return true;
 }
-string FileReader::GetToken(unsigned int i){
+string FileReader::GetToken( int i){
 	if(i < m_tokens.size())
 		return m_tokens.at(i);
 	else
 		return "";
 }
-unsigned int FileReader::GetTotalTokens(){
+ int FileReader::GetTotalTokens(){
 	return m_tokens.size();
 }
-unsigned int FileReader::GetAllFileNamesInDirectory(string dir, vector<string> &files)
+ int FileReader::GetAllFileNamesInDirectory(string dir, vector<string> &files)
 {
     DIR *dp;
     struct dirent *dirp;

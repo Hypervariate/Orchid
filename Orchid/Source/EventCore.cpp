@@ -9,7 +9,7 @@ Vector2D EventCore::mousePosition;
 int EventCore::mouseWheelPosition;
 
 vector<CharacterController*> EventCore::players;
-unsigned int EventCore::playerCount = 0;
+ int EventCore::playerCount = 0;
 
 bool EventCore::redraw = false;
 
@@ -66,7 +66,7 @@ void EventCore::Initialize(){
 		
 	}
 }
-void EventCore::RegisterGameObjectAsPlayer(GameObject* character, unsigned int player_number, CharacterController* cc){
+void EventCore::RegisterGameObjectAsPlayer(GameObject* character,  int player_number, CharacterController* cc){
 	if(player_number >= players.size() && player_number >= 0) return;
 	CharacterController* oldCC = players.at(player_number);
 	delete oldCC;
@@ -219,7 +219,7 @@ void EventCore::Update(){
 
 
 	//let character controllers process player input
-	for(unsigned int i = 0; i < players.size(); i++)
+	for( int i = 0; i < players.size(); i++)
 		players.at(i)->ProcessEventQueue();
 	
 	

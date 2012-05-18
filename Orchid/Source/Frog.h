@@ -12,6 +12,7 @@ public:
 
 	void Update();
 	void Draw();
+	void HandleCollisionWithTarget(GameObject* target);
 
 private:
 	

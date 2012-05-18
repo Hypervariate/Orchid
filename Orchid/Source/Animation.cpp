@@ -67,7 +67,7 @@ bool Animation::LoadAnimation(char* animation_name, Animation* animation)
 		return false;
 	else{
 		//assign the fields to the animation
-		for(unsigned int i = 0; i < m_fileReader.GetTotalTokens(); i++){
+		for( int i = 0; i < m_fileReader.GetTotalTokens(); i++){
 			if(m_fileReader.GetToken(i) == "FRAME"){
 				char* frame_name = new char[MAX_PATH_LENGTH];
 				strcpy(frame_name, m_fileReader.GetToken(i+1).c_str());
@@ -102,14 +102,14 @@ bool Animation::LoadAnimation(char* animation_name, Animation* animation)
 
 	return true;
 }
-string Animation::GetFrameName(unsigned int index)
+string Animation::GetFrameName( int index)
 {
 	if(GetFrameCount() <= index)
 		return "";
 
 	return m_frames.at(index);
 }
-unsigned int Animation::GetFrameCount()
+ int Animation::GetFrameCount()
 {
 	return m_frames.size();
 }

@@ -134,16 +134,16 @@ int GameObject::GetX(){
 int GameObject::GetY(){
 	return shape->GetY();
 }
-unsigned int GameObject::GetW(){
+ int GameObject::GetW(){
 	return shape->GetW();
 }
-unsigned int GameObject::GetH(){
+ int GameObject::GetH(){
 	return shape->GetH();
 }
-unsigned int GameObject::GetHalfOfWidth(){
+ int GameObject::GetHalfOfWidth(){
 	return shape->GetHalfOfWidth();
 }
-unsigned int GameObject::GetHalfOfHeight(){
+ int GameObject::GetHalfOfHeight(){
 	return shape->GetHalfOfHeight();
 }
 void GameObject::Draw(){

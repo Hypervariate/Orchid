@@ -48,8 +48,8 @@ private:
 	static void CacheAllAnimationFiles();
 
 	static bool LoadAnimation(char* animation_name, Animation* animation);	//loads animation from a file name. Do not pass directory/extension	
-	unsigned int GetFrameCount();				//returns the total frame count for the animation sequence
-	string GetFrameName(unsigned int index);		//returns the name of the current frame image accepted by Graphics::BlitImage(name)
+	 int GetFrameCount();				//returns the total frame count for the animation sequence
+	string GetFrameName( int index);		//returns the name of the current frame image accepted by Graphics::BlitImage(name)
 	char* GetAnimationName();
 	void ClearAnimation();	//delete all frames on the heap
 

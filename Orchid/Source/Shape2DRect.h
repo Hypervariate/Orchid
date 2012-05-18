@@ -8,21 +8,21 @@
 class Shape2DRect : public Shape2D{
 private:
 	
-	unsigned int halfOfWidth;
-	unsigned int halfOfHeight;
+	 int halfOfWidth;
+	 int halfOfHeight;
 	
 public:
 	Shape2DRect();
-	Shape2DRect(unsigned int x, unsigned int y, unsigned int w, unsigned int h);
+	Shape2DRect( int x,  int y,  int w,  int h);
 	~Shape2DRect();
 
 	
-	void SetW(unsigned int w);
-	void SetH(unsigned int h);
+	void SetW(int w);
+	void SetH(int h);
 
 
-    unsigned int GetHalfOfWidth();
-    unsigned int GetHalfOfHeight();
+    int GetHalfOfWidth();
+    int GetHalfOfHeight();
 
 
 	virtual void DrawShape();

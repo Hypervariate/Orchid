@@ -64,10 +64,10 @@ public:
 	//wrappers for the object's shape
 	virtual int GetX();
 	virtual int GetY();
-	virtual unsigned int GetW();
-	virtual unsigned int GetH();
-	virtual unsigned int GetHalfOfWidth();
-    virtual unsigned int GetHalfOfHeight();
+	virtual  int GetW();
+	virtual  int GetH();
+	virtual  int GetHalfOfWidth();
+    virtual  int GetHalfOfHeight();
 
 	//get the current velocity of the object
 	virtual float GetVelocityX();
@@ -91,7 +91,7 @@ protected:
 	
 	int life;
 	Shape2D* shape;
-	unsigned int speed;
+	 int speed;
 	float maxSpeed;
 	float minSpeed;
 

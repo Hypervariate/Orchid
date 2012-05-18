@@ -10,7 +10,8 @@ Frog::Frog(int x, int y) : GameObject(x, y){
 	position.x = x;
 	position.y = y;
 	baseInertia.x = baseInertia.y = 2;
-	maxSpeed = 4;
+	drag.x = drag.y = 0.99f;
+	maxSpeed = 5;
 	
 	
 	balloon = new Balloon(x, y - 64);
@@ -22,8 +23,16 @@ Frog::~Frog(){
 }
 void Frog::Update(){
 	
-	if(GetX() < 0 || GetX() > WIDTH - GetHalfOfWidth()) velocity.x *= -1;
-	if(GetY() < 0 || GetY() > HEIGHT - GetHalfOfHeight()) velocity.y *= -1;
+
+	if(GetX() < -GetHalfOfWidth())
+		position.x = WIDTH - GetHalfOfWidth();
+	else if(GetX() > WIDTH - GetHalfOfWidth())
+		position.x = -GetHalfOfWidth();
+
+	if(GetY() < -GetHalfOfHeight())
+		position.y = HEIGHT - GetHalfOfHeight();
+	else if(GetY() > HEIGHT - GetHalfOfHeight())
+		position.y = -GetHalfOfHeight();
 	
 	balloon->MoveTo(GetX(), GetY() - 64);
 
@@ -39,4 +48,11 @@ void Frog::Draw(){
 	GraphicsCore::BlitImage("Frog", position.x - shape->GetHalfOfWidth(), position.y - shape->GetHalfOfHeight(), direction);
 	
 	GameObject::Draw();
+}
+void Frog::HandleCollisionWithTarget(GameObject* target){
+	
+	if(shape->IsColliding()){
+		Move(-velocity.x/2, -velocity.y/2);
+	
+	}
 }

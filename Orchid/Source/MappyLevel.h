@@ -37,7 +37,7 @@ public:
 	void DrawBackground();
 	void DrawForeground();
 	void Update();
-	unsigned long GetTileData(int blockx, int blocky, BLOCK_FIELD field, int layer = 0);
+	 long GetTileData(int blockx, int blocky, BLOCK_FIELD field, int layer = 0);
 	int collided_tl(int x, int y);
 	
 

@@ -3,7 +3,7 @@
 Shape2DCircle::Shape2DCircle(){
 	Shape2DCircle(4, 4, 2);
 }
-Shape2DCircle::Shape2DCircle(unsigned int x, unsigned int y, unsigned int diameter){
+Shape2DCircle::Shape2DCircle( int x,  int y,  int diameter){
 	SetX(x);
 	SetY(y);
 	SetDiameter(diameter);
@@ -11,18 +11,18 @@ Shape2DCircle::Shape2DCircle(unsigned int x, unsigned int y, unsigned int diamet
 Shape2DCircle::~Shape2DCircle(){
 	
 }
-void Shape2DCircle::SetDiameter(unsigned int diameter){
+void Shape2DCircle::SetDiameter( int diameter){
 	this->diameter = diameter;
 	radius = diameter/2;
 }
-unsigned int Shape2DCircle::GetDiameter(){
+ int Shape2DCircle::GetDiameter(){
 	return diameter;
 }
-void Shape2DCircle::SetRadius(unsigned int radius){
+void Shape2DCircle::SetRadius( int radius){
 	this->radius = radius;
 	diameter = radius*2;
 }
-unsigned int Shape2DCircle::GetRadius(){
+ int Shape2DCircle::GetRadius(){
 	return radius;
 }
 void Shape2DCircle::DrawShape(){
@@ -74,15 +74,15 @@ bool Shape2DCircle::DetectCollision(Shape2D* target){
 	
 }
 
-unsigned int Shape2DCircle::GetW(){
+int Shape2DCircle::GetW(){
 	return diameter;
 }
-unsigned int Shape2DCircle::GetH(){
+int Shape2DCircle::GetH(){
 	return diameter;
 }
-unsigned int Shape2DCircle::GetHalfOfWidth(){
+int Shape2DCircle::GetHalfOfWidth(){
     return radius;
 }
-unsigned int Shape2DCircle::GetHalfOfHeight(){
+int Shape2DCircle::GetHalfOfHeight(){
     return radius;
 }

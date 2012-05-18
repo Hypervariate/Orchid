@@ -91,7 +91,7 @@ int MappyLevel::collided_tl(int x, int y)
 	
 	return blockdata->tl;
 }
-unsigned long MappyLevel::GetTileData(int blockX, int blockY, BLOCK_FIELD field, int layer){
+ long MappyLevel::GetTileData(int blockX, int blockY, BLOCK_FIELD field, int layer){
 	if(layer < 0 || layer >= layerCount)
 		return 0;
 

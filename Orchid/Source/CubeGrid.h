@@ -8,33 +8,33 @@ class CubeGrid{
 
 public:
 	CubeGrid();
-    CubeGrid(unsigned int w, unsigned int h, unsigned int l);
+    CubeGrid( int w,  int h,  int l);
     ~CubeGrid();
 
 	//resize the vector to accomodate the specified grid size
 	//populate all indeces with 0
-	void AllocateCubeGrid(unsigned int w, unsigned int h, unsigned int l);
+	void AllocateCubeGrid( int w,  int h,  int l);
 
-	//return the unsigned int value within the specified cell
-    unsigned int GetCell(unsigned int x, unsigned int y, unsigned int z);
+	//return the  int value within the specified cell
+     int GetCell( int x,  int y,  int z);
 
 	//set the int value contained within the cell
-    void SetCell(unsigned int x, unsigned int y, unsigned int z, unsigned int value);
+    void SetCell( int x,  int y,  int z,  int value);
 
 
-	unsigned int GetSizeX();
-	unsigned int GetSizeY();
-	unsigned int GetSizeZ();
+	 int GetSizeX();
+	 int GetSizeY();
+	 int GetSizeZ();
 
 
 private:
-    vector<unsigned int> m_cells;
-	unsigned int m_sizeX;
-	unsigned int m_sizeY;
-	unsigned int m_sizeZ;
+    vector< int> m_cells;
+	 int m_sizeX;
+	 int m_sizeY;
+	 int m_sizeZ;
 
-	unsigned int GetIndexFromCoordinate(unsigned int x, unsigned int y, unsigned int z);
-	bool IndexIsValid(unsigned int index);
+	 int GetIndexFromCoordinate( int x,  int y,  int z);
+	bool IndexIsValid( int index);
 
 };
 

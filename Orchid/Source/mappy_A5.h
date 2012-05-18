@@ -11,17 +11,17 @@ typedef struct
 {				/* Structure for data blocks */
 	long int bgoff, fgoff;			/* offsets from start of graphic blocks */
 	long int fgoff2, fgoff3; 		/* more overlay blocks */
-	unsigned long int user1, user2;	/* user long data */
-	unsigned short int user3, user4;	/* user short data */
-	unsigned char user5, user6, user7;	/* user byte data */
-	unsigned char tl : 1;				/* bits for collision detection */
-	unsigned char tr : 1;
-	unsigned char bl : 1;
-	unsigned char br : 1;
-	unsigned char trigger : 1;			/* bit to trigger an event */
-	unsigned char unused1 : 1;
-	unsigned char unused2 : 1;
-	unsigned char unused3 : 1;
+	 long int user1, user2;	/* user long data */
+	 short int user3, user4;	/* user short data */
+	 char user5, user6, user7;	/* user byte data */
+	 char tl : 1;				/* bits for collision detection */
+	 char tr : 1;
+	 char bl : 1;
+	 char br : 1;
+	 char trigger : 1;			/* bit to trigger an event */
+	 char unused1 : 1;
+	 char unused2 : 1;
+	 char unused3 : 1;
 } BLKSTR;
 
 typedef struct 
@@ -37,9 +37,9 @@ typedef struct
 
 /* map file management/initialisation */
 int MapLoad (char *filename, const int convertMagicPink);
-int MapDecode (unsigned char *,const int );
+int MapDecode ( char *,const int );
 int MapLoadMAR (char *, int);
-int MapDecodeMAR (unsigned char *, int,int );
+int MapDecodeMAR ( char *, int,int );
 void MapFreeMem (void);
 void MapInitAnims (void);		//called by mapload so not required
 int MapGenerateYLookup (void);	//called by mapload so not required
@@ -100,17 +100,17 @@ extern int mapblockgapx, mapblockgapy, mapblockstaggerx, mapblockstaggery; /* fo
 /* internal forward declaration functions */
 static int MapRelocate (const int convertMagicPink, const short int numblockgfx,const short int numblockstr, const char* mapcmappt);
 static int MapRealLoad (char * mname, const int convertMagicPink);	//declaration
-static int MapPreRealDecode (unsigned char * mapmempt, const int convertMagicPink);	//declaration
-static int MapRealDecode (const int convertMagicPink, void* mfpt, unsigned char * mmpt, long int mpfilesize); //declaration
-static int MapDecodeMPHD (unsigned char * mdatpt);
-static int MapDecodeCMAP (unsigned char * mdatpt);
-static int MapDecodeBKDT (unsigned char * mdatpt);
-static int MapDecodeANDT (unsigned char * mdatpt);
-static int MapDecodeAGFX (unsigned char * mdatpt);
-static int MapDecodeBGFX (unsigned char * mdatpt);
-static int MapDecodeNOVC (unsigned char * mdatpt);
-static int MapDecodeLayer (unsigned char * mdatpt, int lnum);
-static int MapDecodeNULL (unsigned char * mdatpt);
+static int MapPreRealDecode ( char * mapmempt, const int convertMagicPink);	//declaration
+static int MapRealDecode (const int convertMagicPink, void* mfpt,  char * mmpt, long int mpfilesize); //declaration
+static int MapDecodeMPHD ( char * mdatpt);
+static int MapDecodeCMAP ( char * mdatpt);
+static int MapDecodeBKDT ( char * mdatpt);
+static int MapDecodeANDT ( char * mdatpt);
+static int MapDecodeAGFX ( char * mdatpt);
+static int MapDecodeBGFX ( char * mdatpt);
+static int MapDecodeNOVC ( char * mdatpt);
+static int MapDecodeLayer ( char * mdatpt, int lnum);
+static int MapDecodeNULL ( char * mdatpt);
 static ALLEGRO_BITMAP* PushTargetDisplayAndBitmap(ALLEGRO_BITMAP* );
 static void PopTargetDisplayAndBitmap();
 static void itoC8(int colour, int *r, int* g, int* b);

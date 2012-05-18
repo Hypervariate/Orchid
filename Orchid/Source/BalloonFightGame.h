@@ -21,13 +21,14 @@ public:
 		//create blocks
 		
 		
-			
-
-		Frog* f = new Frog(WIDTH/2, HEIGHT/2 + 64);
-			GameObject::AddToWorld(f);
+		unsigned int players = 2;
+		for(unsigned int i = 0; i < players; i++){
+			Frog* f = new Frog(WIDTH*2/3 + (i - 1) * 128, HEIGHT/2 + 64);
+				GameObject::AddToWorld(f);
 		
-		//register the player with a controller for the object
-		EventCore::RegisterGameObjectAsPlayer(f, 0, new FrogController());
+			//register the player with a controller for the object
+			EventCore::RegisterGameObjectAsPlayer(f, i, new FrogController());
+		}
 			
 		
 		//use a timer object to display "press space to start" for the first 2.5 seconds
