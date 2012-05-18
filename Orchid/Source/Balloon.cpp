@@ -31,6 +31,7 @@ void Balloon::Draw(){
 }
 void Balloon::HandleCollisionWithTarget(GameObject* target){
 	if(target->GetObjectType() == "Frog"){
+		AudioCore::PlaySample("BreakoutBall");
 		SetLife(POPPED);
 	}
 }
