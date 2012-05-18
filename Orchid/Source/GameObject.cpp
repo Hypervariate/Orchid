@@ -62,6 +62,7 @@ void GameObject::UpdateAll(){
 			GameObject* d = (*iter1);
 			objects.remove(d);
 			delete d;
+			
 			iter1 = objects.begin();			
 		}
 	}
@@ -83,10 +84,15 @@ void GameObject::UpdateAll(){
 		(*iter1)->Draw();
 		
 	}
-	//GraphicsCore::PrintToDisplay(objects.size(), 0, 64, "Arcade");
+	GraphicsCore::PrintToDisplay(objects.size(), 0, 64, "Arcade", 0, 255);
 }
 void GameObject::Update(){
 	
+	if(life <= 0){
+		alive = false;
+		return;
+	}
+
 	if(moveLeft) Move(-1,0);
 	if(moveRight) Move(1,0);	
 	if(!moveLeft && !moveRight) inertia.x = 0;
@@ -128,8 +134,14 @@ void GameObject::Update(){
 
 
 }
+void GameObject::SetX(float x){
+	shape->SetX(x);
+}
 int GameObject::GetX(){
 	return shape->GetX();
+}
+void GameObject::SetY(float y){
+	shape->SetY(y);
 }
 int GameObject::GetY(){
 	return shape->GetY();
@@ -297,4 +309,7 @@ GameObject* GameObject::GetGameObject(int number){
 }
 int GameObject::GetLife(){
 	return life;
+}
+void GameObject::SetLife(int life){
+	this->life = life;
 }

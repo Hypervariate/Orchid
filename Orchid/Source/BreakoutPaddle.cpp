@@ -8,7 +8,7 @@ BreakoutPaddle::BreakoutPaddle(int x, int y) : GameObject(x, y){
 	shape->SetH(24);
     baseInertia.x = baseInertia.y = 8;
 	maxSpeed = 8;
-	life = 10;
+	SetLife(10);
 	srand ( time(NULL) );
 }
 BreakoutPaddle::~BreakoutPaddle(){

@@ -2,6 +2,7 @@
 #include "AudioCore.h"
 #include "Balloon.h"
 
+const int POPPED = 1;
 
 Frog::Frog(int x, int y) : GameObject(x, y){
 	delete shape;
@@ -22,19 +23,22 @@ Frog::~Frog(){
 
 }
 void Frog::Update(){
-	
 
+	if(balloon->GetLife() == POPPED){
+		this->velocity.y += 2;
+	}
+	
 	if(GetX() < -GetHalfOfWidth())
 		position.x = WIDTH - GetHalfOfWidth();
 	else if(GetX() > WIDTH - GetHalfOfWidth())
 		position.x = -GetHalfOfWidth();
 
-	if(GetY() < -GetHalfOfHeight())
-		position.y = HEIGHT - GetHalfOfHeight();
-	else if(GetY() > HEIGHT - GetHalfOfHeight())
-		position.y = -GetHalfOfHeight();
+	if(GetY() < GetHalfOfHeight())
+		SetY(GetHalfOfHeight());
+	
 	
 	balloon->MoveTo(GetX(), GetY() - 64);
+	
 
 	GameObject::Update();
 }
@@ -53,6 +57,5 @@ void Frog::HandleCollisionWithTarget(GameObject* target){
 	
 	if(shape->IsColliding()){
 		Move(-velocity.x/2, -velocity.y/2);
-	
 	}
 }

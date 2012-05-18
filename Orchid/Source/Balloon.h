@@ -12,6 +12,8 @@ public:
 
 	void Update();
 	void Draw();
+	char* GetObjectType(){ return "Balloon";}
+	void HandleCollisionWithTarget(GameObject* target);
 
 private:
 	

@@ -13,6 +13,7 @@ public:
 	void Update();
 	void Draw();
 	void HandleCollisionWithTarget(GameObject* target);
+	char* GetObjectType(){ return "Frog";}
 
 private:
 	

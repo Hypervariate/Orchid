@@ -64,10 +64,12 @@ public:
 	//wrappers for the object's shape
 	virtual int GetX();
 	virtual int GetY();
-	virtual  int GetW();
-	virtual  int GetH();
-	virtual  int GetHalfOfWidth();
-    virtual  int GetHalfOfHeight();
+	virtual void SetX(float x);
+	virtual void SetY(float y);
+	virtual int GetW();
+	virtual int GetH();
+	virtual int GetHalfOfWidth();
+    virtual int GetHalfOfHeight();
 
 	//get the current velocity of the object
 	virtual float GetVelocityX();
@@ -82,6 +84,11 @@ public:
 
 	//return an object's life property
 	int GetLife();
+	void SetLife(int life);
+
+	virtual char* GetObjectType(){ return "GameObject";}
+
+
 
 protected:
 
@@ -89,7 +96,7 @@ protected:
 	static std::list<GameObject *>::iterator iter1;
 	static std::list<GameObject *>::iterator iter2;
 	
-	int life;
+	
 	Shape2D* shape;
 	 int speed;
 	float maxSpeed;
@@ -116,7 +123,7 @@ public:
 
 private:
 	
-
+	int life;
 
 
 };

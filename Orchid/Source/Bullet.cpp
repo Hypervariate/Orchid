@@ -20,7 +20,7 @@ void Bullet::Update(){
 
 	
 	if((velocity.x == 0 && velocity.y == 0) || lifeSpan.Arrived())
-		life = 0;
+		SetLife(0);
 
 	GameObject::Update();
 }
