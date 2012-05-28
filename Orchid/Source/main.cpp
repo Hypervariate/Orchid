@@ -3,8 +3,9 @@
 #include "EventCore.h"
 #include "AudioCore.h"
 
-#include "BreakoutGame.h"
-#include "BalloonFightGame.h"
+//#include "BreakoutGame.h"
+//#include "BalloonFightGame.h"
+#include "AnimalCrossingGame.h"
 
 //Initialize Orchid
 void Initialize(){
@@ -29,7 +30,8 @@ int main()
 	Initialize();
 
 	//BreakoutGame::Run();
-	BalloonFightGame::Run();
+	//BalloonFightGame::Run();
+	AnimalCrossingGame::Run();
 	
 	
 	Deinitialize();

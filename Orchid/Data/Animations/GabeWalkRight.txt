@@ -1,0 +1,12 @@
+//FRAME <image_file_name>
+FRAME GabeWalkRight0
+FRAME GabeWalkRight1
+FRAME GabeWalkRight0
+FRAME GabeWalkRight2
+
+
+//FRAMERATE <float value (seconds)>
+FRAMERATE 0.6
+
+//BEHAVIOR <PLAY_ONCE> or <BOUNCE> or <REPEAT>
+BEHAVIOR REPEAT

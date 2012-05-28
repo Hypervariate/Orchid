@@ -9,6 +9,10 @@ public:
 	Timer(double duration);
 	~Timer();
 
+	static double GetDeltaTime();
+	static void UpdateGlobalDeltaTime();
+	static void DestroyGlobalFrameTimer();
+
 	void Set(double duration);			//set the timer target millisecond count
 	double GetRemainingTime();			//get the remaining milliseconds in the countdown
 	double Reset();						//reset the timer to the preset target millisecond count
@@ -27,7 +31,13 @@ private:
 	bool running;				//the timer is currently running
 	double lastTick;			//timesteamp of the timer the last time it was updated
 	double deltaTime;			//current time - lastTick
-	ALLEGRO_TIMER * coreTimer;	//Allegro timer struct which lets this class function
+	ALLEGRO_TIMER *coreTimer;	//Allegro timer struct which lets this class function
+
+
+	static ALLEGRO_TIMER *globalFrameTimer;
+	static double globalDeltaTime;		//delta time since last frame in the program
+	static double lastFrameTimeStamp;	//timestamp of the previous frame
+	
 };
 
 

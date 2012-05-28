@@ -151,6 +151,7 @@ void GraphicsCore::PrintToDisplay(int i, int x, int y, string font,  char r,  ch
 	itoa(i, buffer, 10);
 	PrintToDisplay(buffer, x, y, font, r, g, b);
 }
+
 ALLEGRO_DISPLAY* GraphicsCore::GetDisplay(){
 	if(initialized == false)
 		GraphicsCore::Initialize();

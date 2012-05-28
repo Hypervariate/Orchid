@@ -84,7 +84,7 @@ void GameObject::UpdateAll(){
 		(*iter1)->Draw();
 		
 	}
-	GraphicsCore::PrintToDisplay(objects.size(), 0, 64, "Arcade", 0, 255);
+	GraphicsCore::PrintToDisplay((int)objects.size(), 0, 64, "Arcade", 0, 255);
 }
 void GameObject::Update(){
 	

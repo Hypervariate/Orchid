@@ -4,6 +4,7 @@
 #include "FileReader.h"
 #include <map>
 #include "Vector2D.h"
+#include "Timer.h"
 
 #define ANIMATION_DIRECTORY "Data/Animations/"
 #define ANIMATION_EXTENSION ".txt"
@@ -23,7 +24,7 @@ public:
 	static Animation FactoryAnimation(string animationName);
 
 	//updates the current frame if necessary. Always returns current frame name.
-	string UpdateAnimation(float delta_time);	
+	string UpdateAnimation();	
 
 	//halt the animation at the current frame
 	void PauseAnimation();	

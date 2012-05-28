@@ -113,9 +113,9 @@ string Animation::GetFrameName( int index)
 {
 	return m_frames.size();
 }
-string Animation::UpdateAnimation(float delta_time)
+string Animation::UpdateAnimation()
 {
-	m_lastFrameTimeStamp += delta_time;
+	m_lastFrameTimeStamp += Timer::GetDeltaTime();
 	
 	//implement bouncing
 	if(IsAnimationPlaying() && m_lastFrameTimeStamp >= m_frameRate){

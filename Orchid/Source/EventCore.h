@@ -12,7 +12,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
-
+#include "Timer.h"
 
 
 using namespace std;

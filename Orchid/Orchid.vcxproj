@@ -30,6 +30,8 @@
     <ClCompile Include="Source\MappyLevel.cpp" />
     <ClCompile Include="Source\GameObject.cpp" />
     <ClCompile Include="Source\mappy_A5.c" />
+    <ClCompile Include="Source\Neighbor.cpp" />
+    <ClCompile Include="Source\NeighborController.cpp" />
     <ClCompile Include="Source\ParticleEmitter.cpp" />
     <ClCompile Include="Source\Shape2DCircle.cpp" />
     <ClCompile Include="Source\CubeGrid.cpp" />
@@ -51,6 +53,7 @@
     <ClCompile Include="Source\WitchController.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\AnimalCrossingGame.h" />
     <ClInclude Include="Source\Animation.h" />
     <ClInclude Include="Source\AudioCore.h" />
     <ClInclude Include="Source\Balloon.h" />
@@ -72,6 +75,8 @@
     <ClInclude Include="Source\MappyLevel.h" />
     <ClInclude Include="Source\GameObject.h" />
     <ClInclude Include="Source\mappy_A5.h" />
+    <ClInclude Include="Source\Neighbor.h" />
+    <ClInclude Include="Source\NeighborController.h" />
     <ClInclude Include="Source\ParticleEmitter.h" />
     <ClInclude Include="Source\Shape2DCircle.h" />
     <ClInclude Include="Source\CubeGrid.h" />

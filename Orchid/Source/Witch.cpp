@@ -18,7 +18,7 @@ void Witch::Update(){
 	GameObject::Update();
 }
 void Witch::Draw(){
-	GraphicsCore::BlitImage(animation.UpdateAnimation(0.01), position.x, position.y);
+	GraphicsCore::BlitImage(animation.UpdateAnimation(), position.x, position.y);
 	GameObject::Draw();
 
 }
