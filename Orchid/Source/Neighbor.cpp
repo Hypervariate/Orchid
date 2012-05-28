@@ -14,6 +14,8 @@ Neighbor::Neighbor(int x, int y) : GameObject(x, y){
 
 	shape->SetW(14);
 	shape->SetH(19);
+
+	maxSpeed = 1;
 	
 	walkRight = Animation::FactoryAnimation("GabeWalkRight");
 	walkUp = Animation::FactoryAnimation("GabeWalkUp");

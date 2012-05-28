@@ -1,8 +1,8 @@
 #include "Timer.h"
 
 
-ALLEGRO_TIMER* Timer::globalFrameTimer = NULL;
-double Timer::globalDeltaTime = 0.0f;
+
+double Timer::globalDeltaTime = 0;
 double Timer::lastFrameTimeStamp = 0;
 
 
@@ -16,9 +16,7 @@ Timer::Timer(){
 	lastTick = al_get_timer_count(coreTimer);
 	al_start_timer(coreTimer);
 
-	if(!al_get_timer_started(Timer::globalFrameTimer)){
-		al_start_timer(globalFrameTimer);		
-	}
+
 }
 Timer::Timer(double duration){
 	Set(duration);
@@ -35,21 +33,15 @@ Timer::Timer(double duration){
 Timer::~Timer(){
 	al_destroy_timer(coreTimer);
 }
+void Timer::SetDeltaTime(double deltaTime){
+	lastFrameTimeStamp = globalDeltaTime;
+	globalDeltaTime = deltaTime;
+}
 double Timer::GetDeltaTime(){
 	return globalDeltaTime;
 }
-void Timer::UpdateGlobalDeltaTime(){
-	if(globalFrameTimer == NULL){
-		globalFrameTimer = al_create_timer(100.0/60);
-		al_start_timer(globalFrameTimer);
-	}
 
-	globalDeltaTime = al_get_timer_count(globalFrameTimer) - lastFrameTimeStamp;
-	lastFrameTimeStamp = al_get_timer_count(globalFrameTimer);
-}
-void Timer::DestroyGlobalFrameTimer(){
-	al_destroy_timer(globalFrameTimer);
-}
+
 void Timer::Update(){
 	deltaTime = al_get_timer_count(coreTimer) - lastTick;
 	if(running)

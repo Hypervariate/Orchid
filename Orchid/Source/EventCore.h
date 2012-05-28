@@ -59,7 +59,7 @@ private:
 	static bool redraw;
 
 	
-	
+	static double lastFrameTimeStamp;
 	
 };
 #endif

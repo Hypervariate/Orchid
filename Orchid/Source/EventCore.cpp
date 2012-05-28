@@ -20,6 +20,7 @@ int EventCore::frames = 1;
 int EventCore::fps = 0;
 int EventCore::seconds = 1;
 int EventCore::milliseconds = 0;
+double EventCore::lastFrameTimeStamp = 0;
 
 EventCore::EventCore(){}
 EventCore::~EventCore(){}
@@ -89,7 +90,7 @@ void EventCore::Deinitialize(){
 			delete (*it);
 		}
 		players.clear();
-		Timer::DestroyGlobalFrameTimer();
+		
 	}
 	
 }
@@ -100,18 +101,23 @@ void EventCore::Update(){
 
 	if(ev.type == ALLEGRO_EVENT_TIMER) {
 		redraw = true;
-		Timer::UpdateGlobalDeltaTime();
+		
 	}
 	if(redraw && al_is_event_queue_empty(eventQueue)) {
 		redraw = false;
 		milliseconds = al_get_timer_count(timer);
 		seconds = (milliseconds)/100.0f;	
+		
+		Timer::SetDeltaTime(milliseconds - lastFrameTimeStamp);
+		lastFrameTimeStamp = milliseconds - lastFrameTimeStamp;
+		GraphicsCore::PrintToDisplay(Timer::GetDeltaTime() , 0, 24, "Arcade", 0, 255, 0);
+		
 		frames++;
 		fps = frames/(seconds + 1);	//frames / second		
 
 		GraphicsCore::PrintToDisplay(fps , WIDTH - 48, 0, "Arcade", 0, 255, 0);
-		GraphicsCore::PrintToDisplay(Timer::GetDeltaTime(), 0, 24, "Arcade", 0, 255, 0);
-		cout << Timer::GetDeltaTime() << endl;
+		
+		//cout << Timer::GetDeltaTime() << endl;
 		GraphicsCore::Update();
 	}
 	if(ev.type == ALLEGRO_EVENT_KEY_DOWN)
