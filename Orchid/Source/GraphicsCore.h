@@ -17,8 +17,8 @@
 
 using namespace std;
 
-const int WIDTH = 640;
-const int HEIGHT = 480;
+const int WIDTH = 320;
+const int HEIGHT = 240;
 
 #define IMAGE_DIRECTORY "Data/Images/"
 #define IMAGE_EXTENSION ".png"
@@ -102,6 +102,7 @@ private:
 
 	static ALLEGRO_DISPLAY *display;	//Allegro Display Object (back-buffer)
 	static bool initialized;			//graphics have been initialized
+	static int screenScale;
 	
 	//Fonts
 	//------------------
@@ -117,5 +118,7 @@ private:
 	static Vector2DF scrollingOffset;
 	static Vector2D mapTileDimensions;
 	static Vector2D mapDimensions;
+	
+	
 };
 #endif

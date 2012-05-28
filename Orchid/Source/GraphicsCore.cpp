@@ -15,7 +15,7 @@ Vector2D GraphicsCore::mapDimensions;
 map<string, ALLEGRO_BITMAP*> GraphicsCore::m_images;
 
 FileReader GraphicsCore::fileReader;
-
+int GraphicsCore::screenScale = 2;
 
 GraphicsCore::GraphicsCore(){}
 GraphicsCore::~GraphicsCore(){}
@@ -23,7 +23,10 @@ void GraphicsCore::Initialize(){
 	if(!initialized){
 		//create display object
 		display = NULL;
-		display = al_create_display(WIDTH, HEIGHT);			
+		al_set_new_display_flags(ALLEGRO_WINDOWED | ALLEGRO_RESIZABLE);
+		display = al_create_display(WIDTH, HEIGHT);
+
+		
 
 		//initialize modules
 		al_init_primitives_addon();							
