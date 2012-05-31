@@ -105,11 +105,12 @@ void EventCore::Update(){
 	}
 	if(redraw && al_is_event_queue_empty(eventQueue)) {
 		redraw = false;
-		milliseconds = al_get_timer_count(timer);
-		seconds = (milliseconds)/100.0f;	
 		
-		Timer::SetDeltaTime(milliseconds - lastFrameTimeStamp);
-		lastFrameTimeStamp = milliseconds - lastFrameTimeStamp;
+		milliseconds = al_get_timer_count(timer);
+		int delta = milliseconds - lastFrameTimeStamp;
+		Timer::SetDeltaTime(delta);
+		seconds = (milliseconds)/100.0f;	
+		lastFrameTimeStamp = al_get_timer_count(timer);
 		GraphicsCore::PrintToDisplay(Timer::GetDeltaTime() , 0, 24, "Arcade", 0, 255, 0);
 		
 		frames++;

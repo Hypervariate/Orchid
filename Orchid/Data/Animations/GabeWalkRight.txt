@@ -6,7 +6,7 @@ FRAME GabeWalkRight2
 
 
 //FRAMERATE <float value (seconds)>
-FRAMERATE 0.6
+FRAMERATE 0.8
 
 //BEHAVIOR <PLAY_ONCE> or <BOUNCE> or <REPEAT>
 BEHAVIOR REPEAT

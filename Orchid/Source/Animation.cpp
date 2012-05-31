@@ -77,7 +77,7 @@ bool Animation::LoadAnimation(char* animation_name, Animation* animation)
 				
 			}
 			if(m_fileReader.GetToken(i) == "FRAMERATE"){
-				animation->m_frameRate = atof(m_fileReader.GetToken(i+1).c_str()) * 10000;	//convert floating frameate to milliseconds
+				animation->m_frameRate = atof(m_fileReader.GetToken(i+1).c_str()) * 10;	//convert floating frameate to milliseconds
 			}
 			if(m_fileReader.GetToken(i) == "BEHAVIOR"){
 				if(m_fileReader.GetToken(i+1) == "PLAY_ONCE")
