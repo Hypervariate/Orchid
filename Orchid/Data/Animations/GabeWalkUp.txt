@@ -5,8 +5,8 @@ FRAME GabeWalkUp0
 FRAME GabeWalkUp2
 
 
-//FRAMERATE <float value (seconds)>
-FRAMERATE 0.8
+//FRAMERATE <float value (fps)>
+FRAMERATE 8
 
 //BEHAVIOR <PLAY_ONCE> or <BOUNCE> or <REPEAT>
 BEHAVIOR REPEAT
