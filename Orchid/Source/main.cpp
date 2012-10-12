@@ -7,6 +7,8 @@
 #include "BalloonFightGame.h"
 #include "AnimalCrossingGame.h"
 
+#include <Box2D\Box2D.h>
+
 //Initialize Orchid
 void Initialize(){
 	EventCore::Initialize();
@@ -29,11 +31,16 @@ int main()
 	
 	Initialize();
 
+    // Define the gravity vector.
+    b2Vec2 gravity(0.0f, -10.0f);
+
+    // Construct a world object, which will hold and simulate the rigid bodies.
+    b2World world(gravity);
+
 	BreakoutGame::Run();
 	//BalloonFightGame::Run();
 	//AnimalCrossingGame::Run();
-	
-	
+    	
 	Deinitialize();
 	
 
