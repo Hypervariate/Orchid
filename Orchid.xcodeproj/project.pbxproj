@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF01378316291BE3008AFE19 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF01378216291BE3008AFE19 /* main.cpp */; };
 		CF01378516291BE3008AFE19 /* Orchid.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = CF01378416291BE3008AFE19 /* Orchid.1 */; };
 		CF0137AC16291DD2008AFE19 /* liballegro_acodec.5.1.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CF01378B16291DD2008AFE19 /* liballegro_acodec.5.1.4.dylib */; };
 		CF0137AD16291DD2008AFE19 /* liballegro_acodec.5.1.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CF01378C16291DD2008AFE19 /* liballegro_acodec.5.1.4.dylib */; };
@@ -43,6 +42,7 @@
 		CF0137CB16291DD2008AFE19 /* liballegro.5.1.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CF0137AA16291DD2008AFE19 /* liballegro.5.1.4.dylib */; };
 		CF0137CC16291DD2008AFE19 /* liballegro.5.1.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CF0137AB16291DD2008AFE19 /* liballegro.5.1.4.dylib */; };
 		CF03A30A162A3636000FFCE6 /* libBox2D.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF03A309162A3636000FFCE6 /* libBox2D.a */; };
+		CF6D719E162A57650074B772 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF6D719D162A57650074B772 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,7 +60,6 @@
 
 /* Begin PBXFileReference section */
 		CF01377E16291BE3008AFE19 /* Orchid */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Orchid; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF01378216291BE3008AFE19 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CF01378416291BE3008AFE19 /* Orchid.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Orchid.1; sourceTree = "<group>"; };
 		CF01378B16291DD2008AFE19 /* liballegro_acodec.5.1.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro_acodec.5.1.4.dylib; path = ../../../../usr/local/lib/liballegro_acodec.5.1.4.dylib; sourceTree = "<group>"; };
 		CF01378C16291DD2008AFE19 /* liballegro_acodec.5.1.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro_acodec.5.1.4.dylib; path = ../../../../usr/local/lib/liballegro_acodec.5.1.4.dylib; sourceTree = "<group>"; };
@@ -96,6 +95,7 @@
 		CF0137AA16291DD2008AFE19 /* liballegro.5.1.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro.5.1.4.dylib; path = ../../../../usr/local/lib/liballegro.5.1.4.dylib; sourceTree = "<group>"; };
 		CF0137AB16291DD2008AFE19 /* liballegro.5.1.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro.5.1.4.dylib; path = ../../../../usr/local/lib/liballegro.5.1.4.dylib; sourceTree = "<group>"; };
 		CF03A309162A3636000FFCE6 /* libBox2D.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBox2D.a; path = ../../../../opt/local/lib/libBox2D.a; sourceTree = "<group>"; };
+		CF6D719D162A57650074B772 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Orchid/Source/main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +146,7 @@
 		CF01377316291BE3008AFE19 = {
 			isa = PBXGroup;
 			children = (
+				CF6D719C162A571A0074B772 /* Source */,
 				CF03A309162A3636000FFCE6 /* libBox2D.a */,
 				CF01378B16291DD2008AFE19 /* liballegro_acodec.5.1.4.dylib */,
 				CF01378C16291DD2008AFE19 /* liballegro_acodec.5.1.4.dylib */,
@@ -196,10 +197,17 @@
 		CF01378116291BE3008AFE19 /* Orchid */ = {
 			isa = PBXGroup;
 			children = (
-				CF01378216291BE3008AFE19 /* main.cpp */,
 				CF01378416291BE3008AFE19 /* Orchid.1 */,
 			);
 			path = Orchid;
+			sourceTree = "<group>";
+		};
+		CF6D719C162A571A0074B772 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CF6D719D162A57650074B772 /* main.cpp */,
+			);
+			name = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,7 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF01378316291BE3008AFE19 /* main.cpp in Sources */,
+				CF6D719E162A57650074B772 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
