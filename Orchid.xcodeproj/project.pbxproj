@@ -45,6 +45,7 @@
 		CF6D719E162A57650074B772 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF6D719D162A57650074B772 /* main.cpp */; };
 		CF742142162B57EC001082F6 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF742140162B57EC001082F6 /* GameObject.cpp */; };
 		CF742146162B59F0001082F6 /* Kepler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF742144162B59F0001082F6 /* Kepler.cpp */; };
+		CF742149162B5F7E001082F6 /* GlobalData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF742147162B5F7E001082F6 /* GlobalData.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -102,6 +103,8 @@
 		CF742141162B57EC001082F6 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = Orchid/Source/GameObject.h; sourceTree = "<group>"; };
 		CF742144162B59F0001082F6 /* Kepler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Kepler.cpp; path = Orchid/Source/Kepler.cpp; sourceTree = "<group>"; };
 		CF742145162B59F0001082F6 /* Kepler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Kepler.h; path = Orchid/Source/Kepler.h; sourceTree = "<group>"; };
+		CF742147162B5F7E001082F6 /* GlobalData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GlobalData.cpp; path = Orchid/Source/GlobalData.cpp; sourceTree = "<group>"; };
+		CF742148162B5F7E001082F6 /* GlobalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalData.h; path = Orchid/Source/GlobalData.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +214,8 @@
 		CF6D719C162A571A0074B772 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CF742147162B5F7E001082F6 /* GlobalData.cpp */,
+				CF742148162B5F7E001082F6 /* GlobalData.h */,
 				CF6D719D162A57650074B772 /* main.cpp */,
 				CF742140162B57EC001082F6 /* GameObject.cpp */,
 				CF742141162B57EC001082F6 /* GameObject.h */,
@@ -274,6 +279,7 @@
 				CF6D719E162A57650074B772 /* main.cpp in Sources */,
 				CF742142162B57EC001082F6 /* GameObject.cpp in Sources */,
 				CF742146162B59F0001082F6 /* Kepler.cpp in Sources */,
+				CF742149162B5F7E001082F6 /* GlobalData.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

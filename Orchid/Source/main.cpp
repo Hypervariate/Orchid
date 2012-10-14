@@ -12,6 +12,8 @@
 #include <fstream>
 #include <iostream>
 
+#include "GlobalData.h"
+
 using std::ostream;
 using std::ofstream;
 using std::cout;
@@ -22,7 +24,7 @@ using bio::stream;
 
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 480
-#define PTM_RATIO 16
+
 
 static ALLEGRO_TIMER *frame_timer = NULL;
 static int frames;
@@ -146,7 +148,12 @@ int main(int argc, char **argv)
     
     // Define the ground body.
     b2BodyDef groundBodyDef;
-    groundBodyDef.position.Set(0.0f, -SCREEN_HEIGHT/PTM_RATIO );
+
+    float gw = SCREEN_WIDTH/2/PTM_RATIO - 1.0f ;
+    float gh = 0.5f;
+    
+    groundBodyDef.position.Set(gw + 1.0f , -SCREEN_HEIGHT / PTM_RATIO - gh + 3);
+    
     
     // Call the body factory which allocates memory for the ground body
     // from a pool and creates the ground box shape (also from a pool).
@@ -156,11 +163,18 @@ int main(int argc, char **argv)
     // Define the ground box shape.
     b2PolygonShape groundBox;
     
+    
+    
     // The extents are the half-widths of the box.
-    groundBox.SetAsBox(50.0f, 10.0f);
+    groundBox.SetAsBox(gw, gh);
     
     // Add the ground fixture to the ground body.
     groundBody->CreateFixture(&groundBox, 0.0f);
+    
+    float gx = groundBody->GetPosition().x;
+    float gy = groundBody->GetPosition().y;
+
+    
     
     // Define the dynamic body. We set its position and call the body factory.
     b2BodyDef bodyDef;
@@ -170,7 +184,7 @@ int main(int argc, char **argv)
     
     // Define another box shape for our dynamic body.
     b2PolygonShape dynamicBox;
-    float boxSize = 2.0f;
+    float boxSize = 1.0f;
     dynamicBox.SetAsBox(boxSize, boxSize);
     
     // Define the dynamic body fixture.
@@ -230,10 +244,13 @@ int main(int argc, char **argv)
         color_purple.r = 128;
         color_purple.b = 128;
         
-        float x = position.x;
-        float y = position.y;
+        float bx = position.x;
+        float by = position.y;
         
-        al_draw_rectangle(PTM_RATIO*(x - boxSize), -PTM_RATIO*(y - boxSize), PTM_RATIO*(x + boxSize), -PTM_RATIO*(y + boxSize), color_purple, 1);
+        
+        
+        al_draw_rectangle(PTM_RATIO*(bx - boxSize), -PTM_RATIO*(by - boxSize), PTM_RATIO*(bx + boxSize), -PTM_RATIO*(by + boxSize), color_purple, 1);
+        al_draw_rectangle(PTM_RATIO*(gx - gw), -PTM_RATIO*(gy - gh), PTM_RATIO*(gx + gw), -PTM_RATIO*(gy + gh), color_purple, 1);
         
     };
     
