@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org
+* Copyright (c) 2006-2009 Erin Catto http://www.gphysics.com
 *
 * This software is provided 'as-is', without any express or implied
 * warranty.  In no event will the authors be held liable for any damages
@@ -21,7 +21,6 @@
 #include <climits>
 #include <cstring>
 #include <memory>
-using namespace std;
 
 int32 b2BlockAllocator::s_blockSizes[b2_blockSizes] = 
 {
@@ -101,12 +100,7 @@ void* b2BlockAllocator::Allocate(int32 size)
 	if (size == 0)
 		return NULL;
 
-	b2Assert(0 < size);
-
-	if (size > b2_maxBlockSize)
-	{
-		return b2Alloc(size);
-	}
+	b2Assert(0 < size && size <= b2_maxBlockSize);
 
 	int32 index = s_blockSizeLookup[size];
 	b2Assert(0 <= index && index < b2_blockSizes);
@@ -161,13 +155,7 @@ void b2BlockAllocator::Free(void* p, int32 size)
 		return;
 	}
 
-	b2Assert(0 < size);
-
-	if (size > b2_maxBlockSize)
-	{
-		b2Free(p);
-		return;
-	}
+	b2Assert(0 < size && size <= b2_maxBlockSize);
 
 	int32 index = s_blockSizeLookup[size];
 	b2Assert(0 <= index && index < b2_blockSizes);

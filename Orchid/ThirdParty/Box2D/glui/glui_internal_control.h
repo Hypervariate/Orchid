@@ -8,7 +8,7 @@
 #define __GLUI_INTERNAL_CONTROL_H
 
 /* This is the main GLUI external header */
-#include "glui.h"
+#include "GL/glui.h"
 
 /* Here's some utility routines */
 #include "glui_internal.h"

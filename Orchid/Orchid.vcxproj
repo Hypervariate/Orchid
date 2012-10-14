@@ -11,90 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Animation.cpp" />
-    <ClCompile Include="Source\AudioCore.cpp" />
-    <ClCompile Include="Source\Balloon.cpp" />
-    <ClCompile Include="Source\BreakoutBall.cpp" />
-    <ClCompile Include="Source\BreakoutBlock.cpp" />
-    <ClCompile Include="Source\BreakoutPaddle.cpp" />
-    <ClCompile Include="Source\BreakoutPaddleController.cpp" />
-    <ClCompile Include="Source\Bullet.cpp" />
-    <ClCompile Include="Source\CharacterController.cpp" />
-    <ClCompile Include="Source\dirent.c" />
-    <ClCompile Include="Source\Emitter.cpp" />
-    <ClCompile Include="Source\FileReader.cpp" />
-    <ClCompile Include="Source\Frog.cpp" />
-    <ClCompile Include="Source\FrogController.cpp" />
-    <ClCompile Include="Source\LevelCollisionTile.cpp" />
-    <ClCompile Include="Source\LuaInterface.cpp" />
-    <ClCompile Include="Source\MappyLevel.cpp" />
-    <ClCompile Include="Source\GameObject.cpp" />
-    <ClCompile Include="Source\mappy_A5.c" />
-    <ClCompile Include="Source\Neighbor.cpp" />
-    <ClCompile Include="Source\NeighborController.cpp" />
-    <ClCompile Include="Source\ParticleEmitter.cpp" />
-    <ClCompile Include="Source\Shape2DCircle.cpp" />
-    <ClCompile Include="Source\CubeGrid.cpp" />
-    <ClCompile Include="Source\GlobalData.cpp" />
-    <ClCompile Include="Source\GraphicsCore.cpp" />
-    <ClCompile Include="Source\EventCore.cpp" />
-    <ClCompile Include="Source\InputEvent.cpp" />
     <ClCompile Include="Source\main.cpp" />
-    <ClCompile Include="Source\Shape2DRect.cpp" />
-    <ClCompile Include="Source\Shape2D.cpp" />
-    <ClCompile Include="Source\SquareGrid.cpp" />
-    <ClCompile Include="Source\TiledLevel.cpp" />
-    <ClCompile Include="Source\Timer.cpp" />
-    <ClCompile Include="Source\UtilityRectangle.cpp" />
-    <ClCompile Include="Source\UtilityCircle.cpp" />
-    <ClCompile Include="Source\Vector2D.cpp" />
-    <ClCompile Include="Source\Vector2DF.cpp" />
-    <ClCompile Include="Source\Witch.cpp" />
-    <ClCompile Include="Source\WitchController.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Source\AnimalCrossingGame.h" />
-    <ClInclude Include="Source\Animation.h" />
-    <ClInclude Include="Source\AudioCore.h" />
-    <ClInclude Include="Source\Balloon.h" />
-    <ClInclude Include="Source\BalloonFightGame.h" />
-    <ClInclude Include="Source\BreakoutBall.h" />
-    <ClInclude Include="Source\BreakoutBlock.h" />
-    <ClInclude Include="Source\BreakoutGame.h" />
-    <ClInclude Include="Source\BreakoutPaddle.h" />
-    <ClInclude Include="Source\BreakoutPaddleController.h" />
-    <ClInclude Include="Source\Bullet.h" />
-    <ClInclude Include="Source\CharacterController.h" />
-    <ClInclude Include="Source\dirent.h" />
-    <ClInclude Include="Source\Emitter.h" />
-    <ClInclude Include="Source\FileReader.h" />
-    <ClInclude Include="Source\Frog.h" />
-    <ClInclude Include="Source\FrogController.h" />
-    <ClInclude Include="Source\LevelCollisionTile.h" />
-    <ClInclude Include="Source\LuaInterface.h" />
-    <ClInclude Include="Source\MappyLevel.h" />
-    <ClInclude Include="Source\GameObject.h" />
-    <ClInclude Include="Source\mappy_A5.h" />
-    <ClInclude Include="Source\Neighbor.h" />
-    <ClInclude Include="Source\NeighborController.h" />
-    <ClInclude Include="Source\ParticleEmitter.h" />
-    <ClInclude Include="Source\Shape2DCircle.h" />
-    <ClInclude Include="Source\CubeGrid.h" />
-    <ClInclude Include="Source\GlobalData.h" />
-    <ClInclude Include="Source\GraphicsCore.h" />
-    <ClInclude Include="Source\EventCore.h" />
-    <ClInclude Include="Source\InputEvent.h" />
-    <ClInclude Include="Source\Shape2DRect.h" />
-    <ClInclude Include="Source\Shape2D.h" />
-    <ClInclude Include="Source\SquareGrid.h" />
-    <ClInclude Include="Source\TiledLevel.h" />
-    <ClInclude Include="Source\Timer.h" />
-    <ClInclude Include="Source\UtilityRectangle.h" />
-    <ClInclude Include="Source\UtilityCircle.h" />
-    <ClInclude Include="Source\Vector2D.h" />
-    <ClInclude Include="Source\Vector2DF.h" />
-    <ClInclude Include="Source\Witch.h" />
-    <ClInclude Include="Source\WitchController.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A30C2B96-5E1C-4ED2-91F9-A3F4AA484741}</ProjectGuid>
@@ -126,14 +43,14 @@
     <IncludePath>ThirdParty\Box2D;ThirdParty\Lua\include;ThirdParty\Boost;ThirdParty\Allegro\include;ThirdParty\Allegro\include;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;ThirdParty\Boost</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>ThirdParty\Box2D\Build\vs2010\bin\Debug;ThirdParty\Lua\lib;ThirdParty\Boost\stage\lib;ThirdParty\Allegro\lib;D:\code\Orchid\Orchid\ThirdParty\Boost\stage\lib;ThirdParty\Allegro\lib;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib</LibraryPath>
+    <LibraryPath>ThirdParty\Box2D\Build\Box2D\Debug;ThirdParty\Lua\lib;ThirdParty\Boost\stage\lib;ThirdParty\Allegro\lib;D:\code\Orchid\Orchid\ThirdParty\Boost\stage\lib;ThirdParty\Allegro\lib;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib</LibraryPath>
     <ExecutablePath>ThirdParty\Allegro\bin;$(VCInstallDir)bin;$(WindowsSdkDir)bin\NETFX 4.0 Tools;$(WindowsSdkDir)bin;$(VSInstallDir)Common7\Tools\bin;$(VSInstallDir)Common7\tools;$(VSInstallDir)Common7\ide;$(ProgramFiles)\HTML Help Workshop;$(FrameworkSDKDir)\bin;$(MSBuildToolsPath32);$(VSInstallDir);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>ThirdParty\Box2D;ThirdParty\Lua\include;ThirdParty\Boost;ThirdParty\Allegro\include;ThirdParty\Boost;ThirdParty\Allegro\include;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LibraryPath>ThirdParty\Box2D\Build\vs2010\bin\Release;ThirdParty\Lua\lib;ThirdParty\Boost\stage\lib;ThirdParty\Allegro\lib;ThirdParty\Boost\stage\lib;ThirdParty\Allegro\lib;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib</LibraryPath>
+    <LibraryPath>ThirdParty\Box2D\Build\Box2D\Release;ThirdParty\Lua\lib;ThirdParty\Boost\stage\lib;ThirdParty\Allegro\lib;ThirdParty\Boost\stage\lib;ThirdParty\Allegro\lib;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib</LibraryPath>
     <ExecutablePath>ThirdParty\Allegro\bin;thirdparty\allegro\bin;$(VCInstallDir)bin;$(WindowsSdkDir)bin\NETFX 4.0 Tools;$(WindowsSdkDir)bin;$(VSInstallDir)Common7\Tools\bin;$(VSInstallDir)Common7\tools;$(VSInstallDir)Common7\ide;$(ProgramFiles)\HTML Help Workshop;$(FrameworkSDKDir)\bin;$(MSBuildToolsPath32);$(VSInstallDir);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH)</ExecutablePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

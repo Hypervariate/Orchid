@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org
+* Copyright (c) 2006-2009 Erin Catto http://www.gphysics.com
 *
 * This software is provided 'as-is', without any express or implied
 * warranty.  In no event will the authors be held liable for any damages
@@ -40,7 +40,7 @@ public:
 
 	enum
 	{
-		e_nullProxy = -1
+		e_nullProxy = -1,
 	};
 
 	b2BroadPhase();
@@ -56,9 +56,6 @@ public:
 	/// Call MoveProxy as many times as you like, then when you are done
 	/// call UpdatePairs to finalized the proxy pairs (for your time step).
 	void MoveProxy(int32 proxyId, const b2AABB& aabb, const b2Vec2& displacement);
-
-	/// Call to trigger a re-processing of it's pairs on the next call to UpdatePairs.
-	void TouchProxy(int32 proxyId);
 
 	/// Get the fat AABB for a proxy.
 	const b2AABB& GetFatAABB(int32 proxyId) const;
@@ -91,14 +88,8 @@ public:
 	template <typename T>
 	void RayCast(T* callback, const b2RayCastInput& input) const;
 
-	/// Get the height of the embedded tree.
-	int32 GetTreeHeight() const;
-
-	/// Get the balance of the embedded tree.
-	int32 GetTreeBalance() const;
-
-	/// Get the quality metric of the embedded tree.
-	float32 GetTreeQuality() const;
+	/// Compute the height of the embedded tree.
+	int32 ComputeHeight() const;
 
 private:
 
@@ -162,19 +153,9 @@ inline int32 b2BroadPhase::GetProxyCount() const
 	return m_proxyCount;
 }
 
-inline int32 b2BroadPhase::GetTreeHeight() const
+inline int32 b2BroadPhase::ComputeHeight() const
 {
-	return m_tree.GetHeight();
-}
-
-inline int32 b2BroadPhase::GetTreeBalance() const
-{
-	return m_tree.GetMaxBalance();
-}
-
-inline float32 b2BroadPhase::GetTreeQuality() const
-{
-	return m_tree.GetAreaRatio();
+	return m_tree.ComputeHeight();
 }
 
 template <typename T>
@@ -230,7 +211,7 @@ void b2BroadPhase::UpdatePairs(T* callback)
 	}
 
 	// Try to keep the tree balanced.
-	//m_tree.Rebalance(4);
+	m_tree.Rebalance(4);
 }
 
 template <typename T>

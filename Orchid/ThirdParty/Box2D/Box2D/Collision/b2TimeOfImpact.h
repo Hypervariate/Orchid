@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org
+* Copyright (c) 2006-2009 Erin Catto http://www.gphysics.com
 *
 * This software is provided 'as-is', without any express or implied
 * warranty.  In no event will the authors be held liable for any damages
@@ -21,6 +21,7 @@
 
 #include <Box2D/Common/b2Math.h>
 #include <Box2D/Collision/b2Distance.h>
+#include <climits>
 
 /// Input parameters for b2TimeOfImpact
 struct b2TOIInput

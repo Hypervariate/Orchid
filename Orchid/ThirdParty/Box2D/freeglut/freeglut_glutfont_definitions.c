@@ -59,7 +59,7 @@
 #define glutBitmapHelvetica12 glutBitmapHelvetica12IGNOREME
 #define glutBitmapHelvetica18 glutBitmapHelvetica18IGNOREME
 
-#include "freeglut_std.h"
+#include <GL/freeglut_std.h>
 
 #undef glutStrokeRoman
 #undef glutStrokeMonoRoman

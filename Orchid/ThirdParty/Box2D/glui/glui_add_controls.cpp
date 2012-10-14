@@ -32,7 +32,7 @@ that aren't used.
 
 *****************************************************************************/
 
-#include "glui.h"
+#include "GL/glui.h"
 #include "glui_internal.h"
 
 

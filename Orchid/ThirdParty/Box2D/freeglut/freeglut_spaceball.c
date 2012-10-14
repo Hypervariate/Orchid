@@ -7,7 +7,7 @@
  * magellan X-based protocol.
  */
 
-#include "freeglut.h"
+#include <GL/freeglut.h>
 #include "freeglut_internal.h"
 
 #if TARGET_HOST_POSIX_X11

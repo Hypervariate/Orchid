@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org
+* Copyright (c) 2006-2009 Erin Catto http://www.gphysics.com
 *
 * This software is provided 'as-is', without any express or implied
 * warranty.  In no event will the authors be held liable for any damages
@@ -19,8 +19,6 @@
 #ifndef VARYING_RESTITUTION_H
 #define VARYING_RESTITUTION_H
 
-// Note: even with a restitution of 1.0, there is some energy change
-// due to position correction.
 class VaryingRestitution : public Test
 {
 public:
@@ -31,8 +29,8 @@ public:
 			b2BodyDef bd;
 			b2Body* ground = m_world->CreateBody(&bd);
 
-			b2EdgeShape shape;
-			shape.Set(b2Vec2(-40.0f, 0.0f), b2Vec2(40.0f, 0.0f));
+			b2PolygonShape shape;
+			shape.SetAsEdge(b2Vec2(-40.0f, 0.0f), b2Vec2(40.0f, 0.0f));
 			ground->CreateFixture(&shape, 0.0f);
 		}
 

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2006-2007 Erin Catto http://www.box2d.org
+* Copyright (c) 2006-2007 Erin Catto http://www.gphysics.com
 *
 * This software is provided 'as-is', without any express or implied
 * warranty.  In no event will the authors be held liable for any damages
@@ -25,7 +25,7 @@ struct b2AABB;
 
 // This class implements debug drawing callbacks that are invoked
 // inside b2World::Step.
-class DebugDraw : public b2Draw
+class DebugDraw : public b2DebugDraw
 {
 public:
 	void DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color);

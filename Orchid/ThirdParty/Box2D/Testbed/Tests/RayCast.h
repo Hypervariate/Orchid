@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2006-2009 Erin Catto http://www.box2d.org
+* Copyright (c) 2006-2009 Erin Catto http://www.gphysics.com
 *
 * This software is provided 'as-is', without any express or implied
 * warranty.  In no event will the authors be held liable for any damages
@@ -111,6 +111,7 @@ public:
 		const b2Vec2& normal, float32 fraction)
 	{
 		b2Body* body = fixture->GetBody();
+		int32 index = 0;
 		void* userData = body->GetUserData();
 		if (userData)
 		{
@@ -148,7 +149,7 @@ public:
 
 	enum
 	{
-		e_maxBodies = 256
+		e_maxBodies = 256,
 	};
 
 	enum Mode
@@ -165,8 +166,8 @@ public:
 			b2BodyDef bd;
 			b2Body* ground = m_world->CreateBody(&bd);
 
-			b2EdgeShape shape;
-			shape.Set(b2Vec2(-40.0f, 0.0f), b2Vec2(40.0f, 0.0f));
+			b2PolygonShape shape;
+			shape.SetAsEdge(b2Vec2(-40.0f, 0.0f), b2Vec2(40.0f, 0.0f));
 			ground->CreateFixture(&shape, 0.0f);
 		}
 
@@ -188,8 +189,8 @@ public:
 
 		{
 			float32 w = 1.0f;
-			float32 b = w / (2.0f + b2Sqrt(2.0f));
-			float32 s = b2Sqrt(2.0f) * b;
+			float32 b = w / (2.0f + sqrtf(2.0f));
+			float32 s = sqrtf(2.0f) * b;
 
 			b2Vec2 vertices[8];
 			vertices[0].Set(0.5f * s, 0.0f);
@@ -302,7 +303,7 @@ public:
 			{
 				m_mode = e_multiple;
 			}
-			else if (m_mode == e_multiple)
+			else if (m_mode = e_multiple)
 			{
 				m_mode = e_closest;
 			}

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2006-2007 Erin Catto http://www.box2d.org
+* Copyright (c) 2006-2007 Erin Catto http://www.gphysics.com
 *
 * This software is provided 'as-is', without any express or implied
 * warranty.  In no event will the authors be held liable for any damages
@@ -18,10 +18,9 @@
 
 #include "Render.h"
 #include "Test.h"
-#include "glui/glui.h"
+#include "glui/GL/glui.h"
 
 #include <cstdio>
-using namespace std;
 
 namespace
 {
@@ -38,12 +37,13 @@ namespace
 	float settingsHz = 60.0;
 	GLUI *glui;
 	float32 viewZoom = 1.0f;
+	b2Vec2 viewCenter(0.0f, 20.0f);
 	int tx, ty, tw, th;
 	bool rMouseDown;
 	b2Vec2 lastp;
 }
 
-static void Resize(int32 w, int32 h)
+void Resize(int32 w, int32 h)
 {
 	width = w;
 	height = h;
@@ -58,14 +58,14 @@ static void Resize(int32 w, int32 h)
 	b2Vec2 extents(ratio * 25.0f, 25.0f);
 	extents *= viewZoom;
 
-	b2Vec2 lower = settings.viewCenter - extents;
-	b2Vec2 upper = settings.viewCenter + extents;
+	b2Vec2 lower = viewCenter - extents;
+	b2Vec2 upper = viewCenter + extents;
 
 	// L/R/B/T
 	gluOrtho2D(lower.x, upper.x, lower.y, upper.y);
 }
 
-static b2Vec2 ConvertScreenToWorld(int32 x, int32 y)
+b2Vec2 ConvertScreenToWorld(int32 x, int32 y)
 {
 	float32 u = x / float32(tw);
 	float32 v = (th - y) / float32(th);
@@ -74,8 +74,8 @@ static b2Vec2 ConvertScreenToWorld(int32 x, int32 y)
 	b2Vec2 extents(ratio * 25.0f, 25.0f);
 	extents *= viewZoom;
 
-	b2Vec2 lower = settings.viewCenter - extents;
-	b2Vec2 upper = settings.viewCenter + extents;
+	b2Vec2 lower = viewCenter - extents;
+	b2Vec2 upper = viewCenter + extents;
 
 	b2Vec2 p;
 	p.x = (1.0f - u) * lower.x + u * upper.x;
@@ -84,14 +84,14 @@ static b2Vec2 ConvertScreenToWorld(int32 x, int32 y)
 }
 
 // This is used to control the frame rate (60Hz).
-static void Timer(int)
+void Timer(int)
 {
 	glutSetWindow(mainWindow);
 	glutPostRedisplay();
 	glutTimerFunc(framePeriod, Timer, 0);
 }
 
-static void SimulationLoop()
+void SimulationLoop()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -99,13 +99,8 @@ static void SimulationLoop()
 	glLoadIdentity();
 
 	test->SetTextLine(30);
-	b2Vec2 oldCenter = settings.viewCenter;
 	settings.hz = settingsHz;
 	test->Step(&settings);
-	if (oldCenter.x != settings.viewCenter.x || oldCenter.y != settings.viewCenter.y)
-	{
-		Resize(width, height);
-	}
 
 	test->DrawTitle(5, 15, entry->name);
 
@@ -118,12 +113,12 @@ static void SimulationLoop()
 		entry = g_testEntries + testIndex;
 		test = entry->createFcn();
 		viewZoom = 1.0f;
-		settings.viewCenter.Set(0.0f, 20.0f);
+		viewCenter.Set(0.0f, 20.0f);
 		Resize(width, height);
 	}
 }
 
-static void Keyboard(unsigned char key, int x, int y)
+void Keyboard(unsigned char key, int x, int y)
 {
 	B2_NOT_USED(x);
 	B2_NOT_USED(y);
@@ -131,10 +126,6 @@ static void Keyboard(unsigned char key, int x, int y)
 	switch (key)
 	{
 	case 27:
-#ifndef __APPLE__
-		// freeglut specific function
-		glutLeaveMainLoop();
-#endif
 		exit(0);
 		break;
 
@@ -196,7 +187,7 @@ static void Keyboard(unsigned char key, int x, int y)
 	}
 }
 
-static void KeyboardSpecial(int key, int x, int y)
+void KeyboardSpecial(int key, int x, int y)
 {
 	B2_NOT_USED(x);
 	B2_NOT_USED(y);
@@ -206,49 +197,38 @@ static void KeyboardSpecial(int key, int x, int y)
 	case GLUT_ACTIVE_SHIFT:
 		// Press left to pan left.
 	case GLUT_KEY_LEFT:
-		settings.viewCenter.x -= 0.5f;
+		viewCenter.x -= 0.5f;
 		Resize(width, height);
 		break;
 
 		// Press right to pan right.
 	case GLUT_KEY_RIGHT:
-		settings.viewCenter.x += 0.5f;
+		viewCenter.x += 0.5f;
 		Resize(width, height);
 		break;
 
 		// Press down to pan down.
 	case GLUT_KEY_DOWN:
-		settings.viewCenter.y -= 0.5f;
+		viewCenter.y -= 0.5f;
 		Resize(width, height);
 		break;
 
 		// Press up to pan up.
 	case GLUT_KEY_UP:
-		settings.viewCenter.y += 0.5f;
+		viewCenter.y += 0.5f;
 		Resize(width, height);
 		break;
 
 		// Press home to reset the view.
 	case GLUT_KEY_HOME:
 		viewZoom = 1.0f;
-		settings.viewCenter.Set(0.0f, 20.0f);
+		viewCenter.Set(0.0f, 20.0f);
 		Resize(width, height);
 		break;
 	}
 }
 
-static void KeyboardUp(unsigned char key, int x, int y)
-{
-	B2_NOT_USED(x);
-	B2_NOT_USED(y);
-
-	if (test)
-	{
-		test->KeyboardUp(key);
-	}
-}
-
-static void Mouse(int32 button, int32 state, int32 x, int32 y)
+void Mouse(int32 button, int32 state, int32 x, int32 y)
 {
 	// Use the mouse to move things around.
 	if (button == GLUT_LEFT_BUTTON)
@@ -288,7 +268,7 @@ static void Mouse(int32 button, int32 state, int32 x, int32 y)
 	}
 }
 
-static void MouseMotion(int32 x, int32 y)
+void MouseMotion(int32 x, int32 y)
 {
 	b2Vec2 p = ConvertScreenToWorld(x, y);
 	test->MouseMove(p);
@@ -296,14 +276,14 @@ static void MouseMotion(int32 x, int32 y)
 	if (rMouseDown)
 	{
 		b2Vec2 diff = p - lastp;
-		settings.viewCenter.x -= diff.x;
-		settings.viewCenter.y -= diff.y;
+		viewCenter.x -= diff.x;
+		viewCenter.y -= diff.y;
 		Resize(width, height);
 		lastp = ConvertScreenToWorld(x, y);
 	}
 }
 
-static void MouseWheel(int wheel, int direction, int x, int y)
+void MouseWheel(int wheel, int direction, int x, int y)
 {
 	B2_NOT_USED(wheel);
 	B2_NOT_USED(x);
@@ -319,7 +299,7 @@ static void MouseWheel(int wheel, int direction, int x, int y)
 	Resize(width, height);
 }
 
-static void Restart(int)
+void Restart(int)
 {
 	delete test;
 	entry = g_testEntries + testIndex;
@@ -327,21 +307,12 @@ static void Restart(int)
     Resize(width, height);
 }
 
-static void Pause(int)
+void Pause(int)
 {
 	settings.pause = !settings.pause;
 }
 
-static void Exit(int code)
-{
-	// TODO: freeglut is not building on OSX
-#ifdef FREEGLUT
-	glutLeaveMainLoop();
-#endif
-	exit(code);
-}
-
-static void SingleStep(int)
+void SingleStep(int)
 {
 	settings.pause = 1;
 	settings.singleStep = 1;
@@ -379,8 +350,6 @@ int main(int argc, char** argv)
 #endif
 	glutMotionFunc(MouseMotion);
 
-	glutKeyboardUpFunc(KeyboardUp);
-
 	glui = GLUI_Master.create_glui_subwindow( mainWindow, 
 		GLUI_SUBWINDOW_RIGHT );
 
@@ -405,7 +374,6 @@ int main(int argc, char** argv)
 
 	glui->add_checkbox("Warm Starting", &settings.enableWarmStarting);
 	glui->add_checkbox("Time of Impact", &settings.enableContinuous);
-	glui->add_checkbox("Sub-Stepping", &settings.enableSubStepping);
 
 	//glui->add_separator();
 
@@ -420,7 +388,6 @@ int main(int argc, char** argv)
 	glui->add_checkbox_to_panel(drawPanel, "Friction Forces", &settings.drawFrictionForces);
 	glui->add_checkbox_to_panel(drawPanel, "Center of Masses", &settings.drawCOMs);
 	glui->add_checkbox_to_panel(drawPanel, "Statistics", &settings.drawStats);
-	glui->add_checkbox_to_panel(drawPanel, "Profile", &settings.drawProfile);
 
 	int32 testCount = 0;
 	TestEntry* e = g_testEntries;
@@ -435,7 +402,7 @@ int main(int argc, char** argv)
 	glui->add_button("Single Step", 0, SingleStep);
 	glui->add_button("Restart", 0, Restart);
 
-	glui->add_button("Quit", 0,(GLUI_Update_CB)Exit);
+	glui->add_button("Quit", 0,(GLUI_Update_CB)exit);
 	glui->set_main_gfx_window( mainWindow );
 
 	// Use a timer to control the frame rate.

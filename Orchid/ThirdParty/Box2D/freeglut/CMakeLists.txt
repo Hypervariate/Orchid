@@ -36,9 +36,10 @@ set(freeglut_SRCS
 	freeglut_teapot.c
 	freeglut_videoresize.c
 	freeglut_window.c
-	freeglut.h
-	freeglut_ext.h
-	freeglut_std.h
+	GL/freeglut.h
+	GL/freeglut_ext.h
+	GL/freeglut_std.h
+	GL/glut.h
 )
 
 include_directories (

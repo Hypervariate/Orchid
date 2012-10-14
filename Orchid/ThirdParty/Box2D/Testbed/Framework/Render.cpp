@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2006-2007 Erin Catto http://www.box2d.org
+* Copyright (c) 2006-2007 Erin Catto http://www.gphysics.com
 *
 * This software is provided 'as-is', without any express or implied
 * warranty.  In no event will the authors be held liable for any damages
@@ -18,16 +18,12 @@
 
 #include "Render.h"
 
-#ifdef __APPLE__
-	#include <GLUT/glut.h>
-#else
-	#include "freeglut/freeglut.h"
-#endif
+#include "freeglut/GL/glut.h"
 
 #include <cstdio>
 #include <cstdarg>
+
 #include <cstring>
-using namespace std;
 
 void DebugDraw::DrawPolygon(const b2Vec2* vertices, int32 vertexCount, const b2Color& color)
 {
@@ -125,18 +121,18 @@ void DebugDraw::DrawSegment(const b2Vec2& p1, const b2Vec2& p2, const b2Color& c
 
 void DebugDraw::DrawTransform(const b2Transform& xf)
 {
-	b2Vec2 p1 = xf.p, p2;
+	b2Vec2 p1 = xf.position, p2;
 	const float32 k_axisScale = 0.4f;
 	glBegin(GL_LINES);
 	
 	glColor3f(1.0f, 0.0f, 0.0f);
 	glVertex2f(p1.x, p1.y);
-	p2 = p1 + k_axisScale * xf.q.GetXAxis();
+	p2 = p1 + k_axisScale * xf.R.col1;
 	glVertex2f(p2.x, p2.y);
 
 	glColor3f(0.0f, 1.0f, 0.0f);
 	glVertex2f(p1.x, p1.y);
-	p2 = p1 + k_axisScale * xf.q.GetYAxis();
+	p2 = p1 + k_axisScale * xf.R.col2;
 	glVertex2f(p2.x, p2.y);
 
 	glEnd();
