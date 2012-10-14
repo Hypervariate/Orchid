@@ -3,6 +3,20 @@
 #include <Box2D/Box2D.h>
 #include <cstdio>
 
+#include <boost/iostreams/tee.hpp>
+#include <boost/iostreams/stream.hpp>
+#include <fstream>
+#include <iostream>
+
+using std::ostream;
+using std::ofstream;
+using std::cout;
+
+namespace bio = boost::iostreams;
+using bio::tee_device;
+using bio::stream;
+
+
 // This is a simple example of building and running a simulation
 // using Box2D. Here we create a large ground box and a small dynamic
 // box.
@@ -11,6 +25,8 @@
 
 int main(int argc, char **argv)
 {
+    
+    //Box2D----------------------------------------------------------------------------------
     B2_NOT_USED(argc);
     B2_NOT_USED(argv);
     
@@ -91,7 +107,8 @@ int main(int argc, char **argv)
     
     // When the world destructor is called, all bodies and joints are freed. This can
     // create orphaned pointers, so be careful about your world management.
-    
+
+    //ALLEGRO----------------------------------------------------------------------------------
     
     ALLEGRO_DISPLAY *display = NULL;
     
@@ -114,6 +131,23 @@ int main(int argc, char **argv)
     
     al_destroy_display(display);
 
+    //BOOST----------------------------------------------------------------------------------
+    
+    
+    typedef tee_device<ostream, ofstream> TeeDevice;
+    typedef stream<TeeDevice> TeeStream;
+    ofstream ofs("sample.txt");
+    TeeDevice my_tee(cout, ofs);
+    TeeStream my_split(my_tee);
+    my_split << "Hello, World!\n";
+    my_split.flush();
+    my_split.close();
+    
+    
+    
+    
+    
+    
     
     return 0;
 }
