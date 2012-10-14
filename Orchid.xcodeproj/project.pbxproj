@@ -43,6 +43,8 @@
 		CF0137CC16291DD2008AFE19 /* liballegro.5.1.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CF0137AB16291DD2008AFE19 /* liballegro.5.1.4.dylib */; };
 		CF03A30A162A3636000FFCE6 /* libBox2D.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF03A309162A3636000FFCE6 /* libBox2D.a */; };
 		CF6D719E162A57650074B772 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF6D719D162A57650074B772 /* main.cpp */; };
+		CF742142162B57EC001082F6 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF742140162B57EC001082F6 /* GameObject.cpp */; };
+		CF742146162B59F0001082F6 /* Kepler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF742144162B59F0001082F6 /* Kepler.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -96,6 +98,10 @@
 		CF0137AB16291DD2008AFE19 /* liballegro.5.1.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro.5.1.4.dylib; path = ../../../../usr/local/lib/liballegro.5.1.4.dylib; sourceTree = "<group>"; };
 		CF03A309162A3636000FFCE6 /* libBox2D.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBox2D.a; path = ../../../../opt/local/lib/libBox2D.a; sourceTree = "<group>"; };
 		CF6D719D162A57650074B772 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Orchid/Source/main.cpp; sourceTree = "<group>"; };
+		CF742140162B57EC001082F6 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObject.cpp; path = Orchid/Source/GameObject.cpp; sourceTree = "<group>"; };
+		CF742141162B57EC001082F6 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = Orchid/Source/GameObject.h; sourceTree = "<group>"; };
+		CF742144162B59F0001082F6 /* Kepler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Kepler.cpp; path = Orchid/Source/Kepler.cpp; sourceTree = "<group>"; };
+		CF742145162B59F0001082F6 /* Kepler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Kepler.h; path = Orchid/Source/Kepler.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +212,10 @@
 			isa = PBXGroup;
 			children = (
 				CF6D719D162A57650074B772 /* main.cpp */,
+				CF742140162B57EC001082F6 /* GameObject.cpp */,
+				CF742141162B57EC001082F6 /* GameObject.h */,
+				CF742144162B59F0001082F6 /* Kepler.cpp */,
+				CF742145162B59F0001082F6 /* Kepler.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -262,6 +272,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF6D719E162A57650074B772 /* main.cpp in Sources */,
+				CF742142162B57EC001082F6 /* GameObject.cpp in Sources */,
+				CF742146162B59F0001082F6 /* Kepler.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
