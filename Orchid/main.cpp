@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include <allegro5/allegro.h>
+#include <allegro5/allegro_primitives.h>
+#include <allegro5/allegro_color.h>
+
+
 #include <Box2D/Box2D.h>
 #include <cstdio>
 
@@ -15,6 +19,10 @@ using std::cout;
 namespace bio = boost::iostreams;
 using bio::tee_device;
 using bio::stream;
+
+#define SCREEN_WIDTH 640
+#define SCREEN_HEIGHT 480
+#define PTM_RATIO 32
 
 
 // This is a simple example of building and running a simulation
@@ -124,10 +132,37 @@ int main(int argc, char **argv)
     }
     
     al_clear_to_color(al_map_rgb(0,0,0));
+
+    al_init_primitives_addon();
+    
+    ALLEGRO_COLOR color_blue;
+    color_blue.b = 256;
+    
+    ALLEGRO_COLOR color_red;
+    color_red.r = 256;
+    
+    ALLEGRO_COLOR color_green;
+    color_green.g = 256;
+    
+    ALLEGRO_COLOR color_purple;
+    color_purple.r = 128;
+    color_purple.b = 128;
+    
+    
+    /* blue vertical line */
+    al_draw_line(0.5, 0, 0.5, 6, color_blue, 1);
+    /* red horizontal line */
+    al_draw_line(2, 1, 6, 1, color_red, 2);
+    /* green filled rectangle */
+    al_draw_filled_rectangle(3, 4, SCREEN_WIDTH/4, SCREEN_HEIGHT/4, color_green);
+    /* purple outlined rectangle */
+    al_draw_rectangle(2.5, 3.5, 5.5, 5.5, color_purple, 1);
     
     al_flip_display();
     
     al_rest(10.0);
+    
+    al_shutdown_primitives_addon();
     
     al_destroy_display(display);
 
