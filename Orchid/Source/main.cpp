@@ -1,16 +1,3 @@
-#include <stdio.h>
-#include <allegro5/allegro.h>
-#include <allegro5/allegro_primitives.h>
-#include <allegro5/allegro_color.h>
-
-
-#include <Box2D/Box2D.h>
-#include <cstdio>
-
-#include <boost/iostreams/tee.hpp>
-#include <boost/iostreams/stream.hpp>
-#include <fstream>
-#include <iostream>
 
 #include "GlobalData.h"
 
@@ -21,9 +8,6 @@ using std::cout;
 namespace bio = boost::iostreams;
 using bio::tee_device;
 using bio::stream;
-
-#define SCREEN_WIDTH 640
-#define SCREEN_HEIGHT 480
 
 
 static ALLEGRO_TIMER *frame_timer = NULL;
@@ -127,6 +111,7 @@ bool Update()
 }
 int main(int argc, char **argv)
 {
+    GlobalData gd = GlobalData();
     
     B2_NOT_USED(argc);
     B2_NOT_USED(argv);
@@ -143,8 +128,7 @@ int main(int argc, char **argv)
     
     // Construct a world object, which will hold and simulate the rigid bodies.
 
-    world = new b2World(gravity, doSleep);
-    
+    world = GlobalData::GetWorldPointer();
     
     // Define the ground body.
     b2BodyDef groundBodyDef;

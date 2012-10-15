@@ -9,7 +9,9 @@
 #ifndef __Orchid__GameObject__
 #define __Orchid__GameObject__
 
-#include <iostream>
+
+
+#include "GlobalData.h"
 
 
 class GameObject{
@@ -17,8 +19,11 @@ public:
     GameObject();
     ~GameObject();
     
-private:
+    virtual void Draw();
+    virtual string GetClassName();
     
+protected:
+    b2Body* body;
     
 };
 

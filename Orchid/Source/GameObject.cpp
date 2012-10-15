@@ -16,3 +16,11 @@ GameObject::~GameObject()
 {
     
 }
+string GameObject::GetClassName()
+{
+    return "GameObject";
+}
+void GameObject::Draw()
+{
+    //pure virtual
+}
