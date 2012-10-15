@@ -224,7 +224,7 @@ int main(int argc, char **argv)
         
         // Now print the position and angle of the body.
         b2Vec2 position = body->GetPosition();
-        float32 angle = body->GetAngle();
+
         
         //printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
 
@@ -244,8 +244,6 @@ int main(int argc, char **argv)
         color_purple.r = 128;
         color_purple.b = 128;
         
-        float bx = position.x;
-        float by = position.y;
         
         
         for (b2Fixture* f = body->GetFixtureList(); f; f = f->GetNext())
@@ -259,7 +257,7 @@ int main(int argc, char **argv)
             else if ( shapeType == b2Shape::e_polygon )
             {
                 b2PolygonShape* polygonShape = (b2PolygonShape*)f->GetShape();
-                b2Vec2 *vertices = polygonShape->m_vertices;
+
                 
                 
                 float *polygon = new float[8];
