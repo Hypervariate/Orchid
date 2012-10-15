@@ -307,8 +307,12 @@ int main(int argc, char **argv)
                     printf("(%4.f, %4.f) ", polygon[i], polygon[i+1]);
                 printf("\n");
                 
-                al_draw_polygon(polygon,4,ALLEGRO_LINE_JOIN_NONE,color_purple,1.5,1);
-                
+                //al_draw_polygon(polygon,4,ALLEGRO_LINE_JOIN_NONE,color_purple,1.5,1);	//not in allegro 5.0.7
+				al_draw_line(polygon[0], polygon[1], polygon[2], polygon[3], color_purple, 1);
+                al_draw_line(polygon[2], polygon[3], polygon[4], polygon[5], color_purple, 1);
+				al_draw_line(polygon[4], polygon[5], polygon[6], polygon[7], color_purple, 1);
+				al_draw_line(polygon[6], polygon[7], polygon[0], polygon[1], color_purple, 1);
+
                 delete[] polygon;
             }
         }
