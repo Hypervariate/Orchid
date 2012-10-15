@@ -149,7 +149,7 @@ int main(int argc, char **argv)
     // Define the ground body.
     b2BodyDef groundBodyDef;
 
-    float gw = SCREEN_WIDTH/2/PTM_RATIO - 1.0f ;
+    float gw = SCREEN_WIDTH/4/PTM_RATIO - 0.7f ;
     float gh = 0.5f;
     
     groundBodyDef.position.Set(gw + 1.0f , -SCREEN_HEIGHT / PTM_RATIO - gh + 3);
@@ -226,7 +226,7 @@ int main(int argc, char **argv)
         b2Vec2 position = body->GetPosition();
         float32 angle = body->GetAngle();
         
-        printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
+        //printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
 
         
         al_clear_to_color(al_map_rgb(0,0,0));
@@ -248,8 +248,82 @@ int main(int argc, char **argv)
         float by = position.y;
         
         
+        for (b2Fixture* f = body->GetFixtureList(); f; f = f->GetNext())
+        {
+            b2Shape::Type shapeType = f->GetType();
+            if ( shapeType == b2Shape::e_circle )
+            {
+                b2CircleShape* circleShape = (b2CircleShape*)f->GetShape();
+                ;
+            }
+            else if ( shapeType == b2Shape::e_polygon )
+            {
+                b2PolygonShape* polygonShape = (b2PolygonShape*)f->GetShape();
+                b2Vec2 *vertices = polygonShape->m_vertices;
+                
+                
+                float *polygon = new float[8];
+                
+                
+
+
+                
+                
+                // hWidth, hHeight = half the rectangle's width & height
+                // position.x, position.y = center position of the rectangle
+                const b2Transform transform = body->GetTransform();
+                float rad = transform.GetAngle();
+                
+                //top left
+                polygon[0] = -(boxSize * cosf(rad) + boxSize * sinf(rad) ) + position.x;
+                polygon[1] = -(boxSize * sinf(rad) - boxSize * cosf(rad) ) + position.y;
+                
+                //bottom left
+                polygon[2] = -(boxSize * cosf(rad) - boxSize * sinf(rad) ) + position.x;
+                polygon[3] = -(boxSize * sinf(rad) + boxSize * cosf(rad) ) + position.y;
+            
+                //bottom right
+                polygon[4] = (boxSize * cosf(rad) + boxSize * sinf(rad) ) + position.x;
+                polygon[5] = (boxSize * sinf(rad) - boxSize * cosf(rad) ) + position.y;
+                
+                //top right
+                polygon[6] = (boxSize * cosf(rad) - boxSize * sinf(rad) ) + position.x;
+                polygon[7] = (boxSize * sinf(rad) + boxSize * cosf(rad) ) + position.y;
+                
+                
+                
+                for(int i = 0; i < 7; i+=2)
+                {
+                    
+                    
+                    polygon[i]   *= PTM_RATIO;  //x
+                    polygon[i+1] *= PTM_RATIO;  //y
+                    
+                    polygon[i]   = ABS(polygon[i]);  //x
+                    polygon[i+1] = ABS(polygon[i+1]);  //y
+                }
+                
+                for(int i = 0; i < 7; i+=2)
+                    printf("(%4.f, %4.f) ", polygon[i], polygon[i+1]);
+                printf("\n");
+                
+                al_draw_polygon(polygon,4,ALLEGRO_LINE_JOIN_NONE,color_purple,1.5,1);
+                
+                delete[] polygon;
+            }
+        }
         
-        al_draw_rectangle(PTM_RATIO*(bx - boxSize), -PTM_RATIO*(by - boxSize), PTM_RATIO*(bx + boxSize), -PTM_RATIO*(by + boxSize), color_purple, 1);
+        
+        
+        
+        
+        
+        
+        //al_draw_line(polygon[0], polygon[1], polygon[2], polygon[3], color_purple, 2);
+
+
+
+        
         al_draw_rectangle(PTM_RATIO*(gx - gw), -PTM_RATIO*(gy - gh), PTM_RATIO*(gx + gw), -PTM_RATIO*(gy + gh), color_purple, 1);
         
     };
