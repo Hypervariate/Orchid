@@ -15,10 +15,14 @@
 class BoxCrate : public GameObject
 {
 public:
-    BoxCrate();
+    BoxCrate(float x = 10.0f, float y = 10.0f);
     ~BoxCrate();
     virtual void Draw();
     virtual string GetClassName();
+    virtual void SetPosition(float x, float y);
+private:
+    float *polygon;
+    ALLEGRO_COLOR renderColor;
 };
 
 #endif /* defined(__Orchid__BoxCrate__) */

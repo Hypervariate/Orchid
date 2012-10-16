@@ -23,7 +23,7 @@ static double deltaTime;			//current time - lastTick
 static double milliseconds = 0;
 static double lastFrameTimeStamp = 0;
 
-
+#include "BoxCrate.h"
 
 bool Initialize()
 {
@@ -158,32 +158,10 @@ int main(int argc, char **argv)
     float gx = groundBody->GetPosition().x;
     float gy = groundBody->GetPosition().y;
 
+    BoxCrate bc = BoxCrate(SCREEN_WIDTH/2/PTM_RATIO, 1.0f);
     
     
-    // Define the dynamic body. We set its position and call the body factory.
-    b2BodyDef bodyDef;
-    bodyDef.type = b2_dynamicBody;
-    bodyDef.position.Set(SCREEN_WIDTH/2/PTM_RATIO, 1.0f);
-    b2Body* body = world->CreateBody(&bodyDef);
-    
-    // Define another box shape for our dynamic body.
-    b2PolygonShape dynamicBox;
-    float boxSize = 1.0f;
-    dynamicBox.SetAsBox(boxSize, boxSize);
-    
-    // Define the dynamic body fixture.
-    b2FixtureDef fixtureDef;
-    fixtureDef.shape = &dynamicBox;
-    
-    // Set the box density to be non-zero, so it will be dynamic.
-    fixtureDef.density = 1.0f;
-    
-    // Override the default friction.
-    fixtureDef.friction = 0.3f;
-    
-    // Add the shape to the body.
-    body->CreateFixture(&fixtureDef);
-    
+       
     // Prepare for simulation. Typically we use a time step of 1/60 of a
     // second (60Hz) and 10 iterations. This provides a high quality simulation
     // in most game scenarios.
@@ -206,8 +184,6 @@ int main(int argc, char **argv)
         // should know about this function.
         world->ClearForces();
         
-        // Now print the position and angle of the body.
-        b2Vec2 position = body->GetPosition();
 
         
         //printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
@@ -215,91 +191,17 @@ int main(int argc, char **argv)
         
         al_clear_to_color(al_map_rgb(0,0,0));
         
-        ALLEGRO_COLOR color_blue;
-        color_blue.b = 256;
-        
-        ALLEGRO_COLOR color_red;
-        color_red.r = 256;
-        
-        ALLEGRO_COLOR color_green;
-        color_green.g = 256;
+
         
         ALLEGRO_COLOR color_purple;
         color_purple.r = 128;
         color_purple.b = 128;
         
         
-        
-        for (b2Fixture* f = body->GetFixtureList(); f; f = f->GetNext())
-        {
-            b2Shape::Type shapeType = f->GetType();
-            if ( shapeType == b2Shape::e_circle )
-            {
-                b2CircleShape* circleShape = (b2CircleShape*)f->GetShape();
-                ;
-            }
-            else if ( shapeType == b2Shape::e_polygon )
-            {
-                b2PolygonShape* polygonShape = (b2PolygonShape*)f->GetShape();
+       
 
-                
-                
-                float *polygon = new float[8];
-                
-                
-
-
-                
-                
-                // hWidth, hHeight = half the rectangle's width & height
-                // position.x, position.y = center position of the rectangle
-                const b2Transform transform = body->GetTransform();
-                float rad = transform.GetAngle();
-                
-                //top left
-                polygon[0] = -(boxSize * cosf(rad) + boxSize * sinf(rad) ) + position.x;
-                polygon[1] = -(boxSize * sinf(rad) - boxSize * cosf(rad) ) + position.y;
-                
-                //bottom left
-                polygon[2] = -(boxSize * cosf(rad) - boxSize * sinf(rad) ) + position.x;
-                polygon[3] = -(boxSize * sinf(rad) + boxSize * cosf(rad) ) + position.y;
-            
-                //bottom right
-                polygon[4] = (boxSize * cosf(rad) + boxSize * sinf(rad) ) + position.x;
-                polygon[5] = (boxSize * sinf(rad) - boxSize * cosf(rad) ) + position.y;
-                
-                //top right
-                polygon[6] = (boxSize * cosf(rad) - boxSize * sinf(rad) ) + position.x;
-                polygon[7] = (boxSize * sinf(rad) + boxSize * cosf(rad) ) + position.y;
-                
-                
-                
-                for(int i = 0; i < 7; i+=2)
-                {
-                    
-                    
-                    polygon[i]   *= PTM_RATIO;  //x
-                    polygon[i+1] *= PTM_RATIO;  //y
-                    
-                    polygon[i]   = ABS(polygon[i]);  //x
-                    polygon[i+1] = ABS(polygon[i+1]);  //y
-                }
-                
-                for(int i = 0; i < 7; i+=2)
-                    printf("(%4.f, %4.f) ", polygon[i], polygon[i+1]);
-                printf("\n");
-                
-                //al_draw_polygon(polygon,4,ALLEGRO_LINE_JOIN_NONE,color_purple,1.5,1);	//not in allegro 5.0.7
-				al_draw_line(polygon[0], polygon[1], polygon[2], polygon[3], color_purple, 1);
-                al_draw_line(polygon[2], polygon[3], polygon[4], polygon[5], color_purple, 1);
-				al_draw_line(polygon[4], polygon[5], polygon[6], polygon[7], color_purple, 1);
-				al_draw_line(polygon[6], polygon[7], polygon[0], polygon[1], color_purple, 1);
-
-                delete[] polygon;
-            }
-        }
-        
-        
+    
+        bc.Draw();
         
         
         

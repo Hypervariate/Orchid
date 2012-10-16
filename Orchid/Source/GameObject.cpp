@@ -10,10 +10,16 @@
 
 GameObject::GameObject()
 {
-    
+    body = NULL;
 }
 GameObject::~GameObject()
 {
+    if(body != NULL)
+    {
+        b2World *world = GlobalData::GetWorldPointer();
+        world->DestroyBody(body);
+        body = NULL;
+    }
     
 }
 string GameObject::GetClassName()
@@ -21,6 +27,10 @@ string GameObject::GetClassName()
     return "GameObject";
 }
 void GameObject::Draw()
+{
+    //pure virtual
+}
+void GameObject::SetPosition(float x, float y)
 {
     //pure virtual
 }

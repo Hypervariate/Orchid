@@ -21,6 +21,7 @@ public:
     
     virtual void Draw();
     virtual string GetClassName();
+    virtual void SetPosition(float x, float y);
     
 protected:
     b2Body* body;
