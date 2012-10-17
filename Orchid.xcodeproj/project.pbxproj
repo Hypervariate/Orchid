@@ -42,6 +42,7 @@
 		CF0137CB16291DD2008AFE19 /* liballegro.5.1.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CF0137AA16291DD2008AFE19 /* liballegro.5.1.4.dylib */; };
 		CF0137CC16291DD2008AFE19 /* liballegro.5.1.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CF0137AB16291DD2008AFE19 /* liballegro.5.1.4.dylib */; };
 		CF03A30A162A3636000FFCE6 /* libBox2D.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF03A309162A3636000FFCE6 /* libBox2D.a */; };
+		CF43CE67162BD7280092D9A5 /* BoxCrate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF43CE65162BD7280092D9A5 /* BoxCrate.cpp */; };
 		CF6D719E162A57650074B772 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF6D719D162A57650074B772 /* main.cpp */; };
 		CF742142162B57EC001082F6 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF742140162B57EC001082F6 /* GameObject.cpp */; };
 		CF742146162B59F0001082F6 /* Kepler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF742144162B59F0001082F6 /* Kepler.cpp */; };
@@ -98,6 +99,8 @@
 		CF0137AA16291DD2008AFE19 /* liballegro.5.1.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro.5.1.4.dylib; path = ../../../../usr/local/lib/liballegro.5.1.4.dylib; sourceTree = "<group>"; };
 		CF0137AB16291DD2008AFE19 /* liballegro.5.1.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro.5.1.4.dylib; path = ../../../../usr/local/lib/liballegro.5.1.4.dylib; sourceTree = "<group>"; };
 		CF03A309162A3636000FFCE6 /* libBox2D.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBox2D.a; path = ../../../../opt/local/lib/libBox2D.a; sourceTree = "<group>"; };
+		CF43CE65162BD7280092D9A5 /* BoxCrate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BoxCrate.cpp; path = Orchid/Source/BoxCrate.cpp; sourceTree = "<group>"; };
+		CF43CE66162BD7280092D9A5 /* BoxCrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoxCrate.h; path = Orchid/Source/BoxCrate.h; sourceTree = "<group>"; };
 		CF6D719D162A57650074B772 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Orchid/Source/main.cpp; sourceTree = "<group>"; };
 		CF742140162B57EC001082F6 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObject.cpp; path = Orchid/Source/GameObject.cpp; sourceTree = "<group>"; };
 		CF742141162B57EC001082F6 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = Orchid/Source/GameObject.h; sourceTree = "<group>"; };
@@ -221,6 +224,8 @@
 				CF742141162B57EC001082F6 /* GameObject.h */,
 				CF742144162B59F0001082F6 /* Kepler.cpp */,
 				CF742145162B59F0001082F6 /* Kepler.h */,
+				CF43CE65162BD7280092D9A5 /* BoxCrate.cpp */,
+				CF43CE66162BD7280092D9A5 /* BoxCrate.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 				CF742142162B57EC001082F6 /* GameObject.cpp in Sources */,
 				CF742146162B59F0001082F6 /* Kepler.cpp in Sources */,
 				CF742149162B5F7E001082F6 /* GlobalData.cpp in Sources */,
+				CF43CE67162BD7280092D9A5 /* BoxCrate.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
