@@ -15,11 +15,11 @@
 class BoxCrate : public GameObject
 {
 public:
-    BoxCrate(float x = 10.0f, float y = 10.0f);
+    BoxCrate(float x = 10.0f, float y = 10.0f, float angle = 0.0f);
     ~BoxCrate();
     virtual void Draw();
     virtual string GetClassName();
-    virtual void SetPosition(float x, float y);
+    virtual void SetTransform(float x, float y, float angle);
 private:
     float *polygon;
     ALLEGRO_COLOR renderColor;

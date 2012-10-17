@@ -9,7 +9,7 @@
 #include "BoxCrate.h"
 
 
-BoxCrate::BoxCrate(float x, float y)
+BoxCrate::BoxCrate(float x, float y, float angle)
 {
     
         // Define the dynamic body. We set its position and call the body factory.
@@ -37,6 +37,8 @@ BoxCrate::BoxCrate(float x, float y)
         // Add the shape to the body.
         body->CreateFixture(&fixtureDef);
     
+        SetTransform(x, y, angle);
+    
         polygon = new float[8];
 
 }
@@ -46,9 +48,9 @@ BoxCrate::~BoxCrate()
     delete[] polygon;
 
 }
-void BoxCrate::SetPosition(float x, float y)
+void BoxCrate::SetTransform(float x, float y, float angle)
 {
-    body->SetTransform(b2Vec2(x, y), body->GetAngle());
+    body->SetTransform(b2Vec2(x, y), angle);
 }
 void BoxCrate::Draw()
 {

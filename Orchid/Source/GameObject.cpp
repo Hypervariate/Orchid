@@ -30,7 +30,7 @@ void GameObject::Draw()
 {
     //pure virtual
 }
-void GameObject::SetPosition(float x, float y)
+void GameObject::SetTransform(float x, float y, float angle)
 {
     //pure virtual
 }

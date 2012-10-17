@@ -158,7 +158,7 @@ int main(int argc, char **argv)
     float gx = groundBody->GetPosition().x;
     float gy = groundBody->GetPosition().y;
 
-    BoxCrate bc = BoxCrate(SCREEN_WIDTH/2/PTM_RATIO, 1.0f);
+    BoxCrate bc = BoxCrate(SCREEN_WIDTH/2/PTM_RATIO, -1.0f, 60);
     
     
        
