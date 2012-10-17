@@ -1,0 +1,33 @@
+﻿Build started 10/13/2012 11:06:46 PM.
+     1>Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\HelloWorld\HelloWorld.vcxproj" on node 6 (rebuild target(s)).
+     1>PrepareForBuild:
+         Creating directory "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\HelloWorld\Debug\".
+       InitializeBuildStatus:
+         Creating "HelloWorld.dir\Debug\HelloWorld.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule D:/code/Orchid/Orchid/ThirdParty/Box2D/HelloWorld/CMakeLists.txt
+         CMake does not need to re-run because D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\HelloWorld\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:/code/Orchid/Orchid/ThirdParty/Box2D /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"HelloWorld.dir\Debug\\" /Fd"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/HelloWorld/Debug/HelloWorld.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\HelloWorld\HelloWorld.cpp  /Zm1000 
+         HelloWorld.cpp
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"HelloWorld.dir\Debug\HelloWorld.exe.embed.manifest.res" HelloWorld.dir\Debug\HelloWorld_manifest.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\HelloWorld\Debug\HelloWorld.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib ..\Box2D\Debug\Box2D.lib /MANIFEST /ManifestFile:"HelloWorld.dir\Debug\HelloWorld.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/HelloWorld/Debug/HelloWorld.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/HelloWorld/Debug/HelloWorld.lib" /MACHINE:X86 HelloWorld.dir\Debug\HelloWorld.exe.embed.manifest.res
+         HelloWorld.dir\Debug\HelloWorld.obj  /machine:X86 /debug 
+       Manifest:
+         Deleting file "HelloWorld.dir\Debug\HelloWorld.exe.embed.manifest".
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"HelloWorld.dir\Debug\HelloWorld.exe.embed.manifest" /manifest HelloWorld.dir\Debug\HelloWorld.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"HelloWorld.dir\Debug\HelloWorld.exe.embed.manifest.res" HelloWorld.dir\Debug\HelloWorld_manifest.rc 
+       LinkEmbedManifest:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\HelloWorld\Debug\HelloWorld.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib ..\Box2D\Debug\Box2D.lib /MANIFEST /ManifestFile:"HelloWorld.dir\Debug\HelloWorld.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/HelloWorld/Debug/HelloWorld.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/HelloWorld/Debug/HelloWorld.lib" /MACHINE:X86 HelloWorld.dir\Debug\HelloWorld.exe.embed.manifest.res
+         HelloWorld.dir\Debug\HelloWorld.obj  /machine:X86 /debug 
+         HelloWorld.vcxproj -> D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\HelloWorld\Debug\HelloWorld.exe
+       FinalizeBuildStatus:
+         Deleting file "HelloWorld.dir\Debug\HelloWorld.unsuccessfulbuild".
+         Touching "HelloWorld.dir\Debug\HelloWorld.lastbuildstate".
+     1>Done Building Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\HelloWorld\HelloWorld.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.61

@@ -1,0 +1,94 @@
+﻿Build started 10/13/2012 11:06:21 PM.
+     1>Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\Box2D\Box2D.vcxproj" on node 2 (rebuild target(s)).
+     1>PrepareForBuild:
+         Creating directory "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\Box2D\Debug\".
+       InitializeBuildStatus:
+         Creating "Box2D.dir\Debug\Box2D.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule D:/code/Orchid/Orchid/ThirdParty/Box2D/Box2D/CMakeLists.txt
+         CMake does not need to re-run because D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\Box2D\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:/code/Orchid/Orchid/ThirdParty/Box2D/Box2D/.. /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Box2D.dir\Debug\\" /Fd"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/Box2D/Debug/Box2D.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Box2D\Dynamics\Joints\b2DistanceJoint.cpp ..\..\Box2D\Dynamics\Joints\b2FrictionJoint.cpp ..\..\Box2D\Dynamics\Joints\b2GearJoint.cpp ..\..\Box2D\Dynamics\Joints\b2Joint.cpp ..\..\Box2D\Dynamics\Joints\b2LineJoint.cpp ..\..\Box2D\Dynamics\Joints\b2MouseJoint.cpp ..\..\Box2D\Dynamics\Joints\b2PrismaticJoint.cpp ..\..\Box2D\Dynamics\Joints\b2PulleyJoint.cpp ..\..\Box2D\Dynamics\Joints\b2RevoluteJoint.cpp ..\..\Box2D\Dynamics\Joints\b2WeldJoint.cpp ..\..\Box2D\Dynamics\Contacts\b2CircleContact.cpp ..\..\Box2D\Dynamics\Contacts\b2Contact.cpp ..\..\Box2D\Dynamics\Contacts\b2ContactSolver.cpp ..\..\Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.cpp ..\..\Box2D\Dynamics\Contacts\b2PolygonContact.cpp ..\..\Box2D\Dynamics\Contacts\b2TOISolver.cpp ..\..\Box2D\Dynamics\b2Body.cpp ..\..\Box2D\Dynamics\b2ContactManager.cpp ..\..\Box2D\Dynamics\b2Fixture.cpp ..\..\Box2D\Dynamics\b2Island.cpp ..\..\Box2D\Dynamics\b2World.cpp ..\..\Box2D\Dynamics\b2WorldCallbacks.cpp ..\..\Box2D\Common\b2BlockAllocator.cpp ..\..\Box2D\Common\b2Math.cpp ..\..\Box2D\Common\b2Settings.cpp ..\..\Box2D\Common\b2StackAllocator.cpp ..\..\Box2D\Collision\Shapes\b2CircleShape.cpp ..\..\Box2D\Collision\Shapes\b2PolygonShape.cpp ..\..\Box2D\Collision\b2BroadPhase.cpp ..\..\Box2D\Collision\b2CollideCircle.cpp ..\..\Box2D\Collision\b2CollidePolygon.cpp ..\..\Box2D\Collision\b2Collision.cpp ..\..\Box2D\Collision\b2Distance.cpp ..\..\Box2D\Collision\b2DynamicTree.cpp ..\..\Box2D\Collision\b2TimeOfImpact.cpp  /Zm1000 
+         b2DistanceJoint.cpp
+         b2FrictionJoint.cpp
+         b2GearJoint.cpp
+         b2Joint.cpp
+         b2LineJoint.cpp
+         b2MouseJoint.cpp
+         b2PrismaticJoint.cpp
+         b2PulleyJoint.cpp
+         b2RevoluteJoint.cpp
+         b2WeldJoint.cpp
+         b2CircleContact.cpp
+         b2Contact.cpp
+         b2ContactSolver.cpp
+         b2PolygonAndCircleContact.cpp
+         b2PolygonContact.cpp
+         b2TOISolver.cpp
+         b2Body.cpp
+         b2ContactManager.cpp
+         b2Fixture.cpp
+         b2Island.cpp
+         Generating Code...
+         Compiling...
+         b2World.cpp
+         b2WorldCallbacks.cpp
+         b2BlockAllocator.cpp
+         b2Math.cpp
+         b2Settings.cpp
+         b2StackAllocator.cpp
+         b2CircleShape.cpp
+         b2PolygonShape.cpp
+         b2BroadPhase.cpp
+         b2CollideCircle.cpp
+         b2CollidePolygon.cpp
+         b2Collision.cpp
+         b2Distance.cpp
+         b2DynamicTree.cpp
+         b2TimeOfImpact.cpp
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\Box2D\Debug\Box2D.lib" /NOLOGO Box2D.dir\Debug\b2DistanceJoint.obj
+         Box2D.dir\Debug\b2FrictionJoint.obj
+         Box2D.dir\Debug\b2GearJoint.obj
+         Box2D.dir\Debug\b2Joint.obj
+         Box2D.dir\Debug\b2LineJoint.obj
+         Box2D.dir\Debug\b2MouseJoint.obj
+         Box2D.dir\Debug\b2PrismaticJoint.obj
+         Box2D.dir\Debug\b2PulleyJoint.obj
+         Box2D.dir\Debug\b2RevoluteJoint.obj
+         Box2D.dir\Debug\b2WeldJoint.obj
+         Box2D.dir\Debug\b2CircleContact.obj
+         Box2D.dir\Debug\b2Contact.obj
+         Box2D.dir\Debug\b2ContactSolver.obj
+         Box2D.dir\Debug\b2PolygonAndCircleContact.obj
+         Box2D.dir\Debug\b2PolygonContact.obj
+         Box2D.dir\Debug\b2TOISolver.obj
+         Box2D.dir\Debug\b2Body.obj
+         Box2D.dir\Debug\b2ContactManager.obj
+         Box2D.dir\Debug\b2Fixture.obj
+         Box2D.dir\Debug\b2Island.obj
+         Box2D.dir\Debug\b2World.obj
+         Box2D.dir\Debug\b2WorldCallbacks.obj
+         Box2D.dir\Debug\b2BlockAllocator.obj
+         Box2D.dir\Debug\b2Math.obj
+         Box2D.dir\Debug\b2Settings.obj
+         Box2D.dir\Debug\b2StackAllocator.obj
+         Box2D.dir\Debug\b2CircleShape.obj
+         Box2D.dir\Debug\b2PolygonShape.obj
+         Box2D.dir\Debug\b2BroadPhase.obj
+         Box2D.dir\Debug\b2CollideCircle.obj
+         Box2D.dir\Debug\b2CollidePolygon.obj
+         Box2D.dir\Debug\b2Collision.obj
+         Box2D.dir\Debug\b2Distance.obj
+         Box2D.dir\Debug\b2DynamicTree.obj
+         Box2D.dir\Debug\b2TimeOfImpact.obj
+         Box2D.vcxproj -> D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\Box2D\Debug\Box2D.lib
+       FinalizeBuildStatus:
+         Deleting file "Box2D.dir\Debug\Box2D.unsuccessfulbuild".
+         Touching "Box2D.dir\Debug\Box2D.lastbuildstate".
+     1>Done Building Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\Box2D\Box2D.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:23.92

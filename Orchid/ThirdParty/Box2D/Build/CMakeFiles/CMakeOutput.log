@@ -1,0 +1,189 @@
+The system is: Windows - 6.1 - x86
+Determining if the C compiler works passed with the following output:
+Change Dir: D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe cmTryCompileExec443275520.vcxproj /p:Configuration=Debug
+Microsoft (R) Build Engine Version 4.0.30319.1
+[Microsoft .NET Framework, Version 4.0.30319.544]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+Build started 10/13/2012 11:05:21 PM.
+Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\cmTryCompileExec443275520.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTryCompileExec443275520.dir\Debug\".
+  Creating directory "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\Debug\".
+InitializeBuildStatus:
+  Creating "cmTryCompileExec443275520.dir\Debug\cmTryCompileExec443275520.unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec443275520.dir\Debug\\" /Fd"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec443275520.pdb" /Gd /TC /analyze- /errorReport:queue testCCompiler.c  /Zm1000 
+  Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 16.00.30319.01 for 80x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec443275520.dir\Debug\\" /Fd"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec443275520.pdb" /Gd /TC /analyze- /errorReport:queue testCCompiler.c  /Zm1000 
+  
+  testCCompiler.c
+ManifestResourceCompile:
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"cmTryCompileExec443275520.dir\Debug\cmTryCompileExec443275520.exe.embed.manifest.res" cmTryCompileExec443275520.dir\Debug\cmTryCompileExec443275520_manifest.rc 
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec443275520.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /ManifestFile:"cmTryCompileExec443275520.dir\Debug\cmTryCompileExec443275520.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec443275520.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec443275520.lib" /MACHINE:X86 cmTryCompileExec443275520.dir\Debug\cmTryCompileExec443275520.exe.embed.manifest.res
+  cmTryCompileExec443275520.dir\Debug\testCCompiler.obj  /machine:X86 /debug 
+Manifest:
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"cmTryCompileExec443275520.dir\Debug\cmTryCompileExec443275520.exe.embed.manifest" /manifest cmTryCompileExec443275520.dir\Debug\cmTryCompileExec443275520.exe.intermediate.manifest
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"cmTryCompileExec443275520.dir\Debug\cmTryCompileExec443275520.exe.embed.manifest.res" cmTryCompileExec443275520.dir\Debug\cmTryCompileExec443275520_manifest.rc 
+LinkEmbedManifest:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec443275520.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /ManifestFile:"cmTryCompileExec443275520.dir\Debug\cmTryCompileExec443275520.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec443275520.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec443275520.lib" /MACHINE:X86 cmTryCompileExec443275520.dir\Debug\cmTryCompileExec443275520.exe.embed.manifest.res
+  cmTryCompileExec443275520.dir\Debug\testCCompiler.obj  /machine:X86 /debug 
+  cmTryCompileExec443275520.vcxproj -> D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec443275520.exe
+FinalizeBuildStatus:
+  Deleting file "cmTryCompileExec443275520.dir\Debug\cmTryCompileExec443275520.unsuccessfulbuild".
+  Touching "cmTryCompileExec443275520.dir\Debug\cmTryCompileExec443275520.lastbuildstate".
+Done Building Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\cmTryCompileExec443275520.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.35
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe cmTryCompileExec713415727.vcxproj /p:Configuration=Debug
+Microsoft (R) Build Engine Version 4.0.30319.1
+[Microsoft .NET Framework, Version 4.0.30319.544]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+Build started 10/13/2012 11:05:24 PM.
+Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\cmTryCompileExec713415727.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTryCompileExec713415727.dir\Debug\".
+  Creating directory "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\Debug\".
+InitializeBuildStatus:
+  Creating "cmTryCompileExec713415727.dir\Debug\cmTryCompileExec713415727.unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec713415727.dir\Debug\\" /Fd"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec713415727.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCCompilerABI.c"  /Zm1000 
+  Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 16.00.30319.01 for 80x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec713415727.dir\Debug\\" /Fd"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec713415727.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCCompilerABI.c"  /Zm1000 
+  CMakeCCompilerABI.c
+  
+ManifestResourceCompile:
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"cmTryCompileExec713415727.dir\Debug\cmTryCompileExec713415727.exe.embed.manifest.res" cmTryCompileExec713415727.dir\Debug\cmTryCompileExec713415727_manifest.rc 
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec713415727.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"cmTryCompileExec713415727.dir\Debug\cmTryCompileExec713415727.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec713415727.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec713415727.lib" /MACHINE:X86 cmTryCompileExec713415727.dir\Debug\cmTryCompileExec713415727.exe.embed.manifest.res
+  cmTryCompileExec713415727.dir\Debug\CMakeCCompilerABI.obj  /machine:X86 /debug 
+Manifest:
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"cmTryCompileExec713415727.dir\Debug\cmTryCompileExec713415727.exe.embed.manifest" /manifest cmTryCompileExec713415727.dir\Debug\cmTryCompileExec713415727.exe.intermediate.manifest
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"cmTryCompileExec713415727.dir\Debug\cmTryCompileExec713415727.exe.embed.manifest.res" cmTryCompileExec713415727.dir\Debug\cmTryCompileExec713415727_manifest.rc 
+LinkEmbedManifest:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec713415727.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"cmTryCompileExec713415727.dir\Debug\cmTryCompileExec713415727.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec713415727.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec713415727.lib" /MACHINE:X86 cmTryCompileExec713415727.dir\Debug\cmTryCompileExec713415727.exe.embed.manifest.res
+  cmTryCompileExec713415727.dir\Debug\CMakeCCompilerABI.obj  /machine:X86 /debug 
+  cmTryCompileExec713415727.vcxproj -> D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec713415727.exe
+FinalizeBuildStatus:
+  Deleting file "cmTryCompileExec713415727.dir\Debug\cmTryCompileExec713415727.unsuccessfulbuild".
+  Touching "cmTryCompileExec713415727.dir\Debug\cmTryCompileExec713415727.lastbuildstate".
+Done Building Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\cmTryCompileExec713415727.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.43
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe cmTryCompileExec1164775657.vcxproj /p:Configuration=Debug
+Microsoft (R) Build Engine Version 4.0.30319.1
+[Microsoft .NET Framework, Version 4.0.30319.544]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+Build started 10/13/2012 11:05:25 PM.
+Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\cmTryCompileExec1164775657.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTryCompileExec1164775657.dir\Debug\".
+  Creating directory "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\Debug\".
+InitializeBuildStatus:
+  Creating "cmTryCompileExec1164775657.dir\Debug\cmTryCompileExec1164775657.unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cmTryCompileExec1164775657.dir\Debug\\" /Fd"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec1164775657.pdb" /Gd /TP /analyze- /errorReport:queue testCXXCompiler.cxx  /Zm1000 
+  Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 16.00.30319.01 for 80x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cmTryCompileExec1164775657.dir\Debug\\" /Fd"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec1164775657.pdb" /Gd /TP /analyze- /errorReport:queue testCXXCompiler.cxx  /Zm1000 
+  
+  testCXXCompiler.cxx
+ManifestResourceCompile:
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"cmTryCompileExec1164775657.dir\Debug\cmTryCompileExec1164775657.exe.embed.manifest.res" cmTryCompileExec1164775657.dir\Debug\cmTryCompileExec1164775657_manifest.rc 
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec1164775657.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /ManifestFile:"cmTryCompileExec1164775657.dir\Debug\cmTryCompileExec1164775657.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec1164775657.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec1164775657.lib" /MACHINE:X86 cmTryCompileExec1164775657.dir\Debug\cmTryCompileExec1164775657.exe.embed.manifest.res
+  cmTryCompileExec1164775657.dir\Debug\testCXXCompiler.obj  /machine:X86 /debug 
+Manifest:
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"cmTryCompileExec1164775657.dir\Debug\cmTryCompileExec1164775657.exe.embed.manifest" /manifest cmTryCompileExec1164775657.dir\Debug\cmTryCompileExec1164775657.exe.intermediate.manifest
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"cmTryCompileExec1164775657.dir\Debug\cmTryCompileExec1164775657.exe.embed.manifest.res" cmTryCompileExec1164775657.dir\Debug\cmTryCompileExec1164775657_manifest.rc 
+LinkEmbedManifest:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec1164775657.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /ManifestFile:"cmTryCompileExec1164775657.dir\Debug\cmTryCompileExec1164775657.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec1164775657.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec1164775657.lib" /MACHINE:X86 cmTryCompileExec1164775657.dir\Debug\cmTryCompileExec1164775657.exe.embed.manifest.res
+  cmTryCompileExec1164775657.dir\Debug\testCXXCompiler.obj  /machine:X86 /debug 
+  cmTryCompileExec1164775657.vcxproj -> D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec1164775657.exe
+FinalizeBuildStatus:
+  Deleting file "cmTryCompileExec1164775657.dir\Debug\cmTryCompileExec1164775657.unsuccessfulbuild".
+  Touching "cmTryCompileExec1164775657.dir\Debug\cmTryCompileExec1164775657.lastbuildstate".
+Done Building Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\cmTryCompileExec1164775657.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.08
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe cmTryCompileExec4249258482.vcxproj /p:Configuration=Debug
+Microsoft (R) Build Engine Version 4.0.30319.1
+[Microsoft .NET Framework, Version 4.0.30319.544]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+Build started 10/13/2012 11:05:27 PM.
+Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\cmTryCompileExec4249258482.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTryCompileExec4249258482.dir\Debug\".
+  Creating directory "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\Debug\".
+InitializeBuildStatus:
+  Creating "cmTryCompileExec4249258482.dir\Debug\cmTryCompileExec4249258482.unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cmTryCompileExec4249258482.dir\Debug\\" /Fd"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec4249258482.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXCompilerABI.cpp"  /Zm1000 
+  Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 16.00.30319.01 for 80x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cmTryCompileExec4249258482.dir\Debug\\" /Fd"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec4249258482.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXCompilerABI.cpp"  /Zm1000 
+  
+  CMakeCXXCompilerABI.cpp
+ManifestResourceCompile:
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"cmTryCompileExec4249258482.dir\Debug\cmTryCompileExec4249258482.exe.embed.manifest.res" cmTryCompileExec4249258482.dir\Debug\cmTryCompileExec4249258482_manifest.rc 
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec4249258482.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"cmTryCompileExec4249258482.dir\Debug\cmTryCompileExec4249258482.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec4249258482.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec4249258482.lib" /MACHINE:X86 cmTryCompileExec4249258482.dir\Debug\cmTryCompileExec4249258482.exe.embed.manifest.res
+  cmTryCompileExec4249258482.dir\Debug\CMakeCXXCompilerABI.obj  /machine:X86 /debug 
+Manifest:
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"cmTryCompileExec4249258482.dir\Debug\cmTryCompileExec4249258482.exe.embed.manifest" /manifest cmTryCompileExec4249258482.dir\Debug\cmTryCompileExec4249258482.exe.intermediate.manifest
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"cmTryCompileExec4249258482.dir\Debug\cmTryCompileExec4249258482.exe.embed.manifest.res" cmTryCompileExec4249258482.dir\Debug\cmTryCompileExec4249258482_manifest.rc 
+LinkEmbedManifest:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec4249258482.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"cmTryCompileExec4249258482.dir\Debug\cmTryCompileExec4249258482.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec4249258482.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec4249258482.lib" /MACHINE:X86 cmTryCompileExec4249258482.dir\Debug\cmTryCompileExec4249258482.exe.embed.manifest.res
+  cmTryCompileExec4249258482.dir\Debug\CMakeCXXCompilerABI.obj  /machine:X86 /debug 
+  cmTryCompileExec4249258482.vcxproj -> D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec4249258482.exe
+FinalizeBuildStatus:
+  Deleting file "cmTryCompileExec4249258482.dir\Debug\cmTryCompileExec4249258482.unsuccessfulbuild".
+  Touching "cmTryCompileExec4249258482.dir\Debug\cmTryCompileExec4249258482.lastbuildstate".
+Done Building Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\CMakeFiles\CMakeTmp\cmTryCompileExec4249258482.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.14
+
+

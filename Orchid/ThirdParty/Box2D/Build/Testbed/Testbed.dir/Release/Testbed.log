@@ -1,0 +1,32 @@
+﻿Build started 10/13/2012 11:07:42 PM.
+     1>Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\Testbed\Testbed.vcxproj" on node 9 (rebuild target(s)).
+     1>PrepareForBuild:
+         Creating directory "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\Testbed\Release\".
+       InitializeBuildStatus:
+         Creating "Testbed.dir\Release\Testbed.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule D:/code/Orchid/Orchid/ThirdParty/Box2D/Testbed/CMakeLists.txt
+         CMake does not need to re-run because D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\Testbed\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:/code/Orchid/Orchid/ThirdParty/Box2D /nologo /W3 /WX- /O2 /Ob2 /Oy- /D WIN32 /D _WINDOWS /D NDEBUG /D FREEGLUT_EXPORTS /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Release\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Testbed.dir\Release\\" /Fd"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/Testbed/Release/Testbed.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Testbed\Framework\Main.cpp ..\..\Testbed\Framework\Render.cpp ..\..\Testbed\Framework\Test.cpp ..\..\Testbed\Tests\TestEntries.cpp  /Zm1000 
+         Main.cpp
+         Render.cpp
+         Test.cpp
+         TestEntries.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\Testbed\Release\Testbed.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/Box2D/Release /LIBPATH:D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/Box2D/Release/Release /LIBPATH:D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/freeglut/Release /LIBPATH:D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/freeglut/Release/Release /LIBPATH:D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/glui/Release /LIBPATH:D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/glui/Release/Release kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib ..\Box2D\Release\Box2D.lib ..\freeglut\Release\freeglut_static.lib ..\glui\Release\glui.lib glu32.lib opengl32.lib /MANIFEST /ManifestFile:"Testbed.dir\Release\Testbed.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/Testbed/Release/Testbed.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/Testbed/Release/Testbed.lib" /MACHINE:X86 Testbed.dir\Release\Main.obj
+         Testbed.dir\Release\Render.obj
+         Testbed.dir\Release\Test.obj
+         Testbed.dir\Release\TestEntries.obj  /machine:X86 
+         Testbed.vcxproj -> D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\Testbed\Release\Testbed.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\Testbed\Release\Testbed.exe;#1" /manifest Testbed.dir\Release\Testbed.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Testbed.dir\Release\Testbed.unsuccessfulbuild".
+         Touching "Testbed.dir\Release\Testbed.lastbuildstate".
+     1>Done Building Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\Testbed\Testbed.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.67

@@ -1,0 +1,25 @@
+﻿Build started 10/13/2012 11:07:35 PM.
+     1>Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\HelloWorld\HelloWorld.vcxproj" on node 6 (rebuild target(s)).
+     1>PrepareForBuild:
+         Creating directory "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\HelloWorld\Release\".
+       InitializeBuildStatus:
+         Creating "HelloWorld.dir\Release\HelloWorld.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule D:/code/Orchid/Orchid/ThirdParty/Box2D/HelloWorld/CMakeLists.txt
+         CMake does not need to re-run because D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\HelloWorld\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:/code/Orchid/Orchid/ThirdParty/Box2D /nologo /W3 /WX- /O2 /Ob2 /Oy- /D WIN32 /D _WINDOWS /D NDEBUG /D "CMAKE_INTDIR=\"Release\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"HelloWorld.dir\Release\\" /Fd"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/HelloWorld/Release/HelloWorld.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\HelloWorld\HelloWorld.cpp  /Zm1000 
+         HelloWorld.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\HelloWorld\Release\HelloWorld.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib ..\Box2D\Release\Box2D.lib /MANIFEST /ManifestFile:"HelloWorld.dir\Release\HelloWorld.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/HelloWorld/Release/HelloWorld.pdb" /SUBSYSTEM:CONSOLE /STACK:"10000000" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/HelloWorld/Release/HelloWorld.lib" /MACHINE:X86 HelloWorld.dir\Release\HelloWorld.obj  /machine:X86 
+         HelloWorld.vcxproj -> D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\HelloWorld\Release\HelloWorld.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\HelloWorld\Release\HelloWorld.exe;#1" /manifest HelloWorld.dir\Release\HelloWorld.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "HelloWorld.dir\Release\HelloWorld.unsuccessfulbuild".
+         Touching "HelloWorld.dir\Release\HelloWorld.lastbuildstate".
+     1>Done Building Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\HelloWorld\HelloWorld.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.74

@@ -1,0 +1,88 @@
+﻿Build started 10/13/2012 11:07:19 PM.
+     1>Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\glui\glui.vcxproj" on node 4 (rebuild target(s)).
+     1>PrepareForBuild:
+         Creating directory "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\glui\Release\".
+       InitializeBuildStatus:
+         Creating "glui.dir\Release\glui.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule D:/code/Orchid/Orchid/ThirdParty/Box2D/glui/CMakeLists.txt
+         CMake does not need to re-run because D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\glui\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:/code/Orchid/Orchid/ThirdParty/Box2D/glui/../freeglut /nologo /W1 /WX- /O2 /Ob2 /Oy- /D WIN32 /D _WINDOWS /D NDEBUG /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Release\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"glui.dir\Release\\" /Fd"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/glui/Release/glui.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\glui\algebra3.cpp ..\..\glui\arcball.cpp ..\..\glui\glui_add_controls.cpp ..\..\glui\glui_bitmap_img_data.cpp ..\..\glui\glui_bitmaps.cpp ..\..\glui\glui_button.cpp ..\..\glui\glui_checkbox.cpp ..\..\glui\glui_column.cpp ..\..\glui\glui_commandline.cpp ..\..\glui\glui_control.cpp ..\..\glui\glui_edittext.cpp ..\..\glui\glui_filebrowser.cpp ..\..\glui\glui_list.cpp ..\..\glui\glui_listbox.cpp ..\..\glui\glui_mouse_iaction.cpp ..\..\glui\glui_node.cpp ..\..\glui\glui_panel.cpp ..\..\glui\glui_radio.cpp ..\..\glui\glui_rollout.cpp ..\..\glui\glui_rotation.cpp ..\..\glui\glui_scrollbar.cpp ..\..\glui\glui_separator.cpp ..\..\glui\glui_spinner.cpp ..\..\glui\glui_statictext.cpp ..\..\glui\glui_string.cpp ..\..\glui\glui_textbox.cpp ..\..\glui\glui_translation.cpp ..\..\glui\glui_tree.cpp ..\..\glui\glui_treepanel.cpp ..\..\glui\glui_window.cpp ..\..\glui\glui.cpp ..\..\glui\quaternion.cpp  /Zm1000 
+         algebra3.cpp
+         arcball.cpp
+         glui_add_controls.cpp
+         glui_bitmap_img_data.cpp
+         glui_bitmaps.cpp
+         glui_button.cpp
+         glui_checkbox.cpp
+         glui_column.cpp
+         glui_commandline.cpp
+         glui_control.cpp
+         glui_edittext.cpp
+         glui_filebrowser.cpp
+         glui_list.cpp
+         glui_listbox.cpp
+         glui_mouse_iaction.cpp
+         glui_node.cpp
+         glui_panel.cpp
+         glui_radio.cpp
+         glui_rollout.cpp
+         glui_rotation.cpp
+         Generating Code...
+         Compiling...
+         glui_scrollbar.cpp
+         glui_separator.cpp
+         glui_spinner.cpp
+         glui_statictext.cpp
+         glui_string.cpp
+         glui_textbox.cpp
+         glui_translation.cpp
+         glui_tree.cpp
+         glui_treepanel.cpp
+         glui_window.cpp
+         glui.cpp
+         quaternion.cpp
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\glui\Release\glui.lib" /NOLOGO glui.dir\Release\algebra3.obj
+         glui.dir\Release\arcball.obj
+         glui.dir\Release\glui_add_controls.obj
+         glui.dir\Release\glui_bitmap_img_data.obj
+         glui.dir\Release\glui_bitmaps.obj
+         glui.dir\Release\glui_button.obj
+         glui.dir\Release\glui_checkbox.obj
+         glui.dir\Release\glui_column.obj
+         glui.dir\Release\glui_commandline.obj
+         glui.dir\Release\glui_control.obj
+         glui.dir\Release\glui_edittext.obj
+         glui.dir\Release\glui_filebrowser.obj
+         glui.dir\Release\glui_list.obj
+         glui.dir\Release\glui_listbox.obj
+         glui.dir\Release\glui_mouse_iaction.obj
+         glui.dir\Release\glui_node.obj
+         glui.dir\Release\glui_panel.obj
+         glui.dir\Release\glui_radio.obj
+         glui.dir\Release\glui_rollout.obj
+         glui.dir\Release\glui_rotation.obj
+         glui.dir\Release\glui_scrollbar.obj
+         glui.dir\Release\glui_separator.obj
+         glui.dir\Release\glui_spinner.obj
+         glui.dir\Release\glui_statictext.obj
+         glui.dir\Release\glui_string.obj
+         glui.dir\Release\glui_textbox.obj
+         glui.dir\Release\glui_translation.obj
+         glui.dir\Release\glui_tree.obj
+         glui.dir\Release\glui_treepanel.obj
+         glui.dir\Release\glui_window.obj
+         glui.dir\Release\glui.obj
+         glui.dir\Release\quaternion.obj
+         glui.vcxproj -> D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\glui\Release\glui.lib
+       FinalizeBuildStatus:
+         Deleting file "glui.dir\Release\glui.unsuccessfulbuild".
+         Touching "glui.dir\Release\glui.lastbuildstate".
+     1>Done Building Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\glui\glui.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:22.80

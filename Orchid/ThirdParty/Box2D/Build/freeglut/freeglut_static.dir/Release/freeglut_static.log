@@ -1,0 +1,74 @@
+﻿Build started 10/13/2012 11:07:18 PM.
+     1>Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\freeglut\freeglut_static.vcxproj" on node 3 (rebuild target(s)).
+     1>PrepareForBuild:
+         Creating directory "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\freeglut\Release\".
+       InitializeBuildStatus:
+         Creating "freeglut_static.dir\Release\freeglut_static.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule D:/code/Orchid/Orchid/ThirdParty/Box2D/freeglut/CMakeLists.txt
+         CMake does not need to re-run because D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\freeglut\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:/code/Orchid/Orchid/ThirdParty/Box2D/freeglut/. /nologo /W3 /WX- /O2 /Ob2 /Oy- /D WIN32 /D _WINDOWS /D NDEBUG /D FREEGLUT_EXPORTS /D FREEGLUT_STATIC /D _CRT_SECURE_NO_WARNINGS /D "CMAKE_INTDIR=\"Release\"" /D _MBCS /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"freeglut_static.dir\Release\\" /Fd"D:/code/Orchid/Orchid/ThirdParty/Box2D/Build/freeglut/Release/freeglut_static.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\freeglut\freeglut_callbacks.c ..\..\freeglut\freeglut_cursor.c ..\..\freeglut\freeglut_display.c ..\..\freeglut\freeglut_ext.c ..\..\freeglut\freeglut_font_data.c ..\..\freeglut\freeglut_font.c ..\..\freeglut\freeglut_gamemode.c ..\..\freeglut\freeglut_geometry.c ..\..\freeglut\freeglut_glutfont_definitions.c ..\..\freeglut\freeglut_init.c ..\..\freeglut\freeglut_input_devices.c ..\..\freeglut\freeglut_joystick.c ..\..\freeglut\freeglut_main.c ..\..\freeglut\freeglut_menu.c ..\..\freeglut\freeglut_misc.c ..\..\freeglut\freeglut_overlay.c ..\..\freeglut\freeglut_spaceball.c ..\..\freeglut\freeglut_state.c ..\..\freeglut\freeglut_stroke_mono_roman.c ..\..\freeglut\freeglut_stroke_roman.c ..\..\freeglut\freeglut_structure.c ..\..\freeglut\freeglut_teapot.c ..\..\freeglut\freeglut_videoresize.c ..\..\freeglut\freeglut_window.c  /Zm1000 
+         freeglut_callbacks.c
+         freeglut_cursor.c
+         freeglut_display.c
+         freeglut_ext.c
+         freeglut_font_data.c
+         freeglut_font.c
+         freeglut_gamemode.c
+         freeglut_geometry.c
+         freeglut_glutfont_definitions.c
+         freeglut_init.c
+     1>..\..\freeglut\freeglut_init.c(685): warning C4101: 'sLen' : unreferenced local variable
+         freeglut_input_devices.c
+         freeglut_joystick.c
+         freeglut_main.c
+         freeglut_menu.c
+         freeglut_misc.c
+         freeglut_overlay.c
+         freeglut_spaceball.c
+         freeglut_state.c
+         freeglut_stroke_mono_roman.c
+         freeglut_stroke_roman.c
+         Generating Code...
+         Compiling...
+         freeglut_structure.c
+         freeglut_teapot.c
+         freeglut_videoresize.c
+         freeglut_window.c
+         fgSetupPixelFormat(): there is still some work to do here!
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\freeglut\Release\freeglut_static.lib" /NOLOGO freeglut_static.dir\Release\freeglut_callbacks.obj
+         freeglut_static.dir\Release\freeglut_cursor.obj
+         freeglut_static.dir\Release\freeglut_display.obj
+         freeglut_static.dir\Release\freeglut_ext.obj
+         freeglut_static.dir\Release\freeglut_font_data.obj
+         freeglut_static.dir\Release\freeglut_font.obj
+         freeglut_static.dir\Release\freeglut_gamemode.obj
+         freeglut_static.dir\Release\freeglut_geometry.obj
+         freeglut_static.dir\Release\freeglut_glutfont_definitions.obj
+         freeglut_static.dir\Release\freeglut_init.obj
+         freeglut_static.dir\Release\freeglut_input_devices.obj
+         freeglut_static.dir\Release\freeglut_joystick.obj
+         freeglut_static.dir\Release\freeglut_main.obj
+         freeglut_static.dir\Release\freeglut_menu.obj
+         freeglut_static.dir\Release\freeglut_misc.obj
+         freeglut_static.dir\Release\freeglut_overlay.obj
+         freeglut_static.dir\Release\freeglut_spaceball.obj
+         freeglut_static.dir\Release\freeglut_state.obj
+         freeglut_static.dir\Release\freeglut_stroke_mono_roman.obj
+         freeglut_static.dir\Release\freeglut_stroke_roman.obj
+         freeglut_static.dir\Release\freeglut_structure.obj
+         freeglut_static.dir\Release\freeglut_teapot.obj
+         freeglut_static.dir\Release\freeglut_videoresize.obj
+         freeglut_static.dir\Release\freeglut_window.obj
+         freeglut_static.vcxproj -> D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\freeglut\Release\freeglut_static.lib
+       FinalizeBuildStatus:
+         Deleting file "freeglut_static.dir\Release\freeglut_static.unsuccessfulbuild".
+         Touching "freeglut_static.dir\Release\freeglut_static.lastbuildstate".
+     1>Done Building Project "D:\code\Orchid\Orchid\ThirdParty\Box2D\Build\freeglut\freeglut_static.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:11.05
